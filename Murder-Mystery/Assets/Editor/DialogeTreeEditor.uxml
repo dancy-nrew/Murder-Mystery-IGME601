@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Editor/DialogeTreeEditor.uss?fileID=7433441132597879392&amp;guid=fd6204a3b672197428858b4dd706fb71&amp;type=3#DialogeTreeEditor" />
+    <uie:Toolbar>
+        <uie:ToolbarMenu tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" text="Assets" />
+    </uie:Toolbar>
+    <SplitView>
+        <ui:VisualElement name="LeftPanel" style="flex-grow: 1; background-color: rgba(25, 25, 25, 0);">
+            <ui:Label tabindex="-1" text="Inspector" parse-escape-sequences="true" display-tooltip-when-elided="true" style="color: rgb(196, 196, 196);" />
+            <InspectorView />
+        </ui:VisualElement>
+        <ui:VisualElement name="RightPanel" style="flex-grow: 1;">
+            <ui:Label tabindex="-1" text="GraphView" parse-escape-sequences="true" display-tooltip-when-elided="true" style="color: rgb(196, 196, 196); background-color: rgba(25, 25, 25, 0);" />
+            <DialogueTreeView focusable="true" style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </SplitView>
+</ui:UXML>
