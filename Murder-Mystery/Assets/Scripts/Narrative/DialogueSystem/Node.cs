@@ -20,6 +20,7 @@ public abstract class Node : ScriptableObject
     [HideInInspector]
     public Vector2 position;
 
+
     public NodeState UpdateNode()
     {
         if(!started)

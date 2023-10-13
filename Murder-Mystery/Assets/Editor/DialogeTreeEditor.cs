@@ -3,6 +3,7 @@ using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+// Class that handles the Dialogue Tree Editor Window
 public class DialogeTreeEditor : EditorWindow
 {
     /* [SerializeField]

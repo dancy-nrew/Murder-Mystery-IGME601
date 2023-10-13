@@ -16,6 +16,11 @@ public class DialogueTreeRunner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //dialogueTree.UpdateTree();
+    }
+
+    public void UpdateTree()
+    {
         dialogueTree.UpdateTree();
     }
 }

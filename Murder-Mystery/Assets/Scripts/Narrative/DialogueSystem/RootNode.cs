@@ -13,7 +13,7 @@ public class RootNode : Node
 
     protected override void OnStop()
     {
-        
+        state = NodeState.Running;
     }
 
     protected override NodeState OnUpdate()
