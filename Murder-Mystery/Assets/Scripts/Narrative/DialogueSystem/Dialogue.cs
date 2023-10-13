@@ -9,6 +9,12 @@ public class Dialogue
     public string characterName;
     [TextArea(3,10)]
     public string[] sentences;
+
+    public Dialogue(string characterName, string[] sentences)
+    {
+        this.characterName = characterName;
+        this.sentences = sentences;
+    }
     // Start is called before the first frame update
     void Start()
     {

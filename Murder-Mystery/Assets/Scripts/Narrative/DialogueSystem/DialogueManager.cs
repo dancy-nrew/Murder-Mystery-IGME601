@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    public static DialogueManager Instance { get; private set; }
+
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     [SerializeField]
@@ -15,6 +17,20 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
     private Coroutine characterUpdateCoroutine;
+
+    private void Awake()
+    {
+        // If there is an instance, and it's not me, delete myself.
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     void Start()
     {
