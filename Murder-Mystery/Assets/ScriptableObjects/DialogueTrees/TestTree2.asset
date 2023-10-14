@@ -35,27 +35,6 @@ MonoBehaviour:
   position: {x: -232.32997, y: -62}
   children:
   - {fileID: 4798344696835218900}
---- !u!114 &-1225543826993156318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: b9463e1bfb113be4bae14fb42aeffb57
-  position: {x: 34, y: 41}
-  dialogue:
-    characterName: 
-    sentences: []
-  characterName: 
-  sentences: []
 --- !u!114 &-668722481633111477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,15 +50,13 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 47bbc0c1c3368b64089cced03aa66844
-  position: {x: 23, y: -116.16}
+  position: {x: -264, y: 57}
   dialogue:
     characterName: Nrew
     sentences:
-    - Damn so how are you?
+    - Heyyy so how are you?
     - So ummm, who do you think did it?
     - Yeah that Ace guy kinda weird.
-  characterName: 
-  sentences: []
 --- !u!114 &-158174684276994067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,8 +76,6 @@ MonoBehaviour:
   dialogue:
     characterName: 
     sentences: []
-  characterName: 
-  sentences: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,26 +93,6 @@ MonoBehaviour:
   nodes:
   - {fileID: 3339610673539693680}
   - {fileID: -668722481633111477}
-  - {fileID: 1001749205197952640}
-  - {fileID: -1225543826993156318}
-  - {fileID: 7557084653747604285}
---- !u!114 &1001749205197952640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
-  m_Name: SequenceNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 8bce183d878fce942b3ff72ec11481d3
-  position: {x: -284, y: 57}
-  children: []
 --- !u!114 &3339610673539693680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +109,7 @@ MonoBehaviour:
   started: 0
   guid: 70ba4745c816b0a46be606eab8444de4
   position: {x: -483, y: 57}
-  child: {fileID: 1001749205197952640}
+  child: {fileID: -668722481633111477}
 --- !u!114 &3729929975628865048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,29 +167,6 @@ MonoBehaviour:
   dialogue:
     characterName: 
     sentences: []
-  characterName: 
-  sentences: []
---- !u!114 &7557084653747604285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 938dd99eb979a674e91c1a2f11885f06
-  position: {x: 0, y: 0}
-  dialogue:
-    characterName: 
-    sentences: []
-  characterName: 
-  sentences: []
 --- !u!114 &8181257903432135360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,8 +186,6 @@ MonoBehaviour:
   dialogue:
     characterName: 
     sentences: []
-  characterName: 
-  sentences: []
 --- !u!114 &8906832938521184699
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+// Adapted from https://youtu.be/nKpM98I7PeM?si=6_zO-Egnx1kB-9Ys
+// This is a UI element that displays information about the selected node in the dialogue editor.
 public class InspectorView : VisualElement
 {
     public new class UxmlFactory : UxmlFactory<InspectorView, VisualElement.UxmlTraits> { }
