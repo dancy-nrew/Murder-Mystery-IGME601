@@ -1307,6 +1307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2541c0056d567408ba1977c23cab96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueBox: {fileID: 1245579135}
   nameText: {fileID: 522320033}
   dialogueText: {fileID: 539590124}
   animator: {fileID: 1245579139}

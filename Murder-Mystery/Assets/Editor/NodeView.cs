@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 
+// Adapted from https://youtu.be/nKpM98I7PeM?si=6_zO-Egnx1kB-9Ys
 // This class handles the representation of a node in the graph view
 public class NodeView : UnityEditor.Experimental.GraphView.Node
 {

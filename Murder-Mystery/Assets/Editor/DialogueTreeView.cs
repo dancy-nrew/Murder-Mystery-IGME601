@@ -7,7 +7,8 @@ using UnityEngine;
 using System;
 using System.Linq;
 
-// This class represent the graph window of the dialogue tree
+// Adapted from https://youtu.be/nKpM98I7PeM?si=6_zO-Egnx1kB-9Ys
+// This class represent the graph window representation of a dialogue tree
 public class DialogueTreeView : GraphView
 {
     public new class UxmlFactory : UxmlFactory<DialogueTreeView, GraphView.UxmlTraits> { }

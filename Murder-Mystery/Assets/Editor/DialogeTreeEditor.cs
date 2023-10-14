@@ -3,6 +3,8 @@ using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
+// Adapted from https://youtu.be/nKpM98I7PeM?si=6_zO-Egnx1kB-9Ys
 // Class that handles the Dialogue Tree Editor Window
 public class DialogeTreeEditor : EditorWindow
 {

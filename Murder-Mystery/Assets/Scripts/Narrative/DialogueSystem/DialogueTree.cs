@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor; 
+using UnityEditor;
 
+// Adapted from https://youtu.be/nKpM98I7PeM?si=6_zO-Egnx1kB-9Ys
 // This class handles the data and method of the actual dialogue tree as a scriptable object.
 [CreateAssetMenu()]
 public class DialogueTree : ScriptableObject
@@ -21,6 +22,7 @@ public class DialogueTree : ScriptableObject
         return treeState;
     }
 
+#if (UNITY_EDITOR)
     // Creating a new Node object of passed in type
     public Node CreateNode(System.Type type)
     {
@@ -83,6 +85,8 @@ public class DialogueTree : ScriptableObject
             rootNode.child = null;
         }
     }
+#endif
+
 
     public List<Node> GetChildren(Node parent)
     {
