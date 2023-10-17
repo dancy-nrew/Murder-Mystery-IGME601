@@ -49,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMovementPerformed(InputAction.CallbackContext value)
     {
-        Debug.Log(Mouse.current.position.ReadValue());
         RaycastHit raycastHit;
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         bool bHit = Physics.Raycast(ray: ray, hitInfo: out raycastHit, maxDistance: mainCamera.farClipPlane, layerMask:(1<<groundLayer));

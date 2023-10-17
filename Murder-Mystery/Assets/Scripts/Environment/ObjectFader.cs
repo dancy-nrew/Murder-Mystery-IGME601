@@ -12,14 +12,18 @@ public class ObjectFader : MonoBehaviour
     [SerializeField]
     private float fadeAmount = 0.5f;
 
-    private float originalOpacity;
+    private List<float> originalOpacities;
     
-    private Material material;
+    private Material[] mats;
     // Start is called before the first frame update
     void Start()
     {
-        material = GetComponent<Renderer>().material;
-        originalOpacity = material.color.a;
+        originalOpacities = new List<float>();
+        mats = GetComponent<Renderer>().materials;
+        foreach (Material mat in mats)
+        {
+            originalOpacities.Add(mat.color.a);
+        }
     }
 
     // Update is called once per frame
@@ -37,17 +41,24 @@ public class ObjectFader : MonoBehaviour
 
     void FadeObject()
     {
-        Color currentColor = material.color;
-        Color smoothColor = new Color(currentColor.r, currentColor.g, currentColor.b, 
-            Mathf.Lerp(currentColor.a, fadeAmount, fadeSpeed * Time.deltaTime));
-        material.color = smoothColor;
+        foreach (Material mat in mats)
+        {
+            Color currentColor = mat.color;
+            Color smoothColor = new Color(currentColor.r, currentColor.g, currentColor.b,
+                Mathf.Lerp(currentColor.a, fadeAmount, fadeSpeed * Time.deltaTime));
+            mat.color = smoothColor;
+        }
     }
 
     void ResetOpacity()
     {
-        Color currentColor = material.color;
-        Color smoothColor = new Color(currentColor.r, currentColor.g, currentColor.b, 
-            Mathf.Lerp(currentColor.a, originalOpacity, fadeSpeed * Time.deltaTime));
-        material.color = smoothColor;
+        for(int i = 0; i < mats.Length; i++)
+        {
+            Color currentColor = mats[i].color;
+            Color smoothColor = new Color(currentColor.r, currentColor.g, currentColor.b,
+                Mathf.Lerp(currentColor.a, originalOpacities[i], fadeSpeed * Time.deltaTime));
+            mats[i].color = smoothColor;
+        }
+       
     }
 }
