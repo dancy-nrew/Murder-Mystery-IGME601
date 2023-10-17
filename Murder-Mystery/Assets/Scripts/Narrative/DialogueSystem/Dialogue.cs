@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Adapted from https://youtu.be/_nRzoTzeyxU?si=AB3_KumtIm_VuaVb
+// Class represents a dialogue interaction.
 [System.Serializable]
 public class Dialogue
 {
