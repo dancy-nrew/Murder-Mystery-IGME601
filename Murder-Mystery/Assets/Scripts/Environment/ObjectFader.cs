@@ -26,8 +26,8 @@ public class ObjectFader : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    // Using LateUpdate here to make sure the bDoFade bool is set from FadeCheck before this is run.
+    void LateUpdate()
     {
         if(bDoFade)
         {
