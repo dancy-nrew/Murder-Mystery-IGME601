@@ -11,16 +11,20 @@ public class DialogueTree : ScriptableObject
     public Node rootNode;
     public Node.NodeState treeState = Node.NodeState.Running;
     public List<Node> nodes = new List<Node>();
+    public List<Dialogue> dialogues = new List<Dialogue>();
 
     public Dictionary<string, bool> parameters = new Dictionary<string, bool>();
 
     public Node.NodeState UpdateTree()
     {
+        dialogues.Clear();
         if(rootNode.state == Node.NodeState.Running)
         {
-            treeState = rootNode.UpdateNode();
+            treeState = rootNode.UpdateNode(this);
         }
 
+        Debug.Log("Call to dialogue manager");
+        DialogueManager.Instance.StartDialogue(dialogues);
         return treeState;
     }
 
@@ -31,8 +35,9 @@ public class DialogueTree : ScriptableObject
         Node node = ScriptableObject.CreateInstance(type) as Node;
         node.name = type.Name;
         node.guid = GUID.Generate().ToString();
-        nodes.Add(node);
 
+        nodes.Add(node);
+ 
         AssetDatabase.AddObjectToAsset(node, this);
         AssetDatabase.SaveAssets();
         return node;

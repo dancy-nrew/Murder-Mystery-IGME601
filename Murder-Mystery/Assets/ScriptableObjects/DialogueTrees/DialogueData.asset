@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748c9062dd0b2c04eb4ef23d4c0f3a06, type: 3}
   m_Name: DialogueData
   m_EditorClassIdentifier: 
-  parameters: []
+  parameters:
+  - parameterKey: bHasTalkedToDancy
+    parameterValue: 0
+  - parameterKey: 
+    parameterValue: 0

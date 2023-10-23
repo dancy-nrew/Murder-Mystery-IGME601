@@ -38,22 +38,30 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(List<Dialogue> dialogues)
     {
         animator.SetBool("bIsOpen", true);
-        nameText.text = dialogue.characterName;
+        Debug.Log("Showing Dialogues" + dialogues.Count);
 
         sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences)
+        foreach (Dialogue dialogue in dialogues)
         {
-            sentences.Enqueue(sentence);
+            nameText.text = dialogue.characterName;
+
+            
+
+            foreach (string sentence in dialogue.sentences)
+            {
+                sentences.Enqueue(sentence);
+            }
+
         }
 
         DisplayNextSentence();
     }
 
-    public void DisplayNextSentence()
+    private void DisplayNextSentence()
     {
         if(sentences.Count == 0)
         {

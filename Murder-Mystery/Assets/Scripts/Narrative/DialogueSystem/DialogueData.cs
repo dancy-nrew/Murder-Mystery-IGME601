@@ -12,7 +12,7 @@ public class DialogueData : ScriptableObject
     public class DialogueParameter
     {
         public string parameterKey;
-        public bool paramterValue;
+        public bool parameterValue;
     }
 
     public List<DialogueParameter> parameters = new List<DialogueParameter>();
@@ -24,7 +24,7 @@ public class DialogueData : ScriptableObject
        {
             if(kvp.parameterKey == parameter)
             {
-                kvp.paramterValue = value;
+                kvp.parameterValue = value;
                 found = true;
                 break;
             }
@@ -34,6 +34,23 @@ public class DialogueData : ScriptableObject
        {
             Debug.Log("Dialogue Parameter not Found");
        }
+    }
+
+    public bool CheckCondition(string parameter, bool value)
+    {
+        Debug.Log("Checking " + parameter + " is " + value);
+        foreach (var kvp in parameters)
+        {
+            if (kvp.parameterKey == parameter)
+            {
+               Debug.Log("Found paramter");
+               return (kvp.parameterValue == value);
+            }
+        }
+
+        Debug.Log("Dialogue Parameter not Found");
+        return false;
+        
     }
 
 }

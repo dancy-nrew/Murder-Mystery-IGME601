@@ -20,7 +20,7 @@ public class RootNode : Node
 
     protected override NodeState OnUpdate()
     {
-        return child.UpdateNode();
+        return child.UpdateNode(dialogueTree);
     }
 
     public override Node Clone()

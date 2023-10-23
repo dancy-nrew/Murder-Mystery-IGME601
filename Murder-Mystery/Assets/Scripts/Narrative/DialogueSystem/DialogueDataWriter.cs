@@ -24,6 +24,28 @@ public class DialogueDataWriter : MonoBehaviour
 
     public void UpdateDialogueData(string parameter, bool value)
     {
+        if(!dialogueData)
+        {
+            Debug.Log("No DialoguData asset set in DialogueWriter");
+            return;
+        }
+
         dialogueData.UpdateParameter(parameter, value);
+    }
+
+    public bool CheckCondition(string parameter, bool value) 
+    {
+        if (!dialogueData)
+        {
+            Debug.Log("No DialoguData asset set in DialogueWriter");
+            return false;
+        }
+
+        return dialogueData.CheckCondition(parameter, value);
+    }
+
+    public void SetDialogueDataAsset(DialogueData dialogueDataAsset)
+    {
+        dialogueData = dialogueDataAsset;
     }
 }

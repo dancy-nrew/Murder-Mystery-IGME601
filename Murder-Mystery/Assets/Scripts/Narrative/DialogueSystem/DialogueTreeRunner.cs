@@ -24,5 +24,6 @@ public class DialogueTreeRunner : MonoBehaviour
     public void UpdateTree()
     {
         dialogueTree.UpdateTree();
+        DialogueDataWriter.Instance.UpdateDialogueData("bHasTalkedToDancy", true);
     }
 }
