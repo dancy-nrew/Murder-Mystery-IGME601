@@ -12,6 +12,8 @@ public class DialogueTree : ScriptableObject
     public Node.NodeState treeState = Node.NodeState.Running;
     public List<Node> nodes = new List<Node>();
 
+    public Dictionary<string, bool> parameters = new Dictionary<string, bool>();
+
     public Node.NodeState UpdateTree()
     {
         if(rootNode.state == Node.NodeState.Running)
