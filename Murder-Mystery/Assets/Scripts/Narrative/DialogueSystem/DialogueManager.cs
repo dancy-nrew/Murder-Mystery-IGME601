@@ -4,6 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Adapted from https://youtu.be/_nRzoTzeyxU?si=AB3_KumtIm_VuaVb
+// Class handles dialogue ui functionalities
+
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
