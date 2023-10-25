@@ -31,6 +31,10 @@ public class HandFactory : MonoBehaviour
             Suit suit = (Suit)suits.GetValue((int)UnityEngine.Random.Range(0, suits.Length-1));
             (int, GameObject) chosenCard = GetCardFromSuit(suit, dealtWitnessCards, dealtLocationCards, dealtMotiveCards);
             GameObject instantiatedCard = Instantiate(chosenCard.Item2, transform.position, Quaternion.identity);
+            if (player == 1)
+            {
+                instantiatedCard.AddComponent<MouseSelect>();
+            }
             handToDealTo.DealCard(instantiatedCard);
         }
     }

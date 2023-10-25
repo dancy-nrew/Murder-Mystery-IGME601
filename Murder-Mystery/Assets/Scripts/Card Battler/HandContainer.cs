@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class HandContainer : MonoBehaviour
 {
-    private HandData handData;
-    private List<GameObject> cards;
+    private HandData handData = new HandData(ConstantParameters.MAX_HAND_SIZE);
+    private List<GameObject> cards = new List<GameObject>();
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        handData = new HandData(ConstantParameters.MAX_HAND_SIZE);
-        cards = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -21,7 +19,8 @@ public class HandContainer : MonoBehaviour
 
     public void DealCard(GameObject card)
     {
-        CardData cardData = card.GetComponent<CardData>();
+        Card cardComponent = card.GetComponent<Card>();
+        CardData cardData = cardComponent.cardData;
         handData.AddCard(cardData);
         cards.Add(card);
     }
