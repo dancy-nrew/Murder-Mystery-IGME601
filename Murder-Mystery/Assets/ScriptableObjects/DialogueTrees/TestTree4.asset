@@ -61,7 +61,74 @@ MonoBehaviour:
   - {fileID: -8291848973227201470}
   - {fileID: 9218629692099821383}
   - {fileID: 3358174470648458907}
+  - {fileID: 360782708818132541}
+  - {fileID: 1764339697974413024}
+  - {fileID: 975496395441192367}
   dialogues: []
+--- !u!114 &360782708818132541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf40963fd2fd84044a361d2c75c38fa7, type: 3}
+  m_Name: ChoiceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 2e5eb89a203aca743a933aed29162b29
+  position: {x: 445, y: 89.49999}
+  children:
+  - {fileID: 1764339697974413024}
+  - {fileID: 975496395441192367}
+  gateConditions:
+  - parameterKey: bHasTalkedToDancy
+    parameterValue: 1
+--- !u!114 &975496395441192367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 3b2c8ea703a64894e9ef82b2b0bc2672
+  position: {x: 713.0001, y: 139.49998}
+  dialogue:
+    characterName: Dancy
+    sentences:
+    - Hey first time talking to you! Nice to meet you.
+  gateConditions: []
+--- !u!114 &1764339697974413024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: db8b15fb7dae0c543acc942a109ba7de
+  position: {x: 713.24, y: 19}
+  dialogue:
+    characterName: Dancy
+    sentences:
+    - Just talked to you, BYE!
+  gateConditions: []
 --- !u!114 &3358174470648458907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +148,7 @@ MonoBehaviour:
   children:
   - {fileID: -8291848973227201470}
   - {fileID: 9218629692099821383}
+  - {fileID: 360782708818132541}
 --- !u!114 &9218629692099821383
 MonoBehaviour:
   m_ObjectHideFlags: 0

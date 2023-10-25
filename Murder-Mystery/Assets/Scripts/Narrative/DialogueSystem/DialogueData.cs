@@ -38,12 +38,11 @@ public class DialogueData : ScriptableObject
 
     public bool CheckCondition(string parameter, bool value)
     {
-        Debug.Log("Checking " + parameter + " is " + value);
+        //Debug.Log("Checking " + parameter + " is " + value);
         foreach (var kvp in parameters)
         {
             if (kvp.parameterKey == parameter)
             {
-               Debug.Log("Found paramter");
                return (kvp.parameterValue == value);
             }
         }

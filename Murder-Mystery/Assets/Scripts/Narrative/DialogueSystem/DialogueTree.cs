@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 
 // Adapted from https://youtu.be/nKpM98I7PeM?si=6_zO-Egnx1kB-9Ys
 // This class handles the data and method of the actual dialogue tree as a scriptable object.
@@ -51,7 +52,7 @@ public class DialogueTree : ScriptableObject
         AssetDatabase.SaveAssets();
     }
 
-    public void AddChild(Node parent, Node child)
+    public void AddChild(Node parent, Node child, Edge edge)
     {
         SequenceNode sequenceNode = parent as SequenceNode;
         Debug.Log("Adding Child");
@@ -70,6 +71,19 @@ public class DialogueTree : ScriptableObject
             sequenceNode.children.Add(child);
         }
 
+        ChoiceNode choiceNode = parent as ChoiceNode;
+        if (choiceNode)
+        {
+            if(edge.output.portName == "True")
+            {
+                choiceNode.children[0] = child;
+            }
+            else if(edge.output.portName == "False")
+            {
+                choiceNode.children[1] = child;
+            }
+        }
+
         RootNode rootNode = parent as RootNode;
         if (rootNode)
         {
@@ -77,7 +91,7 @@ public class DialogueTree : ScriptableObject
         }
     }
 
-    public void RemoveChild(Node parent, Node child)
+    public void RemoveChild(Node parent, Node child, Edge edge)
     {
 
         SequenceNode sequenceNode = parent as SequenceNode;
@@ -85,6 +99,20 @@ public class DialogueTree : ScriptableObject
         {
             sequenceNode.children.Remove(child);
         }
+
+        ChoiceNode choiceNode = parent as ChoiceNode;
+        if (choiceNode)
+        {
+            if (edge.output.portName == "True")
+            {
+                choiceNode.children[0] = null;
+            }
+            else if (edge.output.portName == "False")
+            {
+                choiceNode.children[1] = null;
+            }
+        }
+
 
         RootNode rootNode = parent as RootNode;
         if (rootNode)
@@ -104,11 +132,18 @@ public class DialogueTree : ScriptableObject
            return sequenceNode.children;
         }
 
+        ChoiceNode choiceNode = parent as ChoiceNode;
+        if (choiceNode)
+        {
+           return choiceNode.children;
+        }
+
         RootNode rootNode = parent as RootNode;
         if (rootNode && rootNode.child != null)
         {
             children.Add(rootNode.child);
         }
+
         return children;
     }
 

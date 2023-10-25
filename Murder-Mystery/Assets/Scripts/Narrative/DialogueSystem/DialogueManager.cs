@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(List<Dialogue> dialogues)
     {
         animator.SetBool("bIsOpen", true);
-        Debug.Log("Showing Dialogues" + dialogues.Count);
+        Debug.Log("Showing Dialogues " + dialogues.Count);
 
         sentences.Clear();
 
