@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 78394790}
   - component: {fileID: 78394789}
   - component: {fileID: 78394788}
+  - component: {fileID: 78394792}
   m_Layer: 0
   m_Name: Lane1
   m_TagString: Untagged
@@ -335,6 +336,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &78394792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78394787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5acbacf0dfe69242a991c304da14809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &198605443
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +451,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1035400044}
+  - component: {fileID: 1035400045}
   m_Layer: 0
   m_Name: ContainerPlayer1
   m_TagString: Untagged
@@ -460,6 +474,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1035400045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035400043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb81bfc11c1b68f4f85b716145cc3f29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1221078178
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1221078179}
+  - component: {fileID: 1221078180}
   m_Layer: 0
   m_Name: ContainerPlayer2
   m_TagString: Untagged
@@ -491,6 +518,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1221078180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221078178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb81bfc11c1b68f4f85b716145cc3f29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1575162279
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +631,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1723633716}
+  - component: {fileID: 1723633717}
   m_Layer: 0
   m_Name: HandFactory
   m_TagString: Untagged
@@ -614,6 +654,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1723633717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723633715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcb3c19c5b111e45b950c303a289f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player1Hand: {fileID: 1035400045}
+  Player2Hand: {fileID: 1221078180}
+  WitnessCards:
+  - {fileID: 1713234572413809406, guid: c9084734ef9c20e49bab029a2818459f, type: 3}
+  - {fileID: 5045170720391884461, guid: 802c3cfc5d3a8224e80fa43712777380, type: 3}
+  - {fileID: 88929242461358949, guid: e4aaed3369d11fd46ad35f5391f12ca9, type: 3}
+  - {fileID: 6492320561293385166, guid: b913d217f1bd8324889f5f94e4cfcfb4, type: 3}
+  - {fileID: 3685324779856360378, guid: 9d071a2ef7dcb064287334d01dbc3998, type: 3}
+  - {fileID: 6895442446192642076, guid: c9ad855168af6554f9bc52e8efd230bf, type: 3}
+  - {fileID: 7838231955680777798, guid: bc7c1f58c0e24714a94e1b5cfa3020b2, type: 3}
+  - {fileID: 5559283842314145471, guid: 0a2c3746aa8cd2e44b928641051a1f91, type: 3}
+  LocationCards:
+  - {fileID: 7612229615520800393, guid: 9ddebcf5187e08c4dac12bfeba9767d0, type: 3}
+  - {fileID: 916046476951102252, guid: df874c1b39e6da84ea8bcae8d6a1183c, type: 3}
+  - {fileID: 6026487539710766715, guid: c9f084022b5580044bd28e15ed919fca, type: 3}
+  - {fileID: 8952367342382254406, guid: 97d9a18f0d3e74243a80eeaa5bd0e7a2, type: 3}
+  - {fileID: 7678020374959593759, guid: 8b0568f06d7295f4fb2acf5f6f6c03de, type: 3}
+  - {fileID: 2667003114708767887, guid: 4ee72bc42d9b98d4e8b2c39c6aa7f649, type: 3}
+  - {fileID: 5709736934946151339, guid: 403554ca87f74a64ebe435e50238c2fb, type: 3}
+  - {fileID: 307559284613849867, guid: c28d3e3b514d478468f6ac31d0be08d4, type: 3}
+  MotiveCards:
+  - {fileID: 5527585276120239538, guid: 209a0ecaa8ba60c43a73720252462b19, type: 3}
+  - {fileID: 5358449511750238479, guid: 7d691f6fe1b33664cac38ea2ad914259, type: 3}
+  - {fileID: 6863869524206281602, guid: 960c893129b6e94458f2815dcd2c5527, type: 3}
+  - {fileID: 2493092464479839014, guid: a268d89ace12b0d4ba97bc5f75ce10f3, type: 3}
+  - {fileID: 6805636661627013950, guid: 07b72d193ba13564abfc45b029dad5a7, type: 3}
+  - {fileID: 6468321308350864844, guid: a88c3210c2f76624398bab05152d023c, type: 3}
+  - {fileID: 652996093995553311, guid: bad1ce006df7af64985253b5b999a04b, type: 3}
+  - {fileID: 5490745022447339114, guid: f5b5bc4f5c6579041bee3a038541e3fe, type: 3}
 --- !u!1 &1755559181
 GameObject:
   m_ObjectHideFlags: 0
