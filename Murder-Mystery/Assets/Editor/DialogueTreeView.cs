@@ -54,16 +54,29 @@ public class DialogueTreeView : GraphView
         // Creating edges between nodes
         currentTree.nodes.ForEach(node =>
         {
+            NodeView parentView = GetNodeViewFromNode(node);
             var children = currentTree.GetChildren(node);
-            children.ForEach(c =>
+            if (parentView.node is ChoiceNode)
             {
-                NodeView parentView = GetNodeViewFromNode(node);
-                NodeView childView = GetNodeViewFromNode(c);
+                NodeView childViewTrue = GetNodeViewFromNode(children[0]);
+                NodeView childViewFalse = GetNodeViewFromNode(children[1]);
+                Edge edge1 = parentView.outputs[0].ConnectTo(childViewTrue.input);
+                Edge edge2 = parentView.outputs[1].ConnectTo(childViewFalse.input);
+                AddElement(edge1);
+                AddElement(edge2);
+            }
+            else
+            {
+                children.ForEach(c =>
+                {
 
-                Edge edge = parentView.output.ConnectTo(childView.input);
-                AddElement(edge);
+                    NodeView childView = GetNodeViewFromNode(c);
 
-            });
+                    Edge edge = parentView.outputs[0].ConnectTo(childView.input);
+                    AddElement(edge);
+
+                });
+            }
         });
     }
 
@@ -94,18 +107,19 @@ public class DialogueTreeView : GraphView
                 {
                     NodeView parentView = edge.output.node as NodeView;
                     NodeView childView = edge.input.node as NodeView;
-                    currentTree.RemoveChild(parentView.node, childView.node);
+                    currentTree.RemoveChild(parentView.node, childView.node, edge);
                 }
             });
         }
 
+        //Edges to be added
         if (graphViewChange.edgesToCreate != null)
-        {
+        { 
             graphViewChange.edgesToCreate.ForEach(edge =>
             {
                 NodeView parentView = edge.output.node as NodeView;
                 NodeView childView = edge.input.node as NodeView;
-                currentTree.AddChild(parentView.node, childView.node);
+                currentTree.AddChild(parentView.node, childView.node, edge);
             });
         }
 
