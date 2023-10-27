@@ -30,7 +30,7 @@ public class MouseSelect : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0) && selectedObject != null && skipRelease)
+        if (Input.GetMouseButtonDown(0) && selectedObject != null && !skipRelease)
         {
             Debug.Log("Releasing");
             FollowMouse fm = selectedObject.GetComponent<FollowMouse>();
