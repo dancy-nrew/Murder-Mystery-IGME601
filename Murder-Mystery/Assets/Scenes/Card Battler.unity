@@ -241,7 +241,6 @@ GameObject:
   - component: {fileID: 78394790}
   - component: {fileID: 78394789}
   - component: {fileID: 78394788}
-  - component: {fileID: 78394792}
   m_Layer: 0
   m_Name: Lane1
   m_TagString: Untagged
@@ -336,18 +335,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &78394792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78394787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5acbacf0dfe69242a991c304da14809, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &198605443
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035400043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4.64, z: -13.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -511,7 +498,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221078178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5.54, z: 21.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -541,6 +528,7 @@ GameObject:
   - component: {fileID: 1575162282}
   - component: {fileID: 1575162281}
   - component: {fileID: 1575162280}
+  - component: {fileID: 1575162283}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -622,6 +610,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 27.389, y: 0, z: 0}
+--- !u!114 &1575162283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575162279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5acbacf0dfe69242a991c304da14809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRayDistance: 20
 --- !u!1 &1723633715
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,6 +669,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player1Hand: {fileID: 1035400045}
   Player2Hand: {fileID: 1221078180}
+  xOffset: 1
+  xOrigin: -4.66
   WitnessCards:
   - {fileID: 1713234572413809406, guid: c9084734ef9c20e49bab029a2818459f, type: 3}
   - {fileID: 5045170720391884461, guid: 802c3cfc5d3a8224e80fa43712777380, type: 3}
