@@ -20,5 +20,12 @@ public class FollowMouse : MonoBehaviour
     public void ToggleFollow()
     {
         isFollowingMouse = !isFollowingMouse;
+        
+
+        //UNDER CONSTRUCTION
+        //if (!isFollowingMouse ) { 
+        //    PlayToLane ptl = gameObject.GetComponent<PlayToLane>();
+        //    ptl.Release();
+        //}
     }
 }

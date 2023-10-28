@@ -10,9 +10,29 @@ public class MouseSelect : MonoBehaviour
     bool skipRelease;
 
     // Update is called once per frame
+    private void Update()
+    {
+        // Handle inputs from the mouse
+        skipRelease = false;
+        if (Input.GetMouseButtonDown(0) && selectedObject is null && highlightedObject != null)
+        {
+            selectedObject = highlightedObject;
+            FollowMouse fm = selectedObject.GetComponent<FollowMouse>();
+            fm.ToggleFollow();
+            skipRelease = true;
+        }
+        if (Input.GetMouseButtonDown(0) && selectedObject != null && !skipRelease)
+        {
+            FollowMouse fm = selectedObject.GetComponent<FollowMouse>();
+            fm.ToggleFollow();
+            selectedObject = null;
+        }
+    }
+
+    //FixedUpdate is called in static time intervals and is best recommended when working with Unity Physics
     void FixedUpdate()
     {
-        skipRelease = false;
+        // Detect which card the mouse is hovering over
         int layerMask = 1 << 8;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction*maxRayDistance, Color.yellow);
@@ -20,22 +40,12 @@ public class MouseSelect : MonoBehaviour
         if (Physics.Raycast(ray, out hit, maxRayDistance, layerMask))
         {
             highlightedObject = hit.collider.gameObject;
-            if (Input.GetMouseButtonDown(0) && selectedObject is null)
-            {
-                Debug.Log("Selecting");
-                selectedObject = highlightedObject;
-                FollowMouse fm = selectedObject.GetComponent<FollowMouse>();
-                fm.ToggleFollow();
-                skipRelease = true;
-            }
+            
+        } else
+        {
+            highlightedObject = null;
         }
 
-        if (Input.GetMouseButtonDown(0) && selectedObject != null && !skipRelease)
-        {
-            Debug.Log("Releasing");
-            FollowMouse fm = selectedObject.GetComponent<FollowMouse>();
-            fm.ToggleFollow();
-            selectedObject = null;
-        }
+        
     }
 }
