@@ -8,4 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DialogueTest.unity
     guid: 67be82736f490a94ebe0108834d99287
+  - enabled: 1
+    path: Assets/Scenes/UI-Screens.unity
+    guid: d24ed2f5c66551c479e7c9f57c06905f
+  - enabled: 1
+    path: Assets/Scenes/3DIso_Movement.unity
+    guid: 237b0c3464348be4395295972d417170
+  - enabled: 1
+    path: Assets/Scenes/LibraryGreybox.unity
+    guid: 7b848643fd7d54e6f8ee3845f6da40d9
+  - enabled: 1
+    path: Assets/Scenes/MathsDeptGreybox.unity
+    guid: c2b9bda0ef32a43fbb8e25507375d3d3
+  - enabled: 1
+    path: Assets/Scenes/OfficeGreybox.unity
+    guid: 47bd19d4ace544670ab24733c1271ed0
   m_configObjects: {}
