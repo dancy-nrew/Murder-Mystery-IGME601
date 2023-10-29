@@ -15,6 +15,9 @@ public class DialogueData : ScriptableObject
         public bool parameterValue;
     }
 
+    [SerializeField]
+    private bool bResetDataOnGameStart = false;
+
     public List<DialogueParameter> parameters = new List<DialogueParameter>();
 
     public void UpdateParameter(string parameter, bool value)
@@ -52,4 +55,16 @@ public class DialogueData : ScriptableObject
         
     }
 
+    // Reseting all parameter bools to false at start of game for debugging purposes
+    private void Awake()
+    {
+        Debug.Log("Awakening dialogue data");
+        if(bResetDataOnGameStart)
+        {
+            foreach(var kvp in parameters)
+            {
+                kvp.parameterValue = false;
+            }
+        }
+    }
 }
