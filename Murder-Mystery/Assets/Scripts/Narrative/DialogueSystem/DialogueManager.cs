@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 
 // Adapted from https://youtu.be/_nRzoTzeyxU?si=AB3_KumtIm_VuaVb
@@ -18,9 +19,14 @@ public class DialogueManager : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private float characterUpdateTime = 0.5f;
+    [SerializeField]
+    private PlayerMovement playerMovement;
 
     private Queue<string> sentences;
     private Coroutine characterUpdateCoroutine;
+
+    private Queue<Dialogue> dialogueQueue;
+    private int currentSentence = 0;
 
     private void Awake()
     {
@@ -34,6 +40,8 @@ public class DialogueManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        dialogueQueue = new Queue<Dialogue> ();
     }
 
     void Start()
@@ -46,40 +54,38 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("bIsOpen", true);
         Debug.Log("Showing Dialogues " + dialogues.Count);
 
-        sentences.Clear();
-
-        foreach (Dialogue dialogue in dialogues)
-        {
-            nameText.text = dialogue.characterName;
-
-            
-
-            foreach (string sentence in dialogue.sentences)
-            {
-                sentences.Enqueue(sentence);
-            }
-
-        }
+        dialogueQueue.Clear();
+        dialogueQueue = new Queue<Dialogue>(dialogues);
+        currentSentence = 0;
 
         DisplayNextSentence();
     }
 
-    private void DisplayNextSentence()
+    public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+       
+        if(currentSentence >= dialogueQueue.Peek().sentences.Length)
+        {
+            dialogueQueue.Dequeue();
+            currentSentence = 0;
+        }
+        if (dialogueQueue.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        string sentence = sentences.Dequeue();
+        nameText.text = dialogueQueue.Peek().characterName;
+        string sentence = dialogueQueue.Peek().sentences[currentSentence];
         dialogueText.text = sentence;
+
         if(characterUpdateCoroutine != null)
         {
             StopCoroutine(characterUpdateCoroutine);
         }
         
         characterUpdateCoroutine = StartCoroutine(TypeSentence(sentence));
+        currentSentence++;
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -95,5 +101,6 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         animator.SetBool("bIsOpen", false);
+        playerMovement.SetIsUIEnabled(false);
     }
 }

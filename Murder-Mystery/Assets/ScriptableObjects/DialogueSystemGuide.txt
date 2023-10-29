@@ -1,0 +1,34 @@
+This doc is to elucidate how to use the dialogue system and editor.
+
+
+Dialogue Trees are stored in the form of scriptable objects. Each dialogue tree contains all the possible interactions over time for a specific character.
+
+These dialogue trees can then be slotted onto that specific character/object under the dialoge tree runner script which should be attached to any gameobject that wants to run a dialogue tree. The dialogue will then be run once the object/character is interacted with.
+
+To create a dialoge tree, right click in the content drawer, then click Create->Dialogue Tree. This will create the scriptable object of the dialoge tree.
+
+To create/modify a dialogue tree, we need to open the dialogue tree editor. To do this go to Window->UI Toolkit->DialogueTreeEditor. Once clicked this should open a new window with an empty graph. The editor will display the contents of the currently selected dialogue tree. To select a dialoge tree, simply left-click it in the content drawer this should highlight it and its contents should be visible in the dialogue tree editor. You can zoom in/out, multi select nodes with left click and move around the graph with middle mouse button/ alt + right click.
+
+The flow of dialogue is modeled in the form of nodes and edges. When an object is interacted with, it will run through the whole dialogue tree, trying to reach every possible dialogue node. We can use different types of nodes to add condition so that the only the appropriate nodes are reached when we want them.
+
+To create a node, right-click in the graph window and a list of possible nodes should show up. Clickin on any node in the graph will pull up its details in the inspector panel. This is where we can change a node's properties.
+
+Root Node:
+There should only be only one root in the graph. This is where the execution starts from.
+
+Dialogue Node:
+This node is resposible for holding the actual dialogue data. This includes a character name and sentences. The dialogue box will move to the next sentence when the player clicks the continue button.
+You can also add gate conditions to a dialogue node. All conditions entered here must match for the dialogue in the node to be added to the list of dialgoues. This allows us to gate dialogue nodes until certain conditions are met. The conditions are checked with the game's dialogue data class, which I will mention later. Be sure to exactly match the parameter name to that in the dialogue data.
+
+Sequence Node:
+This node will execute all of its children one by one. The order matters and can be checked when clicking on the sequence node. This node is useful to chain multiple dialogue nodes together.
+
+Choice Node:
+This node has two children one for when the conditions met matches that in the dialogue data (true) and on for when it doesn't (false). This uses the same system for setting conditions as the gate nodes.
+
+Dialogue Data:
+This is a scriptable object that holds all the parameters and data for the dialogue system. When making conditions in the nodes, it's important to check that the paramter name exactly matches that of the paramter in the dialogue data. The paramters present in the dialouge data can be checked simply by clicking on it in the content drawer. Currently it is located at Assets->ScriptablObjects->DialogueTrees. More parameters can be added simpley by adding more elements to the list from the editor.
+These conditions can then be modified from code by using the dialouge data writer class.
+
+Eg. DialogueDataWriter.Instance.UpdateDialogueData("bHasTalkedToDancy", true);
+Where bHasTalkedToDancy is a parameter that already exists in the dialogue data scriptable object.
