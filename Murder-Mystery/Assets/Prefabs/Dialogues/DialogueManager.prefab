@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 381522435446973542}
   - component: {fileID: 7504232127161356642}
+  - component: {fileID: 2395599996085937827}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -48,4 +49,18 @@ MonoBehaviour:
   nameText: {fileID: 0}
   dialogueText: {fileID: 0}
   animator: {fileID: 0}
-  characterUpdateTime: 0.05
+  characterUpdateTime: 0.04
+  playerMovement: {fileID: 0}
+--- !u!114 &2395599996085937827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569912921720688276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f61e8cf8b5b9746b8ddd1f217a0d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueData: {fileID: 11400000, guid: 4154116cfb0e30e468bc00d9d8649f0c, type: 2}

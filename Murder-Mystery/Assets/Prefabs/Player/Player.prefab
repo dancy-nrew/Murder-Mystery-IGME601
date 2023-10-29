@@ -124,6 +124,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 8
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 320
+  interactionDistance: 2
 --- !u!195 &4569801976156883076
 NavMeshAgent:
   m_ObjectHideFlags: 0

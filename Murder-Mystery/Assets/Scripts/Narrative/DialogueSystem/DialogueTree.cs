@@ -74,13 +74,27 @@ public class DialogueTree : ScriptableObject
         ChoiceNode choiceNode = parent as ChoiceNode;
         if (choiceNode)
         {
+            Debug.Log("parent is choice node");
             if(edge.output.portName == "True")
             {
-                choiceNode.children[0] = child;
+                Debug.Log("port is true");
+                if (choiceNode.children.Count == 0)
+                    choiceNode.children.Add(child);
+                else
+                    choiceNode.children[0] = child;
             }
             else if(edge.output.portName == "False")
             {
-                choiceNode.children[1] = child;
+                Debug.Log("port is false");
+                if (choiceNode.children.Count == 0)
+                {
+                    choiceNode.children.Add(null);
+                    choiceNode.children.Add(child);
+                }
+                else if(choiceNode.children.Count == 1)
+                    choiceNode.children.Add(child);
+                else
+                    choiceNode.children[1] = child;
             }
         }
 
