@@ -54,21 +54,6 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("bIsOpen", true);
         Debug.Log("Showing Dialogues " + dialogues.Count);
 
-        /* sentences.Clear();
-
-         foreach (Dialogue dialogue in dialogues)
-         {
-             nameText.text = dialogue.characterName;
-
-
-
-             foreach (string sentence in dialogue.sentences)
-             {
-                 sentences.Enqueue(sentence);
-             }
-
-         }*/
-
         dialogueQueue.Clear();
         dialogueQueue = new Queue<Dialogue>(dialogues);
         currentSentence = 0;
@@ -90,13 +75,6 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        /*if (sentences.Count == 0)
-        {
-            EndDialogue();
-            return;
-        }*/
-
-        //string sentence = sentences.Dequeue();
         nameText.text = dialogueQueue.Peek().characterName;
         string sentence = dialogueQueue.Peek().sentences[currentSentence];
         dialogueText.text = sentence;
