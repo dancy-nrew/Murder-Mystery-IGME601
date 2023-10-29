@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DetectiveGambit_SettingsScreen_Override
+  m_Controller: {fileID: 9100000, guid: d12dc2bd250ccb8469f9c41f051acb0b, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 00a3ae1fe67d7b24bb275aefb2d3251a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 00a3ae1fe67d7b24bb275aefb2d3251a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 414702f4a117c9a47b555c4a1eff5791, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 414702f4a117c9a47b555c4a1eff5791, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ff4f9886d07f8a74f98d921afb4159c6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ff4f9886d07f8a74f98d921afb4159c6, type: 2}
