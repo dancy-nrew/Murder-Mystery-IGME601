@@ -154,8 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd45ff9d065a9674b8e44293bc381b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueTree: {fileID: 11400000, guid: 0bb0a95b6bf6f674fbaf4292cb0bb63b, type: 2}
-  characterName: Dancy
+  dialogueTree: {fileID: 0}
+  characterName: 
 --- !u!114 &4873951668225156132
 MonoBehaviour:
   m_ObjectHideFlags: 0

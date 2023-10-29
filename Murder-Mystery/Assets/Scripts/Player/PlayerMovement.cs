@@ -50,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if(currentInteractable != null)
         {
-            Debug.Log("Current interactable set");
             if(Vector3.Distance(transform.position, currentInteractable.transform.position) <= interactionDistance)
             {
                 currentInteractable.OnInteraction();

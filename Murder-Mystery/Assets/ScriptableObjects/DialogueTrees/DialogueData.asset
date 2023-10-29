@@ -15,6 +15,6 @@ MonoBehaviour:
   bResetDataOnGameStart: 1
   parameters:
   - parameterKey: bHasTalkedToDancy
-    parameterValue: 1
-  - parameterKey: 
+    parameterValue: 0
+  - parameterKey: bHasTalkedToReeves
     parameterValue: 0
