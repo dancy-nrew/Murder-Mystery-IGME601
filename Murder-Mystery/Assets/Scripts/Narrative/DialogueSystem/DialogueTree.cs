@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+
+#if (UNITY_EDITOR)
 using UnityEditor.Experimental.GraphView;
+#endif
 
 // Adapted from https://youtu.be/nKpM98I7PeM?si=6_zO-Egnx1kB-9Ys
 // This class handles the data and method of the actual dialogue tree as a scriptable object.
