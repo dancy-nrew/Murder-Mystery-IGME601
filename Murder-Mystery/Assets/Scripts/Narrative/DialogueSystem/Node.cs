@@ -22,9 +22,13 @@ public abstract class Node : ScriptableObject
     [HideInInspector]
     public Vector2 position;
 
+    protected DialogueTree dialogueTree;
 
-    public NodeState UpdateNode()
+
+
+    public NodeState UpdateNode(DialogueTree dialogueTree)
     {
+        this.dialogueTree = dialogueTree;
         if(!started)
         {
             OnStart();

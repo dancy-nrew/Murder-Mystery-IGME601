@@ -10,7 +10,7 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
 {
     public Node node;
     public Port input;
-    public Port output;
+    public List<Port> outputs = new List<Port>();
     public Action<NodeView> OnNodeSelected;
 
    public NodeView(Node node)
@@ -36,6 +36,10 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         {
             input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
         }
+        else if(node is ChoiceNode)
+        {
+            input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+        }
         else if(node is RootNode)
         {
 
@@ -56,18 +60,31 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         }
         else if (node is SequenceNode)
         {
-            output = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(bool));
+            Port output = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(bool));
+            output.portName = "";
+            outputs.Add(output);
+        }
+        else if(node is ChoiceNode)
+        {
+            Port output1 = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
+            output1.portName = "True";
+            outputs.Add(output1);
+            Port output2 = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
+            output2.portName = "False";
+            outputs.Add(output2);
         }
         else if(node is RootNode)
         {
-            output = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
+            Port output = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
+            output.portName = "";
+            outputs.Add(output);
         }
 
-        if (output != null)
+        foreach(var port in outputs)
         {
-            output.portName = "";
-            outputContainer.Add(output);
+            outputContainer.Add(port);
         }
+        
     }
 
     public override void SetPosition(Rect newPos)

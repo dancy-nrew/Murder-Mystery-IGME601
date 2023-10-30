@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 // Adapted from https://youtu.be/nKpM98I7PeM?si=6_zO-Egnx1kB-9Ys
 // This node will run each of its children one-by-one.
@@ -22,17 +23,24 @@ public class SequenceNode : Node
 
     protected override NodeState OnUpdate()
     {
-        Node child = children[current];
-        switch (child.UpdateNode())
+        while(current < children.Count)
         {
-            case NodeState.Running:
-                return NodeState.Running;
-            case NodeState.Failure:
-                return NodeState.Failure;
-            case NodeState.Success:
-                current++;
-                break;
+            Node child = children[current];
+            /*switch (child.UpdateNode(dialogueTree))
+            {
+                case NodeState.Running:
+                    return NodeState.Running;
+                case NodeState.Failure:
+                    return NodeState.Failure;
+                case NodeState.Success:
+                    current++;
+                    break;
+            }*/
+
+            child.UpdateNode(dialogueTree);
+            current++;
         }
+       
 
         return current == children.Count ? NodeState.Success : NodeState.Running;
 
