@@ -27,6 +27,7 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<Dialogue> dialogueQueue;
     private int currentSentence = 0;
+    private bool bIsCharacterCoroutineRunning = false;
 
     private void Awake()
     {
@@ -63,39 +64,51 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-       
-        if(currentSentence >= dialogueQueue.Peek().sentences.Length)
-        {
-            dialogueQueue.Dequeue();
-            currentSentence = 0;
-        }
-        if (dialogueQueue.Count == 0)
-        {
-            EndDialogue();
-            return;
-        }
 
-        nameText.text = dialogueQueue.Peek().characterName;
-        string sentence = dialogueQueue.Peek().sentences[currentSentence];
-        dialogueText.text = sentence;
-
-        if(characterUpdateCoroutine != null)
+        if(!bIsCharacterCoroutineRunning)
         {
-            StopCoroutine(characterUpdateCoroutine);
+            if (currentSentence >= dialogueQueue.Peek().sentences.Length)
+            {
+                dialogueQueue.Dequeue();
+                currentSentence = 0;
+            }
+            if (dialogueQueue.Count == 0)
+            {
+                EndDialogue();
+                return;
+            }
+
+            nameText.text = dialogueQueue.Peek().characterName;
+            string sentence = dialogueQueue.Peek().sentences[currentSentence];
+
+            characterUpdateCoroutine = StartCoroutine(TypeSentence(sentence));
+            bIsCharacterCoroutineRunning = true;
+            currentSentence++; 
         }
-        
-        characterUpdateCoroutine = StartCoroutine(TypeSentence(sentence));
-        currentSentence++;
+        else
+        {
+            if(characterUpdateCoroutine != null)
+            {
+                StopCoroutine(characterUpdateCoroutine);
+                bIsCharacterCoroutineRunning = false;
+            }
+
+            nameText.text = dialogueQueue.Peek().characterName;
+            dialogueText.text = dialogueQueue.Peek().sentences[currentSentence - 1];
+        }
     }
 
     IEnumerator TypeSentence(string sentence)
     {
+       
         dialogueText.text = "";
         foreach(char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(characterUpdateTime);
         }
+
+        bIsCharacterCoroutineRunning = false;
     }
 
     private void EndDialogue()
