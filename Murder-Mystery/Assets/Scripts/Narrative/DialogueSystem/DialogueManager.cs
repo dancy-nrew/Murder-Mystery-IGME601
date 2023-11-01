@@ -65,6 +65,7 @@ public class DialogueManager : MonoBehaviour
     public void DisplayNextSentence()
     {
 
+        // If previous senetence is not being typed out, go to next sentence.
         if(!bIsCharacterCoroutineRunning)
         {
             if (currentSentence >= dialogueQueue.Peek().sentences.Length)
@@ -85,6 +86,8 @@ public class DialogueManager : MonoBehaviour
             bIsCharacterCoroutineRunning = true;
             currentSentence++; 
         }
+
+        // Otherwise go fast-forward the current sentence.
         else
         {
             if(characterUpdateCoroutine != null)
