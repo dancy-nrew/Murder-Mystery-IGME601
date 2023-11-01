@@ -49,7 +49,7 @@ MonoBehaviour:
   nameText: {fileID: 0}
   dialogueText: {fileID: 0}
   animator: {fileID: 0}
-  characterUpdateTime: 0.04
+  characterUpdateTime: 0.03
   playerMovement: {fileID: 0}
 --- !u!114 &2395599996085937827
 MonoBehaviour:
