@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MouseSelect : MonoBehaviour
 {
+    [SerializeField]
+    private LayerMask layer;
+
     private GameObject highlightedObject;
     private GameObject selectedObject;
     public float maxRayDistance;
@@ -33,11 +37,10 @@ public class MouseSelect : MonoBehaviour
     void FixedUpdate()
     {
         // Detect which card the mouse is hovering over
-        int layerMask = 1 << 8;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         Debug.DrawRay(ray.origin, ray.direction*maxRayDistance, Color.yellow);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, maxRayDistance, layerMask))
+        if (Physics.Raycast(ray, out hit, maxRayDistance, layer.value))
         {
             highlightedObject = hit.collider.gameObject;
             

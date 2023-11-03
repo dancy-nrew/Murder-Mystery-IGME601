@@ -12,10 +12,4 @@ public class Card : MonoBehaviour
     {
         cardData = new CardData(face, suit);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -4,26 +4,36 @@ using UnityEngine;
 
 public class HandFactory : MonoBehaviour
 {
+
     public HandContainer Player1Hand;
     public HandContainer Player2Hand;
     public float xOffset;
     public float xOrigin;
+    public float zOrigin;
+    public float zOffset;
     public List<GameObject> WitnessCards = new List<GameObject>();
     public List<GameObject> LocationCards = new List<GameObject>();
     public List<GameObject> MotiveCards = new List<GameObject>();
 
     void Awake()
     {
-        DealCards(1);
-        DealCards(2);
+        DealCards(ConstantParameters.PLAYER_1);
+        DealCards(ConstantParameters.PLAYER_2);
     }
 
     void DealCards(int player)
     {
+        /*
+            This function deals cards to each players hand. It instantiates the card objects and assigns them to the HandContainer
+            for the respective player.
+
+            Inputs:
+            player - int to determine which player we're dealing with.
+        */
         HandContainer handToDealTo;
-        float xRot = 35.0f;
-        if (player == 1) { handToDealTo = Player1Hand; xRot = xRot * -1; }
-        else {  handToDealTo = Player2Hand; xRot -= 180.0f; }
+        int zMod = 1;
+        if (player == ConstantParameters.PLAYER_1) { handToDealTo = Player1Hand; }
+        else {  handToDealTo = Player2Hand; zMod *= -1; }
 
         List<int> dealtWitnessCards = new List<int>();
         List<int> dealtLocationCards = new List<int>();
@@ -31,28 +41,44 @@ public class HandFactory : MonoBehaviour
         Array suits = Enum.GetValues(typeof(Suit));
 
         for (int i = 0; i < ConstantParameters.MAX_HAND_SIZE; i++) {
+
             Suit suit = (Suit)suits.GetValue((int)UnityEngine.Random.Range(0, suits.Length));
             (int, GameObject) chosenCard = GetCardFromSuit(suit, dealtWitnessCards, dealtLocationCards, dealtMotiveCards);
-            Quaternion rotation = Quaternion.Euler(xRot, 0, 0);
             Vector3 targetPosition = handToDealTo.gameObject.transform.position;
-            Vector3 instantiateLocation = new Vector3(targetPosition.x + xOrigin + (xOffset*i), targetPosition.y + (0.25f*i), targetPosition.z - xOffset*i*0.5f);
-            GameObject instantiatedCard = Instantiate(chosenCard.Item2, instantiateLocation, rotation);
+            float zAdjust = (zOffset * (i%2)+ zOrigin) * zMod;
+            Vector3 instantiateLocation = new Vector3(targetPosition.x + (xOffset*i) + xOrigin, targetPosition.y, targetPosition.z  + zAdjust);
+            GameObject instantiatedCard = Instantiate(chosenCard.Item2, instantiateLocation, Quaternion.identity);
             if (player == 1)
             {
                 instantiatedCard.AddComponent<MouseSelect>();
             }
-            handToDealTo.DealCard(instantiatedCard);
+            handToDealTo.ReceiveCard(instantiatedCard);
+            handToDealTo.MoveToHand(instantiatedCard, zOrigin*zMod);
         }
     }
 
     private (int,GameObject) GetCardFromSuit(Suit suit, List<int> dealtWitness, List<int> dealtLocation, List<int> dealtMotive)
     {
+        /*
+            This function picks an available card prefab from the deck within the suit specified in the parameters 
+            to be instantiated in later.
+
+            Inputs:
+            Suit enum - the suit to pick from
+            dealtWitness list - a list of already dealt witness cards. We don't want to deal the same card twice. Passed by reference.
+            dealtLocation list - same as dealtWitness, but for location cards
+            dealtMotive list -  same as dealtWitness, but for motive cards.
+
+            Outputs -
+            Tuple of (int, GameObject)
+            The int represent the index of the dealt card within the list. 
+            The GameObject is the card to instantiate.
+        */
         GameObject gO;
         int index;
 
         if (suit == Suit.WITNESS)
         {
-            // We don't deal the same card twice
             index = (int)UnityEngine.Random.Range(0, WitnessCards.Count - 1);
             while (dealtWitness.Contains(index))
             {
@@ -63,7 +89,6 @@ public class HandFactory : MonoBehaviour
 
         } else if (suit == Suit.LOCATION)
         {
-            // We don't deal the same card twice
             index = (int)UnityEngine.Random.Range(0, LocationCards.Count - 1);
             while (dealtLocation.Contains(index))
             {
@@ -73,7 +98,6 @@ public class HandFactory : MonoBehaviour
             dealtLocation.Add(index);
         } else
         {
-            // We don't deal the same card twice
             index = (int)UnityEngine.Random.Range(0, MotiveCards.Count - 1);
             while (dealtMotive.Contains(index))
             {

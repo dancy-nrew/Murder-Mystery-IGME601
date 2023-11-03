@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1382496752623421586}
   - component: {fileID: 4521168324458447414}
   - component: {fileID: 6017250805344271687}
+  - component: {fileID: 4788362563466195744}
+  - component: {fileID: 1185375520755602860}
   m_Layer: 8
   m_Name: Card-7L
   m_TagString: Untagged
@@ -28,13 +30,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7678020374959593759}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.35, y: 1, z: 0.56}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8120962095405622358
 MeshFilter:
@@ -134,4 +136,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1c5d86eacfed94cafeaf1a6a8e1055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followDistance: 17
+  followDistance: 250
+--- !u!114 &4788362563466195744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7678020374959593759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ac7112e8f19564c844b1510b5aba1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1185375520755602860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7678020374959593759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27664ddfc6b8b4448ba7060db19434f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
