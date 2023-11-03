@@ -17,6 +17,9 @@ public class DialogueTree : ScriptableObject
     public List<Node> nodes = new List<Node>();
     public List<Dialogue> dialogues = new List<Dialogue>();
 
+    public bool bIsInputting = false;
+    public InputNode inputtingNode = null;
+
     public Dictionary<string, bool> parameters = new Dictionary<string, bool>();
 
     public Node.NodeState UpdateTree()
@@ -28,8 +31,18 @@ public class DialogueTree : ScriptableObject
         }
 
         Debug.Log("Call to dialogue manager");
-        DialogueManager.Instance.StartDialogue(dialogues);
+        DialogueManager.Instance.StartDialogue(dialogues, bIsInputting, inputtingNode);
         return treeState;
+    }
+
+    public Dialogue QueryTree()
+    {
+        if (rootNode.state == Node.NodeState.Running)
+        {
+            return rootNode.UpdateNode(this);
+        }
+
+        return null;
     }
 
 #if (UNITY_EDITOR)
@@ -101,6 +114,12 @@ public class DialogueTree : ScriptableObject
             }
         }
 
+        InputNode inputNode = parent as InputNode;
+        if(inputNode)
+        {
+            inputNode.children.Add(child);
+        }
+
         RootNode rootNode = parent as RootNode;
         if (rootNode)
         {
@@ -130,6 +149,11 @@ public class DialogueTree : ScriptableObject
             }
         }
 
+        InputNode inputNode = parent as InputNode;
+        if (inputNode)
+        {
+            inputNode.children.Remove(child);
+        }
 
         RootNode rootNode = parent as RootNode;
         if (rootNode)
@@ -153,6 +177,12 @@ public class DialogueTree : ScriptableObject
         if (choiceNode)
         {
            return choiceNode.children;
+        }
+
+        InputNode inputNode = parent as InputNode;
+        if (inputNode)
+        {
+            return inputNode.children;
         }
 
         RootNode rootNode = parent as RootNode;

@@ -28,6 +28,8 @@ public class DialogueManager : MonoBehaviour
     private Queue<Dialogue> dialogueQueue;
     private int currentSentence = 0;
     private bool bIsCharacterCoroutineRunning = false;
+    private bool bIsInputting;
+    private InputNode inputNode;
 
     private void Awake()
     {
@@ -50,7 +52,7 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(List<Dialogue> dialogues)
+    public void StartDialogue(List<Dialogue> dialogues, bool bIsInputting, InputNode inputNode)
     {
         animator.SetBool("bIsOpen", true);
         Debug.Log("Showing Dialogues " + dialogues.Count);
@@ -58,6 +60,8 @@ public class DialogueManager : MonoBehaviour
         dialogueQueue.Clear();
         dialogueQueue = new Queue<Dialogue>(dialogues);
         currentSentence = 0;
+        this.bIsInputting = bIsInputting;
+        this.inputNode = inputNode;
 
         DisplayNextSentence();
     }
@@ -75,8 +79,15 @@ public class DialogueManager : MonoBehaviour
             }
             if (dialogueQueue.Count == 0)
             {
-                EndDialogue();
-                return;
+                if(bIsInputting)
+                {
+                    DisplayInputOptions();
+                }
+                else
+                {
+                    EndDialogue();
+                    return;
+                }   
             }
 
             nameText.text = dialogueQueue.Peek().characterName;
@@ -112,6 +123,14 @@ public class DialogueManager : MonoBehaviour
         }
 
         bIsCharacterCoroutineRunning = false;
+    }
+
+    private void DisplayInputOptions()
+    {
+        if(inputNode != null)
+        {
+
+        }
     }
 
     private void EndDialogue()

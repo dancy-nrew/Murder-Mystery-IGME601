@@ -38,6 +38,9 @@ public class SequenceNode : Node
             }*/
 
             child.UpdateNode(dialogueTree);
+            if (dialogueTree.bIsInputting)
+                return NodeState.Success;
+
             current++;
         }
        

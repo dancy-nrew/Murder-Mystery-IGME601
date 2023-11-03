@@ -6,7 +6,7 @@ using UnityEngine;
 public class ChoiceNode : Node
 {
     public List<Node> children = new List<Node>(2);
-    public List<DialogueData.DialogueParameter> gateConditions = new List<DialogueData.DialogueParameter>();
+    public List<DialogueData.DialogueParameter> choiceConditions = new List<DialogueData.DialogueParameter>();
 
     protected override void OnStart()
     {
@@ -14,7 +14,7 @@ public class ChoiceNode : Node
         bool bChooseRandom = false;
         bool result = true;
 
-        foreach (var cond in gateConditions)
+        foreach (var cond in choiceConditions)
         {
             if(cond.parameterKey.Equals("bChooseRandom"))
             {
