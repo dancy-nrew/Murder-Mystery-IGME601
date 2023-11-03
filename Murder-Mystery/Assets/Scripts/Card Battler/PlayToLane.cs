@@ -131,6 +131,6 @@ public class PlayToLane : MonoBehaviour
         An int that is either -1 or 1
         */
 
-        return ((zeroOrOne+1)*2)-3;
+        return zeroOrOne*2-1;
     }
 }
