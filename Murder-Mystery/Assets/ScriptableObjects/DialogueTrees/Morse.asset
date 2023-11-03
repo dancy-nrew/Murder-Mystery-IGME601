@@ -1,0 +1,256 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8702488160101048429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 4255eaf6687d27043844f83a5aca6863
+  position: {x: 826.00006, y: -131.00003}
+  dialogue:
+    characterName: Ace
+    sentences:
+    - Any idea who might have done it?
+  gateConditions: []
+--- !u!114 &-8005208336477958087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: f90d89fc9937da64fadca50540f9de09
+  position: {x: 826.00006, y: 115.49999}
+  dialogue:
+    characterName: Ace
+    sentences:
+    - When did you last see Dr Yates alive?
+  gateConditions: []
+--- !u!114 &-6649927766825034018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 67c0feaa96366554badc393c61cf9ed6
+  position: {x: 178.5375, y: 0.00005132675}
+  children:
+  - {fileID: 3487598426721512029}
+  - {fileID: 787518161192313271}
+  - {fileID: -6213239286826712717}
+--- !u!114 &-6213239286826712717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf40963fd2fd84044a361d2c75c38fa7, type: 3}
+  m_Name: ChoiceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 720f26a3ab01ec04e807e180a4b23605
+  position: {x: 444, y: 26.500015}
+  children:
+  - {fileID: 8269827892772392620}
+  - {fileID: 8841318539546424613}
+  gateConditions:
+  - parameterKey: bChooseRandom
+    parameterValue: 1
+--- !u!114 &-5144565085018274954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 5b1cf04f8b320874b8cda71ba9ee1665
+  position: {x: 825.9651, y: 230.99998}
+  dialogue:
+    characterName: Dr. Morse
+    sentences:
+    - I saw her on Saturday while I was packing up my office.
+    - She gave me a gift.
+  gateConditions: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba83d73ca578896468e40ca6498119b9, type: 3}
+  m_Name: Morse
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 3722634050087192308}
+  treeState: 0
+  nodes:
+  - {fileID: 3722634050087192308}
+  - {fileID: 3487598426721512029}
+  - {fileID: -6649927766825034018}
+  - {fileID: -6213239286826712717}
+  - {fileID: -8702488160101048429}
+  - {fileID: 787518161192313271}
+  - {fileID: -8005208336477958087}
+  - {fileID: 7100391114920008011}
+  - {fileID: 8269827892772392620}
+  - {fileID: 8841318539546424613}
+  - {fileID: -5144565085018274954}
+  dialogues: []
+--- !u!114 &787518161192313271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: c515774526f26e049ac80a63caba0537
+  position: {x: 444, y: -131.22247}
+  dialogue:
+    characterName: Dr. Morse
+    sentences:
+    - Thank you.
+    - "I just can\u2019t believe she\u2019s gone."
+  gateConditions: []
+--- !u!114 &3487598426721512029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ee192883f63101545a65f7b9d7a1a4d8
+  position: {x: 444, y: -244.22249}
+  dialogue:
+    characterName: Ace
+    sentences:
+    - I hear that you and Dr Yates were close.
+    - " I\u2019m sorry for your loss."
+  gateConditions: []
+--- !u!114 &3722634050087192308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ec560865062a6409c5395eac34b9be, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ccc206bb1647f8b46b10fbae9c30c935
+  position: {x: 0, y: 0}
+  child: {fileID: -6649927766825034018}
+--- !u!114 &7100391114920008011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 6bb8e975c4ef0314db310f3c9a1393fc
+  position: {x: 825.9651, y: -0.000011444092}
+  dialogue:
+    characterName: Dr Morse
+    sentences:
+    - "I\u2019d hate to point fingers at anyone, but Dr Reeves and Dr Stone hated
+      Bea."
+  gateConditions: []
+--- !u!114 &8269827892772392620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 016d7dd5408c4d641800b662000de564
+  position: {x: 642.96515, y: -0.000011444092}
+  children:
+  - {fileID: -8702488160101048429}
+  - {fileID: 7100391114920008011}
+--- !u!114 &8841318539546424613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 7996e34f4beb51b48ba041d7e9df6ef2
+  position: {x: 642.96515, y: 154}
+  children:
+  - {fileID: -8005208336477958087}
+  - {fileID: -5144565085018274954}

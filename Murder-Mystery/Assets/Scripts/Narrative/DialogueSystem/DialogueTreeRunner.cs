@@ -9,6 +9,8 @@ public class DialogueTreeRunner : MonoBehaviour
 
     [SerializeField]
     DialogueTree dialogueTree;
+    [SerializeField]
+    private string characterName;
 
     void Start()
     {
@@ -24,5 +26,6 @@ public class DialogueTreeRunner : MonoBehaviour
     public void UpdateTree()
     {
         dialogueTree.UpdateTree();
+        DialogueDataWriter.Instance.UpdateDialogueData("bHasTalkedTo" + characterName, true);
     }
 }
