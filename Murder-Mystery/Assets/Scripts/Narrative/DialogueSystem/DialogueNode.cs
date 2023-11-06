@@ -13,6 +13,7 @@ public class DialogueNode : Node
     protected override void OnStart()
     {
         bool result = true;
+        
         foreach(var cond  in gateConditions)
         {
             result = result && (DialogueDataWriter.Instance.CheckCondition(cond.parameterKey, cond.parameterValue));
@@ -22,14 +23,16 @@ public class DialogueNode : Node
 
         if(dialogueTree != null)
         {
-            dialogueTree.dialogues.Add(dialogue);
+            //dialogueTree.dialogues.Add(dialogue);
+
+            dialogueTree.currentDialogue = dialogue;
         }
         //Debug.Log(characterName);
     }
 
     protected override void OnStop()
     {
-        state = NodeState.Running;
+        //state = NodeState.Running;
     }
 
     protected override NodeState OnUpdate()

@@ -11,9 +11,9 @@ public class InputNode : Node
     {
         if (dialogueTree != null)
         {
-            dialogueTree.dialogues.Add(dialogue);
-            dialogueTree.bIsInputting = true;
-            dialogueTree.inputtingNode = this;
+            //dialogueTree.dialogues.Add(dialogue);
+           /* dialogueTree.bIsInputting = true;
+            dialogueTree.inputtingNode = this;*/
         }
        
     }
@@ -28,10 +28,11 @@ public class InputNode : Node
         return NodeState.Success;
     }
 
-    public override Node Clone()
+    public override Node Clone(DialogueTree tree)
     {
         InputNode node = Instantiate(this);
-        node.children = children.ConvertAll(c => c.Clone());
+        tree.nodes.Add(node);
+        node.children = children.ConvertAll(c => c.Clone(tree));
         return node;
     }
 }

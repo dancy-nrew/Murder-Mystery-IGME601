@@ -17,12 +17,14 @@ public class DialogueTree : ScriptableObject
     public List<Node> nodes = new List<Node>();
     public List<Dialogue> dialogues = new List<Dialogue>();
 
-    public bool bIsInputting = false;
-    public InputNode inputtingNode = null;
+   /* public bool bIsInputting = false;
+    public InputNode inputtingNode = null;*/
+
+    public Dialogue currentDialogue;
 
     public Dictionary<string, bool> parameters = new Dictionary<string, bool>();
 
-    public Node.NodeState UpdateTree()
+    /*public Node.NodeState UpdateTree()
     {
         dialogues.Clear();
         if(rootNode.state == Node.NodeState.Running)
@@ -33,16 +35,22 @@ public class DialogueTree : ScriptableObject
         Debug.Log("Call to dialogue manager");
         DialogueManager.Instance.StartDialogue(dialogues, bIsInputting, inputtingNode);
         return treeState;
-    }
+    }*/
 
     public Dialogue QueryTree()
     {
-        if (rootNode.state == Node.NodeState.Running)
-        {
-            return rootNode.UpdateNode(this);
-        }
+        currentDialogue = null;
+        treeState = rootNode.UpdateNode(this);
 
-        return null;
+        return currentDialogue;
+    }
+
+    public void ResetTree()
+    {
+        foreach (Node node in nodes)
+        {
+            node.state = Node.NodeState.Running;
+        }
     }
 
 #if (UNITY_EDITOR)
@@ -197,7 +205,8 @@ public class DialogueTree : ScriptableObject
     public DialogueTree Clone()
     {
         DialogueTree tree = Instantiate(this);
-        tree.rootNode = tree.rootNode.Clone();
+        tree.nodes.Clear();
+        tree.rootNode = tree.rootNode.Clone(tree);
         return tree;
     }
 }

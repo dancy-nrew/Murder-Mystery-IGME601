@@ -136,6 +136,9 @@ MonoBehaviour:
   - {fileID: -4268800876743210934}
   - {fileID: 2327859408555519695}
   dialogues: []
+  currentDialogue:
+    characterName: 
+    sentences: []
 --- !u!114 &864044767015620333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +158,7 @@ MonoBehaviour:
   children:
   - {fileID: 4225973161984396185}
   - {fileID: -5058653546833161124}
-  gateConditions:
+  choiceConditions:
   - parameterKey: bHasTalkedToReeves
     parameterValue: 1
 --- !u!114 &1236862387964843337

@@ -13,7 +13,7 @@ public class SequenceNode : Node
 
     protected override void OnStart()
     {
-        current = 0;
+        
     }
 
     protected override void OnStop()
@@ -23,7 +23,8 @@ public class SequenceNode : Node
 
     protected override NodeState OnUpdate()
     {
-        while(current < children.Count)
+        current = 0;
+        while (current < children.Count)
         {
             Node child = children[current];
             /*switch (child.UpdateNode(dialogueTree))
@@ -36,12 +37,18 @@ public class SequenceNode : Node
                     current++;
                     break;
             }*/
-
-            child.UpdateNode(dialogueTree);
-            if (dialogueTree.bIsInputting)
-                return NodeState.Success;
-
-            current++;
+            //NodeState nodeState;
+            if(child.state == NodeState.Success)
+            {
+                current++;
+                continue;
+            }
+            else
+            {
+                child.UpdateNode(dialogueTree);
+                break;
+            }
+            
         }
        
 
@@ -49,10 +56,11 @@ public class SequenceNode : Node
 
     }
 
-    public override Node Clone()
+    public override Node Clone(DialogueTree tree)
     {
         SequenceNode node = Instantiate(this);
-        node.children = children.ConvertAll(c => c .Clone());
+        tree.nodes.Add(node);
+        node.children = children.ConvertAll(c => c .Clone(tree));
         return node;
     }
 }
