@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+ * IN PROGRESS CLASS
+ */
 public class InputNode : Node
 {
     public Dialogue dialogue;

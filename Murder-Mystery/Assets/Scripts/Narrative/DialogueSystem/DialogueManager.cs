@@ -6,7 +6,8 @@ using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 
 // Adapted from https://youtu.be/_nRzoTzeyxU?si=AB3_KumtIm_VuaVb
-// Class handles dialogue ui functionalities
+// Class handles dialogue ui functionalities by running through a dialogue tree.
+// This class is called from objects that have the dialouge tree runner script on them.
 
 public class DialogueManager : MonoBehaviour
 {
@@ -53,19 +54,11 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-   /* public void StartDialogue(List<Dialogue> dialogues)
-    {
-        animator.SetBool("bIsOpen", true);
-        Debug.Log("Showing Dialogues " + dialogues.Count);
-
-        dialogueQueue.Clear();
-        dialogueQueue = new Queue<Dialogue>(dialogues);
-        currentSentence = 0;
-
-        DisplayNextSentence();
-    }*/
-
-
+    /*
+     * This function takes in a dialogue tree and starts the process of displaying dialogue by displaying the first sentence.
+     * Input: 
+     * dialogue Tree: The dialogue tree asset to be traversed.
+     */
     public void ShowDialogue(DialogueTree dialogueTree)
     {
         Debug.Log("Showing dialogues");
@@ -93,60 +86,15 @@ public class DialogueManager : MonoBehaviour
     }
 
     /*
+     * This function displays the next sentence of the current dialogue tree or fast-forwards current sentence.
+     * Called when continue buttone is hit in the dialouge box.
+     */
     public void DisplayNextSentence()
     {
-
-        // If previous senetence is not being typed out, go to next sentence.
-         if(!bIsCharacterCoroutineRunning)
-         {
-             if (currentSentence >= dialogueQueue.Peek().sentences.Length)
-             {
-                 dialogueQueue.Dequeue();
-                 currentSentence = 0;
-             }
-             if (dialogueQueue.Count == 0)
-             {
-                 if(bIsInputting)
-                 {
-                     DisplayInputOptions();
-                 }
-                 else
-                 {
-                     EndDialogue();
-                     return;
-                 }   
-             }
-
-             nameText.text = dialogueQueue.Peek().characterName;
-             string sentence = dialogueQueue.Peek().sentences[currentSentence];
-
-             characterUpdateCoroutine = StartCoroutine(TypeSentence(sentence));
-             bIsCharacterCoroutineRunning = true;
-             currentSentence++; 
-         }
-
-         // Otherwise go fast-forward the current sentence.
-         else
-         {
-             if(characterUpdateCoroutine != null)
-             {
-                 StopCoroutine(characterUpdateCoroutine);
-                 bIsCharacterCoroutineRunning = false;
-             }
-
-             nameText.text = dialogueQueue.Peek().characterName;
-             dialogueText.text = dialogueQueue.Peek().sentences[currentSentence - 1];
-         } 
-        
-    }
-    */
-
-    public void DisplayNextSentence()
-    {
-        //Debug.Log("Displaying Sentence, current sentence : " + currentSentence);
 
         if (!currentDialogueTree) return;
 
+        // If the senetence is not being animated in.
         if (!bIsCharacterCoroutineRunning)
         {
             if (currentSentence >= currentDialogue.sentences.Length)
@@ -184,6 +132,10 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    /* Coroutine that animates the senetence letter by letter.
+     * Input:
+     * sentence: string to be animated in.
+     */
     IEnumerator TypeSentence(string sentence)
     {
        
@@ -197,14 +149,9 @@ public class DialogueManager : MonoBehaviour
         bIsCharacterCoroutineRunning = false;
     }
 
-/*    private void DisplayInputOptions()
-    {
-        if(inputNode != null)
-        {
-
-        }
-    }*/
-
+    /*
+     * Function is called after a dialouge tree has been completed. Closes dialogue box.
+     */
     private void EndDialogue()
     {
         Debug.Log("Ending dialogue");
@@ -216,6 +163,11 @@ public class DialogueManager : MonoBehaviour
         playerMovement.SetIsUIEnabled(false);
     }
 
+    /*
+     * Debug Function to output dialogue object to console.
+     * Input:
+     * d: Dialogue asset to be printed to console.
+     */
     private void DisplayDialogue(Dialogue d)
     {
         if(d == null)

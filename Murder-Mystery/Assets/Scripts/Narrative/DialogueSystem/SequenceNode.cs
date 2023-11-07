@@ -27,17 +27,6 @@ public class SequenceNode : Node
         while (current < children.Count)
         {
             Node child = children[current];
-            /*switch (child.UpdateNode(dialogueTree))
-            {
-                case NodeState.Running:
-                    return NodeState.Running;
-                case NodeState.Failure:
-                    return NodeState.Failure;
-                case NodeState.Success:
-                    current++;
-                    break;
-            }*/
-            //NodeState nodeState;
             if(child.state == NodeState.Success)
             {
                 current++;
