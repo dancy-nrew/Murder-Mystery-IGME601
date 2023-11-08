@@ -15,18 +15,24 @@ public class RootNode : Node
 
     protected override void OnStop()
     {
-        state = NodeState.Running;
+        
     }
 
     protected override NodeState OnUpdate()
     {
-        return child.UpdateNode(dialogueTree);
+        if(child.state != NodeState.Success)
+        {
+            return child.UpdateNode(dialogueTree);
+        }
+        
+        return NodeState.Success; 
     }
 
-    public override Node Clone()
+    public override Node Clone(DialogueTree tree)
     {
         RootNode node = Instantiate(this);
-        node.child = child.Clone();
+        tree.nodes.Add(node);
+        node.child = child.Clone(tree);
         return node;
     }
 }

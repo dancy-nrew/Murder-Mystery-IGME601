@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine;
 // Base class of all nodes.
 public abstract class Node : ScriptableObject
 {
+    [Serializable]
     public enum NodeState
     {
         Running,
@@ -13,7 +15,6 @@ public abstract class Node : ScriptableObject
         Success
     }
 
-    [HideInInspector]
     public NodeState state = NodeState.Running;
     [HideInInspector]
     public bool started = false;
@@ -26,7 +27,7 @@ public abstract class Node : ScriptableObject
 
 
 
-    public NodeState UpdateNode(DialogueTree dialogueTree)
+   /* public NodeState UpdateNode(DialogueTree dialogueTree)
     {
         this.dialogueTree = dialogueTree;
         if(!started)
@@ -44,11 +45,33 @@ public abstract class Node : ScriptableObject
         }
 
         return state;
+    }*/
+
+    public NodeState UpdateNode(DialogueTree dialogueTree)
+    {
+        this.dialogueTree = dialogueTree;
+        if (!started)
+        {
+            OnStart();
+            started = true;
+        }
+        
+        state = OnUpdate();
+
+        if (state == NodeState.Failure || state == NodeState.Success)
+        {
+            OnStop();
+            started = false;
+        }
+
+        return state;
     }
 
-    public virtual Node Clone()
+    public virtual Node Clone(DialogueTree tree)
     {
-        return Instantiate(this);
+        Node node =  Instantiate(this);
+        tree.nodes.Add(node);
+        return node;
     }
 
     protected abstract void OnStart();

@@ -12,6 +12,7 @@ public class DialogueTreeRunner : MonoBehaviour
     [SerializeField]
     private string characterName;
 
+    // Clones dialogue tree in case multiple object hold the same dialogueTree.
     void Start()
     {
         dialogueTree = dialogueTree.Clone();
@@ -23,9 +24,11 @@ public class DialogueTreeRunner : MonoBehaviour
         //dialogueTree.UpdateTree();
     }
 
+    /*
+     * Function to ask dialogue manager to run DialogueTree asset.
+     */
     public void UpdateTree()
     {
-        dialogueTree.UpdateTree();
-        DialogueDataWriter.Instance.UpdateDialogueData("bHasTalkedTo" + characterName, true);
+        DialogueManager.Instance.ShowDialogue(dialogueTree);
     }
 }
