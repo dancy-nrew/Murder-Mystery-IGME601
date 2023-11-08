@@ -9,9 +9,18 @@ public class InteractableFinder : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Interactable interactable = other.gameObject.GetComponentInParent<Interactable>();
-        if (interactable)
+        if (interactable && interactable.bIsInteractable)
         {
-            Debug.Log("Interactable Found");
+            interactable.StartHighlightingInteractable();
         }    
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Interactable interactable = other.gameObject.GetComponentInParent<Interactable>();
+        if (interactable && interactable.bIsInteractable)
+        {
+            interactable.StopHighlightingInteractable();
+        }
     }
 }
