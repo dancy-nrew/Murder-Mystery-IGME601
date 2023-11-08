@@ -13,9 +13,10 @@ public class NPCInteractable : Interactable
 
     public override void OnInteraction()
     {
-        Debug.Log("Interacted");
         if (dialogueTreeRunner == null)
             return;
+
+        Debug.Log("Calling Dialouge tree runner");
         dialogueTreeRunner.UpdateTree();
     }
 

@@ -6,7 +6,8 @@ using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 
 // Adapted from https://youtu.be/_nRzoTzeyxU?si=AB3_KumtIm_VuaVb
-// Class handles dialogue ui functionalities
+// Class handles dialogue ui functionalities by running through a dialogue tree.
+// This class is called from objects that have the dialouge tree runner script on them.
 
 public class DialogueManager : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class DialogueManager : MonoBehaviour
     private int currentSentence = 0;
     private bool bIsCharacterCoroutineRunning = false;
 
+    private DialogueTree currentDialogueTree;
+    private Dialogue currentDialogue;
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -50,57 +54,88 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(List<Dialogue> dialogues)
+    /*
+     * This function takes in a dialogue tree and starts the process of displaying dialogue by displaying the first sentence.
+     * Input: 
+     * dialogue Tree: The dialogue tree asset to be traversed.
+     */
+    public void ShowDialogue(DialogueTree dialogueTree)
     {
-        animator.SetBool("bIsOpen", true);
-        Debug.Log("Showing Dialogues " + dialogues.Count);
+        Debug.Log("Showing dialogues");
+        if (!dialogueTree || (currentDialogueTree && currentDialogueTree == dialogueTree))
+        {
+            Debug.Log("No dialogue tree");
+            return;
+        }
+        currentDialogueTree = dialogueTree;
+        currentDialogue = currentDialogueTree.QueryTree();
+        DisplayDialogue(currentDialogue);
+        if (currentDialogue == null)
+        {
+            currentDialogueTree = null;
+            return;
+        }
 
-        dialogueQueue.Clear();
-        dialogueQueue = new Queue<Dialogue>(dialogues);
+        animator.SetBool("bIsOpen", true);
+        playerMovement.SetIsUIEnabled(true);
+        
         currentSentence = 0;
 
         DisplayNextSentence();
+       
     }
 
+    /*
+     * This function displays the next sentence of the current dialogue tree or fast-forwards current sentence.
+     * Called when continue buttone is hit in the dialouge box.
+     */
     public void DisplayNextSentence()
     {
 
-        // If previous senetence is not being typed out, go to next sentence.
-        if(!bIsCharacterCoroutineRunning)
+        if (!currentDialogueTree) return;
+
+        // If the senetence is not being animated in.
+        if (!bIsCharacterCoroutineRunning)
         {
-            if (currentSentence >= dialogueQueue.Peek().sentences.Length)
+            if (currentSentence >= currentDialogue.sentences.Length)
             {
-                dialogueQueue.Dequeue();
                 currentSentence = 0;
+                currentDialogue = currentDialogueTree.QueryTree();
+                DisplayDialogue(currentDialogue);
             }
-            if (dialogueQueue.Count == 0)
+
+            if (currentDialogue == null)
             {
                 EndDialogue();
                 return;
             }
 
-            nameText.text = dialogueQueue.Peek().characterName;
-            string sentence = dialogueQueue.Peek().sentences[currentSentence];
+            nameText.text = currentDialogue.characterName;
+            string sentence = currentDialogue.sentences[currentSentence];
 
             characterUpdateCoroutine = StartCoroutine(TypeSentence(sentence));
             bIsCharacterCoroutineRunning = true;
-            currentSentence++; 
+            currentSentence++;
         }
 
         // Otherwise go fast-forward the current sentence.
         else
         {
-            if(characterUpdateCoroutine != null)
+            if (characterUpdateCoroutine != null)
             {
                 StopCoroutine(characterUpdateCoroutine);
                 bIsCharacterCoroutineRunning = false;
             }
 
-            nameText.text = dialogueQueue.Peek().characterName;
-            dialogueText.text = dialogueQueue.Peek().sentences[currentSentence - 1];
+            nameText.text = currentDialogue.characterName;
+            dialogueText.text = currentDialogue.sentences[currentSentence - 1];
         }
     }
 
+    /* Coroutine that animates the senetence letter by letter.
+     * Input:
+     * sentence: string to be animated in.
+     */
     IEnumerator TypeSentence(string sentence)
     {
        
@@ -114,9 +149,40 @@ public class DialogueManager : MonoBehaviour
         bIsCharacterCoroutineRunning = false;
     }
 
+    /*
+     * Function is called after a dialouge tree has been completed. Closes dialogue box.
+     */
     private void EndDialogue()
     {
+        Debug.Log("Ending dialogue");
         animator.SetBool("bIsOpen", false);
+
+        currentDialogueTree.ResetTree();
+        currentDialogueTree = null;
+        
         playerMovement.SetIsUIEnabled(false);
+    }
+
+    /*
+     * Debug Function to output dialogue object to console.
+     * Input:
+     * d: Dialogue asset to be printed to console.
+     */
+    private void DisplayDialogue(Dialogue d)
+    {
+        if(d == null)
+        {
+            Debug.Log("Null Dialogue");
+        }
+        else
+        {
+            Debug.Log(d.characterName);
+            foreach (string s in d.sentences)
+            {
+                Debug.Log(s);
+            }
+        }
+       
+        Debug.Log("----------------------------------------");
     }
 }
