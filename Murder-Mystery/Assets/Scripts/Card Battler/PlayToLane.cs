@@ -51,13 +51,10 @@ public class PlayToLane : MonoBehaviour
         if (bHit){
             // I have hit something in the ground layer, which for this scene must be a lane
             if (raycastHit.collider.gameObject.name == LANE1_NAME){
-                int laneCardCount = _boardManager.GetCardsInLaneForPlayer(ConstantParameters.PLAYER_1, ConstantParameters.LANE_1);
                 MoveToLane(ConstantParameters.LANE_1, ConstantParameters.PLAYER_1);
             } else if (raycastHit.collider.gameObject.name == LANE2_NAME){
-                int laneCardCount = _boardManager.GetCardsInLaneForPlayer(ConstantParameters.PLAYER_1, ConstantParameters.LANE_1);
                 MoveToLane(ConstantParameters.LANE_2, ConstantParameters.PLAYER_1);
             } else{
-                int laneCardCount = _boardManager.GetCardsInLaneForPlayer(ConstantParameters.PLAYER_1, ConstantParameters.LANE_1);
                 MoveToLane(ConstantParameters.LANE_3, ConstantParameters.PLAYER_1);
             }
             gameObject.GetComponent<FollowMouse>().ToggleInmovable();

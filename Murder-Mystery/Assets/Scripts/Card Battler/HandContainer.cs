@@ -21,7 +21,6 @@ public class HandContainer : MonoBehaviour
         Inputs:
         Card - the card to move to the hand
         zOffset - How much cards are offset to move them back into hand
-        
         */
         MovementController mc = card.GetComponent<MovementController>();
         PlayToLane ptl = card.GetComponent<PlayToLane>();
@@ -35,12 +34,18 @@ public class HandContainer : MonoBehaviour
 
     public GameObject GetPhysicalCardReference(int index)
     {
+        /*
+            Returns a reference to the card Game Object as specified by the index
+        */
         GameObject card = cards[index];
         return card;
     }
 
     public GameObject PopCardObject(int index)
     {
+        /*
+            Same as GetPhysicalCardReference but also removes the card from the hand.
+        */
         GameObject card = GetPhysicalCardReference(index);
         cards.RemoveAt(index);
         return card;
