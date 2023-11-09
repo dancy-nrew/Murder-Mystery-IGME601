@@ -4,18 +4,8 @@ using UnityEngine;
 
 public class HandContainer : MonoBehaviour
 {
-    private HandData handData = new HandData(ConstantParameters.MAX_HAND_SIZE);
+    public HandData handData = new HandData(ConstantParameters.MAX_HAND_SIZE);
     private List<GameObject> cards = new List<GameObject>();
-    // Start is called before the first frame update
-    void Awake()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void ReceiveCard(GameObject card)
     {
@@ -43,4 +33,16 @@ public class HandContainer : MonoBehaviour
         ptl.SetHandOrigin(finalPosition);
     }
 
+    public GameObject GetPhysicalCardReference(int index)
+    {
+        GameObject card = cards[index];
+        return card;
+    }
+
+    public GameObject PopCardObject(int index)
+    {
+        GameObject card = GetPhysicalCardReference(index);
+        cards.RemoveAt(index);
+        return card;
+    }
 }

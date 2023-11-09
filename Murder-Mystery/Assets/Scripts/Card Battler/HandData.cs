@@ -49,21 +49,22 @@ public class HandData
     bool isLane;
     public int value;
 
-    public HandData(int size)
+    public HandData(int handSize)
     {
-        this.size = size;
-        this.cards = new List<CardData>();
-        this.isLane = false;
+        size = handSize;
+        cards = new List<CardData>();
+        isLane = false;
     }
 
     public List<CardData> CopyCards()
     {
-        List<CardData> cards = new List<CardData>();
-        for (int i = 0; i < this.cards.Count; i++)
+        List<CardData> newCards = new List<CardData>();
+        for (int i = 0; i < cards.Count; i++)
         {
-            cards.Add(new CardData(this.cards[i].Face, this.cards[i].Suit));
+            CardData card = new CardData(cards[i].Face, cards[i].Suit);
+            newCards.Add(card);
         }
-        return cards;
+        return newCards;
     }
 
     // Clone Support Functions
@@ -170,7 +171,11 @@ public class HandData
         {
             // In case we want to add lane-specific bonuses, add code here
         }
-        int total_face_value = this.cards.Sum(x => x.Face);
+        int total_face_value = 0;
+        foreach(CardData card in cards)
+        {
+            total_face_value += card.Face;
+        }
         this.value += total_face_value;
         this.value += this.CalculateSuitBonuses();
         this.value += this.CalculateSameFaceBonuses();

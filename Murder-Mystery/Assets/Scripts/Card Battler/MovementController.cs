@@ -61,5 +61,5 @@ public class MovementController : MonoBehaviour
         // Interrupts or starts movement.
         _isMoving = !_isMoving;
     }
-    
+
 }
