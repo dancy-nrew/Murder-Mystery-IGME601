@@ -8,13 +8,13 @@ using UnityEngine;
 public class Dialogue
 {
 
-    public string characterName;
+    public CharacterSO.ECharacter character;
+
     [TextArea(3,10)]
     public string[] sentences;
 
-    public Dialogue(string characterName, string[] sentences)
+    public Dialogue(string[] sentences)
     {
-        this.characterName = characterName;
         this.sentences = sentences;
     }
     // Start is called before the first frame update

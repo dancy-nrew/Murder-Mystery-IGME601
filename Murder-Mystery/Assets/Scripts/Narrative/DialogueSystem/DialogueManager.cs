@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueBox;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
+    public Image characterPortraitIMG;
     [SerializeField]
     private Animator animator;
     [SerializeField]
@@ -32,6 +33,7 @@ public class DialogueManager : MonoBehaviour
 
     private DialogueTree currentDialogueTree;
     private Dialogue currentDialogue;
+    private CharacterSO currentCharacter;
 
     private void Awake()
     {
@@ -93,7 +95,8 @@ public class DialogueManager : MonoBehaviour
     {
 
         if (!currentDialogueTree) return;
-
+       
+        
         // If the senetence is not being animated in.
         if (!bIsCharacterCoroutineRunning)
         {
@@ -110,7 +113,10 @@ public class DialogueManager : MonoBehaviour
                 return;
             }
 
-            nameText.text = currentDialogue.characterName;
+            currentCharacter = GetCharacterFromDialogue(currentDialogue);
+
+            nameText.text = currentCharacter.displayName;
+            characterPortraitIMG.sprite = currentCharacter.characterPortrait;
             string sentence = currentDialogue.sentences[currentSentence];
 
             characterUpdateCoroutine = StartCoroutine(TypeSentence(sentence));
@@ -127,7 +133,10 @@ public class DialogueManager : MonoBehaviour
                 bIsCharacterCoroutineRunning = false;
             }
 
-            nameText.text = currentDialogue.characterName;
+            currentCharacter = GetCharacterFromDialogue(currentDialogue);
+
+            nameText.text = currentCharacter.displayName;
+            characterPortraitIMG.sprite = currentCharacter.characterPortrait;
             dialogueText.text = currentDialogue.sentences[currentSentence - 1];
         }
     }
@@ -176,7 +185,8 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.Log(d.characterName);
+            CharacterSO charSO = GetCharacterFromDialogue(d);
+            Debug.Log(charSO.displayName);
             foreach (string s in d.sentences)
             {
                 Debug.Log(s);
@@ -184,5 +194,20 @@ public class DialogueManager : MonoBehaviour
         }
        
         Debug.Log("----------------------------------------");
+    }
+
+    private CharacterSO GetCharacterFromDialogue(Dialogue dialogue)
+    {
+        CharacterSO.ECharacter characterKey = currentDialogue.character;
+        CharacterSO characterSO = null;
+        foreach (CharacterSO charSO in GameManager.Instance.characterList)
+        {
+            if (charSO.character == characterKey)
+            {
+                characterSO = charSO;
+                break;
+            }
+        }
+        return characterSO;
     }
 }
