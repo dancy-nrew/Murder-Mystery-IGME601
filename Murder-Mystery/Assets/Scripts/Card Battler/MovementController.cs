@@ -6,11 +6,12 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     /*
-        This class can be used to animate all kinds of movement for game pieces. Extend this class to add new movement.
+        This class can be used to animate all kinds of movement for game pieces. 
+    
+        Animations are added to a movement list that are executed frame by frame.
+    
+        Extend this class to add new movement.
 
-        To Do:
-        - Still need to add rotations
-        - Add a staging movement to build anticipation before turn reveal.
     */
     private int _elapsedFrames;
     private Vector3 _origin;
@@ -91,6 +92,9 @@ public class MovementController : MonoBehaviour
         }
     }
 
+    /*
+        Methods to add types of movement to the movement chain
+     */
     public void AddMovement(Vector3 destination, int duration)
     {
         MovementDefinition def = new MovementDefinition(destination, duration);

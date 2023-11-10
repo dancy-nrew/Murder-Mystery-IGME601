@@ -15,7 +15,7 @@ public class ConstantParameters
     public const int LANE_3 = 3;
 
     public const int RETURN_TO_HAND_DURATION = 10;
-    public const int ANTICIPATION_ROTATION_DURATION = 60;
-    public const int FLIP_HEIGHT = 1;
+
+    public const int FLIP_HEIGHT = 4;
     public static Vector3 AI_STAGING_DESTINATION = new Vector3(-18,0,0);
 }

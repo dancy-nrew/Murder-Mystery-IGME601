@@ -9,17 +9,6 @@ public class BoardManager : MonoBehaviour
     public delegate void AIMove();
     public static event AIMove OnPlay;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void PlayCardToLane(int player, int lane, CardData card){
         // Have a player play a card to a lane. Refer to BoardState for more details.

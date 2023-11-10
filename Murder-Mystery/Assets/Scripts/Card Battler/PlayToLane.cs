@@ -148,14 +148,20 @@ public class PlayToLane : MonoBehaviour
 
     public void AnticipationMove(int lane)
     {
+        /*
+            Anticipation move for the AI object
+            Inputs:
+                The lane to move this card to
+            
+         */
         MovementController mc = gameObject.GetComponent<MovementController>();
+        int suspense_duration = 20 * TO_LANE_MOVEMENT_DURATION;
 
-        ConfigureMovement(ConstantParameters.AI_STAGING_DESTINATION, 20*TO_LANE_MOVEMENT_DURATION);
-        mc.AddFlip(10*ConstantParameters.ANTICIPATION_ROTATION_DURATION);
+        ConfigureMovement(ConstantParameters.AI_STAGING_DESTINATION, suspense_duration);
+        mc.AddFlip(suspense_duration);
         ConfigureMovement(CalculateMoveToLane(lane, ConstantParameters.PLAYER_2), TO_LANE_MOVEMENT_DURATION);
         mc.ToggleMovement();
 
-        Debug.Log("Updating AI Board Status");
         UpdateBoardStatus(lane, ConstantParameters.PLAYER_2);
     }
 }
