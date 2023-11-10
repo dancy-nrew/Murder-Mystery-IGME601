@@ -68,9 +68,9 @@ public class BoardState
         if (player == ConstantParameters.PLAYER_2)
         {
             // The adversary can never have blocked lanes
-            result.Add(1);
-            result.Add(2);
-            result.Add(3);
+            result.Add(ConstantParameters.LANE_1);
+            result.Add(ConstantParameters.LANE_2);
+            result.Add(ConstantParameters.LANE_3);
             return result;
         }
 
@@ -233,6 +233,20 @@ public class BoardState
         return laneContainer.cards.Count;
     }
 
+    public int GetLaneValue(int player, int lane)
+    {
+        int lane_index = lane - 1;
+        HandData laneContainer;
+        if (player == ConstantParameters.PLAYER_1)
+        {
+            laneContainer = player1_lanes[lane_index];
+        } else
+        {
+            laneContainer = player2_lanes[lane_index];
+        }
+        return laneContainer.value;
+    }
+
     #region AI Support Methods
 
     //Simulate if action will result in lane win
@@ -248,7 +262,7 @@ public class BoardState
         opponentValue = opponentLane.value;
         laneContainer.AddCard(card);
         laneValue = laneContainer.CalculateHandValue();
-        willWin = DecideLaneVictor(laneValue, opponentValue) == 1;
+        willWin = DecideLaneVictor(laneValue, opponentValue) == ConstantParameters.PLAYER_2;
 
         // Remove the last added card to reset the simulation
         laneContainer.PopCard(laneContainer.cards.Count-1);

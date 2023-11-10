@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -78,8 +79,8 @@ public class PlayToLane : MonoBehaviour
         Card card = GetComponent<Card>();
 
         // Calculate information for physical offset in lane
-        int laneCardCount = _boardManager.GetCardsInLaneForPlayer(ConstantParameters.PLAYER_1, lane);
-        float xOffsetForCard = CARD_LANE_CENTER_X_OFFSET*RemapToPosAndNeg(laneCardCount%2);
+        int laneCardCount = _boardManager.GetCardsInLaneForPlayer(player, lane);
+        float xOffsetForCard = CARD_LANE_CENTER_X_OFFSET*MathUtil.RemapToPosAndNeg(laneCardCount%2);
         int row = (laneCardCount / 2) + 1;
         if (player == ConstantParameters.PLAYER_2){ row *= -1; }
 
@@ -123,14 +124,4 @@ public class PlayToLane : MonoBehaviour
         _handOrigin = location;
     }
 
-    private int RemapToPosAndNeg(int zeroOrOne){
-        /* Utility method that maps 0 or 1 to -1 and 1, respectively
-        Inputs:
-        zeroOrOne: An int that is either 0 or 1
-        Outputs:
-        An int that is either -1 or 1
-        */
-
-        return zeroOrOne*2-1;
-    }
 }

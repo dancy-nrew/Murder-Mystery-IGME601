@@ -38,7 +38,6 @@ public class MouseSelect : MonoBehaviour
     {
         // Detect which card the mouse is hovering over
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        Debug.DrawRay(ray.origin, ray.direction*maxRayDistance, Color.yellow);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, maxRayDistance, layer.value))
         {
@@ -48,7 +47,5 @@ public class MouseSelect : MonoBehaviour
         {
             highlightedObject = null;
         }
-
-        
     }
 }
