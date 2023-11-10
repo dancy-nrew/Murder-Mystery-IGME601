@@ -29,6 +29,7 @@ public class BoardManager : MonoBehaviour
         // The AI should decide it's own action before the player's move affects the score on the board
         if (player == ConstantParameters.PLAYER_1)
         {
+            Debug.Log("Intercepting Player Board Status Update");
             if (OnPlay != null)
             {
                 OnPlay();
@@ -37,8 +38,6 @@ public class BoardManager : MonoBehaviour
 
         boardState.PlayerAddCardToLane(player, card, lane-1);
 
-
-        
     }
 
     public int GetCardsInLaneForPlayer(int player, int lane){

@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 public class PlayToLane : MonoBehaviour
 {
-    private float _xOrigin;
     private Vector3 _Lane1Transform;
     
     private Vector3 _Lane2Transform;
@@ -15,7 +14,7 @@ public class PlayToLane : MonoBehaviour
     private Vector3 _handOrigin;
 
     //Constants for movement
-    private const int RETURN_TO_HAND_DURATION = 10;
+    
     private const int TO_LANE_MOVEMENT_DURATION = 20;
     private const float CARD_TO_LANE_HEIGHT_DISTANCE = 0.5f;
     private const float CARD_LANE_CENTER_X_OFFSET = 2;
@@ -42,41 +41,57 @@ public class PlayToLane : MonoBehaviour
         // here corresponds to player 1.
 
         // Syntactic Sugar
-        float xPos = transform.position.x;
         LayerMask groundLayer = LayerMask.NameToLayer("Ground");
 
         RaycastHit raycastHit;
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         bool bHit = Physics.Raycast(ray: ray, hitInfo: out raycastHit, maxDistance: Camera.main.farClipPlane, layerMask:(1<<groundLayer));
         if (bHit){
+            Vector3 destination;
             // I have hit something in the ground layer, which for this scene must be a lane
+            
             if (raycastHit.collider.gameObject.name == LANE1_NAME){
-                MoveToLane(ConstantParameters.LANE_1, ConstantParameters.PLAYER_1);
+                destination = CalculateMoveToLane(ConstantParameters.LANE_1, ConstantParameters.PLAYER_1);
+                UpdateBoardStatus(ConstantParameters.LANE_1, ConstantParameters.PLAYER_1);
             } else if (raycastHit.collider.gameObject.name == LANE2_NAME){
-                MoveToLane(ConstantParameters.LANE_2, ConstantParameters.PLAYER_1);
+                destination = CalculateMoveToLane(ConstantParameters.LANE_2, ConstantParameters.PLAYER_1);
+                UpdateBoardStatus(ConstantParameters.LANE_2, ConstantParameters.PLAYER_1);
             } else{
-                MoveToLane(ConstantParameters.LANE_3, ConstantParameters.PLAYER_1);
+                destination = CalculateMoveToLane(ConstantParameters.LANE_3, ConstantParameters.PLAYER_1);
+                UpdateBoardStatus(ConstantParameters.LANE_3, ConstantParameters.PLAYER_1);
             }
+
             gameObject.GetComponent<FollowMouse>().ToggleInmovable();
+            // Send the info to the movement controller
+            Debug.Log("Engaging movement to lane");
+            EngageMovement(destination, TO_LANE_MOVEMENT_DURATION);
         } else {
             //I am over no lane at all
-            ConfigureMovement(_handOrigin, RETURN_TO_HAND_DURATION);
+            EngageMovement(_handOrigin, ConstantParameters.RETURN_TO_HAND_DURATION);
         }
     }
+    
+    private void UpdateBoardStatus(int lane, int player)
+    {
+        Card card = GetComponent<Card>();
+        
+        // Add this card's information to the lane container
+        _boardManager.PlayCardToLane(player, lane, card.cardData);
+    }
 
-    public void MoveToLane(int lane, int player){
+    private Vector3 CalculateMoveToLane(int lane, int player){
         /*
-            Move this physical object to one of the lanes, informed by which player made the movement.
-            
-            This mutates the state of the board.
+            Determine where this physical object will land, informed by which player made the movement.
 
             Inputs:
             lane - int to indicate which lane this card is being played
             player - int to indicate which player is making the move
+            
+            Outputs:
+            Destination vector, including any relevant offsets
         */ 
 
         Vector3 destination;
-        Card card = GetComponent<Card>();
 
         // Calculate information for physical offset in lane
         int laneCardCount = _boardManager.GetCardsInLaneForPlayer(player, lane);
@@ -95,14 +110,17 @@ public class PlayToLane : MonoBehaviour
 
         // Modify destination transform by offset
         destination += new Vector3(xOffsetForCard, CARD_TO_LANE_HEIGHT_DISTANCE, row*ROW_OFFSET);
+        return destination;
 
-        // Send the info to the movement controller
-        ConfigureMovement(destination, TO_LANE_MOVEMENT_DURATION);
-
-        // Add this card's information to the lane container
-        _boardManager.PlayCardToLane(player, lane, card.cardData);
     }
 
+    private void EngageMovement(Vector3 destination, int duration)
+    {
+        
+        ConfigureMovement(destination, duration);
+        TriggerMovement();
+    }
+    
     public void ConfigureMovement(Vector3 destination, int duration){
         /* Set up the movement controller to execute the motion to the lane and trigger the movement.
 
@@ -111,8 +129,12 @@ public class PlayToLane : MonoBehaviour
         duration - int that represents, in count of frames, how long this movement will happen for.
         */
         MovementController mc = gameObject.GetComponent<MovementController>();
-        mc.SetDestination(destination);
-        mc.SetMovementDuration(duration);
+        mc.AddMovement(destination, duration);
+    }
+
+    private void TriggerMovement()
+    {
+        MovementController mc = gameObject.GetComponent<MovementController>();
         mc.ToggleMovement();
     }
 
@@ -124,4 +146,16 @@ public class PlayToLane : MonoBehaviour
         _handOrigin = location;
     }
 
+    public void AnticipationMove(int lane)
+    {
+        MovementController mc = gameObject.GetComponent<MovementController>();
+
+        ConfigureMovement(ConstantParameters.AI_STAGING_DESTINATION, 20*TO_LANE_MOVEMENT_DURATION);
+        mc.AddFlip(10*ConstantParameters.ANTICIPATION_ROTATION_DURATION);
+        ConfigureMovement(CalculateMoveToLane(lane, ConstantParameters.PLAYER_2), TO_LANE_MOVEMENT_DURATION);
+        mc.ToggleMovement();
+
+        Debug.Log("Updating AI Board Status");
+        UpdateBoardStatus(lane, ConstantParameters.PLAYER_2);
+    }
 }

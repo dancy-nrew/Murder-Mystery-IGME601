@@ -45,7 +45,7 @@ public class AI_Controller : MonoBehaviour
         // Physically move the card
         GameObject physicalCard = hand.PopCardObject(index);
         PlayToLane ptl = physicalCard.GetComponent<PlayToLane>();
-        ptl.MoveToLane(lane, ConstantParameters.PLAYER_2);
+        ptl.AnticipationMove(lane);
     }
 
     private (int, int, CardData) MakeRandomMove()

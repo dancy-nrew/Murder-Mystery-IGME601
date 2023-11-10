@@ -51,6 +51,7 @@ public class HandFactory : MonoBehaviour
             if (player == ConstantParameters.PLAYER_2)
             {
                 instantiatedCard.layer = LayerMask.NameToLayer("Default");
+                instantiatedCard.transform.rotation *= Quaternion.Euler(0, 0, 180f);
             }
             handToDealTo.ReceiveCard(instantiatedCard);
             handToDealTo.MoveToHand(instantiatedCard, zOrigin*zMod);
