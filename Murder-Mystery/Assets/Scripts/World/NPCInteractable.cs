@@ -2,15 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Responsible for NPC interactions.
+ */
 public class NPCInteractable : Interactable
 {
     private DialogueTreeRunner dialogueTreeRunner;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         dialogueTreeRunner = GetComponent<DialogueTreeRunner>();
     }
 
+    /*
+     * Run Dialogue Tree on interaction.
+     */
     public override void OnInteraction()
     {
         if (dialogueTreeRunner == null)
@@ -20,15 +27,4 @@ public class NPCInteractable : Interactable
         dialogueTreeRunner.UpdateTree();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
