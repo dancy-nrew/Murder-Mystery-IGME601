@@ -199,15 +199,7 @@ public class DialogueManager : MonoBehaviour
     private CharacterSO GetCharacterFromDialogue(Dialogue dialogue)
     {
         CharacterSO.ECharacter characterKey = currentDialogue.character;
-        CharacterSO characterSO = null;
-        foreach (CharacterSO charSO in GameManager.Instance.characterList)
-        {
-            if (charSO.character == characterKey)
-            {
-                characterSO = charSO;
-                break;
-            }
-        }
-        return characterSO;
+
+        return GameManager.Instance.GetCharacterSOFromKey(characterKey);
     }
 }
