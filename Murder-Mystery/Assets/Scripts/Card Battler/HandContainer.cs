@@ -25,9 +25,8 @@ public class HandContainer : MonoBehaviour
         MovementController mc = card.GetComponent<MovementController>();
         PlayToLane ptl = card.GetComponent<PlayToLane>();
         Vector3 cardPos = card.transform.position;
-        Vector3 finalPosition = new Vector3(cardPos.x, cardPos.y, cardPos.z + zOffset * -1); 
-        mc.SetDestination(finalPosition);
-        mc.SetMovementDuration(10);
+        Vector3 finalPosition = new Vector3(cardPos.x, cardPos.y, cardPos.z + zOffset * -1);
+        mc.AddMovement(finalPosition, ConstantParameters.RETURN_TO_HAND_DURATION);
         mc.ToggleMovement();
         ptl.SetHandOrigin(finalPosition);
     }
