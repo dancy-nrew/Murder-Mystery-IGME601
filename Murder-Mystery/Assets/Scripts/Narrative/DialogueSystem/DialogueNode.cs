@@ -11,7 +11,7 @@ public class DialogueNode : Node
 {
     public Dialogue dialogue;
 
-   public List<DialogueData.DialogueParameter> gateConditions = new List<DialogueData.DialogueParameter>(); 
+   public List<DialogueData.DialogueParameter> gateConditions = new List<DialogueData.DialogueParameter>();
     
     /*
      * If gate conditions are met, set currentDialogue to this dialogue.

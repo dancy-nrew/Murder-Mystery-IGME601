@@ -12,6 +12,7 @@ public class Dialogue
     [TextArea(3,10)]
     public string[] sentences;
 
+    public bool bTransitionToCardBattle = false;
     public Dialogue(string characterName, string[] sentences)
     {
         this.characterName = characterName;

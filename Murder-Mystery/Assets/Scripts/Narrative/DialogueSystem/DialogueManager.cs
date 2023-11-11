@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // Adapted from https://youtu.be/_nRzoTzeyxU?si=AB3_KumtIm_VuaVb
@@ -97,6 +98,13 @@ public class DialogueManager : MonoBehaviour
         // If the senetence is not being animated in.
         if (!bIsCharacterCoroutineRunning)
         {
+            if(currentDialogue.bTransitionToCardBattle)
+            {
+                EndDialogue();
+                SceneManager.LoadScene("Card Battler");
+                return;
+            }
+
             if (currentSentence >= currentDialogue.sentences.Length)
             {
                 currentSentence = 0;
@@ -148,6 +156,7 @@ public class DialogueManager : MonoBehaviour
 
         bIsCharacterCoroutineRunning = false;
     }
+
 
     /*
      * Function is called after a dialouge tree has been completed. Closes dialogue box.
