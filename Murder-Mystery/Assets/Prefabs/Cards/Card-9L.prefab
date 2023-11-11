@@ -229,7 +229,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c944aa7afd0c1f3458d1802bc97c8015, type: 2}
+  - {fileID: 2100000, guid: d04cb23c0d29ee343b5db791cac0d4ac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1c5d86eacfed94cafeaf1a6a8e1055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followDistance: 250
+  followDistance: 120
   _inmovable: 0
 --- !u!114 &-2576276587756144693
 MonoBehaviour:
