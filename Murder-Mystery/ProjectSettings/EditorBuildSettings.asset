@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OfficeGreybox.unity
     guid: 47bd19d4ace544670ab24733c1271ed0
+  - enabled: 1
+    path: Assets/Scenes/Card Battler.unity
+    guid: 270d68a52428eb94a89f33739cf16525
   m_configObjects: {}
