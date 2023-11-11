@@ -4,18 +4,8 @@ using UnityEngine;
 
 public class HandContainer : MonoBehaviour
 {
-    private HandData handData = new HandData(ConstantParameters.MAX_HAND_SIZE);
+    public HandData handData = new HandData(ConstantParameters.MAX_HAND_SIZE);
     private List<GameObject> cards = new List<GameObject>();
-    // Start is called before the first frame update
-    void Awake()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void ReceiveCard(GameObject card)
     {
@@ -31,16 +21,32 @@ public class HandContainer : MonoBehaviour
         Inputs:
         Card - the card to move to the hand
         zOffset - How much cards are offset to move them back into hand
-        
         */
         MovementController mc = card.GetComponent<MovementController>();
         PlayToLane ptl = card.GetComponent<PlayToLane>();
         Vector3 cardPos = card.transform.position;
-        Vector3 finalPosition = new Vector3(cardPos.x, cardPos.y, cardPos.z + zOffset * -1); 
-        mc.SetDestination(finalPosition);
-        mc.SetMovementDuration(10);
+        Vector3 finalPosition = new Vector3(cardPos.x, cardPos.y, cardPos.z + zOffset * -1);
+        mc.AddMovement(finalPosition, ConstantParameters.RETURN_TO_HAND_DURATION);
         mc.ToggleMovement();
         ptl.SetHandOrigin(finalPosition);
     }
 
+    public GameObject GetPhysicalCardReference(int index)
+    {
+        /*
+            Returns a reference to the card Game Object as specified by the index
+        */
+        GameObject card = cards[index];
+        return card;
+    }
+
+    public GameObject PopCardObject(int index)
+    {
+        /*
+            Same as GetPhysicalCardReference but also removes the card from the hand.
+        */
+        GameObject card = GetPhysicalCardReference(index);
+        cards.RemoveAt(index);
+        return card;
+    }
 }

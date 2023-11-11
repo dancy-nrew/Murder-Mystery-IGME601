@@ -5,6 +5,7 @@ using UnityEngine;
 
 public struct SuitCalculationStruct
 {
+    // Struct to easily calculate Press (same-suit) bonuses
     public int maxFaceValue;
     public int summedFaceValue;
     public int count;
@@ -49,33 +50,41 @@ public class HandData
     bool isLane;
     public int value;
 
-    public HandData(int size)
+    public HandData(int handSize)
     {
-        this.size = size;
-        this.cards = new List<CardData>();
-        this.isLane = false;
+        size = handSize;
+        cards = new List<CardData>();
+        isLane = false;
     }
 
+
+
+    #region Clone Support Functions
     public List<CardData> CopyCards()
     {
-        List<CardData> cards = new List<CardData>();
-        for (int i = 0; i < this.cards.Count; i++)
+        // Copy that cards within this hand. We create new objects rather than pass by reference.
+        // Outputs: A List of CardData that is identical to the cards in this hand.
+        List<CardData> newCards = new List<CardData>();
+        for (int i = 0; i < cards.Count; i++)
         {
-            cards.Add(new CardData(this.cards[i].Face, this.cards[i].Suit));
+            CardData card = new CardData(cards[i].Face, cards[i].Suit);
+            newCards.Add(card);
         }
-        return cards;
+        return newCards;
     }
 
-    // Clone Support Functions
     public void SetCards(List<CardData> cards)
     {
+        // Manually establish which cards are in this hand. Used for cloning.
         this.cards = cards;
     }
 
     public void SetValue(int value)
     {
+        // Overrides the value of this hand. Used for cloning.
         this.value = value;
     }
+    #endregion
 
     public HandData(int size, bool isLane)
     {
@@ -86,15 +95,33 @@ public class HandData
 
     public void AddCard(CardData card)
     {
+        /*
+            Add a card to this hand.
+            Input:
+                The card data object to add to this hand
+         */
+
+        // This will probably never happen, but it's not a bad idea to log if it does
         if (this.cards.Count == this.size)
         {
             Debug.Log("Trying to add a card to a full hand");
         }
+
+
         this.cards.Add(card);
     }
 
     public CardData PopCard(int index)
     {
+        /*
+            Get the card data at this index and remove it from the hand.
+            Input:
+                The index to pop
+            Output:
+                The card data at that index
+         */
+
+
         //Test if index within list first
         if (index < 0 || index >= this.cards.Count)
         {
@@ -106,8 +133,17 @@ public class HandData
         return card;
     }
 
+    #region Value Calculations
     public int CalculateSuitBonuses()
     {
+        /*
+            Calculate the bonuses earned from having cards of the same suit in this hand
+            Mostly used for lane values, but can be useful when analyzing starting hand values
+            
+            Outputs:
+                The value added by Press bonuses.
+         */
+
         int result = 0;
         // Initialize the counter (extendable if we change the amount of suits)
         Dictionary<Suit, SuitCalculationStruct> handComposition = new Dictionary<Suit, SuitCalculationStruct>();
@@ -140,6 +176,13 @@ public class HandData
 
     public int CalculateSameFaceBonuses()
     {
+        /*
+            Calculate the bonuses earned from having cards of the same face in this hand
+            Mostly used for lane values, but can be useful when analyzing starting hand values
+            
+            Outputs:
+                The value added by Emphasis bonuses.
+         */
         int result = 0;
         Dictionary<int, int> counter = new Dictionary<int, int>();
         for (int i = ConstantParameters.MIN_FACE_VALUE; i < ConstantParameters.MAX_FACE_VALUE; i++)
@@ -166,6 +209,11 @@ public class HandData
 
     public int CalculateHandValue()
     {
+        /*
+            Calculate the entire value of this hand. Useful for lane calculations
+            Output is the total numeric score of this hand, including all bonuses.
+         */
+
         if (this.isLane)
         {
             // In case we want to add lane-specific bonuses, add code here
@@ -177,3 +225,4 @@ public class HandData
         return this.value;
     }
 }
+#endregion

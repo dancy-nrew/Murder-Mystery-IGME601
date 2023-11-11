@@ -48,9 +48,10 @@ public class HandFactory : MonoBehaviour
             float zAdjust = (zOffset * (i%2)+ zOrigin) * zMod;
             Vector3 instantiateLocation = new Vector3(targetPosition.x + (xOffset*i) + xOrigin, targetPosition.y, targetPosition.z  + zAdjust);
             GameObject instantiatedCard = Instantiate(chosenCard.Item2, instantiateLocation, Quaternion.identity);
-            if (player == 1)
+            if (player == ConstantParameters.PLAYER_2)
             {
-                instantiatedCard.AddComponent<MouseSelect>();
+                instantiatedCard.layer = LayerMask.NameToLayer("Default");
+                instantiatedCard.transform.rotation *= Quaternion.Euler(0, 0, 180f);
             }
             handToDealTo.ReceiveCard(instantiatedCard);
             handToDealTo.MoveToHand(instantiatedCard, zOrigin*zMod);
