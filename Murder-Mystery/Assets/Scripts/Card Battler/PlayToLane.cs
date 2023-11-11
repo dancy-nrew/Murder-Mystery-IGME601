@@ -157,10 +157,10 @@ public class PlayToLane : MonoBehaviour
         MovementController mc = gameObject.GetComponent<MovementController>();
         int suspense_duration = 10 * TO_LANE_MOVEMENT_DURATION;
 
-        ConfigureMovement(ConstantParameters.AI_STAGING_DESTINATION, suspense_duration);
-        mc.AddFlip(suspense_duration*2);
-        mc.AddWait(suspense_duration/2);
+        //ConfigureMovement(ConstantParameters.AI_STAGING_DESTINATION, suspense_duration);
         ConfigureMovement(CalculateMoveToLane(lane, ConstantParameters.PLAYER_2), TO_LANE_MOVEMENT_DURATION);
+        mc.AddWait(suspense_duration / 2);
+        mc.AddFlip(suspense_duration*2);
         mc.ToggleMovement();
 
         UpdateBoardStatus(lane, ConstantParameters.PLAYER_2);
