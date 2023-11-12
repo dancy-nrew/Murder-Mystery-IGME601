@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 class GUIManager : MonoBehaviour
 {
+    [SerializeField]
     public TextMeshProUGUI gameEndText;
+
+    [SerializeField]
     public Button button;
 
     private void Start()
     {
-        gameEndText = GameObject.Find("GameEndMessage").GetComponent<TextMeshProUGUI>();
         gameEndText.text = "";
-        button = GameObject.Find("ExitButton").GetComponent<Button>();
         button.gameObject.SetActive(false);
     }
 

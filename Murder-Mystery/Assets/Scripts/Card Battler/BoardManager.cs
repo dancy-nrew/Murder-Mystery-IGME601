@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class BoardManager : MonoBehaviour
 {
+    /*
+        This class manages the state of the board. It is interacted with by other classes
+        and will make sure the Rules Manager knows when cards have been played.
+     */
+
     // TO DO: need to add how to load in lane locks
     public BoardState boardState = new BoardState(false, false, false);
     public delegate void AIMove();
     public static event AIMove OnPlay;
+    private RulesManager rm;
+
+    private void Awake()
+    {
+        // Cache reference for the Rules Manager
+        rm = gameObject.GetComponent<RulesManager>();
+    }
 
 
     public void PlayCardToLane(int player, int lane, CardData card){
@@ -31,9 +43,7 @@ public class BoardManager : MonoBehaviour
         {
             // Because the AI plays before the human player, if the human player has
             // affected the board, it means the turn is over.
-
             int game_winner = boardState.GetGameWinner();
-            RulesManager rm = gameObject.GetComponent<RulesManager>();
             rm.RunTurn(game_winner);
         }
 
