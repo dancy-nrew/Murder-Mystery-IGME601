@@ -63,7 +63,6 @@ public class PlayToLane : MonoBehaviour
 
             gameObject.GetComponent<FollowMouse>().ToggleInmovable();
             // Send the info to the movement controller
-            Debug.Log("Engaging movement to lane");
             EngageMovement(destination, TO_LANE_MOVEMENT_DURATION);
         } else {
             //I am over no lane at all

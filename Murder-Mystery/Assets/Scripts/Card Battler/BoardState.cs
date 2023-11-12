@@ -214,6 +214,7 @@ public class BoardState
             laneData = player2_lanes;
         }
         laneData[lane_index].AddCard(card);
+        CalculateBoardValues();
     }
 
     public int GetCardsInLaneForPlayer(int player, int lane_index){
