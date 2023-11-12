@@ -130,7 +130,7 @@ public class PauseMenuController : MonoBehaviour
        // Ensure the page number is within bounds
         currentCluePage = Mathf.Clamp(currentCluePage, 0, GameManager.Instance.clues.Count - 1);
 
-        // Fetch character info based on currentCharacterPage
+        // Fetch character info based on currentCluePage
         clueNameText.text = GameManager.Instance.GetClueName(currentCluePage);
         clueInfotext.text = GameManager.Instance.GetClueInfo(currentCluePage);
         clueSketch.sprite = GameManager.Instance.GetClueSketch(currentCluePage);

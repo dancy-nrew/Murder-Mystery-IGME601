@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         // Checcking to see if some ui is currently being displayed
         if (bIsUIEnabled)
         {
-            Debug.Log("I am in hell");
+            //Debug.Log("checking");
             return;
         }
         RaycastHit raycastHit;

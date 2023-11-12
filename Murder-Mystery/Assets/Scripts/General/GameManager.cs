@@ -24,6 +24,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+
+        /*
+        The following are fabricated suspects for the purpose of testing:
+        ----
+        ----
+        
         Character Columbo = new Character("[REDACTED] Culombo", 
         "Lieutenant Columbo is as an unassuming yet brilliant homicide detective working with the Los Angeles Police Department. Known for his disheveled appearance, often seen in a rumpled raincoat, he possesses an unorthodox approach to solving crimes. His seemingly absent-minded demeanor hides a keen analytical mind and a talent for observing minute details that others often overlook. Columbo is polite and often comes across as naive, frequently saying, \"Just one more thing...\" before catching suspects off-guard with a critical question or observation. Despite his casual, almost chaotic methods, he has a razor-sharp intellect and an unwavering dedication to justice. He's adept at lulling suspects into a false sense of security, leading them to underestimate him—a tactic that inevitably leads to their undoing.");
         Texture2D image = Resources.Load<Texture2D>("CharacterPortraits/Portrait_columbo");
@@ -50,8 +56,10 @@ public class GameManager : MonoBehaviour
         characters.Add(Sherlock);
         characters.Add(Columbo);
         
-        characters.Add(Phoenix);
-        characters.Add(Nancy);
+        //characters.Add(Phoenix);
+        //characters.Add(Nancy);
+        */
+        
     }
 
     // Start is called before the first frame update
@@ -88,7 +96,7 @@ public class GameManager : MonoBehaviour
 
     public string GetClueName(int pageIndex)
     {
-        if (pageIndex >= 0 && pageIndex < characters.Count)
+        if (pageIndex >= 0 && pageIndex < clues.Count)
         {
             return clues[pageIndex].getName();
         }
@@ -97,7 +105,7 @@ public class GameManager : MonoBehaviour
 
     public string GetClueInfo(int pageIndex)
     {
-        if (pageIndex >= 0 && pageIndex < characters.Count)
+        if (pageIndex >= 0 && pageIndex < clues.Count)
         {
             return clues[pageIndex].getInfo();
         }
@@ -106,7 +114,7 @@ public class GameManager : MonoBehaviour
 
     public Sprite GetClueSketch(int pageIndex)
     {
-        if (pageIndex >= 0 && pageIndex < characters.Count)
+        if (pageIndex >= 0 && pageIndex < clues.Count)
         {
             return clues[pageIndex].getSketch();
         }
@@ -120,8 +128,6 @@ public class GameManager : MonoBehaviour
         if (!clues.Exists(c => c.Name == newClue.Name))
         {
             clues.Add(newClue);
-            // Update any UI elements that display clues, if necessary
-            // For example: UpdateCluesUI();
         }
     }
 
