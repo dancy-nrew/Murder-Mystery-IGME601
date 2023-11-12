@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
             if(Vector3.Distance(transform.position, currentInteractable.transform.position) <= interactionDistance)
             {
                 currentInteractable.OnInteraction();
-                bIsUIEnabled = true;
                 currentInteractable=null;
             }
         }
@@ -76,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
             Interactable interactable = raycastHit.collider.gameObject.GetComponentInParent<Interactable>();
             if(interactable != null)
             {
-                Debug.Log("hit Interactable");
                 agent.SetDestination(raycastHit.point);
                 currentInteractable = interactable;
             }

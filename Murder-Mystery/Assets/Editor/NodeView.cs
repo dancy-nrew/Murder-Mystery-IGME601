@@ -25,7 +25,7 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         CreateInputPorts();
         CreateOutputPorts();
    }
-
+     
     private void CreateInputPorts()
     {
         if(node is SequenceNode)
@@ -37,6 +37,10 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
             input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
         }
         else if(node is ChoiceNode)
+        {
+            input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+        }
+        else if(node is InputNode)
         {
             input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
         }
@@ -72,6 +76,12 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
             Port output2 = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
             output2.portName = "False";
             outputs.Add(output2);
+        }
+        else if (node is InputNode)
+        {
+            Port output = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(bool));
+            output.portName = "";
+            outputs.Add(output);
         }
         else if(node is RootNode)
         {

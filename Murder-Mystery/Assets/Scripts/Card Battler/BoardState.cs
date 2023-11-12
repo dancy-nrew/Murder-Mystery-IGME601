@@ -17,6 +17,8 @@ public class BoardState
 
     public BoardState(bool lock_l1, bool lock_l2, bool lock_l3)
     {
+        // Constructor for the board state. Inputs are which lanes are currently locked for the player, where cards can't be played.
+
         player1_lanes = new List<HandData> {
             new HandData(ConstantParameters.MAX_HAND_SIZE, true),
             new HandData(ConstantParameters.MAX_HAND_SIZE, true),
@@ -56,29 +58,34 @@ public class BoardState
 
     public HashSet<int> GetAvailableLanesForPlayer(int player)
     {
+        /* Give a set that indicates which lanes are available for player to play.
+        
+        Inputs:
+        Player - int representing the player
+        */
         HashSet<int> result = new HashSet<int>();
 
-        if (player == 2)
+        if (player == ConstantParameters.PLAYER_2)
         {
             // The adversary can never have blocked lanes
-            result.Add(1);
-            result.Add(2);
-            result.Add(3);
+            result.Add(ConstantParameters.LANE_1);
+            result.Add(ConstantParameters.LANE_2);
+            result.Add(ConstantParameters.LANE_3);
             return result;
         }
 
         // Check to see if locks are off for player 1
         if (!lane1_lock)
         {
-            result.Add(1);
+            result.Add(ConstantParameters.LANE_1);
         }
         if (!lane2_lock)
         {
-            result.Add(2);
+            result.Add(ConstantParameters.LANE_2);
         }
         if (!lane3_lock)
         {
-            result.Add(3);
+            result.Add(ConstantParameters.LANE_3);
         }
 
         return result;
@@ -86,31 +93,39 @@ public class BoardState
 
     public HashSet<int> GetUnclaimedLanesForPlayer(int player)
     {
+        /* Get a set of the lanes a player doens't own yet.
+        Inputs:
+        Player - int representing the player
+        Outputs:
+        A HashSet of integers that represents the lanes not owned by the player
+        */
         HashSet<int> result = new HashSet<int>();
         if (lane1_winner != player)
         {
-            result.Add(1);
+            result.Add(ConstantParameters.LANE_1);
         }
         if (lane2_winner != player)
         {
-            result.Add(2);
+            result.Add(ConstantParameters.LANE_2);
         }
         if (lane3_winner != player)
         {
-            result.Add(3);
+            result.Add(ConstantParameters.LANE_3);
         }
         return result;
     }
 
     private int DecideLaneVictor(int score1, int score2)
     {
+        // Return an integer that indicates which player is currently winning a lane
+        // Takes the scores of both players as input, returns the winning player or 0 in case of a tie
         if (score1 > score2)
         {
-             return 1;
+             return ConstantParameters.PLAYER_1;
         }
         else if (score2 > score1)
         {
-            return 2;
+            return ConstantParameters.PLAYER_2;
         }
 
         return 0;
@@ -134,44 +149,46 @@ public class BoardState
 
     public int GetGameWinner()
     {
+        // Evaluate each lane and then see which player has the most lanes.
+        // Outputs the winning player as an integer
         List<int> p1Lanes = new List<int>();
         List<int> p2Lanes = new List<int>();
 
         // Lane 1 evaluation
-        if (lane1_winner == 1)
+        if (lane1_winner == ConstantParameters.PLAYER_1)
         {
-            p1Lanes.Add(1);
-        } else if (lane1_winner == 2)
+            p1Lanes.Add(ConstantParameters.LANE_1);
+        } else if (lane1_winner == ConstantParameters.PLAYER_2)
         {
-            p2Lanes.Add(1);
+            p2Lanes.Add(ConstantParameters.LANE_1);
         }
 
         // Lane 2 evaluation
-        if (lane2_winner == 1)
+        if (lane2_winner == ConstantParameters.PLAYER_1)
         {
-            p1Lanes.Add(2);
+            p1Lanes.Add(ConstantParameters.LANE_2);
         }
-        else if (lane2_winner == 2)
+        else if (lane2_winner == ConstantParameters.PLAYER_2)
         {
-            p2Lanes.Add(2);
+            p2Lanes.Add(ConstantParameters.LANE_2);
         }
 
         // Lane 3 evaluation
-        if (lane3_winner == 1)
+        if (lane3_winner == ConstantParameters.PLAYER_1)
         {
-            p1Lanes.Add(3);
+            p1Lanes.Add(ConstantParameters.LANE_3);
         }
-        else if (lane3_winner == 2)
+        else if (lane3_winner == ConstantParameters.PLAYER_2)
         {
-            p2Lanes.Add(3);
+            p2Lanes.Add(ConstantParameters.LANE_3);
         }
 
         // Determine the winner
         if (p1Lanes.Count > p2Lanes.Count) {
-            return 1;
+            return ConstantParameters.PLAYER_1;
         } else if (p2Lanes.Count > p1Lanes.Count)
         {
-            return 2;
+            return ConstantParameters.PLAYER_2;
         }
         else
         {
@@ -179,19 +196,55 @@ public class BoardState
         }
     }
 
-    public void PlayerAddCardToLane(int player, CardData card, int lane)
+    public void PlayerAddCardToLane(int player, CardData card, int lane_index)
     {
-        int index = lane - 1;
+        /* Add a card to a lane as played by a player
+        Inputs:
+        Player - The player playing the card, represented by an int
+        Card - The data for the card being played
+        Lane_Index - The index for the lane for lookup in the board state data store
+        */ 
+
         List<HandData> laneData;
-        if (player == 1)
+        if (player == ConstantParameters.PLAYER_1)
         {
             laneData = player1_lanes;
         } else
         {
             laneData = player2_lanes;
         }
-        laneData[index].AddCard(card);
+        laneData[lane_index].AddCard(card);
+    }
 
+    public int GetCardsInLaneForPlayer(int player, int lane_index){
+        /* Get the count of the cards a lane has for a particular player
+        Inputs:
+
+        Lane Index - An int to know which lane to lookup in the lists
+        Player - the side of the board to which consult
+        */
+        HandData laneContainer;
+        if (player == ConstantParameters.PLAYER_1){
+            laneContainer = player1_lanes[lane_index];
+        } else {
+            laneContainer = player2_lanes[lane_index];
+        }
+
+        return laneContainer.cards.Count;
+    }
+
+    public int GetLaneValue(int player, int lane)
+    {
+        int lane_index = lane - 1;
+        HandData laneContainer;
+        if (player == ConstantParameters.PLAYER_1)
+        {
+            laneContainer = player1_lanes[lane_index];
+        } else
+        {
+            laneContainer = player2_lanes[lane_index];
+        }
+        return laneContainer.value;
     }
 
     #region AI Support Methods
@@ -209,13 +262,15 @@ public class BoardState
         opponentValue = opponentLane.value;
         laneContainer.AddCard(card);
         laneValue = laneContainer.CalculateHandValue();
-        willWin = DecideLaneVictor(laneValue, opponentValue) == 1;
+        willWin = DecideLaneVictor(laneValue, opponentValue) == ConstantParameters.PLAYER_2;
 
         // Remove the last added card to reset the simulation
         laneContainer.PopCard(laneContainer.cards.Count-1);
 
         return willWin;
     }
+
+    // Simulate what value a lane will have if a certain card is played
     public int TestNewLaneValue(int lane, CardData card)
     {
         int index = lane - 1;
@@ -228,6 +283,8 @@ public class BoardState
         return laneValue;
     }
 
+
+    // Evaluate which lane is the weakest for the player.
     public int GetPlayerWeakestLane()
     {
         int minValue = 999;

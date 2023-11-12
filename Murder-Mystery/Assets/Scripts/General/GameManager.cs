@@ -8,23 +8,26 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
     // Lists to hold characters and clues
     public List<Character> characters = new List<Character>();
     public List<Clue> clues = new List<Clue>();
+    public List<CharacterSO> characterList = new List<CharacterSO>();
+    private Dictionary<CharacterSO.ECharacter, CharacterSO> characterDict = new Dictionary<CharacterSO.ECharacter, CharacterSO>();
+
     private void Awake()
     {
-        if (Instance == null)
+        // If there is an instance, and it's not me, delete myself.
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-
+        
         /*
         The following are fabricated suspects for the purpose of testing:
         ----
@@ -59,13 +62,14 @@ public class GameManager : MonoBehaviour
         //characters.Add(Phoenix);
         //characters.Add(Nancy);
         */
-        
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+       foreach(CharacterSO character in characterList)
+        {
+            characterDict.Add(character.character, character);
+        }
     }
     public string GetCharacterInfo(int pageIndex)
     {
@@ -131,10 +135,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public CharacterSO GetCharacterSOFromKey(CharacterSO.ECharacter key)
     {
-        
+        return characterDict[key];
     }
     
 }

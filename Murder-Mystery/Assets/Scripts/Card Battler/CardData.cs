@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public enum Suit
 {
     LOCATION,
@@ -16,7 +12,7 @@ public class CardData
     public Suit Suit { get; private set; }
     public CardData(int face, Suit suit)
     {
-        this.Face = face;
-        this.Suit = suit;
+        Face = face;
+        Suit = suit;
     }
 }

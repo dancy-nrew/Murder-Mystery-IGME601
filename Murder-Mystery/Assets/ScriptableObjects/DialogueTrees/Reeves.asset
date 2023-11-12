@@ -39,7 +39,7 @@ MonoBehaviour:
   guid: 415497383aaac84478c67dfe7e50da10
   position: {x: 493, y: -109.5}
   dialogue:
-    characterName: Ace
+    character: 0
     sentences:
     - Why did you hate her?
   gateConditions: []
@@ -77,7 +77,7 @@ MonoBehaviour:
   guid: 68548b161f3c44b489eba45c17ac0ca7
   position: {x: 493, y: -13}
   dialogue:
-    characterName: Dr. Reeves
+    character: 4
     sentences:
     - She stole the department from me! Everything I worked so hard for was just
       handed to her.
@@ -106,6 +106,9 @@ MonoBehaviour:
   - {fileID: 4339505885568921130}
   - {fileID: 5843668012930309361}
   dialogues: []
+  currentDialogue:
+    character: 0
+    sentences: []
 --- !u!114 &4339505885568921130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +126,7 @@ MonoBehaviour:
   guid: bfe7ce7719507f149a5e268cfa2f092c
   position: {x: 493, y: 77}
   dialogue:
-    characterName: Ace
+    character: 0
     sentences:
     - What business with Dr Stone?
   gateConditions: []
@@ -144,7 +147,7 @@ MonoBehaviour:
   guid: 3ee02a2578360b34a95861098fb6e325
   position: {x: 493, y: 164}
   dialogue:
-    characterName: Dr. Reeves
+    character: 4
     sentences:
     - Ask him yourself!
   gateConditions: []
@@ -165,7 +168,7 @@ MonoBehaviour:
   guid: bb57a0ca36b708f43849b14c279ff23e
   position: {x: 493, y: -195}
   dialogue:
-    characterName: Dr. Reeves
+    character: 4
     sentences:
     - "I might\u2019ve hated Bea, but I didn\u2019t kill her!"
   gateConditions: []
