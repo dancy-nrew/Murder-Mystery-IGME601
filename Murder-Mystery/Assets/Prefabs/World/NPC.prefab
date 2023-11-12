@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd45ff9d065a9674b8e44293bc381b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueTree: {fileID: 11400000, guid: 9020a8d2a875ca545a3ee8651b454c5d, type: 2}
+  dialogueTree: {fileID: 11400000, guid: 463857cb1b018744e858e3a993582f25, type: 2}
   characterName: Wise Man
 --- !u!114 &4873951668225156132
 MonoBehaviour:
@@ -196,6 +196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6952397540cb144da928447f96d5bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectHighlightMaterialIndex: 1
+  higlightScale: 1.15
+  bIsInteractable: 1
 --- !u!208 &5267063624879289378
 NavMeshObstacle:
   m_ObjectHideFlags: 0
