@@ -17,5 +17,5 @@ public class ConstantParameters
     public const int RETURN_TO_HAND_DURATION = 10;
 
     public const int FLIP_HEIGHT = 4;
-    public static Vector3 AI_STAGING_DESTINATION = new Vector3(-18,0,0);
+    public static Vector3 AI_STAGING_DESTINATION = new Vector3(-18,30,5);
 }

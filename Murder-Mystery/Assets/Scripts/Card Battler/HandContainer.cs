@@ -7,6 +7,15 @@ public class HandContainer : MonoBehaviour
     public HandData handData = new HandData(ConstantParameters.MAX_HAND_SIZE);
     private List<GameObject> cards = new List<GameObject>();
 
+    public void FreezeCards()
+    {
+        //Make cards unselectable
+        foreach (GameObject card in cards)
+        {
+            card.layer = LayerMask.NameToLayer("Default");
+        }
+    }
+
     public void ReceiveCard(GameObject card)
     {
         // Receive the card game object and process its data
