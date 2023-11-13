@@ -162,6 +162,7 @@ public class HandData
             handComposition[s].AddToFaceValue(face);
             if (handComposition[s].maxFaceValue < face)
             {
+                Debug.Log("Setting max value to " + face.ToString());
                 handComposition[s].SetMaxFaceValue(face);
             }
         }
@@ -219,7 +220,7 @@ public class HandData
             // In case we want to add lane-specific bonuses, add code here
         }
         int total_face_value = this.cards.Sum(x => x.Face);
-        this.value += total_face_value;
+        this.value = total_face_value;
         this.value += this.CalculateSuitBonuses();
         this.value += this.CalculateSameFaceBonuses();
         return this.value;

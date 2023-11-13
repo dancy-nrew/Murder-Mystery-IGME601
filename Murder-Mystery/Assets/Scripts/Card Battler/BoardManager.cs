@@ -50,8 +50,6 @@ public class BoardManager : MonoBehaviour
         {
             // Because the AI plays before the human player, if the human player has
             // affected the board, it means the turn is over.
-            // Get scores for each lane
-            boardState.CalculateBoardValues();
             GetLaneValues();
             int game_winner = boardState.GetGameWinner();
             rm.RunTurn(game_winner);
