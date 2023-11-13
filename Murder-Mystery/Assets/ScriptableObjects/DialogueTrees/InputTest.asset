@@ -1,0 +1,220 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6295502743883004770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: edaf277d105248e42a5423926e63d8ef
+  position: {x: 449.00006, y: 108}
+  dialogue:
+    characterName: 3
+    sentences:
+    - hey there 3
+  gateConditions: []
+--- !u!114 &-4547498086823885252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 1c5b30901bc945943b9995d4ceac348d
+  position: {x: 713, y: 69.5}
+  dialogue:
+    characterName: Choice 2
+    sentences:
+    - thanks 2
+  gateConditions: []
+--- !u!114 &-3442485617295513963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 2effc37206aa66849ac036794da7d15d
+  position: {x: 449, y: -167.6}
+  dialogue:
+    characterName: Ace
+    sentences:
+    - Hey there 1
+  gateConditions: []
+--- !u!114 &-2316674959355253280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 7498166f6961d964eb1f0fa0c168b3c3
+  position: {x: 713, y: -53}
+  dialogue:
+    characterName: Choice 1
+    sentences:
+    - thanks 1
+  gateConditions: []
+--- !u!114 &-1228298436148703074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: d1411e212e6699248b905ee536568dda
+  position: {x: 209, y: 0}
+  children:
+  - {fileID: -3442485617295513963}
+  - {fileID: 5439927020950112096}
+  - {fileID: 1810528249674211861}
+  - {fileID: -6295502743883004770}
+  - {fileID: -361291167849568566}
+--- !u!114 &-942282801678038186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ec560865062a6409c5395eac34b9be, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 7477d4a26e096a44dabd6807677d79cf
+  position: {x: 0, y: 0}
+  child: {fileID: -1228298436148703074}
+--- !u!114 &-361291167849568566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ca49c07d580c18342bbef3d105192aa0
+  position: {x: 449, y: 201}
+  dialogue:
+    characterName: 4
+    sentences:
+    - hey there 4
+  gateConditions: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba83d73ca578896468e40ca6498119b9, type: 3}
+  m_Name: InputTest
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -942282801678038186}
+  treeState: 0
+  nodes:
+  - {fileID: -942282801678038186}
+  - {fileID: -1228298436148703074}
+  - {fileID: -3442485617295513963}
+  - {fileID: 5439927020950112096}
+  - {fileID: 1810528249674211861}
+  - {fileID: -6295502743883004770}
+  - {fileID: -361291167849568566}
+  - {fileID: -2316674959355253280}
+  - {fileID: -4547498086823885252}
+  dialogues: []
+  bIsInputting: 0
+  inputtingNode: {fileID: 0}
+--- !u!114 &1810528249674211861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f11afa25c038847bc4cedf1395cf8b, type: 3}
+  m_Name: InputNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 4c17cc1a8b241e7479f2804bf8e26738
+  position: {x: 449, y: 13}
+  dialogue:
+    characterName: Choose pls
+    sentences:
+    - Choose pls
+  children:
+  - {fileID: -2316674959355253280}
+  - {fileID: -4547498086823885252}
+  choices:
+  - '"Choice 1"'
+  - '"Choice 2"'
+--- !u!114 &5439927020950112096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 0b900c9ca8fc62f4cbbf0adb27347241
+  position: {x: 449, y: -77}
+  dialogue:
+    characterName: 2
+    sentences:
+    - Hey there 1
+  gateConditions: []

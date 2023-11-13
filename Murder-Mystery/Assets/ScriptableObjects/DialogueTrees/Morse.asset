@@ -15,9 +15,9 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 4255eaf6687d27043844f83a5aca6863
-  position: {x: 826.00006, y: -131.00003}
+  position: {x: 826, y: -131}
   dialogue:
-    characterName: Ace
+    character: 0
     sentences:
     - Any idea who might have done it?
   gateConditions: []
@@ -36,9 +36,9 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: f90d89fc9937da64fadca50540f9de09
-  position: {x: 826.00006, y: 115.49999}
+  position: {x: 826, y: 115.49996}
   dialogue:
-    characterName: Ace
+    character: 0
     sentences:
     - When did you last see Dr Yates alive?
   gateConditions: []
@@ -57,7 +57,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 67c0feaa96366554badc393c61cf9ed6
-  position: {x: 178.5375, y: 0.00005132675}
+  position: {x: 180, y: 0}
   children:
   - {fileID: 3487598426721512029}
   - {fileID: 787518161192313271}
@@ -81,8 +81,8 @@ MonoBehaviour:
   children:
   - {fileID: 8269827892772392620}
   - {fileID: 8841318539546424613}
-  gateConditions:
-  - parameterKey: bChooseRandom
+  choiceConditions:
+  - parameterKey: bHasTalkedToReeves
     parameterValue: 1
 --- !u!114 &-5144565085018274954
 MonoBehaviour:
@@ -101,7 +101,7 @@ MonoBehaviour:
   guid: 5b1cf04f8b320874b8cda71ba9ee1665
   position: {x: 825.9651, y: 230.99998}
   dialogue:
-    characterName: Dr. Morse
+    character: 3
     sentences:
     - I saw her on Saturday while I was packing up my office.
     - She gave me a gift.
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: Morse
   m_EditorClassIdentifier: 
   rootNode: {fileID: 3722634050087192308}
-  treeState: 0
+  treeState: 2
   nodes:
   - {fileID: 3722634050087192308}
   - {fileID: 3487598426721512029}
@@ -133,6 +133,11 @@ MonoBehaviour:
   - {fileID: 8841318539546424613}
   - {fileID: -5144565085018274954}
   dialogues: []
+  currentDialogue:
+    character: 0
+    sentences:
+    - "I\u2019d hate to point fingers at anyone, but Dr Reeves and Dr Stone hated
+      Bea."
 --- !u!114 &787518161192313271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,9 +153,9 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: c515774526f26e049ac80a63caba0537
-  position: {x: 444, y: -131.22247}
+  position: {x: 444, y: -131}
   dialogue:
-    characterName: Dr. Morse
+    character: 3
     sentences:
     - Thank you.
     - "I just can\u2019t believe she\u2019s gone."
@@ -170,9 +175,9 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ee192883f63101545a65f7b9d7a1a4d8
-  position: {x: 444, y: -244.22249}
+  position: {x: 444.0001, y: -244.00005}
   dialogue:
-    characterName: Ace
+    character: 0
     sentences:
     - I hear that you and Dr Yates were close.
     - " I\u2019m sorry for your loss."
@@ -209,9 +214,9 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 6bb8e975c4ef0314db310f3c9a1393fc
-  position: {x: 825.9651, y: -0.000011444092}
+  position: {x: 826, y: -0.000020980835}
   dialogue:
-    characterName: Dr Morse
+    character: 3
     sentences:
     - "I\u2019d hate to point fingers at anyone, but Dr Reeves and Dr Stone hated
       Bea."

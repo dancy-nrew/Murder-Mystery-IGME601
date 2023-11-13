@@ -4,15 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/*
+ * This class reperesents the data of a dialogue node.
+ */
 public class DialogueNode : Node
 {
     public Dialogue dialogue;
 
-   public List<DialogueData.DialogueParameter> gateConditions = new List<DialogueData.DialogueParameter>(); 
+   public List<DialogueData.DialogueParameter> gateConditions = new List<DialogueData.DialogueParameter>();
     
+    /*
+     * If gate conditions are met, set currentDialogue to this dialogue.
+     */
     protected override void OnStart()
     {
         bool result = true;
+        
         foreach(var cond  in gateConditions)
         {
             result = result && (DialogueDataWriter.Instance.CheckCondition(cond.parameterKey, cond.parameterValue));
@@ -22,14 +29,14 @@ public class DialogueNode : Node
 
         if(dialogueTree != null)
         {
-            dialogueTree.dialogues.Add(dialogue);
+            dialogueTree.currentDialogue = dialogue;
         }
-        //Debug.Log(characterName);
+
     }
 
     protected override void OnStop()
     {
-        state = NodeState.Running;
+
     }
 
     protected override NodeState OnUpdate()
