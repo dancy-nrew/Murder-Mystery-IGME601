@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace DancyNrew.UI
-
 {
     public class UI_System : MonoBehaviour
     {
@@ -17,8 +15,6 @@ namespace DancyNrew.UI
         public UnityEvent onSwitchedScreen = new UnityEvent();
 
         [Header("Fader Properties")]
-
-        [Header("Pause event")]
         public Image fadeImg;
         public float fadeInDuration = 1.0f;
         public float fadeOutDuration = 1.0f;    
@@ -108,7 +104,5 @@ namespace DancyNrew.UI
             }
         }
         #endregion
-
-
     }
 }
