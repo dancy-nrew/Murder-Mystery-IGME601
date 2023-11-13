@@ -27,6 +27,7 @@ public class MovementController : MonoBehaviour
         public Quaternion endRotation;
         public int durationInFrames;
         public bool isFlip;
+        public bool isWait;
 
         public MovementDefinition(Vector3 dest, int duration)
         {
@@ -34,6 +35,7 @@ public class MovementController : MonoBehaviour
             endRotation = Quaternion.identity;
             durationInFrames = duration;
             isFlip = false;
+            isWait = false;
         }
 
         public MovementDefinition(Quaternion rotation, int duration)
@@ -42,6 +44,16 @@ public class MovementController : MonoBehaviour
             endRotation = rotation;
             durationInFrames = duration;
             isFlip = true;
+            isWait = false;
+        }
+
+        public MovementDefinition(int duration)
+        {
+            destination = new Vector3(0, 0, 0);
+            endRotation = Quaternion.identity;
+            durationInFrames = duration;
+            isFlip = false;
+            isWait = true;
         }
     }
 
@@ -68,6 +80,9 @@ public class MovementController : MonoBehaviour
             // Move up and down to give that flip feel
             float flipHeight = Mathf.Sin(interpolationRatio * Mathf.PI) * ConstantParameters.FLIP_HEIGHT;
             transform.position = new Vector3(_origin.x, _origin.y + flipHeight, _origin.z); 
+        } else if (activeMovement.isWait)
+        {
+            // Do nothing, just wait
         } else
         {
             transform.position = Vector3.Lerp(_origin, activeMovement.destination, interpolationRatio);
@@ -107,6 +122,11 @@ public class MovementController : MonoBehaviour
         _movements.Add(def);
     }
 
+    public void AddWait(int duration)
+    {
+        MovementDefinition def = new MovementDefinition(duration);
+        _movements.Add(def);
+    }
     public void ToggleMovement(){
         // Interrupts or starts movement.
         _isMoving = !_isMoving;

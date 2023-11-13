@@ -17,7 +17,7 @@ MonoBehaviour:
   guid: 27a519ee194b8f04b8dd19434f49f905
   position: {x: 704, y: 394.56165}
   dialogue:
-    characterName: Ace
+    character: 5
     sentences:
     - Of course you were.
   gateConditions: []
@@ -59,7 +59,7 @@ MonoBehaviour:
   guid: 9c40b11a2da9e784e90742cb7825f54b
   position: {x: 704, y: -311.76035}
   dialogue:
-    characterName: Ace
+    character: 0
     sentences:
     - "I\u2019m not accusing you of anything."
     - ' I just want to know what happened.'
@@ -81,7 +81,7 @@ MonoBehaviour:
   guid: 0eea6a9c6ec6e1d4d81428d671bc7cb2
   position: {x: 704, y: -422.38495}
   dialogue:
-    characterName: Dr. Stone
+    character: 5
     sentences:
     - "Look, I didn\u2019t kill Bea."
     - "I don\u2019t care what Quincy said, I moved on."
@@ -103,7 +103,7 @@ MonoBehaviour:
   guid: dd17fae8ec8e6664b868005a51979f51
   position: {x: 704, y: 55.561646}
   dialogue:
-    characterName: Dr. Stone
+    character: 5
     sentences:
     - "I can\u2019t believe Bea is gone."
     - I just saw her on Friday.
@@ -137,7 +137,7 @@ MonoBehaviour:
   - {fileID: 2327859408555519695}
   dialogues: []
   currentDialogue:
-    characterName: 
+    character: 0
     sentences: []
 --- !u!114 &864044767015620333
 MonoBehaviour:
@@ -178,7 +178,7 @@ MonoBehaviour:
   guid: 42e852d59635dc146aa396b927829d50
   position: {x: 704, y: -521.26337}
   dialogue:
-    characterName: Ace
+    character: 0
     sentences:
     - Dr Reeves said something happened with you and Dr Yates?
   gateConditions: []
@@ -199,7 +199,7 @@ MonoBehaviour:
   guid: c894a45d23a0eb14b8a958ebe828944b
   position: {x: 704, y: -203.79724}
   dialogue:
-    characterName: Dr. Stone
+    character: 5
     sentences:
     - 'We did some research together that Bea went and stole for herself. '
     - Got herself a fancy promotion too.
@@ -222,7 +222,7 @@ MonoBehaviour:
   guid: 5986f15885b3dc24d85b8e62692d6d51
   position: {x: 704, y: 282.56158}
   dialogue:
-    characterName: Dr. Stone
+    character: 5
     sentences:
     - "Yes. I was\u2026 at home."
     - All weekend.
@@ -283,7 +283,7 @@ MonoBehaviour:
   guid: f34b0fd95d0e97940becc20d398f2c83
   position: {x: 704, y: 166.56163}
   dialogue:
-    characterName: Ace
+    character: 0
     sentences:
     - "So, you weren\u2019t on campus all weekend?"
   gateConditions: []
