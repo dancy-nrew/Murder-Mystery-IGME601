@@ -11,8 +11,10 @@ public class DialogueNode : Node
 {
     public Dialogue dialogue;
 
-   public List<DialogueData.DialogueParameter> gateConditions = new List<DialogueData.DialogueParameter>();
-    
+    public List<DialogueData.DialogueParameter> gateConditions = new List<DialogueData.DialogueParameter>();
+
+    public List<DialogueData.DialogueParameter> dataUpdates = new List<DialogueData.DialogueParameter>();
+
     /*
      * If gate conditions are met, set currentDialogue to this dialogue.
      */
@@ -27,11 +29,15 @@ public class DialogueNode : Node
                 return;
         }
 
-        if(dialogueTree != null)
+        if (dialogueTree != null)
         {
             dialogueTree.currentDialogue = dialogue;
-        }
 
+            foreach (var cond in dataUpdates)
+            {
+                DialogueDataWriter.Instance.UpdateDialogueData(cond.parameterKey, cond.parameterValue);
+            }
+        }
     }
 
     protected override void OnStop()

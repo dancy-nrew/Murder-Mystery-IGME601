@@ -18,3 +18,23 @@ MonoBehaviour:
     parameterValue: 0
   - parameterKey: bHasTalkedToReeves
     parameterValue: 0
+  - parameterKey: bTestParameter
+    parameterValue: 0
+  - parameterKey: bHasTalkedToChief
+    parameterValue: 0
+  - parameterKey: bHasTalkedToPaine
+    parameterValue: 0
+  - parameterKey: bHasTalkedToConnor
+    parameterValue: 0
+  - parameterKey: bHasTalkedToMorse
+    parameterValue: 0
+  - parameterKey: bHasTalkedToStone
+    parameterValue: 0
+  - parameterKey: bIsVaseInteractable
+    parameterValue: 0
+  - parameterKey: bIsBookInteractable
+    parameterValue: 0
+  - parameterKey: bHasPickedUpVase
+    parameterValue: 0
+  - parameterKey: bHasPickedUpBook
+    parameterValue: 0
