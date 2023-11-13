@@ -62,10 +62,8 @@ public class PlayerMovement : MonoBehaviour
     {
         // Checcking to see if some ui is currently being displayed
         if (bIsUIEnabled)
-        {
-            //Debug.Log("checking");
             return;
-        }
+
         RaycastHit raycastHit;
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         bool bHit = Physics.Raycast(ray: ray, hitInfo: out raycastHit, maxDistance: mainCamera.farClipPlane, layerMask:(layerMask.value));
