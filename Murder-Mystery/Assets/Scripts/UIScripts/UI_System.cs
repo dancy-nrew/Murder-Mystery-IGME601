@@ -100,7 +100,7 @@ namespace DancyNrew.UI
         {
             foreach(var screen in screens)
             {
-                screen.gameObject.SetActive(true);
+                //screen.gameObject.SetActive(true);
             }
         }
         #endregion
