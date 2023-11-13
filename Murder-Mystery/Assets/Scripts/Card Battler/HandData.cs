@@ -156,15 +156,16 @@ public class HandData
         // Set the information up for each suit
         for(int i = 0; i < this.cards.Count; i++)
         {
-            Suit s = this.cards[i].Suit;
+            Suit suit = this.cards[i].Suit;
             int face = this.cards[i].Face;
-            handComposition[s].IncreaseCount();
-            handComposition[s].AddToFaceValue(face);
-            if (handComposition[s].maxFaceValue < face)
+            SuitCalculationStruct calculationStruct = handComposition[suit];
+            calculationStruct.IncreaseCount();
+            calculationStruct.AddToFaceValue(face);
+            if (calculationStruct.maxFaceValue < face)
             {
-                Debug.Log("Setting max value to " + face.ToString());
-                handComposition[s].SetMaxFaceValue(face);
+                calculationStruct.SetMaxFaceValue(face);
             }
+            handComposition[suit] = calculationStruct;
         }
 
         // Calculate the final value
