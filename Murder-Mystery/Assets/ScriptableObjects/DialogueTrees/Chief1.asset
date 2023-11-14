@@ -1,0 +1,349 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7808640881510750430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 7df620a178b59a64ca1b985dac712b6c
+  position: {x: 161.20001, y: 0.40000942}
+  dialogue:
+    character: 0
+    sentences:
+    - "Miss Paine\u2019s alibi checks out. "
+    - 'The librarians saw her in the library at all hours of the weekend. '
+    - "It\u2019s not her. "
+    - "It\u2019s also not Mr Connor. "
+    - 'He spent the weekend with his boyfriend. '
+    - 'Whom I have already called to confirm. '
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &-7405424938142652512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 77ee21cc47aa3cf47a9dab7629b997ad
+  position: {x: 161.18683, y: -389.48862}
+  dialogue:
+    character: 2
+    sentences:
+    - Alright, Ace lets run through it again.
+    - ' What happened?'
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &-4920382481678775610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 73a23466207aef940b91b66047b51ff1
+  position: {x: 161.20001, y: -77.59996}
+  dialogue:
+    character: 2
+    sentences:
+    - "We don\u2019t know who the killer is, so who is it not?"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &-2432761624560322705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 432708e5feff6054c9340a0df668de52
+  position: {x: 161.20001, y: -155.60002}
+  dialogue:
+    character: 0
+    sentences:
+    - Dr Quincy Reeves,
+    - Dr Guillermo Stone,
+    - Dr Julietta Morse,
+    - Miss Winona Paine,
+    - and Mr Leo Connor.
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &-1193804251320913135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 856624455f8ec9a48b2e912fd6648422
+  position: {x: -43.400024, y: -42.800003}
+  children:
+  - {fileID: -7405424938142652512}
+  - {fileID: 287251855212429271}
+  - {fileID: 6846776434521666052}
+  - {fileID: -2432761624560322705}
+  - {fileID: -4920382481678775610}
+  - {fileID: -7808640881510750430}
+  - {fileID: -1182146495556926937}
+  - {fileID: 7302256639994891446}
+  - {fileID: -456096796249731954}
+  - {fileID: 1181101941678717717}
+  - {fileID: 8997012044975571885}
+--- !u!114 &-1182146495556926937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: bd6bd4c1006fe2e409d250ea7ac46e95
+  position: {x: 161.19998, y: 78.40001}
+  dialogue:
+    character: 2
+    sentences:
+    - Good.
+    - 'What about the others? '
+    - What makes them still suspects?
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &-456096796249731954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 0c294f43a65c0ee418b73dd989fedec1
+  position: {x: 161.2, y: 234.40002}
+  dialogue:
+    character: 2
+    sentences:
+    - "That\u2019s the who, what about the what? "
+    - "Any items missing from Dr Yates\u2019 office?"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba83d73ca578896468e40ca6498119b9, type: 3}
+  m_Name: Chief1
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 9012465689882777481}
+  treeState: 0
+  nodes:
+  - {fileID: 9012465689882777481}
+  - {fileID: -1193804251320913135}
+  - {fileID: -7405424938142652512}
+  - {fileID: 287251855212429271}
+  - {fileID: 6846776434521666052}
+  - {fileID: -2432761624560322705}
+  - {fileID: -4920382481678775610}
+  - {fileID: -7808640881510750430}
+  - {fileID: -1182146495556926937}
+  - {fileID: 7302256639994891446}
+  - {fileID: -456096796249731954}
+  - {fileID: 1181101941678717717}
+  - {fileID: 8997012044975571885}
+  dialogues: []
+  currentDialogue:
+    character: 0
+    sentences: []
+    bTransitionToCardBattle: 0
+--- !u!114 &287251855212429271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 43d09380fb6b39f4b885a785584f98cb
+  position: {x: 161.20001, y: -311.59988}
+  dialogue:
+    character: 0
+    sentences:
+    - Dr Bea Yates was killed by a blow to the head with an unknown blunt object
+      in her office between Friday night and Monday morning, today.
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &1181101941678717717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 7feb9186b1984d645935f1825e62021e
+  position: {x: 161.2, y: 312.40002}
+  dialogue:
+    character: 0
+    sentences:
+    - "Yeah, there\u2019s a book clearly missing from the shelf, scratches on the
+      desk that suggest something heavy or sharp was snatched off it, evidence of
+      something glass breaking in the carpet, and a section of lower shelves that
+      seems too clean. "
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &6846776434521666052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 798755458f438bf45811f4bf4fd67e93
+  position: {x: 161.20001, y: -233.59998}
+  dialogue:
+    character: 2
+    sentences:
+    - And the people of interest are?
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &7302256639994891446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 5a9c6e6feac5ed04390df92e6451424b
+  position: {x: 161.19998, y: 156.4}
+  dialogue:
+    character: 0
+    sentences:
+    - "Dr Reeves hated Dr Yates for some reason, which is sort of a motive, and he
+      spent the weekend grading exams, so his alibi isn\u2019t solid."
+    - Dr Stone on the other hand has no alibi.
+    - He claims to have been home alone all weekend, but that seems too convenient.
+    - "Dr Stone also did some research with Dr Yates, maybe there\u2019s a motive
+      there?"
+    - "Dr Morse was Dr Yates\u2019 friend and she was packing up her office most
+      of the weekend, which isn\u2019t a great alibi, but an argument between friends
+      isn\u2019t a strong motive.\r\n"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &8997012044975571885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 37b8629cc12c0324095c061e4a468d8a
+  position: {x: 160.99998, y: 426.37936}
+  dialogue:
+    character: 2
+    sentences:
+    - 'Hmmm any one of those could be a murder weapon. '
+    - "Go talk to the suspects again, see if there\u2019s anything you might have
+      missed."
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &9012465689882777481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ec560865062a6409c5395eac34b9be, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 5c1e61688407b9b40986c9064dd0977f
+  position: {x: -206, y: -43}
+  child: {fileID: -1193804251320913135}

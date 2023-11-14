@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8961227690978833652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 0055091e113aec7499f3c6a8527b8192
+  position: {x: 453.2, y: -31.599998}
+  dialogue:
+    character: 0
+    sentences:
+    - You were close with Dr Yates?
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &-8012332171218876869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 6818f551abe599844a5bf7dc58eccc98
+  position: {x: 453.2001, y: 124.4}
+  dialogue:
+    character: 0
+    sentences:
+    - My condolences.
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &-6147183189672929481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ec560865062a6409c5395eac34b9be, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 76e0c72c85108784ab573476c7d33227
+  position: {x: 0, y: 0}
+  child: {fileID: -4303143514371307988}
+--- !u!114 &-4303143514371307988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 8adfd9a21e1d0e4438d1662ccb1aa902
+  position: {x: 258.54868, y: 0.0000062309264}
+  children:
+  - {fileID: 4006602015116857711}
+  - {fileID: -8961227690978833652}
+  - {fileID: 2576887593903536181}
+  - {fileID: -8012332171218876869}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba83d73ca578896468e40ca6498119b9, type: 3}
+  m_Name: Morse2
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -6147183189672929481}
+  treeState: 0
+  nodes:
+  - {fileID: -6147183189672929481}
+  - {fileID: -4303143514371307988}
+  - {fileID: 4006602015116857711}
+  - {fileID: -8961227690978833652}
+  - {fileID: 2576887593903536181}
+  - {fileID: -8012332171218876869}
+  dialogues: []
+  currentDialogue:
+    character: 0
+    sentences: []
+    bTransitionToCardBattle: 0
+--- !u!114 &2576887593903536181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 2b2646bd7d2703340a893c3bbe891579
+  position: {x: 453.2, y: 46.400005}
+  dialogue:
+    character: 3
+    sentences:
+    - "We were- Um\u2026 close friends."
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &4006602015116857711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 95de00bcb32ad8646ba4b1ece6119e11
+  position: {x: 453.0991, y: -109.503}
+  dialogue:
+    character: 3
+    sentences:
+    - 'I miss her already. '
+    - "We used to get breakfast together every Monday.\r"
+    bTransitionToCardBattle: 0
+  gateConditions: []
