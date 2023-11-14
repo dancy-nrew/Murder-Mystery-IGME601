@@ -13,7 +13,7 @@ public class MovementController : MonoBehaviour
         Extend this class to add new movement.
 
     */
-    private int _elapsedFrames;
+    private float _elapsedFrames;
     private Vector3 _origin;
     private Quaternion _startRotation;
     private List<MovementDefinition> _movements;
@@ -72,7 +72,7 @@ public class MovementController : MonoBehaviour
         }
         MovementDefinition activeMovement = _movements[_activeMovementIndex];
         
-        _elapsedFrames += 1;
+        _elapsedFrames += _elapsedFrames;
         float interpolationRatio = (float) _elapsedFrames / activeMovement.durationInFrames;
         if (activeMovement.isFlip) {
             // Interpolate the rotation

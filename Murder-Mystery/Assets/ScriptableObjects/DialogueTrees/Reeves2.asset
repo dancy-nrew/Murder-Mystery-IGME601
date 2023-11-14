@@ -22,6 +22,7 @@ MonoBehaviour:
     - Yes and someone needs to run this department anyway.
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &-7501222794545918956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +67,7 @@ MonoBehaviour:
     - With Bea gone there's so much work to do.
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &-3047736043895836913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +90,7 @@ MonoBehaviour:
     - "We\u2019ll see about that, Dr Reeves."
     bTransitionToCardBattle: 1
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &-2870072525507252746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,14 +106,14 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 51eab408d00f01547a465b3784c5b54b
-  position: {x: 196.19287, y: -0.0000038146973}
+  position: {x: 196.00008, y: -0.00000846386}
   children:
   - {fileID: -7501222794545918956}
   - {fileID: 368901212601104226}
   choiceConditions:
   - parameterKey: bHasTalkedToPaine
     parameterValue: 1
-  - parameterKey: bHasFoundVase
+  - parameterKey: bHasPickedUpVase
     parameterValue: 1
 --- !u!114 &-1774588738995563479
 MonoBehaviour:
@@ -135,6 +138,7 @@ MonoBehaviour:
     - "I would like to open up a few lines of questioning\u2026 "
     bTransitionToCardBattle: 1
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &-757762986212418918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +181,7 @@ MonoBehaviour:
       like. "
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +287,7 @@ MonoBehaviour:
     - Looks like it.
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &4902450105156719879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +310,7 @@ MonoBehaviour:
     - "I already told you, Detective, I didn\u2019t do it!"
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &6026287772103554096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +333,7 @@ MonoBehaviour:
     - And that person is you?
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &8009924005895448989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +357,7 @@ MonoBehaviour:
     - Is there anything you want to tell me, Dr Reeves?
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &8806530676398375521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +380,7 @@ MonoBehaviour:
     - Dr Yates was just murdered.
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &9091146014059199402
 MonoBehaviour:
   m_ObjectHideFlags: 0

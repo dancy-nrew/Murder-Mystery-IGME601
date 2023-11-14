@@ -44,6 +44,7 @@ MonoBehaviour:
     - "I\u2019ll keep an eye out for it."
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &-6942161203813976593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,6 +88,9 @@ MonoBehaviour:
     - "Dr Yates\u2019 death was not your fault. "
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates:
+  - parameterKey: bHasTalkedToPaine
+    parameterValue: 1
 --- !u!114 &-524789282870113681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +160,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: abe11ad74cbf72e4d9cab74dcda61304
-  position: {x: 540.4, y: -251.59993}
+  position: {x: 539.99994, y: -260.51}
   dialogue:
     character: 7
     sentences:
@@ -168,6 +172,7 @@ MonoBehaviour:
     - I heard glass shatter and everything!
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &1118436739928331534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,13 +188,14 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: bd33b201b51887e4bb7827290d79a415
-  position: {x: 603.4999, y: -329.0001}
+  position: {x: 540, y: -347.9981}
   dialogue:
     character: 0
     sentences:
     - "I found Dr Yates\u2019 book."
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &1314764425976555076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +237,7 @@ MonoBehaviour:
     - " I know that she\u2019s dead, but I feel like I have to return it to her."
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &3763816930239886370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +262,7 @@ MonoBehaviour:
     - If- if I had been braver w-would Dr Yates still be alive?
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &5366339669050579602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,13 +278,16 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 749b3c3ad55f095498e5ba3d0a40ca90
-  position: {x: 540.4, y: 312.00003}
+  position: {x: 540, y: 311}
   dialogue:
     character: 7
     sentences:
     - Thanks, Ace.
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates:
+  - parameterKey: bIsBookInteractable
+    parameterValue: 1
 --- !u!114 &7518406447932942175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,3 +310,4 @@ MonoBehaviour:
     - When was this?
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
