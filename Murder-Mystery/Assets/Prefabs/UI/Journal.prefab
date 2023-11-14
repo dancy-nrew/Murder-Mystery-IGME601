@@ -113,7 +113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -262.26257, y: -229.04082}
+  m_AnchoredPosition: {x: -262.26257, y: -175}
   m_SizeDelta: {x: 71.5349, y: 38.0816}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5147048938087600928
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1458538168487563913}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
         m_MethodName: PreviousCharacterPage
         m_Mode: 1
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 47.0791, z: 0, w: 34.298416}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1458538168487563913}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
         m_MethodName: Return
         m_Mode: 1
@@ -1691,7 +1691,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 68.408264, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1867,7 +1867,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275.58, y: -229.04082}
+  m_AnchoredPosition: {x: 275.58, y: -151}
   m_SizeDelta: {x: 71.5349, y: 38.0816}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5653239371157995688
@@ -2482,7 +2482,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275.58, y: -229.04082}
+  m_AnchoredPosition: {x: 275.58, y: -175}
   m_SizeDelta: {x: 71.5349, y: 38.0816}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5741122295675255339
@@ -2567,7 +2567,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1458538168487563913}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
         m_MethodName: NextCharacterPage
         m_Mode: 1
@@ -3487,7 +3487,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -262.26257, y: -229.04082}
+  m_AnchoredPosition: {x: -262.26257, y: -166}
   m_SizeDelta: {x: 71.5349, y: 38.0816}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8384671608095065346
@@ -3572,7 +3572,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1458538168487563913}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
         m_MethodName: PreviousCluePage
         m_Mode: 1
@@ -3620,7 +3620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -262.26257, y: -229.04082}
+  m_AnchoredPosition: {x: -262.26257, y: -151}
   m_SizeDelta: {x: 71.5349, y: 38.0816}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4535319740004375478
@@ -3887,7 +3887,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275.58, y: -229.04082}
+  m_AnchoredPosition: {x: 275.58, y: -166}
   m_SizeDelta: {x: 71.5349, y: 38.0816}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2914866205057863933
@@ -3972,7 +3972,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1458538168487563913}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
         m_MethodName: NextCluePage
         m_Mode: 1
@@ -4019,7 +4019,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7562501, y: 0.74726653}
   m_AnchorMax: {x: 0.99249995, y: 1}
-  m_AnchoredPosition: {x: 315.56247, y: 172.77165}
+  m_AnchoredPosition: {x: 315.56247, y: 89}
   m_SizeDelta: {x: 776.3749, y: 514.45667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6102979403112892414
