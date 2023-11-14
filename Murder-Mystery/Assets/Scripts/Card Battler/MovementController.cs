@@ -25,11 +25,11 @@ public class MovementController : MonoBehaviour
     {
         public Vector3 destination;
         public Quaternion endRotation;
-        public int durationInFrames;
+        public float durationInFrames;
         public bool isFlip;
         public bool isWait;
 
-        public MovementDefinition(Vector3 dest, int duration)
+        public MovementDefinition(Vector3 dest, float duration)
         {
             destination = dest;
             endRotation = Quaternion.identity;
@@ -38,7 +38,7 @@ public class MovementController : MonoBehaviour
             isWait = false;
         }
 
-        public MovementDefinition(Quaternion rotation, int duration)
+        public MovementDefinition(Quaternion rotation, float duration)
         {
             destination = new Vector3(0,0,0);
             endRotation = rotation;
@@ -47,7 +47,7 @@ public class MovementController : MonoBehaviour
             isWait = false;
         }
 
-        public MovementDefinition(int duration)
+        public MovementDefinition(float duration)
         {
             destination = new Vector3(0, 0, 0);
             endRotation = Quaternion.identity;
@@ -72,7 +72,7 @@ public class MovementController : MonoBehaviour
         }
         MovementDefinition activeMovement = _movements[_activeMovementIndex];
         
-        _elapsedFrames += _elapsedFrames;
+        _elapsedFrames += Time.deltaTime;
         float interpolationRatio = (float) _elapsedFrames / activeMovement.durationInFrames;
         if (activeMovement.isFlip) {
             // Interpolate the rotation
@@ -88,7 +88,7 @@ public class MovementController : MonoBehaviour
             transform.position = Vector3.Lerp(_origin, activeMovement.destination, interpolationRatio);
         }
 
-        if (interpolationRatio == 1){
+        if (interpolationRatio >= 1){
             // Move to the next movement in the list;
             _activeMovementIndex++;
             
@@ -110,19 +110,19 @@ public class MovementController : MonoBehaviour
     /*
         Methods to add types of movement to the movement chain
      */
-    public void AddMovement(Vector3 destination, int duration)
+    public void AddMovement(Vector3 destination, float duration)
     {
         MovementDefinition def = new MovementDefinition(destination, duration);
         _movements.Add(def);
     }
 
-    public void AddFlip(int duration)
+    public void AddFlip(float duration)
     {
         MovementDefinition def = new MovementDefinition(transform.rotation * Quaternion.Euler(0,0, 180f), duration);
         _movements.Add(def);
     }
 
-    public void AddWait(int duration)
+    public void AddWait(float duration)
     {
         MovementDefinition def = new MovementDefinition(duration);
         _movements.Add(def);

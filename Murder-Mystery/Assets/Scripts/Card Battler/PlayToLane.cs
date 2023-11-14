@@ -15,13 +15,12 @@ public class PlayToLane : MonoBehaviour
 
     //Constants for movement
     
-    private const int TO_LANE_MOVEMENT_DURATION = 20;
+    private const int TO_LANE_MOVEMENT_DURATION = 1;
     private const float CARD_TO_LANE_HEIGHT_DISTANCE = 0.5f;
     private const float CARD_LANE_CENTER_X_OFFSET = 2;
     private const int ROW_OFFSET = -6;
     private const string LANE1_NAME = "Lane1";
     private const string LANE2_NAME = "Lane2";
-    private const string LANE3_NAME = "Lane3";
     private BoardManager _boardManager;
 
 
@@ -154,12 +153,12 @@ public class PlayToLane : MonoBehaviour
             
          */
         MovementController mc = gameObject.GetComponent<MovementController>();
-        int suspense_duration = 10 * TO_LANE_MOVEMENT_DURATION;
+        float suspense_duration =  0.5f * TO_LANE_MOVEMENT_DURATION;
 
         //ConfigureMovement(ConstantParameters.AI_STAGING_DESTINATION, suspense_duration);
         ConfigureMovement(CalculateMoveToLane(lane, ConstantParameters.PLAYER_2), TO_LANE_MOVEMENT_DURATION);
-        mc.AddWait(suspense_duration / 2);
-        mc.AddFlip(suspense_duration*2);
+        mc.AddWait(suspense_duration);
+        mc.AddFlip(suspense_duration);
         mc.ToggleMovement();
 
         UpdateBoardStatus(lane, ConstantParameters.PLAYER_2);
