@@ -38,3 +38,5 @@ MonoBehaviour:
     parameterValue: 0
   - parameterKey: bHasPickedUpBook
     parameterValue: 0
+  - parameterKey: bHasPickedUpCube
+    parameterValue: 0
