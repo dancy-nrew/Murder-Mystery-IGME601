@@ -14,7 +14,8 @@ public class CharacterSO : ScriptableObject
         Reeves,
         Stone,
         Connor,
-        Paine
+        Paine,
+        WiseOldMan
     }
 
     public ECharacter character;
