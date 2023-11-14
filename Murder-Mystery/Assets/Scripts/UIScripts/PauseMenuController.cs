@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PauseMenuController : MonoBehaviour
 {
-    private PlayerMovement playerMovement;
+    public PlayerMovement playerMovement;
     public GameObject PausePanel, SettingsPanel, CluesPanel, CharactersPanel, ReturnPanel;
     public TextMeshProUGUI characterNameText, characterInfoText,
                             clueNameText, clueInfotext;
@@ -69,6 +69,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void ShowCharacters()
     {
+        Debug.Log("Showing characters");
         ReturnPanel.SetActive(true);
         CharactersPanel.SetActive(true);
         PausePanel.SetActive(false);
@@ -137,7 +138,7 @@ public class PauseMenuController : MonoBehaviour
     }
     void Pause()
     {
-        //playerMovement.SetIsUIEnabled(true);
+        playerMovement.SetIsUIEnabled(true);
         PausePanel.SetActive(true);
         Time.timeScale = 0f;
         GamePaused = true;
@@ -145,7 +146,7 @@ public class PauseMenuController : MonoBehaviour
 
     void Resume()
     {
-        //playerMovement.SetIsUIEnabled(false);
+        playerMovement.SetIsUIEnabled(false);
         ReturnPanel.SetActive(false);
         CharactersPanel.SetActive(false);
         SettingsPanel.SetActive(false);

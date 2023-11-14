@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: 2
   displayName: Police Chief
-  characterPortrait: {fileID: 0}
+  characterPortrait: {fileID: 21300000, guid: f7029d89b892bb649a4ab7b452d2e203, type: 3}

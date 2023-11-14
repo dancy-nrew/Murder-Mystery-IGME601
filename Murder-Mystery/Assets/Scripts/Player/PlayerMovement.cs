@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Checking to see if an interactable has been clicked
             Interactable interactable = raycastHit.collider.gameObject.GetComponentInParent<Interactable>();
-            if(interactable != null)
+            if(interactable != null && interactable.bIsInteractable)
             {
                 agent.SetDestination(raycastHit.point);
                 currentInteractable = interactable;
