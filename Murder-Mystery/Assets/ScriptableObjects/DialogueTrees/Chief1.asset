@@ -91,8 +91,11 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - Dr Quincy Reeves, Dr Guillermo Stone, Dr Julietta Morse, Miss Winona Paine,
-      and Mr Leo Connor.
+    - Dr Quincy Reeves,
+    - Dr Guillermo Stone,
+    - Dr Julietta Morse,
+    - Miss Winona Paine,
+    - and Mr Leo Connor.
     bTransitionToCardBattle: 0
   gateConditions: []
 --- !u!114 &-1193804251320913135
@@ -318,7 +321,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 37b8629cc12c0324095c061e4a468d8a
-  position: {x: 161.2, y: 390.4001}
+  position: {x: 160.99998, y: 426.37936}
   dialogue:
     character: 2
     sentences:

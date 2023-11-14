@@ -81,11 +81,11 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: bd820b4b6b300ac4da61491f16ffce46
-  position: {x: 1079.5999, y: 59.600105}
+  position: {x: 952.99994, y: 64.000015}
   dialogue:
     character: 0
     sentences:
-    - (I need to card battle Dr Reeves!)
+    - "We\u2019ll see about that, Dr Reeves."
     bTransitionToCardBattle: 1
   gateConditions: []
 --- !u!114 &-2870072525507252746
@@ -204,9 +204,7 @@ MonoBehaviour:
   - {fileID: 4042296476901918566}
   - {fileID: 8009924005895448989}
   - {fileID: -619085053500100547}
-  - {fileID: 4025929862770601970}
   - {fileID: -3047736043895836913}
-  - {fileID: 9134311930458707453}
   - {fileID: 9091146014059199402}
   - {fileID: 4902450105156719879}
   - {fileID: -1774588738995563479}
@@ -242,33 +240,6 @@ MonoBehaviour:
   - {fileID: -7753303904631729112}
   - {fileID: 6026287772103554096}
   - {fileID: 4561044362204063769}
---- !u!114 &4025929862770601970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47f11afa25c038847bc4cedf1395cf8b, type: 3}
-  m_Name: InputNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 379a47d95d7b1084aa2147b299c387bc
-  position: {x: 952.3999, y: 62.800095}
-  dialogue:
-    character: 0
-    sentences:
-    - (I'm not sure what to do.)
-    bTransitionToCardBattle: 0
-  children:
-  - {fileID: -3047736043895836913}
-  - {fileID: 9134311930458707453}
-  choices:
-  - '"Card Battle"'
-  - '"Gather More Clues"'
 --- !u!114 &4042296476901918566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +259,7 @@ MonoBehaviour:
   children:
   - {fileID: 8009924005895448989}
   - {fileID: -619085053500100547}
-  - {fileID: 4025929862770601970}
+  - {fileID: -3047736043895836913}
 --- !u!114 &4561044362204063769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,25 +390,3 @@ MonoBehaviour:
   children:
   - {fileID: 4902450105156719879}
   - {fileID: -1774588738995563479}
---- !u!114 &9134311930458707453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 87a4fe6bc1cc98146a84d7c13e34a16e
-  position: {x: 1079.5999, y: 140.80005}
-  dialogue:
-    character: 0
-    sentences:
-    - "We\u2019ll see about that, Dr Reeves."
-    bTransitionToCardBattle: 0
-  gateConditions: []
