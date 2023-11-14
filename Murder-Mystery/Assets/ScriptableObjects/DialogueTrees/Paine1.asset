@@ -1,0 +1,301 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8774695595781437526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 68dd1cda85d87d44cae919a126bfa5e8
+  position: {x: 334.80002, y: -56.599987}
+  children:
+  - {fileID: 1118436739928331534}
+  - {fileID: 985761442167733536}
+  - {fileID: 7518406447932942175}
+  - {fileID: 3763816930239886370}
+  - {fileID: -3710063181527416743}
+--- !u!114 &-7413477772849200948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: b94c28a482010a1479005b7470f0a04e
+  position: {x: 540.4, y: 234.00006}
+  dialogue:
+    character: 0
+    sentences:
+    - "I\u2019ll keep an eye out for it."
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &-6942161203813976593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 4fdf3eca1ffcc104ebdf9259807f3ca6
+  position: {x: 334.79996, y: 78}
+  children:
+  - {fileID: 2087021623421351152}
+  - {fileID: -7413477772849200948}
+  - {fileID: 5366339669050579602}
+--- !u!114 &-3710063181527416743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 59d808f6f95cf08458c1d47ba618fd11
+  position: {x: 540.4, y: -17.599947}
+  dialogue:
+    character: 0
+    sentences:
+    - 'You did the right thing. '
+    - "Dr Yates\u2019 death was not your fault. "
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &-524789282870113681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf40963fd2fd84044a361d2c75c38fa7, type: 3}
+  m_Name: ChoiceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 84a7f751b7f4cfe439d5d7b4620eeb36
+  position: {x: 181.71417, y: 0.0000006992341}
+  children:
+  - {fileID: -8774695595781437526}
+  - {fileID: -6942161203813976593}
+  choiceConditions:
+  - parameterKey: bHasFoundBook
+    parameterValue: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba83d73ca578896468e40ca6498119b9, type: 3}
+  m_Name: Paine1
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 1314764425976555076}
+  treeState: 0
+  nodes:
+  - {fileID: 1314764425976555076}
+  - {fileID: -524789282870113681}
+  - {fileID: -8774695595781437526}
+  - {fileID: 2087021623421351152}
+  - {fileID: -6942161203813976593}
+  - {fileID: -7413477772849200948}
+  - {fileID: 5366339669050579602}
+  - {fileID: 1118436739928331534}
+  - {fileID: 985761442167733536}
+  - {fileID: 7518406447932942175}
+  - {fileID: 3763816930239886370}
+  - {fileID: -3710063181527416743}
+  dialogues: []
+  currentDialogue:
+    character: 0
+    sentences: []
+    bTransitionToCardBattle: 0
+--- !u!114 &985761442167733536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: abe11ad74cbf72e4d9cab74dcda61304
+  position: {x: 540.4, y: -251.59993}
+  dialogue:
+    character: 7
+    sentences:
+    - 'Thank you so much, Ace! '
+    - Now I just need to return it to- oh.
+    - Right.
+    - 'I tried to return it, but Dr Yates was arguing with Dr Reeves. '
+    - 'There was no way I was going to get in the middle of that. '
+    - I heard glass shatter and everything!
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &1118436739928331534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: bd33b201b51887e4bb7827290d79a415
+  position: {x: 540.39996, y: -329.54535}
+  dialogue:
+    character: 0
+    sentences:
+    - "I found Dr Yates\u2019 book."
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &1314764425976555076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ec560865062a6409c5395eac34b9be, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 1961f1c20f9a9f9448a24e91921faf0e
+  position: {x: 0, y: 0}
+  child: {fileID: -524789282870113681}
+--- !u!114 &2087021623421351152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: c9f6f86a0bd01f14284edb16980c83c6
+  position: {x: 540.4, y: 156.00003}
+  dialogue:
+    character: 7
+    sentences:
+    - "I don\u2019t even have Dr Yates\u2019 book anymore. "
+    - "She told me not to lose it and now I can\u2019t find it. "
+    - " I know that she\u2019s dead, but I feel like I have to return it to her."
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &3763816930239886370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: d358868eed64d684b84e0f9733ffcda1
+  position: {x: 540.4, y: -95.599976}
+  dialogue:
+    character: 7
+    sentences:
+    - 'Saturday around noon. '
+    - "Wait- you don\u2019t think it was Dr Reeves, do you?"
+    - If- if I had been braver w-would Dr Yates still be alive?
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &5366339669050579602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 749b3c3ad55f095498e5ba3d0a40ca90
+  position: {x: 540.4, y: 312.00003}
+  dialogue:
+    character: 7
+    sentences:
+    - Thanks, Ace.
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &7518406447932942175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 8dabd56b872eac54780dd2ed6ae01ae3
+  position: {x: 540.4, y: -173.59996}
+  dialogue:
+    character: 0
+    sentences:
+    - When was this?
+    bTransitionToCardBattle: 0
+  gateConditions: []

@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6444069630254863651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 604cddfabff5aea48adc6939c93bb5d6
+  position: {x: 154, y: 0}
+  children:
+  - {fileID: 2267854786779990489}
+  - {fileID: 7296579672233456064}
+  - {fileID: 8212801738364208078}
+--- !u!114 &-4327204597156134376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ec560865062a6409c5395eac34b9be, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 86bd419d6dd44af4785ad87fc7b58c4f
+  position: {x: 0, y: 0}
+  child: {fileID: -6444069630254863651}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba83d73ca578896468e40ca6498119b9, type: 3}
+  m_Name: Connor1
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -4327204597156134376}
+  treeState: 0
+  nodes:
+  - {fileID: -4327204597156134376}
+  - {fileID: -6444069630254863651}
+  - {fileID: 2267854786779990489}
+  - {fileID: 7296579672233456064}
+  - {fileID: 8212801738364208078}
+  dialogues: []
+  currentDialogue:
+    character: 0
+    sentences: []
+    bTransitionToCardBattle: 0
+--- !u!114 &2267854786779990489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: bf3cb9ad880fc9a4689fff8c0a6cd52b
+  position: {x: 326.2, y: -174.00801}
+  dialogue:
+    character: 6
+    sentences:
+    - "I still can\u2019t believe that Dr Yates is gone. "
+    - "I wasn\u2019t even her TA for that long, but Cantor Hall feels empty without
+      her."
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &7296579672233456064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 791c975a2982c0b49a40c320a5cff07f
+  position: {x: 326.40002, y: -96}
+  dialogue:
+    character: 0
+    sentences:
+    - I am sorry for your loss.
+    bTransitionToCardBattle: 0
+  gateConditions: []
+--- !u!114 &8212801738364208078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: f4746ae1b06e2334b80d20e774ff81a2
+  position: {x: 326.40002, y: -18}
+  dialogue:
+    character: 6
+    sentences:
+    - 'Thanks, Ace. '
+    - 'If you need anything let me know. '
+    - I still work in the building so I know where everything is if you need a hand.
+    bTransitionToCardBattle: 0
+  gateConditions: []
