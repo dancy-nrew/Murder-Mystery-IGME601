@@ -23,6 +23,9 @@ MonoBehaviour:
     - Thank you, Dr Stone.
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates:
+  - parameterKey: bHasTalkedToStone
+    parameterValue: 1
 --- !u!114 &-8469086120631924641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,6 +48,7 @@ MonoBehaviour:
     - On Friday?
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &-6449301398039700124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +88,7 @@ MonoBehaviour:
     - Yes, I saw her before I left for the weekend.
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &-2184796268515991283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +112,7 @@ MonoBehaviour:
     - "I just saw Bea on Friday!\r"
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &-1948637284608796120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +135,7 @@ MonoBehaviour:
     - And you were home, alone, all weekend?
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &-1099337701092397886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +159,7 @@ MonoBehaviour:
       Dr Yates."
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +221,7 @@ MonoBehaviour:
     - Good, bye then-
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &1300444205304509040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +267,7 @@ MonoBehaviour:
     - Uh-huh.
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &6287477027967733353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,6 +313,7 @@ MonoBehaviour:
     - 'I was. '
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &8677493566348610358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +341,7 @@ MonoBehaviour:
     - "Quincy never really got over that\u2026"
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &9109594361426530672
 MonoBehaviour:
   m_ObjectHideFlags: 0

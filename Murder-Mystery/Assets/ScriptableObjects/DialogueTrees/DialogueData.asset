@@ -31,7 +31,7 @@ MonoBehaviour:
   - parameterKey: bHasTalkedToStone
     parameterValue: 0
   - parameterKey: bIsVaseInteractable
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bIsBookInteractable
     parameterValue: 0
   - parameterKey: bHasPickedUpVase
