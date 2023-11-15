@@ -72,7 +72,7 @@ public class DialogueManager : MonoBehaviour
         }
         currentDialogueTree = dialogueTree;
         currentDialogue = currentDialogueTree.QueryTree();
-        DisplayDialogue(currentDialogue);
+        // DisplayDialogue(currentDialogue);
         if (currentDialogue == null)
         {
             currentDialogueTree = null;
@@ -112,7 +112,7 @@ public class DialogueManager : MonoBehaviour
             {
                 currentSentence = 0;
                 currentDialogue = currentDialogueTree.QueryTree();
-                DisplayDialogue(currentDialogue);
+                //DisplayDialogue(currentDialogue);
             }
 
             if (currentDialogue == null)
