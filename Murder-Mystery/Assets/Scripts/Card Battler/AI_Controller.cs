@@ -17,9 +17,20 @@ public class AI_Controller : MonoBehaviour
     {
         hand = gameObject.GetComponent<HandContainer>();
         _boardManager = GameObject.Find("SceneDataManager").GetComponent<BoardManager>();
+    }
 
+
+    // Event delegation is lifetime static, so must move out of start/destroy methods
+    private void OnEnable()
+    {
         // Subscribe to the board manager receiving game player moves to prepare AI move.
         BoardManager.OnPlay += DecideMove;
+    }
+
+    private void OnDisable()
+    {
+        // Unsubscribe on disable to clean up after scene is done
+        BoardManager.OnPlay -= DecideMove;
     }
 
     public void DecideMove()
@@ -42,7 +53,7 @@ public class AI_Controller : MonoBehaviour
             (lane, index, card) = MakeInformedMove();
         }
 
-        // Physically move the card
+        // Physically move the 
         GameObject physicalCard = hand.PopCardObject(index);
         PlayToLane ptl = physicalCard.GetComponent<PlayToLane>();
         ptl.AnticipationMove(lane);
@@ -139,6 +150,7 @@ public class AI_Controller : MonoBehaviour
                 pop_index = i;
             }
         }
+        Debug.Log(pop_index.ToString());
         card = hand.handData.PopCard(pop_index);
         return (returnable_lane, pop_index, card);
     }

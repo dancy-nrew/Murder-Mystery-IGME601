@@ -39,10 +39,13 @@ public class MouseSelect : MonoBehaviour
         // Detect which card the mouse is hovering over
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, maxRayDistance, layer.value))
+        if (Physics.Raycast(ray, out hit, maxRayDistance))
         {
-            highlightedObject = hit.collider.gameObject;
-            
+            int intLayerValue = (int)Mathf.Log(layer.value, 2);
+            if (hit.collider.gameObject.layer == intLayerValue)
+            {
+                highlightedObject = hit.collider.gameObject;
+            }            
         } else
         {
             highlightedObject = null;

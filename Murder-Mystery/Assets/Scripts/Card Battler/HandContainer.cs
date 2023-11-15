@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class HandContainer : MonoBehaviour
 {
-    public HandData handData = new HandData(ConstantParameters.MAX_HAND_SIZE);
-    private List<GameObject> cards = new List<GameObject>();
+    public HandData handData;
+    private List<GameObject> cards;
+
+    private void Awake()
+    {
+        handData = new HandData(ConstantParameters.MAX_HAND_SIZE);
+        cards = new List<GameObject>();
+    }
 
     public void FreezeCards()
     {

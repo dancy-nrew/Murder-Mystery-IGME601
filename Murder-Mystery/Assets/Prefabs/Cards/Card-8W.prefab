@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2435487201305147689}
   - component: {fileID: 1964512143950090072}
   - component: {fileID: 3758921260016582053}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Card-8W
   m_TagString: Untagged
   m_Icon: {fileID: 0}

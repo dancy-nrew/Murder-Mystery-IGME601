@@ -15,7 +15,7 @@ public class HandFactory : MonoBehaviour
     public List<GameObject> LocationCards = new List<GameObject>();
     public List<GameObject> MotiveCards = new List<GameObject>();
 
-    void Awake()
+    void Start()
     {
         DealCards(ConstantParameters.PLAYER_1);
         DealCards(ConstantParameters.PLAYER_2);

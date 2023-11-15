@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3860073776510478363}
   - component: {fileID: 9182376288426057197}
   - component: {fileID: 4167569013983231806}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Card-10L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
