@@ -8,28 +8,39 @@ using UnityEngine;
  */
 public class InputNode : Node
 {
-    public Dialogue dialogue;
+
     public List<Node> children = new List<Node>();
     public List<string> choices = new List<string>();
+    public int choice = -1;
     protected override void OnStart()
     {
-        if (dialogueTree != null)
+        if (dialogueTree != null && choice == -1)
         {
-            //dialogueTree.dialogues.Add(dialogue);
-           /* dialogueTree.bIsInputting = true;
-            dialogueTree.inputtingNode = this;*/
+            dialogueTree.bIsInputting = true;
+            dialogueTree.currentInputNode = this;
         }
        
     }
 
     protected override void OnStop()
     {
-        state = NodeState.Running;
+        if(choice == -1)
+        {
+            state = NodeState.Running;
+        }
     }
 
     protected override NodeState OnUpdate()
     {
-        return NodeState.Success;
+        if(choice == -1)
+        {
+            return NodeState.Success;
+        }
+        else
+        {
+            return children[choice].UpdateNode(dialogueTree);
+        }
+        
     }
 
     public override Node Clone(DialogueTree tree)

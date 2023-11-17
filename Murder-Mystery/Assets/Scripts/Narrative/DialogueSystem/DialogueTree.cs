@@ -18,6 +18,8 @@ public class DialogueTree : ScriptableObject
     public List<Dialogue> dialogues = new List<Dialogue>();
 
     public Dialogue currentDialogue;
+    public bool bIsInputting = false;
+    public InputNode currentInputNode = null;
 
     public Dictionary<string, bool> parameters = new Dictionary<string, bool>();
 
