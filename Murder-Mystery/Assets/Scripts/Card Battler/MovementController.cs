@@ -91,7 +91,7 @@ public class MovementController : MonoBehaviour
             // Interpolate the rotation
             transform.rotation = Quaternion.Slerp(_startRotation, activeMovement.endRotation, interpolationRatio);
             // Move up and down to give that flip feel
-            float flipHeight = Mathf.Sin(interpolationRatio * Mathf.PI);
+            float flipHeight = Mathf.Clamp(Mathf.Sin(interpolationRatio * Mathf.PI), 0.1f, 1.0f);
             transform.localScale = new Vector3(
                 _originScale.x + flipHeight * activeMovement.scaleFactor.x,
                 1,
