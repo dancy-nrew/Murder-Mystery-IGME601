@@ -20,6 +20,9 @@ public class DialogueManager : MonoBehaviour
     public Image characterPortraitIMG;
     public Button continueButton;
     public GameObject choicesParent;
+    public Button choiceButton1;
+    public Button choiceButton2;
+    public Button choiceButton3;
     public TextMeshProUGUI choiceButton1Text;
     public TextMeshProUGUI choiceButton2Text;
     public TextMeshProUGUI choiceButton3Text;
@@ -175,7 +178,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ShowInput()
     {
-        continueButton.enabled = false;
+        continueButton.gameObject.SetActive(false);
         choicesParent.SetActive(true);
         currentCharacter = GameManager.Instance.GetCharacterSOFromKey(CharacterSO.ECharacter.Ace);
         dialogueText.text = "";
@@ -184,15 +187,30 @@ public class DialogueManager : MonoBehaviour
 
         if (currentInputNode.choices.Count > 0)
         {
+            choiceButton1.gameObject.SetActive(true);
             choiceButton1Text.text = currentInputNode.choices[0];
+        }
+        else
+        {
+            choiceButton1.gameObject.SetActive(false);
         }
         if (currentInputNode.choices.Count > 1)
         {
+            choiceButton2.gameObject.SetActive(true);
             choiceButton2Text.text = currentInputNode.choices[1];
+        }
+        else
+        {
+            choiceButton2.gameObject.SetActive(false);
         }
         if (currentInputNode.choices.Count > 2)
         {
+            choiceButton3.gameObject.SetActive(true);
             choiceButton3Text.text = currentInputNode.choices[2];
+        }
+        else
+        {
+            choiceButton3.gameObject.SetActive(false);
         }
 
     }
@@ -203,7 +221,7 @@ public class DialogueManager : MonoBehaviour
         currentDialogueTree.bIsInputting = false;
         currentDialogueTree.currentInputNode = null;
 
-        continueButton.enabled = true;
+        continueButton.gameObject.SetActive(true);
         choicesParent.SetActive(false);
         currentDialogue = currentDialogueTree.QueryTree();
         DisplayNextSentence();

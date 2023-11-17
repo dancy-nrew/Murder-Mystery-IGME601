@@ -11,6 +11,7 @@ public class InputNode : Node
 
     public List<Node> children = new List<Node>();
     public List<string> choices = new List<string>();
+    [HideInInspector]
     public int choice = -1;
     protected override void OnStart()
     {

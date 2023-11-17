@@ -1052,6 +1052,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &283937592 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1175956755365594058, guid: 87c2a3b15483d1642868908e12b432f5, type: 3}
+  m_PrefabInstance: {fileID: 106560905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &316536994 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 446645468449817533, guid: 87c2a3b15483d1642868908e12b432f5, type: 3}
@@ -1314,6 +1325,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &592949720 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9065884037230581061, guid: 87c2a3b15483d1642868908e12b432f5, type: 3}
+  m_PrefabInstance: {fileID: 106560905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &612368369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3996,6 +4018,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1507856549}
     - target: {fileID: 7504232127161356642, guid: c1c6bbd0eb61ca14890864b5ac352d7c, type: 3}
+      propertyPath: choiceButton1
+      value: 
+      objectReference: {fileID: 1710747899}
+    - target: {fileID: 7504232127161356642, guid: c1c6bbd0eb61ca14890864b5ac352d7c, type: 3}
+      propertyPath: choiceButton2
+      value: 
+      objectReference: {fileID: 592949720}
+    - target: {fileID: 7504232127161356642, guid: c1c6bbd0eb61ca14890864b5ac352d7c, type: 3}
+      propertyPath: choiceButton3
+      value: 
+      objectReference: {fileID: 283937592}
+    - target: {fileID: 7504232127161356642, guid: c1c6bbd0eb61ca14890864b5ac352d7c, type: 3}
       propertyPath: choicesParent
       value: 
       objectReference: {fileID: 767303658}
@@ -4335,6 +4369,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683477925}
   m_CullTransparentMesh: 1
+--- !u!114 &1710747899 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6658340704895697190, guid: 87c2a3b15483d1642868908e12b432f5, type: 3}
+  m_PrefabInstance: {fileID: 106560905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1790402395
 GameObject:
   m_ObjectHideFlags: 0

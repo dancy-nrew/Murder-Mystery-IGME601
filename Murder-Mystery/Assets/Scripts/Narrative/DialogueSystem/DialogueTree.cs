@@ -42,6 +42,11 @@ public class DialogueTree : ScriptableObject
         foreach (Node node in nodes)
         {
             node.state = Node.NodeState.Running;
+            if(node is InputNode)
+            {
+                InputNode inputNode = node as InputNode;
+                inputNode.choice = -1;
+            }
         }
     }
 

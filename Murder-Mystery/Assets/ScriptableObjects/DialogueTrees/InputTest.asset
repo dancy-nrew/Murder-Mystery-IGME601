@@ -19,7 +19,7 @@ MonoBehaviour:
   dialogue:
     character: 2
     sentences:
-    - hey there 3
+    - Well then
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -42,7 +42,7 @@ MonoBehaviour:
   dialogue:
     character: 2
     sentences:
-    - thanks 2
+    - I hate green!
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -65,7 +65,7 @@ MonoBehaviour:
   dialogue:
     character: 2
     sentences:
-    - Hey there 1
+    - Hey there Ace
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -88,7 +88,7 @@ MonoBehaviour:
   dialogue:
     character: 2
     sentences:
-    - thanks 1
+    - I love red too!
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -148,9 +148,9 @@ MonoBehaviour:
   guid: ca49c07d580c18342bbef3d105192aa0
   position: {x: 449, y: 201}
   dialogue:
-    character: 0
+    character: 2
     sentences:
-    - hey there 4
+    - Off you go.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -205,8 +205,8 @@ MonoBehaviour:
   - {fileID: -2316674959355253280}
   - {fileID: -4547498086823885252}
   choices:
-  - '"Choice 1"'
-  - '"Choice 2"'
+  - Red
+  - Green
   choice: -1
 --- !u!114 &5439927020950112096
 MonoBehaviour:
@@ -227,7 +227,7 @@ MonoBehaviour:
   dialogue:
     character: 2
     sentences:
-    - Hey there 2
+    - What's your favourite color?
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
