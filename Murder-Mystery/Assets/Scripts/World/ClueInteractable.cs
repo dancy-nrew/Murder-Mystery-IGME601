@@ -6,7 +6,8 @@ using UnityEngine;
  * Responsible for interaction with environmental clues.
  */
 public class ClueInteractable : Interactable
-{
+{   
+    public Clue self;
     public string itemName;
     public string itemDescription;
     public Sprite itemSketch;
@@ -15,8 +16,22 @@ public class ClueInteractable : Interactable
 
     protected override void Awake()
     {
+        //Debug.Log(self.ToString());
+        foreach(Clue cond in GameManager.Instance.clues)
+            Debug.Log(cond.ToString());
+        
+        self = new Clue { Name = itemName, Description = itemDescription, Sketch = itemSketch };
         base.Awake();
         bIsInteractable = false;
+        
+
+        //Check if clue is alraedy within the journal
+        foreach(Clue cond in GameManager.Instance.clues)
+        {
+            //Debug.Log(cond.Name+ " = " + self.Name + "?");
+            if(cond.Name.Equals(self.Name))
+                gameObject.SetActive(false);
+        }
     }
 
     public override void OnInteraction()
@@ -39,21 +54,21 @@ public class ClueInteractable : Interactable
         {
             bIsInteractable = true;
         }
-
     }
 
     private void Collect()
     {
-        // Create a new clue from this item's properties
-        Clue newClue = new Clue { Name = itemName, Description = itemDescription, Sketch = itemSketch };
-
         // Add the clue to the GameManager's list of clues
-        GameManager.Instance.AddClue(newClue);
+        GameManager.Instance.AddClue(self);
 
         DialogueDataWriter.Instance.UpdateDialogueData("bHasPickedUp" + itemName, true);
         gameObject.SetActive(false);
-        Destroy(gameObject);
+        //Destroy(gameObject);
 
         // You can also trigger any UI updates or sound effects here
+    }
+    private void Start()
+    {
+        
     }
 }
