@@ -48,6 +48,17 @@ MonoBehaviour:
   dialogueBox: {fileID: 0}
   nameText: {fileID: 0}
   dialogueText: {fileID: 0}
+  characterPortraitIMG: {fileID: 0}
+  continueButton: {fileID: 0}
+  choicesParent: {fileID: 0}
+  choiceButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  choiceButtonTexts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   animator: {fileID: 0}
   characterUpdateTime: 0.03
   playerMovement: {fileID: 0}

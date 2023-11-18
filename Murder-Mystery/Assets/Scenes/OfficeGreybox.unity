@@ -643,10 +643,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 559204282}
     - target: {fileID: 7504232127161356642, guid: c1c6bbd0eb61ca14890864b5ac352d7c, type: 3}
-      propertyPath: choiceButtons.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7504232127161356642, guid: c1c6bbd0eb61ca14890864b5ac352d7c, type: 3}
       propertyPath: choiceButtons.Array.data[0]
       value: 
       objectReference: {fileID: 559204289}
@@ -658,10 +654,6 @@ PrefabInstance:
       propertyPath: choiceButtons.Array.data[2]
       value: 
       objectReference: {fileID: 559204287}
-    - target: {fileID: 7504232127161356642, guid: c1c6bbd0eb61ca14890864b5ac352d7c, type: 3}
-      propertyPath: choiceButtonTexts.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7504232127161356642, guid: c1c6bbd0eb61ca14890864b5ac352d7c, type: 3}
       propertyPath: choiceButtonTexts.Array.data[0]
       value: 
@@ -771,17 +763,9 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 621739235}
-    - target: {fileID: 2838195835534625614, guid: 87c2a3b15483d1642868908e12b432f5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DisplayNextSentence
-      objectReference: {fileID: 0}
     - target: {fileID: 3276698543564955968, guid: 87c2a3b15483d1642868908e12b432f5, type: 3}
       propertyPath: m_Name
       value: DialogueBox
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925151847313449915, guid: 87c2a3b15483d1642868908e12b432f5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
