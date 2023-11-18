@@ -18,6 +18,11 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Image characterPortraitIMG;
+    public Button continueButton;
+    public GameObject choicesParent;
+    public List<Button> choiceButtons;
+    public List<TextMeshProUGUI> choiceButtonTexts;
+
     [SerializeField]
     private Animator animator;
     [SerializeField]
@@ -35,6 +40,7 @@ public class DialogueManager : MonoBehaviour
     private DialogueTree currentDialogueTree;
     private Dialogue currentDialogue;
     private CharacterSO currentCharacter;
+    private InputNode currentInputNode;
 
     private void Awake()
     {
@@ -75,8 +81,16 @@ public class DialogueManager : MonoBehaviour
         // DisplayDialogue(currentDialogue);
         if (currentDialogue == null)
         {
-            currentDialogueTree = null;
-            return;
+            if(currentDialogueTree.bIsInputting)
+            {
+                currentInputNode = currentDialogueTree.currentInputNode;
+                ShowInput();
+            }
+            else
+            {
+                currentDialogueTree = null;
+                return;
+            }      
         }
 
         animator.SetBool("bIsOpen", true);
@@ -101,7 +115,7 @@ public class DialogueManager : MonoBehaviour
         // If the senetence is not being animated in.
         if (!bIsCharacterCoroutineRunning)
         {
-            if(currentDialogue.bTransitionToCardBattle)
+            if(currentDialogue != null && currentDialogue.bTransitionToCardBattle)
             {
                 EndDialogue();
                 SceneManager.LoadScene("Card Battler");
@@ -117,8 +131,17 @@ public class DialogueManager : MonoBehaviour
 
             if (currentDialogue == null)
             {
-                EndDialogue();
-                return;
+                if (currentDialogueTree.bIsInputting)
+                {
+                    currentInputNode = currentDialogueTree.currentInputNode;
+                    ShowInput();
+                    return;
+                }
+                else
+                {
+                    EndDialogue();
+                    return;
+                }
             }
 
             currentCharacter = GetCharacterFromDialogue(currentDialogue);
@@ -147,6 +170,51 @@ public class DialogueManager : MonoBehaviour
             characterPortraitIMG.sprite = currentCharacter.characterPortrait;
             dialogueText.text = currentDialogue.sentences[currentSentence - 1];
         }
+    }
+
+    /*
+     * This function handle showing input options to the player when an InputNode is reached while traversing the dialogue tree.
+     */
+    private void ShowInput()
+    {
+        continueButton.gameObject.SetActive(false);
+        choicesParent.SetActive(true);
+        currentCharacter = GameManager.Instance.GetCharacterSOFromKey(CharacterSO.ECharacter.Ace);
+        dialogueText.text = "";
+        nameText.text = currentCharacter.displayName;
+        characterPortraitIMG.sprite = currentCharacter.characterPortrait;
+
+        for(int i = 0; i < choiceButtons.Count; i++)
+        {
+            if(currentInputNode.choices.Count > i)
+            {
+                choiceButtons[i].gameObject.SetActive(true);
+                choiceButtonTexts[i].text = currentInputNode.choices[i];
+            }
+            else
+            {
+                choiceButtons[i].gameObject.SetActive(false);
+            }
+        }
+
+    }
+
+    /*
+     * This is a call-back function that is called when the player chooses an input in the dialogue box.
+     * Input:
+     * choice: Int representing which choice the player chose.
+     */
+    public void OnInputEnterred(int choice)
+    {
+        currentInputNode.choice = choice;
+        currentDialogueTree.bIsInputting = false;
+        currentDialogueTree.currentInputNode = null;
+
+        continueButton.gameObject.SetActive(true);
+        choicesParent.SetActive(false);
+        currentDialogue = currentDialogueTree.QueryTree();
+        DisplayNextSentence();
+
     }
 
     /* Coroutine that animates the senetence letter by letter.
@@ -205,10 +273,15 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("----------------------------------------");
     }
 
+    /*
+     * Gets the corresponding Character SO from a Dialogue Object using ECharcacter value.
+     */
     private CharacterSO GetCharacterFromDialogue(Dialogue dialogue)
     {
         CharacterSO.ECharacter characterKey = currentDialogue.character;
 
         return GameManager.Instance.GetCharacterSOFromKey(characterKey);
     }
+
+
 }

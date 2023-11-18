@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 34a5195f31f705747bfa604fe7d47cc8
-  position: {x: 600.00006, y: 156}
+  position: {x: 600, y: 154.99998}
   dialogue:
     character: 4
     sentences:
@@ -60,7 +60,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 4c6ac42ebd4273d4aa31d944bf0dfd0c
-  position: {x: 600.01556, y: -0.000037257385}
+  position: {x: 600.0001, y: 0.000010251999}
   dialogue:
     character: 4
     sentences:
@@ -326,7 +326,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d6736a2384f59da418f97d8447608a1a
-  position: {x: 600.00006, y: 233.99998}
+  position: {x: 600, y: 235}
   dialogue:
     character: 0
     sentences:
