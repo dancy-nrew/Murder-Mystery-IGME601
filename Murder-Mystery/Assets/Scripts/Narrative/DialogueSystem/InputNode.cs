@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 /*
- * IN PROGRESS CLASS
+ * This class handles the functionality of the input node in the dialogue graph.
  */
 public class InputNode : Node
 {
@@ -13,6 +13,10 @@ public class InputNode : Node
     public List<string> choices = new List<string>();
     [HideInInspector]
     public int choice = -1;
+
+    /*
+     * If the choice has not been set, the tree is now inputting i.e., this node's choice will be shown in the dialogue box.
+     */
     protected override void OnStart()
     {
         if (dialogueTree != null && choice == -1)
@@ -23,6 +27,9 @@ public class InputNode : Node
        
     }
 
+    /*
+     * If choice has not been set this is the first run through of the node and hence state is reset as its children have not been traversed yet.
+     */
     protected override void OnStop()
     {
         if(choice == -1)
@@ -31,6 +38,9 @@ public class InputNode : Node
         }
     }
 
+    /*
+     * If choice has not been set return to stop traversal of tree, else return child's state.
+     */
     protected override NodeState OnUpdate()
     {
         if(choice == -1)

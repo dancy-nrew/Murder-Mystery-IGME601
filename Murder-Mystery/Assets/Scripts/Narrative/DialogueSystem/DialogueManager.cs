@@ -176,6 +176,9 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    /*
+     * This function handle showing input options to the player when an InputNode is reached while traversing the dialogue tree.
+     */
     private void ShowInput()
     {
         continueButton.gameObject.SetActive(false);
@@ -215,6 +218,11 @@ public class DialogueManager : MonoBehaviour
 
     }
 
+    /*
+     * This is a call-back function that is called when the player chooses an input in the dialogue box.
+     * Input:
+     * choice: Int representing which choice the player chose.
+     */
     public void OnInputEnterred(int choice)
     {
         currentInputNode.choice = choice;
