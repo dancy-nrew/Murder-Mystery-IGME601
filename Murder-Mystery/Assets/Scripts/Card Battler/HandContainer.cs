@@ -40,6 +40,8 @@ public class HandContainer : MonoBehaviour
         MovementController mc = card.GetComponent<MovementController>();
         PlayToLane ptl = card.GetComponent<PlayToLane>();
         Vector3 cardPos = card.transform.position;
+        mc.SetOrigin(card.transform.position);
+        mc.SetOriginScale(card.transform.localScale);
         Vector3 finalPosition = new Vector3(cardPos.x, cardPos.y, cardPos.z + zOffset * -1);
         mc.AddMovement(finalPosition, ConstantParameters.RETURN_TO_HAND_DURATION);
         mc.ToggleMovement();

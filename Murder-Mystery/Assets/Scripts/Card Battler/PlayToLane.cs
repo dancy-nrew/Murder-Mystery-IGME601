@@ -17,8 +17,8 @@ public class PlayToLane : MonoBehaviour
     
     private const int TO_LANE_MOVEMENT_DURATION = 1;
     private const float CARD_TO_LANE_HEIGHT_DISTANCE = 0.5f;
-    private const float CARD_LANE_CENTER_X_OFFSET = 2;
-    private const int ROW_OFFSET = -6;
+    private const float CARD_LANE_CENTER_X_OFFSET = 12;
+    private const int ROW_OFFSET = -8;
     private const string LANE1_NAME = "Lane1";
     private const string LANE2_NAME = "Lane2";
     private BoardManager _boardManager;
@@ -107,7 +107,7 @@ public class PlayToLane : MonoBehaviour
         }
 
         // Modify destination transform by offset
-        destination += new Vector3(xOffsetForCard, CARD_TO_LANE_HEIGHT_DISTANCE, row*ROW_OFFSET);
+        destination += new Vector3(xOffsetForCard, CARD_TO_LANE_HEIGHT_DISTANCE+laneCardCount, row*ROW_OFFSET);
         return destination;
 
     }

@@ -20,35 +20,48 @@ public class MovementController : MonoBehaviour
     private int _activeMovementIndex;
     private bool _isMoving;
     private float _journeyDistance;
+    private Vector3 _originScale;
 
     private struct MovementDefinition
     {
         public Vector3 destination;
         public Quaternion endRotation;
         public float durationInFrames;
+        public Vector3 scaleFactor;
         public bool isFlip;
         public bool isWait;
-
+        
+        //Move to a place in some time
         public MovementDefinition(Vector3 dest, float duration)
         {
             destination = dest;
-            endRotation = Quaternion.identity;
             durationInFrames = duration;
+            
+            //Everything else is meaningless for this definition
+            endRotation = Quaternion.identity;
+            scaleFactor = new Vector3(1, 1, 1);
             isFlip = false;
             isWait = false;
+
         }
 
+        //Do a flip
         public MovementDefinition(Quaternion rotation, float duration)
         {
-            destination = new Vector3(0,0,0);
             endRotation = rotation;
             durationInFrames = duration;
             isFlip = true;
+            scaleFactor = new Vector3(ConstantParameters.FLIP_HEIGHT, 1, ConstantParameters.FLIP_HEIGHT);
+
+            // Everything else is meaningless for this definition
+            destination = new Vector3(0, 0, 0);
             isWait = false;
         }
 
+        // Just wait for a moment
         public MovementDefinition(float duration)
         {
+            scaleFactor = new Vector3(1, 1, 1);
             destination = new Vector3(0, 0, 0);
             endRotation = Quaternion.identity;
             durationInFrames = duration;
@@ -78,8 +91,13 @@ public class MovementController : MonoBehaviour
             // Interpolate the rotation
             transform.rotation = Quaternion.Slerp(_startRotation, activeMovement.endRotation, interpolationRatio);
             // Move up and down to give that flip feel
-            float flipHeight = Mathf.Sin(interpolationRatio * Mathf.PI) * ConstantParameters.FLIP_HEIGHT;
-            transform.position = new Vector3(_origin.x, _origin.y + flipHeight, _origin.z); 
+            float flipHeight = Mathf.Clamp(Mathf.Sin(interpolationRatio * Mathf.PI), 0.1f, 1.0f);
+            transform.localScale = new Vector3(
+                _originScale.x + flipHeight * activeMovement.scaleFactor.x,
+                1,
+                _originScale.z + flipHeight * activeMovement.scaleFactor.z
+                );
+            transform.position = new Vector3(_origin.x, _origin.y + activeMovement.scaleFactor.y*flipHeight*4, _origin.z); 
         } else if (activeMovement.isWait)
         {
             // Do nothing, just wait
@@ -132,6 +150,14 @@ public class MovementController : MonoBehaviour
         _isMoving = !_isMoving;
     }
 
+    public void SetOrigin(Vector3 location)
+    {
+        _origin = location;
+    }
 
+    public void SetOriginScale(Vector3 scale)
+    {
+        _originScale = scale;
+    }
 
 }

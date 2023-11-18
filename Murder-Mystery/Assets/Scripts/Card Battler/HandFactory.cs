@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting.YamlDotNet.Serialization;
 using UnityEngine;
 
 public class HandFactory : MonoBehaviour
@@ -14,6 +15,9 @@ public class HandFactory : MonoBehaviour
     public List<GameObject> WitnessCards = new List<GameObject>();
     public List<GameObject> LocationCards = new List<GameObject>();
     public List<GameObject> MotiveCards = new List<GameObject>();
+
+    [SerializeField]
+    public Vector3 scaleFactor;
 
     void Start()
     {
@@ -48,6 +52,11 @@ public class HandFactory : MonoBehaviour
             float zAdjust = (zOffset * (i%2)+ zOrigin) * zMod;
             Vector3 instantiateLocation = new Vector3(targetPosition.x + (xOffset*i) + xOrigin, targetPosition.y, targetPosition.z  + zAdjust);
             GameObject instantiatedCard = Instantiate(chosenCard.Item2, instantiateLocation, Quaternion.identity);
+            instantiatedCard.transform.localScale = new Vector3(
+                            instantiatedCard.transform.localScale.x * scaleFactor.x,
+                            instantiatedCard.transform.localScale.y * scaleFactor.y,
+                            instantiatedCard.transform.localScale.z * scaleFactor.z
+            );
             if (player == ConstantParameters.PLAYER_2)
             {
                 instantiatedCard.layer = LayerMask.NameToLayer("Default");
