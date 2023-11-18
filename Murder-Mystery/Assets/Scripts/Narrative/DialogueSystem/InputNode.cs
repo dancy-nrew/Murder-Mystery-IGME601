@@ -8,18 +8,19 @@ using UnityEngine;
  */
 public class InputNode : Node
 {
+    private const int UNCHOSEN = -1;
 
     public List<Node> children = new List<Node>();
     public List<string> choices = new List<string>();
     [HideInInspector]
-    public int choice = -1;
+    public int choice = UNCHOSEN;
 
     /*
      * If the choice has not been set, the tree is now inputting i.e., this node's choice will be shown in the dialogue box.
      */
     protected override void OnStart()
     {
-        if (dialogueTree != null && choice == -1)
+        if (dialogueTree != null && choice == UNCHOSEN)
         {
             dialogueTree.bIsInputting = true;
             dialogueTree.currentInputNode = this;
@@ -32,7 +33,7 @@ public class InputNode : Node
      */
     protected override void OnStop()
     {
-        if(choice == -1)
+        if(choice == UNCHOSEN)
         {
             state = NodeState.Running;
         }
@@ -43,7 +44,7 @@ public class InputNode : Node
      */
     protected override NodeState OnUpdate()
     {
-        if(choice == -1)
+        if(choice == UNCHOSEN)
         {
             return NodeState.Success;
         }
