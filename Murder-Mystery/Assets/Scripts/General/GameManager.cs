@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         {
             return characters[pageIndex].getInfo();
         }
-        return "Character not found.";
+        return "...";
     }
 
     public string GetCharacterName(int pageIndex)
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
         {
             return characters[pageIndex].getName();
         }
-        return "Character not found.";
+        return "???";
     }
 
     public Sprite GetCharacterSprite(int pageIndex)
@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
         {
             return clues[pageIndex].getName();
         }
-        return "Clue not found.";
+        return "???";
     }
 
     public string GetClueInfo(int pageIndex)
@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
         {
             return clues[pageIndex].getInfo();
         }
-        return "Clue not found.";
+        return "...";
     }
 
     public Sprite GetClueSketch(int pageIndex)
@@ -193,6 +193,6 @@ public class Clue
 
     public override string ToString()
     {
-        return "Name: " + Name + "\nDescription: " + Description;
+        return "Name: " + Name;
     }
 }

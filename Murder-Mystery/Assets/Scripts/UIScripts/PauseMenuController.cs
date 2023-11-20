@@ -29,6 +29,7 @@ public class PauseMenuController : MonoBehaviour
     }
 
     // Update is called once per frame
+    /*
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -41,6 +42,18 @@ public class PauseMenuController : MonoBehaviour
             {
                 Pause();
             }
+        }
+    }*/
+
+    public void Journal()
+    {
+        if (GamePaused)
+        {
+            Resume();
+        }
+        else
+        {
+            Pause();
         }
     }
 
