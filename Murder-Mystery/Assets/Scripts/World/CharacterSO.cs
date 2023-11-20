@@ -21,5 +21,9 @@ public class CharacterSO : ScriptableObject
     public ECharacter character;
     public string displayName;
     public Sprite characterPortrait;
+    public DialogueTree cardBattleDialogueTree;
+    public string witnessParameter;
+    public string locationParameter;
+    public string motiveParameter;
 
 }

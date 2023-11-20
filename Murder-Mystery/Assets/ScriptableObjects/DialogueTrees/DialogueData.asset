@@ -40,3 +40,5 @@ MonoBehaviour:
     parameterValue: 0
   - parameterKey: bHasPickedUpCube
     parameterValue: 0
+  - parameterKey: bAlwaysTrue
+    parameterValue: 1
