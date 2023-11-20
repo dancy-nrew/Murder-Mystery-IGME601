@@ -238,7 +238,7 @@ public class DialogueManager : MonoBehaviour
     /*
      * Function is called after a dialouge tree has been completed. Closes dialogue box.
      */
-    private void EndDialogue()
+    public void EndDialogue()
     {
         Debug.Log("Ending dialogue");
         animator.SetBool("bIsOpen", false);
@@ -248,6 +248,7 @@ public class DialogueManager : MonoBehaviour
         
         playerMovement.SetIsUIEnabled(false);
     }
+
 
     /*
      * Debug Function to output dialogue object to console.

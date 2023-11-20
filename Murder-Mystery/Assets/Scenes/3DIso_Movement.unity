@@ -684,6 +684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueBox
       objectReference: {fileID: 0}
+    - target: {fileID: 8965057405991637659, guid: 87c2a3b15483d1642868908e12b432f5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 411768475}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1440,7 +1444,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -18.887268, y: -6}
+  m_AnchoredPosition: {x: -18.887207, y: -6}
   m_SizeDelta: {x: 40, y: 47.448}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &521432846
@@ -3357,7 +3361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.0184937, y: 0}
+  m_AnchoredPosition: {x: -7.0185547, y: 0}
   m_SizeDelta: {x: 51.98, y: 47.448}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1410600386
@@ -5061,7 +5065,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 928, y: 522.9269}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2111529978
