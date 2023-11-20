@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8606659318691803146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f11afa25c038847bc4cedf1395cf8b, type: 3}
+  m_Name: InputNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 1102405b13f115947b06a16e7b9b46bb
+  position: {x: 952.4, y: 63}
+  children:
+  - {fileID: 7128797237493735637}
+  - {fileID: 3575206666157502766}
+  choices:
+  - (Card Battle now)
+  - (Wait and learn more)
+  choice: -1
 --- !u!114 &-7753303904631729112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,11 +38,11 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 34a5195f31f705747bfa604fe7d47cc8
-  position: {x: 600, y: 154.99998}
+  position: {x: 599.99994, y: 415.20007}
   dialogue:
     character: 4
     sentences:
-    - Yes and someone needs to run this department anyway.
+    - Yes but someone needs to run this department anyway.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -60,35 +83,15 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 4c6ac42ebd4273d4aa31d944bf0dfd0c
-  position: {x: 600.0001, y: 0.000010251999}
+  position: {x: 599.99994, y: 259.20007}
   dialogue:
     character: 4
     sentences:
-    - With Bea gone there's so much work to do.
+    - 'Fine! '
+    - 'Dr Quincy Reeves, coworker. '
+    - 'Write it down this time! '
+    - With Bea gone there's so much work to do, so go away.
     bTransitionToCardBattle: 0
-  gateConditions: []
-  dataUpdates: []
---- !u!114 &-3047736043895836913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: bd820b4b6b300ac4da61491f16ffce46
-  position: {x: 952.99994, y: 64.000015}
-  dialogue:
-    character: 0
-    sentences:
-    - "We\u2019ll see about that, Dr Reeves."
-    bTransitionToCardBattle: 1
   gateConditions: []
   dataUpdates: []
 --- !u!114 &-2870072525507252746
@@ -139,6 +142,29 @@ MonoBehaviour:
     bTransitionToCardBattle: 1
   gateConditions: []
   dataUpdates: []
+--- !u!114 &-1153754269928748922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 4f7b3747135f9c94aaaca5e5c720c2e7
+  position: {x: 599.99994, y: 103.20002}
+  dialogue:
+    character: 4
+    sentences:
+    - I told you ten minutes ago, how could you possibly forget?
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
 --- !u!114 &-757762986212418918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,10 +201,10 @@ MonoBehaviour:
   dialogue:
     character: 4
     sentences:
-    - 'Bea and I had an argument that got a little too heated. '
-    - "We didn\u2019t get along, but I am a professional, Detective. "
+    - "I don\u2019t like what you\u2019re implying, Detective!"
+    - "We didn\u2019t get along, but I am a professional. "
     - "I am perfectly capable of working alongside people I don\u2019t personally
-      like. "
+      like and I am frankly offended that you would insinuate otherwise!\r"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -209,15 +235,22 @@ MonoBehaviour:
   - {fileID: 4042296476901918566}
   - {fileID: 8009924005895448989}
   - {fileID: -619085053500100547}
-  - {fileID: -3047736043895836913}
   - {fileID: 9091146014059199402}
   - {fileID: 4902450105156719879}
   - {fileID: -1774588738995563479}
+  - {fileID: 2757398759658234057}
+  - {fileID: -1153754269928748922}
+  - {fileID: 3412534496114310902}
+  - {fileID: 7128797237493735637}
+  - {fileID: -8606659318691803146}
+  - {fileID: 3575206666157502766}
   dialogues: []
   currentDialogue:
     character: 0
     sentences: []
     bTransitionToCardBattle: 0
+  bIsInputting: 0
+  currentInputNode: {fileID: 0}
 --- !u!114 &368901212601104226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,16 +268,84 @@ MonoBehaviour:
   guid: 2ae866dfb57a026408250555ce5001bb
   position: {x: 381.34003, y: 77.99999}
   children:
+  - {fileID: 2757398759658234057}
+  - {fileID: -1153754269928748922}
+  - {fileID: 3412534496114310902}
   - {fileID: -7174904941188682867}
   - {fileID: 8806530676398375521}
   - {fileID: -7753303904631729112}
   - {fileID: 6026287772103554096}
   - {fileID: 4561044362204063769}
-  - {fileID: -7174904941188682867}
-  - {fileID: 8806530676398375521}
-  - {fileID: -7753303904631729112}
-  - {fileID: 6026287772103554096}
-  - {fileID: 4561044362204063769}
+--- !u!114 &2757398759658234057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ed185e296e48953458bc9e91046fbfb0
+  position: {x: 599.99994, y: 24.999985}
+  dialogue:
+    character: 0
+    sentences:
+    - Do you have a moment to review your statement, Dr Reeves?
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &3412534496114310902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: e325b097e463f7d4b97a71c76e43f194
+  position: {x: 599.99994, y: 181.20004}
+  dialogue:
+    character: 0
+    sentences:
+    - Are you refusing to cooperate with the investigation, Dr Reeves?
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &3575206666157502766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 7118c0dc8d25178469a220a1466293c1
+  position: {x: 1151.6001, y: 64.20001}
+  dialogue:
+    character: 0
+    sentences:
+    - "We\u2019ll see about that. "
+    - "I\u2019m on to you, Dr Reeves."
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
 --- !u!114 &4042296476901918566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +365,7 @@ MonoBehaviour:
   children:
   - {fileID: 8009924005895448989}
   - {fileID: -619085053500100547}
-  - {fileID: -3047736043895836913}
+  - {fileID: -8606659318691803146}
 --- !u!114 &4561044362204063769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,11 +381,12 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ad3f4e7e28dc86b47801f4c0372609fd
-  position: {x: 599.99994, y: 312}
+  position: {x: 599.99994, y: 571.2}
   dialogue:
     character: 4
     sentences:
-    - Looks like it.
+    - 'Who the hell else do you think is capable? '
+    - If you don't mind, Detective, I'm busy.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -326,12 +428,35 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d6736a2384f59da418f97d8447608a1a
-  position: {x: 600, y: 235}
+  position: {x: 599.99994, y: 493.2}
   dialogue:
     character: 0
     sentences:
     - And that person is you?
     bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &7128797237493735637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: f60f6386132ac94458f51521c2a40a9e
+  position: {x: 1151.6002, y: -18.399975}
+  dialogue:
+    character: 0
+    sentences:
+    - Likely story, I have a few lines of questioning, Dr Reeves.
+    bTransitionToCardBattle: 1
   gateConditions: []
   dataUpdates: []
 --- !u!114 &8009924005895448989
@@ -349,12 +474,14 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 4758a0b9c4d99ea4a850d2f5d30cd18a
-  position: {x: 952.3999, y: -96.39992}
+  position: {x: 952.39996, y: -96.39998}
   dialogue:
     character: 0
     sentences:
-    - "I found the vase you broke in Dr Yates\u2019 office. "
-    - Is there anything you want to tell me, Dr Reeves?
+    - I found this broken vase in Yates' office.
+    - 'From what I hear, you and her got in a real fight the other day. '
+    - 'Looks like it got violent. '
+    - Anything you want to add, Dr Reeves?
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -373,7 +500,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 60f2d2271d7612a499ef8d4e6d9a739f
-  position: {x: 600.00006, y: 77.99997}
+  position: {x: 599.99994, y: 337.2}
   dialogue:
     character: 0
     sentences:
