@@ -66,6 +66,8 @@ public class ClueInteractable : Interactable
         //Destroy(gameObject);
 
         // You can also trigger any UI updates or sound effects here
+        string message = itemName + " has been added to your journal";
+        GameManager.Instance.FlashMessage(message);
     }
     private void Start()
     {
