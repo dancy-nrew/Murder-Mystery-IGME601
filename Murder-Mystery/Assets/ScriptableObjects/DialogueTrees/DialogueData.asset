@@ -44,3 +44,5 @@ MonoBehaviour:
     parameterValue: 0
   - parameterKey: bMathDepartmentLeadership
     parameterValue: 0
+  - parameterKey: bAlwaysTrue
+    parameterValue: 1
