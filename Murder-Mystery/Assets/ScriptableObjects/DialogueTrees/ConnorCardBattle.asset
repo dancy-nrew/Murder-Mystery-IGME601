@@ -1,6 +1,76 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9048440988959674333
+--- !u!114 &-8933274050907011600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 30c2206936fbe9f40ae9746d94ddcb43
+  position: {x: 296.00003, y: 96.79999}
+  dialogue:
+    character: 6
+    sentences:
+    - "I was only here for a bit and I wasn\u2019t anywhere near Dr Yates\u2019 office!"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-6168116160699409400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: cf8d86abe1001bc4a8ad43a2a0170073
+  position: {x: 295.99997, y: 18.800003}
+  dialogue:
+    character: 0
+    sentences:
+    - Miss Paine saw you in Cantor hall on Sunday!
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-4974672835854278449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 5b18c97272fc35f48a70da781a35fcf3
+  position: {x: 296.20004, y: -137.2}
+  dialogue:
+    character: 0
+    sentences:
+    - Dr Yates fired you from the teaching assistant position and you hated her for
+      it!
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-4817304367028450328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,9 +84,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 90b4813800ea1c541b84e823de837ecc
-  position: {x: 0, y: 0}
-  child: {fileID: 0}
+  guid: 422e77d7ba53fd24da63d3126675fccc
+  position: {x: 0.00002670288, y: 57.799988}
+  child: {fileID: 6079949481335836831}
+--- !u!114 &-2585598231588172953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 377f670f9047d3a449ddb3306561f8b9
+  position: {x: 296.00003, y: 174.80002}
+  dialogue:
+    character: 0
+    sentences:
+    - And you are clearly lying about your alibi!
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,10 +122,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba83d73ca578896468e40ca6498119b9, type: 3}
   m_Name: ConnorCardBattle
   m_EditorClassIdentifier: 
-  rootNode: {fileID: -9048440988959674333}
+  rootNode: {fileID: -4817304367028450328}
   treeState: 0
   nodes:
-  - {fileID: -9048440988959674333}
+  - {fileID: -4817304367028450328}
+  - {fileID: 6079949481335836831}
+  - {fileID: -4974672835854278449}
+  - {fileID: 7514767645981646673}
+  - {fileID: -6168116160699409400}
+  - {fileID: -8933274050907011600}
+  - {fileID: -2585598231588172953}
+  - {fileID: 4240291007095638334}
   dialogues: []
   currentDialogue:
     character: 0
@@ -40,3 +140,74 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   bIsInputting: 0
   currentInputNode: {fileID: 0}
+--- !u!114 &4240291007095638334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 7af9916787f9e4244a085a91d0c8dc9c
+  position: {x: 295.99997, y: 252.79999}
+  dialogue:
+    character: 6
+    sentences:
+    - 'No! '
+    - I was writing a paper- I swear!
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &6079949481335836831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 1fbc19bd7066613438a0e2e0b2c0bc6c
+  position: {x: 132.77734, y: 57.799988}
+  children:
+  - {fileID: -4974672835854278449}
+  - {fileID: 7514767645981646673}
+  - {fileID: -6168116160699409400}
+  - {fileID: -8933274050907011600}
+  - {fileID: -2585598231588172953}
+  - {fileID: 4240291007095638334}
+--- !u!114 &7514767645981646673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: f8a64c265a0918a49a625926c31c8675
+  position: {x: 295.99997, y: -59.199997}
+  dialogue:
+    character: 6
+    sentences:
+    - 'What? '
+    - "No, that\u2019s not what happened!"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
