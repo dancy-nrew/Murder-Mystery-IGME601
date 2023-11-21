@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class GameManager : MonoBehaviour
     public List<Character> characters = new List<Character>();
     public List<Clue> clues = new List<Clue>();
     public List<CharacterSO> characterList = new List<CharacterSO>();
+    public int flashMessageDuration;
     private Dictionary<CharacterSO.ECharacter, CharacterSO> characterDict = new Dictionary<CharacterSO.ECharacter, CharacterSO>();
 
     private void Awake()
@@ -138,6 +141,40 @@ public class GameManager : MonoBehaviour
     public CharacterSO GetCharacterSOFromKey(CharacterSO.ECharacter key)
     {
         return characterDict[key];
+    }
+
+    public void FlashMessage(string message)
+    {
+        GameObject textMessageContainer = GameObject.Find("MessageContainer");
+        if (textMessageContainer == null)
+        {
+            // Container for message not found. Post to Debug Log for now. This means there's a bug in this scene.
+            Debug.Log(message);
+            return;
+        }
+
+        TextMeshProUGUI tmPro = textMessageContainer.GetComponent<TextMeshProUGUI>();
+        if (tmPro != null)
+        {
+            tmPro.text = message;
+            textMessageContainer.SetActive(true);
+            StartCoroutine(ShowMessage(textMessageContainer));
+        } else
+        {
+            Debug.Log("TMPRO is null");
+        }
+        
+
+    }
+
+    IEnumerator ShowMessage(GameObject go)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(flashMessageDuration);
+            go.SetActive(false);
+            yield break;
+        }
     }
     
 }
