@@ -24,7 +24,7 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates:
-  - parameterKey: bHasTalkedToStone
+  - parameterKey: bMathDepartmentLeadership
     parameterValue: 1
 --- !u!114 &-8498819678108532573
 MonoBehaviour:

@@ -250,7 +250,9 @@ MonoBehaviour:
     - How about you go talk to everyone again?
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bhasTalkedToChief
+    parameterValue: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -118,7 +118,7 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates:
-  - parameterKey: bHasTalkedToPaine
+  - parameterKey: bPaineRevelation
     parameterValue: 1
 --- !u!114 &-2247569475023927711
 MonoBehaviour:

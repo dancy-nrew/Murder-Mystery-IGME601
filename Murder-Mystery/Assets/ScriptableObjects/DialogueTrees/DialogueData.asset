@@ -40,3 +40,7 @@ MonoBehaviour:
     parameterValue: 0
   - parameterKey: bHasPickedUpCube
     parameterValue: 0
+  - parameterKey: bPaineRevelation
+    parameterValue: 0
+  - parameterKey: bMathDepartmentLeadership
+    parameterValue: 0
