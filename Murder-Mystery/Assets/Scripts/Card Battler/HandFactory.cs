@@ -7,13 +7,16 @@ public class HandFactory : MonoBehaviour
 
     public HandContainer Player1Hand;
     public HandContainer Player2Hand;
+    public GameObject cardPrefab;
+    public List<Material> witnessFaces;
+    public List<Material> locationFaces;
+    public List<Material> motiveFaces;
     public float xOffset;
     public float xOrigin;
     public float zOrigin;
     public float zOffset;
-    public List<GameObject> WitnessCards = new List<GameObject>();
-    public List<GameObject> LocationCards = new List<GameObject>();
-    public List<GameObject> MotiveCards = new List<GameObject>();
+    public int maxFaceValue;
+    public int minFaceValue;
 
     [SerializeField]
     public Vector3 scaleFactor;
@@ -46,11 +49,17 @@ public class HandFactory : MonoBehaviour
         for (int i = 0; i < ConstantParameters.MAX_HAND_SIZE; i++) {
 
             Suit suit = (Suit)suits.GetValue((int)UnityEngine.Random.Range(0, suits.Length));
-            (int, GameObject) chosenCard = GetCardFromSuit(suit, dealtWitnessCards, dealtLocationCards, dealtMotiveCards);
+            int chosenCard = GetRandomCardFromSuit(suit, dealtWitnessCards, dealtLocationCards, dealtMotiveCards);
             Vector3 targetPosition = handToDealTo.gameObject.transform.position;
             float zAdjust = (zOffset * (i%2)+ zOrigin) * zMod;
             Vector3 instantiateLocation = new Vector3(targetPosition.x + (xOffset*i) + xOrigin, targetPosition.y, targetPosition.z  + zAdjust);
-            GameObject instantiatedCard = Instantiate(chosenCard.Item2, instantiateLocation, Quaternion.identity);
+            GameObject instantiatedCard = Instantiate(cardPrefab, instantiateLocation, Quaternion.identity);
+            
+            //Prepare card object
+            Card cardComponent = instantiatedCard.GetComponent<Card>();
+            cardComponent.SetCardData(chosenCard, suit);
+            cardComponent.SetFrontFaceMaterial(_GetMaterial(chosenCard, suit));
+
             instantiatedCard.transform.localScale = new Vector3(
                             instantiatedCard.transform.localScale.x * scaleFactor.x,
                             instantiatedCard.transform.localScale.y * scaleFactor.y,
@@ -58,10 +67,10 @@ public class HandFactory : MonoBehaviour
             );
             if (player == ConstantParameters.PLAYER_2)
             {
-                instantiatedCard.layer = LayerMask.NameToLayer("Default");
                 instantiatedCard.transform.rotation *= Quaternion.Euler(0, 0, 180f);
             } else
             {
+                cardComponent.MakeInteractable();
                 instantiatedCard.transform.rotation *= Quaternion.Euler(0, 180f, 0);
             }
             handToDealTo.ReceiveCard(instantiatedCard);
@@ -69,11 +78,11 @@ public class HandFactory : MonoBehaviour
         }
     }
 
-    private (int,GameObject) GetCardFromSuit(Suit suit, List<int> dealtWitness, List<int> dealtLocation, List<int> dealtMotive)
+    private int GetRandomCardFromSuit(Suit suit, List<int> dealtWitness, List<int> dealtLocation, List<int> dealtMotive)
     {
         /*
-            This function picks an available card prefab from the deck within the suit specified in the parameters 
-            to be instantiated in later.
+            This function picks an available face value from the deck of cards, working under the assumption that
+            no duplicate cards can exist within a deck.
 
             Inputs:
             Suit enum - the suit to pick from
@@ -82,43 +91,67 @@ public class HandFactory : MonoBehaviour
             dealtMotive list -  same as dealtWitness, but for motive cards.
 
             Outputs -
-            Tuple of (int, GameObject)
-            The int represent the index of the dealt card within the list. 
-            The GameObject is the card to instantiate.
+            face value of the chosen card as int
         */
-        GameObject gO;
-        int index;
+        List<int> indexList;
 
+        switch (suit)
+        {
+            case Suit.WITNESS:
+                indexList = dealtWitness;
+                break;
+            case Suit.LOCATION:
+                indexList = dealtLocation;
+                break;
+            case Suit.MOTIVE:
+                indexList = dealtWitness;
+                break;
+            //The default case is here so the compiler doesn't complain. It should never happen.
+            default:
+                Debug.Log("Default case in Hand Factory reached. This is a major bug.");
+                indexList = new List<int>();
+                break;
+        }
+        int value = UnityEngine.Random.Range(minFaceValue, maxFaceValue);
+        while (indexList.Contains(value))
+        {
+            value = UnityEngine.Random.Range(minFaceValue, maxFaceValue);
+        }
+        indexList.Add(value);
+        return value;
+    }
+
+    private int _ValueToMaterialIndex(int value)
+    {
+        // Face values start at a minimum value and indeces in the list start from 0.
+        // Therefore, subtracting the minvalue will make the ranges equivalent
+        return value - minFaceValue;
+    }
+
+    private Material _GetMaterial(int value, Suit suit)
+    {
+        /*
+         This function selects the material to apply to a card prefab face from the list of
+         textures that exist for the cards. It then returns that material to the calling function
+
+        Inputs:
+        - Face value of the card
+        - Suit value of the card
+
+        Outputs:
+        Material to apply to card face
+         */
+        List<Material> faces;
         if (suit == Suit.WITNESS)
         {
-            index = (int)UnityEngine.Random.Range(0, WitnessCards.Count - 1);
-            while (dealtWitness.Contains(index))
-            {
-                index = (int)UnityEngine.Random.Range(0, WitnessCards.Count - 1);
-            }
-            gO = WitnessCards[index];
-            dealtWitness.Add(index);
-
-        } else if (suit == Suit.LOCATION)
-        {
-            index = (int)UnityEngine.Random.Range(0, LocationCards.Count - 1);
-            while (dealtLocation.Contains(index))
-            {
-                index = (int)UnityEngine.Random.Range(0, LocationCards.Count - 1);
-            }
-            gO = LocationCards[index];
-            dealtLocation.Add(index);
+            faces = witnessFaces;
+        } else if (suit == Suit.LOCATION) {
+            faces = locationFaces;
         } else
         {
-            index = (int)UnityEngine.Random.Range(0, MotiveCards.Count - 1);
-            while (dealtMotive.Contains(index))
-            {
-                index = (int)UnityEngine.Random.Range(0, MotiveCards.Count - 1);
-            }
-            gO = MotiveCards[index];
-            dealtMotive.Add(index);
+            faces = motiveFaces;
         }
 
-        return (index,gO);
+        return faces[_ValueToMaterialIndex(value)];
     }
 }

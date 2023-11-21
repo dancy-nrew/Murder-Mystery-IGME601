@@ -150,7 +150,7 @@ public class AI_Controller : MonoBehaviour
                 pop_index = i;
             }
         }
-        Debug.Log(pop_index.ToString());
+
         card = hand.handData.PopCard(pop_index);
         return (returnable_lane, pop_index, card);
     }
