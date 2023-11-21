@@ -251,7 +251,7 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates:
-  - parameterKey: bhasTalkedToChief
+  - parameterKey: bHasTalkedToChief
     parameterValue: 1
 --- !u!114 &11400000
 MonoBehaviour:
