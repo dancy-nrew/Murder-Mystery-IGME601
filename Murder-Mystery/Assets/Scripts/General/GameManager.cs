@@ -12,7 +12,10 @@ public class GameManager : MonoBehaviour
     public List<Character> characters = new List<Character>();
     public List<Clue> clues = new List<Clue>();
     public List<CharacterSO> characterList = new List<CharacterSO>();
+    public List<string> trueOnStart = new List<string>();
+
     private Dictionary<CharacterSO.ECharacter, CharacterSO> characterDict = new Dictionary<CharacterSO.ECharacter, CharacterSO>();
+
 
     private void Awake()
     {
@@ -139,8 +142,28 @@ public class GameManager : MonoBehaviour
     {
         return characterDict[key];
     }
+
+    public void ResetGameState()
+    {
+        foreach(var parameter in DialogueDataWriter.Instance.GetParameters())
+        {
+            foreach(string setToTrue in trueOnStart)
+            {
+                if (parameter.parameterKey.Equals(setToTrue))
+                {
+                    DialogueDataWriter.Instance.UpdateDialogueData(parameter.parameterKey, true);
+                }
+                else
+                {
+                    DialogueDataWriter.Instance.UpdateDialogueData(parameter.parameterKey, false);
+                }
+            }
+            
+        }
+    }
     
 }
+
 public class Character
 {
     public Character(String name, String desc)

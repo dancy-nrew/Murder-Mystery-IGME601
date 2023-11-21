@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(currentInteractable != null)
         {
-            if(Vector3.Distance(transform.position, currentInteractable.transform.position) <= interactionDistance)
+            if(Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(currentInteractable.transform.position.x, currentInteractable.transform.position.z)) <= interactionDistance)
             {
                 currentInteractable.OnInteraction();
                 currentInteractable=null;
