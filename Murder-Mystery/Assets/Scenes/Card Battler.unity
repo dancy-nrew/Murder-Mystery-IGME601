@@ -2187,7 +2187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 928, y: 475.83862}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1185215280
@@ -3731,37 +3731,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player1Hand: {fileID: 1035400045}
   Player2Hand: {fileID: 1221078180}
+  cardPrefab: {fileID: 519480537946774909, guid: fe6163c180c883046a191108f1440095, type: 3}
+  witnessFaces:
+  - {fileID: 2100000, guid: cca6f4468d633924ba7fba0290d971fa, type: 2}
+  - {fileID: 2100000, guid: d36ab89126da40f4598beb3d5766d607, type: 2}
+  - {fileID: 2100000, guid: 4c80c0a5a7c398c489b0a101312ff447, type: 2}
+  - {fileID: 2100000, guid: 6aeaad9307dc605408813eddb05b87f9, type: 2}
+  - {fileID: 2100000, guid: 138b624b4fc5e6e45992731791883fc6, type: 2}
+  - {fileID: 2100000, guid: e8142bcc16314c84c96308dd1aa4081f, type: 2}
+  - {fileID: 2100000, guid: 2affad512f0e4354eba98959caef2977, type: 2}
+  - {fileID: 2100000, guid: 1049f6aedd0b39944af06a89b93874ac, type: 2}
+  locationFaces:
+  - {fileID: 2100000, guid: 0a57d52c2b71d6b4b95108c6d341fa1d, type: 2}
+  - {fileID: 2100000, guid: fac5bcf3b6fabbd4a8507dd9a1b73503, type: 2}
+  - {fileID: 2100000, guid: 1f5f5522f3b37224e8c117b5dd172e48, type: 2}
+  - {fileID: 2100000, guid: 6c76b71fcd1727049b71370a110750d8, type: 2}
+  - {fileID: 2100000, guid: 6e27bbae062fe1749bc7fc4409482a79, type: 2}
+  - {fileID: 2100000, guid: e8142bcc16314c84c96308dd1aa4081f, type: 2}
+  - {fileID: 2100000, guid: d04cb23c0d29ee343b5db791cac0d4ac, type: 2}
+  - {fileID: 2100000, guid: 0d61f9f0c1ddb5f4bacfb6043c5ae183, type: 2}
+  motiveFaces:
+  - {fileID: 2100000, guid: e0d47baad565238488859f571bafa385, type: 2}
+  - {fileID: 2100000, guid: fba394957cf372547bec03c6d65d1c99, type: 2}
+  - {fileID: 2100000, guid: 3b7c9be7d04bade4fb3c8a225e9c4650, type: 2}
+  - {fileID: 2100000, guid: efb25efef003de7458db445fb7340555, type: 2}
+  - {fileID: 2100000, guid: 073fdc11f338abe4688e885238c7fcb2, type: 2}
+  - {fileID: 2100000, guid: a5570e058b2753a4f8dc20846d5db1c8, type: 2}
+  - {fileID: 2100000, guid: 6fa6903f18ae79c47a90060c40d3170b, type: 2}
+  - {fileID: 2100000, guid: b0c877f4d4dca4d4da9b50c87fc687dd, type: 2}
   xOffset: 13
   xOrigin: -40
   zOrigin: -15
   zOffset: 0
-  WitnessCards:
-  - {fileID: 1713234572413809406, guid: c9084734ef9c20e49bab029a2818459f, type: 3}
-  - {fileID: 5045170720391884461, guid: 802c3cfc5d3a8224e80fa43712777380, type: 3}
-  - {fileID: 88929242461358949, guid: e4aaed3369d11fd46ad35f5391f12ca9, type: 3}
-  - {fileID: 6492320561293385166, guid: b913d217f1bd8324889f5f94e4cfcfb4, type: 3}
-  - {fileID: 3685324779856360378, guid: 9d071a2ef7dcb064287334d01dbc3998, type: 3}
-  - {fileID: 6895442446192642076, guid: c9ad855168af6554f9bc52e8efd230bf, type: 3}
-  - {fileID: 7838231955680777798, guid: bc7c1f58c0e24714a94e1b5cfa3020b2, type: 3}
-  - {fileID: 5559283842314145471, guid: 0a2c3746aa8cd2e44b928641051a1f91, type: 3}
-  LocationCards:
-  - {fileID: 7612229615520800393, guid: 9ddebcf5187e08c4dac12bfeba9767d0, type: 3}
-  - {fileID: 916046476951102252, guid: df874c1b39e6da84ea8bcae8d6a1183c, type: 3}
-  - {fileID: 6026487539710766715, guid: c9f084022b5580044bd28e15ed919fca, type: 3}
-  - {fileID: 8952367342382254406, guid: 97d9a18f0d3e74243a80eeaa5bd0e7a2, type: 3}
-  - {fileID: 7678020374959593759, guid: 8b0568f06d7295f4fb2acf5f6f6c03de, type: 3}
-  - {fileID: 2667003114708767887, guid: 4ee72bc42d9b98d4e8b2c39c6aa7f649, type: 3}
-  - {fileID: 5709736934946151339, guid: 403554ca87f74a64ebe435e50238c2fb, type: 3}
-  - {fileID: 307559284613849867, guid: c28d3e3b514d478468f6ac31d0be08d4, type: 3}
-  MotiveCards:
-  - {fileID: 5527585276120239538, guid: 209a0ecaa8ba60c43a73720252462b19, type: 3}
-  - {fileID: 5358449511750238479, guid: 7d691f6fe1b33664cac38ea2ad914259, type: 3}
-  - {fileID: 6863869524206281602, guid: 960c893129b6e94458f2815dcd2c5527, type: 3}
-  - {fileID: 2493092464479839014, guid: a268d89ace12b0d4ba97bc5f75ce10f3, type: 3}
-  - {fileID: 6805636661627013950, guid: 07b72d193ba13564abfc45b029dad5a7, type: 3}
-  - {fileID: 6468321308350864844, guid: a88c3210c2f76624398bab05152d023c, type: 3}
-  - {fileID: 652996093995553311, guid: bad1ce006df7af64985253b5b999a04b, type: 3}
-  - {fileID: 5490745022447339114, guid: f5b5bc4f5c6579041bee3a038541e3fe, type: 3}
+  maxFaceValue: 10
+  minFaceValue: 3
   scaleFactor: {x: 2.7, y: 1, z: 2.7}
 --- !u!1 &1755559181
 GameObject:

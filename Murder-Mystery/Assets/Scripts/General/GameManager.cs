@@ -15,8 +15,10 @@ public class GameManager : MonoBehaviour
     public List<Clue> clues = new List<Clue>();
     public List<CharacterSO> characterList = new List<CharacterSO>();
     public int flashMessageDuration;
+    public List<string> trueOnStart = new List<string>();
     private Dictionary<CharacterSO.ECharacter, CharacterSO> characterDict = new Dictionary<CharacterSO.ECharacter, CharacterSO>();
     public TextMeshProUGUI FlashMessageObject;
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -143,6 +145,7 @@ public class GameManager : MonoBehaviour
         return characterDict[key];
     }
 
+
     public void FlashMessage(string message)
     {
         if (FlashMessageObject == null)
@@ -154,7 +157,6 @@ public class GameManager : MonoBehaviour
         FlashMessageObject.text = message;
         FlashMessageObject.gameObject.SetActive(true);
         StartCoroutine(ShowMessage(FlashMessageObject.gameObject));
-
     }
 
     IEnumerator ShowMessage(GameObject go)
@@ -166,8 +168,27 @@ public class GameManager : MonoBehaviour
             yield break;
         }
     }
+
+    public void ResetGameState()
+    {
+        foreach(var parameter in DialogueDataWriter.Instance.GetParameters())
+        {
+            foreach(string setToTrue in trueOnStart)
+            {
+                if (parameter.parameterKey.Equals(setToTrue))
+                {
+                    DialogueDataWriter.Instance.UpdateDialogueData(parameter.parameterKey, true);
+                }
+                else
+                {
+                    DialogueDataWriter.Instance.UpdateDialogueData(parameter.parameterKey, false);
+                }
+            }
+        }
+    }
     
 }
+
 public class Character
 {
     public Character(String name, String desc)

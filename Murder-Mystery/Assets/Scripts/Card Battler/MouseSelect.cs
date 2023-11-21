@@ -19,13 +19,13 @@ public class MouseSelect : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && selectedObject is null && highlightedObject != null)
         {
             selectedObject = highlightedObject;
-            FollowMouse fm = selectedObject.GetComponent<FollowMouse>();
+            FollowMouse fm = selectedObject.GetComponentInParent<FollowMouse>();
             fm.ToggleFollow();
             skipRelease = true;
         }
         if (Input.GetMouseButtonDown(0) && selectedObject != null && !skipRelease)
         {
-            FollowMouse fm = selectedObject.GetComponent<FollowMouse>();
+            FollowMouse fm = selectedObject.GetComponentInParent<FollowMouse>();
             fm.ToggleFollow();
             selectedObject = null;
         }

@@ -228,7 +228,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 320
-  interactionDistance: 2
+  interactionDistance: 3
 --- !u!1001 &2713075741667405982
 PrefabInstance:
   m_ObjectHideFlags: 0

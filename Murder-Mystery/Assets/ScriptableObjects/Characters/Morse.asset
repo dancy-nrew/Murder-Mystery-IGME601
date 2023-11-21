@@ -15,3 +15,7 @@ MonoBehaviour:
   character: 3
   displayName: Dr. Morse
   characterPortrait: {fileID: 21300000, guid: dbe5edfcc72a20e409022509805c071e, type: 3}
+  cardBattleDialogueTree: {fileID: 11400000, guid: 273b33f656429434fab3370e47af4dab, type: 2}
+  witnessParameter: bConnorRevelation
+  locationParameter: bHasPickedUpModel
+  motiveParameter: bBrokenHeart

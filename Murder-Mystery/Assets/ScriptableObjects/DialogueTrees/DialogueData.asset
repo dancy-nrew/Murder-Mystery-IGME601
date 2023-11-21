@@ -12,24 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748c9062dd0b2c04eb4ef23d4c0f3a06, type: 3}
   m_Name: DialogueData
   m_EditorClassIdentifier: 
-  bResetDataOnGameStart: 0
   parameters:
   - parameterKey: bHasTalkedToDancy
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bHasTalkedToReeves
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bTestParameter
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bHasTalkedToChief
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bHasTalkedToPaine
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bHasTalkedToConnor
     parameterValue: 0
   - parameterKey: bHasTalkedToMorse
     parameterValue: 0
   - parameterKey: bHasTalkedToStone
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bIsVaseInteractable
     parameterValue: 1
   - parameterKey: bIsBookInteractable
@@ -40,3 +39,9 @@ MonoBehaviour:
     parameterValue: 0
   - parameterKey: bHasPickedUpCube
     parameterValue: 0
+  - parameterKey: bPaineRevelation
+    parameterValue: 0
+  - parameterKey: bMathDepartmentLeadership
+    parameterValue: 0
+  - parameterKey: bAlwaysTrue
+    parameterValue: 1
