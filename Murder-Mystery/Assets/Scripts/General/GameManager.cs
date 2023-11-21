@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public List<CharacterSO> characterList = new List<CharacterSO>();
     public int flashMessageDuration;
     private Dictionary<CharacterSO.ECharacter, CharacterSO> characterDict = new Dictionary<CharacterSO.ECharacter, CharacterSO>();
-
+    public TextMeshProUGUI FlashMessageObject;
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -145,25 +145,15 @@ public class GameManager : MonoBehaviour
 
     public void FlashMessage(string message)
     {
-        GameObject textMessageContainer = GameObject.Find("MessageContainer");
-        if (textMessageContainer == null)
+        if (FlashMessageObject == null)
         {
             // Container for message not found. Post to Debug Log for now. This means there's a bug in this scene.
             Debug.Log(message);
             return;
         }
-
-        TextMeshProUGUI tmPro = textMessageContainer.GetComponent<TextMeshProUGUI>();
-        if (tmPro != null)
-        {
-            tmPro.text = message;
-            textMessageContainer.SetActive(true);
-            StartCoroutine(ShowMessage(textMessageContainer));
-        } else
-        {
-            Debug.Log("TMPRO is null");
-        }
-        
+        FlashMessageObject.text = message;
+        FlashMessageObject.gameObject.SetActive(true);
+        StartCoroutine(ShowMessage(FlashMessageObject.gameObject));
 
     }
 
