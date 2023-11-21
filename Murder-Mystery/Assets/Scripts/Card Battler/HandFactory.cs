@@ -54,8 +54,9 @@ public class HandFactory : MonoBehaviour
             float zAdjust = (zOffset * (i%2)+ zOrigin) * zMod;
             Vector3 instantiateLocation = new Vector3(targetPosition.x + (xOffset*i) + xOrigin, targetPosition.y, targetPosition.z  + zAdjust);
             GameObject instantiatedCard = Instantiate(cardPrefab, instantiateLocation, Quaternion.identity);
+            
+            //Prepare card object
             Card cardComponent = instantiatedCard.GetComponent<Card>();
-
             cardComponent.SetCardData(chosenCard, suit);
             cardComponent.SetFrontFaceMaterial(_GetMaterial(chosenCard, suit));
 
@@ -80,8 +81,8 @@ public class HandFactory : MonoBehaviour
     private int GetRandomCardFromSuit(Suit suit, List<int> dealtWitness, List<int> dealtLocation, List<int> dealtMotive)
     {
         /*
-            This function picks an available card prefab from the deck within the suit specified in the parameters 
-            to be instantiated in later.
+            This function picks an available face value from the deck of cards, working under the assumption that
+            no duplicate cards can exist within a deck.
 
             Inputs:
             Suit enum - the suit to pick from
@@ -90,9 +91,7 @@ public class HandFactory : MonoBehaviour
             dealtMotive list -  same as dealtWitness, but for motive cards.
 
             Outputs -
-            Tuple of (int, GameObject)
-            The int represent the index of the dealt card within the list. 
-            The GameObject is the card to instantiate.
+            face value of the chosen card as int
         */
         List<int> indexList;
 
@@ -124,11 +123,24 @@ public class HandFactory : MonoBehaviour
 
     private int _ValueToMaterialIndex(int value)
     {
+        // Face values start at a minimum value and indeces in the list start from 0.
+        // Therefore, subtracting the minvalue will make the ranges equivalent
         return value - minFaceValue;
     }
 
     private Material _GetMaterial(int value, Suit suit)
     {
+        /*
+         This function selects the material to apply to a card prefab face from the list of
+         textures that exist for the cards. It then returns that material to the calling function
+
+        Inputs:
+        - Face value of the card
+        - Suit value of the card
+
+        Outputs:
+        Material to apply to card face
+         */
         List<Material> faces;
         if (suit == Suit.WITNESS)
         {
