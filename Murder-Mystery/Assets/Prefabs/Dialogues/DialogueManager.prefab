@@ -62,6 +62,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   characterUpdateTime: 0.03
   playerMovement: {fileID: 0}
+  timeBeforeTransitioningToNewScene: 4
 --- !u!114 &2395599996085937827
 MonoBehaviour:
   m_ObjectHideFlags: 0

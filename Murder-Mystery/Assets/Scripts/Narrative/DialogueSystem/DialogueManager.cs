@@ -29,6 +29,8 @@ public class DialogueManager : MonoBehaviour
     private float characterUpdateTime = 0.5f;
     [SerializeField]
     private PlayerMovement playerMovement;
+    [SerializeField]
+    private float timeBeforeTransitioningToNewScene = 2f;
 
     private Queue<string> sentences;
     private Coroutine characterUpdateCoroutine;
@@ -115,12 +117,6 @@ public class DialogueManager : MonoBehaviour
         // If the senetence is not being animated in.
         if (!bIsCharacterCoroutineRunning)
         {
-            if(currentDialogue != null && currentDialogue.bTransitionToCardBattle)
-            {
-                EndDialogue();
-                SceneManager.LoadScene("Card Battler");
-                return;
-            }
 
             if (currentSentence >= currentDialogue.sentences.Length)
             {
@@ -153,6 +149,11 @@ public class DialogueManager : MonoBehaviour
             characterUpdateCoroutine = StartCoroutine(TypeSentence(sentence));
             bIsCharacterCoroutineRunning = true;
             currentSentence++;
+
+            if(currentDialogue.bTransitionToCardBattle)
+            {
+                StartCoroutine(TransitionToCardBattle());
+            }
         }
 
         // Otherwise go fast-forward the current sentence.
@@ -234,6 +235,18 @@ public class DialogueManager : MonoBehaviour
         bIsCharacterCoroutineRunning = false;
     }
 
+    /*
+     * This corouting delays transition to new scene so that the final sentence is displayed in the dialogue box.
+     */
+    IEnumerator TransitionToCardBattle()
+    {
+        continueButton.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(timeBeforeTransitioningToNewScene);
+
+        EndDialogue();
+        SceneManager.LoadScene("Card Battler");
+    }
 
     /*
      * Function is called after a dialouge tree has been completed. Closes dialogue box.
