@@ -26,7 +26,7 @@ public class FollowPlayer : MonoBehaviour
      * Gets projection of player on to camera's local coordinates.
      * Then checks if there is any change in that projections vector and moves the camera if there is.
      */ 
-    void Update()
+    void LateUpdate()
     {
         Vector3 playerRightComponent = Vector3.Project(playerTransform.position, cameraRight);
         Vector3 playerUpComponent = Vector3.Project(playerTransform.position, cameraUp);
