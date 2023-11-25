@@ -1,11 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +15,14 @@ public class GameManager : MonoBehaviour
     public List<string> trueOnStart = new List<string>();
     private Dictionary<CharacterSO.ECharacter, CharacterSO> characterDict = new Dictionary<CharacterSO.ECharacter, CharacterSO>();
     public TextMeshProUGUI FlashMessageObject;
+
+    public bool _shouldLoadFromSavedLocation = false;
+    //Default this to the origin
+    private Vector3 _lastPlayerLocation = new Vector3(0,0,0);
+    
+    //Default this to Ace;
+    public CharacterSO.ECharacter _lastTalkedToCharacter;
+    private int _lastVisitedScene;
 
     private void Awake()
     {
@@ -167,6 +172,45 @@ public class GameManager : MonoBehaviour
             go.SetActive(false);
             yield break;
         }
+    }
+
+    public void StorePlayerLastLocation()
+    {
+        Debug.Log("Storing Player Position");
+        _lastPlayerLocation = GameObject.Find("Player").transform.position;
+    }
+
+    public Vector3 LoadPlayerPosition()
+    {
+        _shouldLoadFromSavedLocation = false;
+        return _lastPlayerLocation;
+    }
+
+    public void SetLastTalkedTo(CharacterSO.ECharacter chr)
+    {
+        Debug.Log("Setting Last Visited Index " + chr.ToString());
+        _lastTalkedToCharacter = chr;
+    }
+
+    public CharacterSO.ECharacter GetLastTalkedTo()
+    {
+        return _lastTalkedToCharacter;
+    }
+
+    public void SetLastVisitedScene(int index)
+    {
+        Debug.Log("Setting Last Visited Index " + index.ToString());
+        _lastVisitedScene = index;
+    }
+
+    public int LoadLastVisitedScene()
+    {
+        int sceneToVisit = _lastVisitedScene;
+
+        // Flush out the last saved value
+        _lastVisitedScene = 0;
+
+        return sceneToVisit;
     }
 
     public void ResetGameState()

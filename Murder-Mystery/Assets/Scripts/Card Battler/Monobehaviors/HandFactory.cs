@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class HandFactory : MonoBehaviour
 {
-
     public HandContainer Player1Hand;
     public HandContainer Player2Hand;
     public GameObject cardPrefab;
+    public DealStrategies strategyIdentifier;
+    private IDealStrategy dealStrategy;
     public List<Material> witnessFaces;
     public List<Material> locationFaces;
     public List<Material> motiveFaces;
@@ -21,16 +22,17 @@ public class HandFactory : MonoBehaviour
     [SerializeField]
     public Vector3 scaleFactor;
 
-    void Start()
+    public void AssignAndSetupStrategy(List<int> setupData)
     {
-        DealCards(ConstantParameters.PLAYER_1);
-        DealCards(ConstantParameters.PLAYER_2);
+        dealStrategy = HandDealStrategyFactory.CreateStrategy(strategyIdentifier);
+        dealStrategy.SetUp(setupData);
     }
 
-    void DealCards(int player)
+    public void DealCards(int player)
     {
         /*
-            This function deals cards to each players hand. It instantiates the card objects and assigns them to the HandContainer
+            This function deals a full set of random cards cards to a player's hand. 
+            It instantiates the card objects and assigns them to the HandContainer
             for the respective player.
 
             Inputs:
@@ -44,12 +46,11 @@ public class HandFactory : MonoBehaviour
         List<int> dealtWitnessCards = new List<int>();
         List<int> dealtLocationCards = new List<int>();
         List<int> dealtMotiveCards = new List<int>();
-        Array suits = Enum.GetValues(typeof(Suit));
 
         for (int i = 0; i < ConstantParameters.MAX_HAND_SIZE; i++) {
-
-            Suit suit = (Suit)suits.GetValue((int)UnityEngine.Random.Range(0, suits.Length));
-            int chosenCard = GetRandomCardFromSuit(suit, dealtWitnessCards, dealtLocationCards, dealtMotiveCards);
+            Suit suit = dealStrategy.SelectSuit(i);
+            int chosenCard = dealStrategy.GetCard(suit, dealtWitnessCards, dealtLocationCards, dealtMotiveCards);
+            
             Vector3 targetPosition = handToDealTo.gameObject.transform.position;
             float zAdjust = (zOffset * (i%2)+ zOrigin) * zMod;
             Vector3 instantiateLocation = new Vector3(targetPosition.x + (xOffset*i) + xOrigin, targetPosition.y, targetPosition.z  + zAdjust);
@@ -76,49 +77,6 @@ public class HandFactory : MonoBehaviour
             handToDealTo.ReceiveCard(instantiatedCard);
             handToDealTo.MoveToHand(instantiatedCard, zOrigin*zMod);
         }
-    }
-
-    private int GetRandomCardFromSuit(Suit suit, List<int> dealtWitness, List<int> dealtLocation, List<int> dealtMotive)
-    {
-        /*
-            This function picks an available face value from the deck of cards, working under the assumption that
-            no duplicate cards can exist within a deck.
-
-            Inputs:
-            Suit enum - the suit to pick from
-            dealtWitness list - a list of already dealt witness cards. We don't want to deal the same card twice. Passed by reference.
-            dealtLocation list - same as dealtWitness, but for location cards
-            dealtMotive list -  same as dealtWitness, but for motive cards.
-
-            Outputs -
-            face value of the chosen card as int
-        */
-        List<int> indexList;
-
-        switch (suit)
-        {
-            case Suit.WITNESS:
-                indexList = dealtWitness;
-                break;
-            case Suit.LOCATION:
-                indexList = dealtLocation;
-                break;
-            case Suit.MOTIVE:
-                indexList = dealtWitness;
-                break;
-            //The default case is here so the compiler doesn't complain. It should never happen.
-            default:
-                Debug.Log("Default case in Hand Factory reached. This is a major bug.");
-                indexList = new List<int>();
-                break;
-        }
-        int value = UnityEngine.Random.Range(minFaceValue, maxFaceValue);
-        while (indexList.Contains(value))
-        {
-            value = UnityEngine.Random.Range(minFaceValue, maxFaceValue);
-        }
-        indexList.Add(value);
-        return value;
     }
 
     private int _ValueToMaterialIndex(int value)

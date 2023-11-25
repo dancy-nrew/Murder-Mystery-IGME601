@@ -38,8 +38,9 @@ class GUIManager : MonoBehaviour
 
     public void ExitCardBattler()
     {
-        // How do we return to the specific scene we were just in?
-        // Currently sending the user back to the hub which is not great
-        SceneManager.LoadScene("3DIso_Movement");
+        GameManager.Instance._shouldLoadFromSavedLocation = true;
+        int lastScene = GameManager.Instance.LoadLastVisitedScene();
+        Debug.Log("Loading last scene: " + lastScene.ToString());
+        SceneManagers.StaticLoad(lastScene);
     }
 }
