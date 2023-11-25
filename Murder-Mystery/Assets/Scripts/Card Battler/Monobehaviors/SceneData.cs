@@ -31,10 +31,9 @@ public class SceneData : MonoBehaviour
             };
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Scripted);
             handFactory.strategyIdentifier = DealStrategies.Deterministic;
-            handFactory.AssignAndSetupStrategy(cardsToDeal);
+            handFactory.AssignAndSetupStrategy(new List<int>(cardsToDeal));
             handFactory.DealCards(ConstantParameters.PLAYER_1);
             handFactory.DealCards(ConstantParameters.PLAYER_2);
-            setupData.AddRange(cardsToDeal);
 
         } else if (GameManager.Instance.GetLastTalkedTo() != CharacterSO.ECharacter.Ace)
         {
