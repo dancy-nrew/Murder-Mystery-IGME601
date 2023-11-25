@@ -24,6 +24,7 @@ public class HandFactory : MonoBehaviour
 
     public void AssignAndSetupStrategy(List<int> setupData)
     {
+        // Assign the strategy object and set it up
         dealStrategy = HandDealStrategyFactory.CreateStrategy(strategyIdentifier);
         dealStrategy.SetUp(setupData);
     }
@@ -31,7 +32,7 @@ public class HandFactory : MonoBehaviour
     public void DealCards(int player)
     {
         /*
-            This function deals a full set of random cards cards to a player's hand. 
+            This function deals a full set of cards to a player's hand, according to the deal strategy. 
             It instantiates the card objects and assigns them to the HandContainer
             for the respective player.
 
