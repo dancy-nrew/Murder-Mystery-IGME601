@@ -45,3 +45,21 @@ MonoBehaviour:
     parameterValue: 0
   - parameterKey: bAlwaysTrue
     parameterValue: 1
+  - parameterKey: bEndOfConnorCardBattle
+    parameterValue: 0
+  - parameterKey: bHasWonConnorCardBattle
+    parameterValue: 0
+  - parameterKey: bDealCards
+    parameterValue: 0
+  - parameterKey: bEndOfReevesCardBattle
+    parameterValue: 0
+  - parameterKey: bHasWonReevesCardBattle
+    parameterValue: 0
+  - parameterKey: bEndOfMorseCardBattle
+    parameterValue: 0
+  - parameterKey: bHasWonMorseCardBattle
+    parameterValue: 0
+  - parameterKey: bEndOfStoneCardBattle
+    parameterValue: 0
+  - parameterKey: bHasWonStoneCardBattle
+    parameterValue: 0
