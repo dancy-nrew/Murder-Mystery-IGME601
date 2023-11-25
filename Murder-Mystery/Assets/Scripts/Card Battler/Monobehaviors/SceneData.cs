@@ -16,7 +16,6 @@ public class SceneData : MonoBehaviour
 
     private void SetUpGame()
     {
-        // Load Data in
         List<int> setupData = new List<int>();
         IAIStrategy aiStrategy;
 
@@ -32,6 +31,7 @@ public class SceneData : MonoBehaviour
             };
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Scripted);
             handFactory.strategyIdentifier = DealStrategies.Deterministic;
+            handFactory.AssignAndSetupStrategy(cardsToDeal);
             handFactory.DealCards(ConstantParameters.PLAYER_1);
             handFactory.DealCards(ConstantParameters.PLAYER_2);
             setupData.AddRange(cardsToDeal);
@@ -39,8 +39,10 @@ public class SceneData : MonoBehaviour
         } else if (GameManager.Instance.GetLastTalkedTo() != CharacterSO.ECharacter.Ace)
         {
             // Regular card battle
+
+            // Load clue data
             CharacterSO charSO = GameManager.Instance.GetCharacterSOFromKey(GameManager.Instance.GetLastTalkedTo());
-            setupData.Add(DialogueDataWriter.Instance.CheckCondition(charSO.witnessParameter, true) ? 1 : 0);
+            setupData.Add(DialogueDataWriter.Instance.CheckCondition(charSO.motiveParameter, true) ? 1 : 0);
             setupData.Add(DialogueDataWriter.Instance.CheckCondition(charSO.locationParameter, true) ? 1 : 0);
             setupData.Add(DialogueDataWriter.Instance.CheckCondition(charSO.witnessParameter, true) ? 1 : 0);
             handFactory.strategyIdentifier = DealStrategies.ClueBased;

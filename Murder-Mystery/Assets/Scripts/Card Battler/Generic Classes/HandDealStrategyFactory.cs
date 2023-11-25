@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 
@@ -14,6 +13,13 @@ public enum DealStrategies
 
 public interface IDealStrategy
 {
+    /*
+     Interface for implementing card-dealing strategies. All strategies must implement the following methods
+
+    - SetUp: Take a list of integers to set up some basic information for the strategy.
+    - SelectSuit: Select the suit the card to deal will belong to
+    - GetCard: Have the strategy deal a card. It takes lists of already-dealt cards to avoid repetition.
+     */
     public void SetUp(List<int> values);
     public Suit SelectSuit(int index);
     public int GetCard(Suit suit, List<int> dealtWitness, List<int> dealtLocation, List<int> dealtMotive);
@@ -21,6 +27,11 @@ public interface IDealStrategy
 
 public abstract class Strategy : IDealStrategy
 {
+    /*
+        This abstract class extends the interface by adding a protected method that adds validation
+        capabilities to each strategy class. Useful to prevent malformed deal strategies from 
+        going to production.
+     */
     protected virtual bool IsSetupValid(List<int> values) { return true; }
     public abstract void SetUp(List<int> values);
     public abstract Suit SelectSuit(int index);
@@ -29,6 +40,9 @@ public abstract class Strategy : IDealStrategy
 
 public class RandomStrategy : Strategy
 {
+    /*
+     Deals cards randomly
+     */
     int minFaceValue;
     int maxFaceValue;
 
@@ -49,12 +63,11 @@ public class RandomStrategy : Strategy
     public override int GetCard(Suit suit, List<int> dealtWitness, List<int> dealtLocation, List<int> dealtMotive)
     {
         /*
-            This function picks an available face value from the deck of cards, working under the assumption that
-            no duplicate cards can exist within a deck.
+            This implementation randomly deals a card that is available to be dealt from the deck
 
             Inputs:
             Suit enum - the suit to pick from
-            dealtWitness list - a list of already dealt witness cards. We don't want to deal the same card twice. Passed by reference.
+            dealtWitness list - a list of already dealt witness cards. Passed by reference.
             dealtLocation list - same as dealtWitness, but for location cards
             dealtMotive list -  same as dealtWitness, but for motive cards.
 
@@ -92,18 +105,19 @@ public class RandomStrategy : Strategy
 
 public class ClueBasedStrategy : Strategy
 {
+    /*
+     Deals cards based on how many clues the player has gotten. This is a player-only dealing strategy,
+     the AI should never be dealt cards using this strategy.
+     */
     bool bHasMotive;
     bool bHasLocation;
     bool bHasWitness;
-
-
     int minLowValue = ConstantParameters.MIN_FACE_VALUE;
     int maxLowValue;
     int minHighValue;
     int maxHighValue = ConstantParameters.MAX_FACE_VALUE;
 
-    
-
+ 
     protected override bool IsSetupValid(List<int> flags)
     {
         return flags.Count == 3;
@@ -111,10 +125,17 @@ public class ClueBasedStrategy : Strategy
 
     public override void SetUp(List<int> flags)
     {
+        /*
+         We need to map the inputs to the boolean flags and then construct a few ranges
+         to allow for more specific low-rolling or high-rolling depending on whether the
+         user has the clues or not.
+         */
         if (!IsSetupValid(flags))
         {
             throw new ArgumentException("Setup for Clue Strategy is Invalid");
         }
+
+        // This could probably be hardcoded or better mapped somewhere else
         bHasMotive = flags[0] > 0;
         bHasLocation = flags[1] > 0;
         bHasWitness = flags[2] > 0;
@@ -195,11 +216,16 @@ public class ClueBasedStrategy : Strategy
         {
             possibleValues.Add(i);
         }
+
+        //Narrow down possibilities using set operations
         possibleValues.ExceptWith(pickedIndeces);
+
+        // This shouldn't happen but it's important to check it.
         if (possibleValues.Count == 0)
         {
             throw new IndexOutOfRangeException("No possible values to give for this suit");
         }
+
         int value = possibleValues.ElementAt(UnityEngine.Random.Range(0, possibleValues.Count));
         pickedList.Add(value);
         return value;
@@ -208,6 +234,10 @@ public class ClueBasedStrategy : Strategy
 
 public class DeterministicStrategy : Strategy 
 {
+    /*
+        Deals cards deterministically, meaning we as developers establish which
+        cards will be dealt in what order.
+    */
     Queue<int> cardValues;
 
     protected override bool IsSetupValid(List<int> values)
@@ -230,11 +260,15 @@ public class DeterministicStrategy : Strategy
     }
     public override void SetUp(List<int> values)
     {
+        /*
+         In this case, the values represent the face values of the cards we want to deal.
+         They should be enqueued, we will deal them in FIFO style.
+         */
         if (!IsSetupValid(values))
         {
             throw new ArgumentException("Setup for Deterministic Strategy is Invalid");
         }
-
+        
         for (int i = 0; i < values.Count; i++)
         {
             cardValues.Enqueue(values[i]);
@@ -249,6 +283,9 @@ public class DeterministicStrategy : Strategy
 
 public class HandDealStrategyFactory : MonoBehaviour
 {
+    /*
+     Simple factory to create strategies. Allow dealing strategies to be changed at runtime.
+     */
     public static IDealStrategy CreateStrategy(DealStrategies strategy)
     {
         switch (strategy)

@@ -5,16 +5,16 @@ using UnityEngine;
 public class AI_Controller : MonoBehaviour
 {
     /*
-        Class that defines the behavior of the AI opponent for the card battler.
-        Currently only has one important Inspector option which is controlling
-        whether the opponent behaves randomly or tries to make intelligent decisions.
+        Class that defines the controller for the AI opponent for the card battler.
+        Behavior algorithm is referenced as a strategy that is composited into this object
+        thereby encapsulating the decision behavior and allowing this object to add
+        independent of the algorithm implementation
      */
     public static AI_Controller Instance;
     private IAIStrategy _strategy;
     HandContainer hand;
     BoardManager _boardManager;
     BoardState _localState;
-    public bool isRandomPlayer;
 
     private void Awake()
     {
@@ -50,6 +50,7 @@ public class AI_Controller : MonoBehaviour
 
     public void SetStrategy(IAIStrategy strategy)
     {
+        //Sets the AI strategy this controller will use. This is the brains of the operation.
         _strategy = strategy;
     }
 
@@ -63,6 +64,7 @@ public class AI_Controller : MonoBehaviour
         int lane;
         int index;
 
+        //Strategies are defined in the Strategy factory
         (lane, index) = _strategy.DecideMove(_localState, hand.handData);
         
         // Physically move the card

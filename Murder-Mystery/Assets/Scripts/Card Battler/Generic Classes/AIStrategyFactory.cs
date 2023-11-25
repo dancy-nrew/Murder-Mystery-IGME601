@@ -10,6 +10,8 @@ public enum AITypes
 
 public interface IAIStrategy
 {
+    // Interface for an AI Strategy. All AI Strategies need to implement this public method
+    // They are meant to return a tuple that represent the lane and the index of the card to play
     public (int, int) DecideMove(BoardState _localState, HandData hand);
 }
 
@@ -116,12 +118,16 @@ public class InformedAI : IAIStrategy
 
 public class ScriptedAI : IAIStrategy
 {
+    //Very simple scripted AI controller. Can be extended but
+    //we have to figure out a way of doing so without compromising the interface
+    //Untested so far
     private int _currentTurn = 0;
 
     public (int, int) DecideMove(BoardState _localState, HandData hand)
     {
+        // Moves are decided by doing one card in each lane
+        // and cards are played in order. Nothing fancy.
         int card, lane;
-
         lane = _currentTurn%3;
         card = _currentTurn;
         _currentTurn++;
@@ -131,6 +137,9 @@ public class ScriptedAI : IAIStrategy
 
 public static class AIStrategyFactory
 {
+    /*
+        Factory class that creates AI Strategies to set for the AI controller.
+     */
     public static IAIStrategy CreateStrategy(AITypes type)
     {
         switch (type)

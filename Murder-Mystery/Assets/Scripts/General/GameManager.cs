@@ -176,19 +176,20 @@ public class GameManager : MonoBehaviour
 
     public void StorePlayerLastLocation()
     {
-        Debug.Log("Storing Player Position");
+        // Store the player's location as Vector3 in case we want to load in the future
         _lastPlayerLocation = GameObject.Find("Player").transform.position;
     }
 
     public Vector3 LoadPlayerPosition()
     {
+        //This should only happen when the card battler ends, so we should unset the boolean here
         _shouldLoadFromSavedLocation = false;
         return _lastPlayerLocation;
     }
 
     public void SetLastTalkedTo(CharacterSO.ECharacter chr)
     {
-        Debug.Log("Setting Last Visited Index " + chr.ToString());
+        // Keep a record of who we just talked to. We'll need it for the card battler stuff
         _lastTalkedToCharacter = chr;
     }
 
@@ -199,7 +200,8 @@ public class GameManager : MonoBehaviour
 
     public void SetLastVisitedScene(int index)
     {
-        Debug.Log("Setting Last Visited Index " + index.ToString());
+        // Set last visited scene as index. Useful for loading back into the exploration
+        // after card battler ends
         _lastVisitedScene = index;
     }
 
