@@ -9,7 +9,7 @@ using UnityEngine.UI;
 // Adapted from https://youtu.be/_nRzoTzeyxU?si=AB3_KumtIm_VuaVb
 // Class handles dialogue ui functionalities by running through a dialogue tree.
 // This class is called from objects that have the dialouge tree runner script on them.
-
+ 
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
@@ -43,6 +43,12 @@ public class DialogueManager : MonoBehaviour
     private Dialogue currentDialogue;
     private CharacterSO currentCharacter;
     private InputNode currentInputNode;
+
+    public delegate void DCharactersFinishedTyping();
+    public static DCharactersFinishedTyping dCharactersFinishedTyping;
+    public delegate void DDialogueInteractionOver();
+    public static DDialogueInteractionOver dDialogueInteractionOver;
+
 
     private void Awake()
     {
@@ -96,7 +102,9 @@ public class DialogueManager : MonoBehaviour
         }
 
         animator.SetBool("bIsOpen", true);
-        playerMovement.SetIsUIEnabled(true);
+
+        if(playerMovement)
+            playerMovement.SetIsUIEnabled(true);
         
         currentSentence = 0;
 
@@ -108,10 +116,10 @@ public class DialogueManager : MonoBehaviour
      * This function displays the next sentence of the current dialogue tree or fast-forwards current sentence.
      * Called when continue buttone is hit in the dialouge box.
      */
-    public void DisplayNextSentence()
+    public bool DisplayNextSentence()
     {
 
-        if (!currentDialogueTree) return;
+        if (!currentDialogueTree) return false;
        
         
         // If the senetence is not being animated in.
@@ -131,12 +139,12 @@ public class DialogueManager : MonoBehaviour
                 {
                     currentInputNode = currentDialogueTree.currentInputNode;
                     ShowInput();
-                    return;
+                    return true;
                 }
                 else
                 {
                     EndDialogue();
-                    return;
+                    return false;
                 }
             }
 
@@ -154,6 +162,7 @@ public class DialogueManager : MonoBehaviour
             {
                 StartCoroutine(TransitionToCardBattle());
             }
+
         }
 
         // Otherwise go fast-forward the current sentence.
@@ -171,6 +180,8 @@ public class DialogueManager : MonoBehaviour
             characterPortraitIMG.sprite = currentCharacter.characterPortrait;
             dialogueText.text = currentDialogue.sentences[currentSentence - 1];
         }
+
+        return true;
     }
 
     /*
@@ -232,6 +243,7 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(characterUpdateTime);
         }
 
+        dCharactersFinishedTyping?.Invoke();
         bIsCharacterCoroutineRunning = false;
     }
 
@@ -259,7 +271,10 @@ public class DialogueManager : MonoBehaviour
         currentDialogueTree.ResetTree();
         currentDialogueTree = null;
         
-        playerMovement.SetIsUIEnabled(false);
+        if(playerMovement)
+            playerMovement.SetIsUIEnabled(false);
+
+        dDialogueInteractionOver?.Invoke();
     }
 
 
