@@ -187,7 +187,7 @@ public class HandData
          */
         int result = 0;
         Dictionary<int, int> counter = new Dictionary<int, int>();
-        for (int i = ConstantParameters.MIN_FACE_VALUE; i < ConstantParameters.MAX_FACE_VALUE; i++)
+        for (int i = ConstantParameters.MIN_FACE_VALUE; i <= ConstantParameters.MAX_FACE_VALUE; i++)
         {
             counter[i] = 0;
         }
