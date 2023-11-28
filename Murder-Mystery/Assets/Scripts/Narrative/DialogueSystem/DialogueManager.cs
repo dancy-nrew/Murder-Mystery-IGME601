@@ -116,10 +116,10 @@ public class DialogueManager : MonoBehaviour
      * This function displays the next sentence of the current dialogue tree or fast-forwards current sentence.
      * Called when continue buttone is hit in the dialouge box.
      */
-    public bool DisplayNextSentence()
+    public void DisplayNextSentence()
     {
 
-        if (!currentDialogueTree) return false;
+        if (!currentDialogueTree) return;
        
         
         // If the senetence is not being animated in.
@@ -139,12 +139,12 @@ public class DialogueManager : MonoBehaviour
                 {
                     currentInputNode = currentDialogueTree.currentInputNode;
                     ShowInput();
-                    return true;
+                    return;
                 }
                 else
                 {
                     EndDialogue();
-                    return false;
+                    return;
                 }
             }
 
@@ -181,7 +181,6 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text = currentDialogue.sentences[currentSentence - 1];
         }
 
-        return true;
     }
 
     /*
