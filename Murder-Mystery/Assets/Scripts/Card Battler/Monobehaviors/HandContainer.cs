@@ -65,4 +65,9 @@ public class HandContainer : MonoBehaviour
         cards.RemoveAt(index);
         return card;
     }
+
+    public int GetCurrentHandSize()
+    {
+        return handData.cards.Count;
+    }
 }
