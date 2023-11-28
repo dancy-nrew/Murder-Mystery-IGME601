@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public CharacterSO.ECharacter _lastTalkedToCharacter;
     private int _lastVisitedScene;
 
+    public bool _justWalkedThroughDoor = false;
+    public string _doorKey;
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -213,6 +216,18 @@ public class GameManager : MonoBehaviour
         _lastVisitedScene = 0;
 
         return sceneToVisit;
+    }
+
+    public void SaveDoorInfo(string doorKey)
+    {
+        _doorKey = doorKey;
+        _justWalkedThroughDoor = true;
+    }
+
+    public string GetDoorInfo()
+    {
+        _justWalkedThroughDoor = false;
+        return _doorKey;
     }
 
     public void ResetGameState()
