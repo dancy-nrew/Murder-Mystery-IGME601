@@ -29,6 +29,36 @@ public class HandFactory : MonoBehaviour
         dealStrategy.SetUp(setupData);
     }
 
+
+    public void DealCardsInSuit(int player, int n, Suit suit)
+    {
+        /*
+            This function deals a specific amount of cards of a specific suit, according to the deal strategy of this factory. 
+            It instantiates the card objects and assigns them to the HandContainer for the respective player.
+
+            Inputs:
+            player - the player to whom we'll deal cards to
+            n - the amount of cards we'll deal.
+            suit - the suit we're picking
+         */
+        HandContainer handToDealTo;
+
+        //Determine if dealing to bottom player or top player
+        int zMod = 1;
+        if (player == ConstantParameters.PLAYER_1) { handToDealTo = Player1Hand; }
+        else { handToDealTo = Player2Hand; zMod *= -1; }
+
+        List<int> dealtCardsOfThisSuit = new List<int>();
+
+        for (int i = 0; i < n; i++)
+        {
+            int chosenCard = dealStrategy.GetCard(suit, dealtCardsOfThisSuit);
+            GameObject instantiatedCard = CreateCardObject(handToDealTo, zMod, chosenCard, suit);
+            PrepareCardObject(instantiatedCard, player);
+            handToDealTo.ReceiveCard(instantiatedCard);
+            handToDealTo.MoveToHand(instantiatedCard, zOrigin * zMod);
+        }
+    }
     public void DealCards(int player, int n)
     {
         /*
@@ -52,7 +82,8 @@ public class HandFactory : MonoBehaviour
 
         for (int i = 0; i < n; i++)
         {
-            GameObject instantiatedCard = CreateCardToDeal(handToDealTo, dealtWitnessCards, dealtLocationCards, dealtMotiveCards, zMod);
+            (Suit suit, int faceValue) = CreateCardData(handToDealTo, dealtWitnessCards, dealtLocationCards, dealtMotiveCards);
+            GameObject instantiatedCard = CreateCardObject(handToDealTo, zMod, faceValue, suit);
             PrepareCardObject(instantiatedCard, player);
             handToDealTo.ReceiveCard(instantiatedCard);
             handToDealTo.MoveToHand(instantiatedCard, zOrigin * zMod);
@@ -92,13 +123,34 @@ public class HandFactory : MonoBehaviour
         }
     }
 
-    private GameObject CreateCardToDeal(HandContainer handToDealTo, List<int> dealtWitnessCards, List<int> dealtLocationCards, List<int> dealtMotiveCards, int zMod)
+    private List<int> PickRelevantList(Suit suit, List<int> dealtWitnessCards, List<int> dealtLocationCards, List<int> dealtMotiveCards)
     {
-        int i = handToDealTo.GetCurrentHandSize();
+        // Pick the list of dealt indeces that will be relevant for the card creation function
+        switch (suit)
+        {
+            case Suit.LOCATION:
+                return dealtLocationCards;
+            case Suit.MOTIVE:
+                return dealtMotiveCards;
+            default:
+                return dealtWitnessCards;
+        }
+    }
 
-        // Create the card object
+    private (Suit, int) CreateCardData(HandContainer handToDealTo, List<int> dealtWitnessCards, List<int> dealtLocationCards, List<int> dealtMotiveCards)
+    {
+        // Create the card data
+        int i = handToDealTo.GetCurrentHandSize();
         Suit suit = dealStrategy.SelectSuit(i);
-        int chosenCard = dealStrategy.GetCard(suit, dealtWitnessCards, dealtLocationCards, dealtMotiveCards);
+        List<int> relevantList = PickRelevantList(suit, dealtWitnessCards, dealtLocationCards, dealtMotiveCards);
+        int chosenCard = dealStrategy.GetCard(suit, relevantList);
+        return (suit, chosenCard);
+    }
+
+    private GameObject CreateCardObject(HandContainer handToDealTo, int zMod, int chosenCard, Suit suit)
+    {
+        // Create the GameObject for this card
+        int i = handToDealTo.GetCurrentHandSize();
         Vector3 targetPosition = handToDealTo.gameObject.transform.position;
         float zAdjust = (zOffset * (i % 2) + zOrigin) * zMod;
         Vector3 instantiateLocation = new Vector3(targetPosition.x + (xOffset * i) + xOrigin, targetPosition.y, targetPosition.z + zAdjust);
