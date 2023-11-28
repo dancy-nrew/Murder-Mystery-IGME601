@@ -2368,7 +2368,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7a8d1bbd5063f4a9eb81f887432571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRandomPlayer: 0
 --- !u!1001 &1222956576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3840,14 +3839,14 @@ MonoBehaviour:
   cardPrefab: {fileID: 519480537946774909, guid: fe6163c180c883046a191108f1440095, type: 3}
   strategyIdentifier: 0
   witnessFaces:
-  - {fileID: 2100000, guid: cca6f4468d633924ba7fba0290d971fa, type: 2}
-  - {fileID: 2100000, guid: d36ab89126da40f4598beb3d5766d607, type: 2}
-  - {fileID: 2100000, guid: 4c80c0a5a7c398c489b0a101312ff447, type: 2}
-  - {fileID: 2100000, guid: 6aeaad9307dc605408813eddb05b87f9, type: 2}
-  - {fileID: 2100000, guid: d040083c90bd8fd48a2d4981b649abeb, type: 2}
-  - {fileID: 2100000, guid: 138b624b4fc5e6e45992731791883fc6, type: 2}
-  - {fileID: 2100000, guid: 2affad512f0e4354eba98959caef2977, type: 2}
-  - {fileID: 2100000, guid: 1049f6aedd0b39944af06a89b93874ac, type: 2}
+  - {fileID: 2100000, guid: ba3e84925c0fca84bbb705f84759ac1a, type: 2}
+  - {fileID: 2100000, guid: bcbafd0643dfdb84c9780e6acbd6af73, type: 2}
+  - {fileID: 2100000, guid: b4bfeec239a757a4da0f16c1b6757eea, type: 2}
+  - {fileID: 2100000, guid: 4213011b3d85877489bf2bb192d60791, type: 2}
+  - {fileID: 2100000, guid: c523ff1e108ea324591094c4d26cf4f2, type: 2}
+  - {fileID: 2100000, guid: 66a3fca92322ca84095d95c03d30acda, type: 2}
+  - {fileID: 2100000, guid: 2672ff51f1957484e81b300987c37a96, type: 2}
+  - {fileID: 2100000, guid: c737f129a5a20dc4d92517e827939fce, type: 2}
   locationFaces:
   - {fileID: 2100000, guid: 0a57d52c2b71d6b4b95108c6d341fa1d, type: 2}
   - {fileID: 2100000, guid: fac5bcf3b6fabbd4a8507dd9a1b73503, type: 2}
