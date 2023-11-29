@@ -22,7 +22,7 @@ public interface IDealStrategy
      */
     public void SetUp(List<int> values);
     public Suit SelectSuit(int index);
-    public int GetCard(Suit suit, List<int> dealtWitness, List<int> dealtLocation, List<int> dealtMotive);
+    public int GetCard(Suit suit, List<int> dealtCardsOfThisSuit);
 }
 
 public abstract class Strategy : IDealStrategy
@@ -35,7 +35,7 @@ public abstract class Strategy : IDealStrategy
     protected virtual bool IsSetupValid(List<int> values) { return true; }
     public abstract void SetUp(List<int> values);
     public abstract Suit SelectSuit(int index);
-    public abstract int GetCard(Suit suit, List<int> dealtWitness, List<int> dealtLocation, List<int> dealtMotive);
+    public abstract int GetCard(Suit suit, List<int> dealtCardsOfThisSuit);
 }
 
 public class RandomStrategy : Strategy
@@ -60,7 +60,7 @@ public class RandomStrategy : Strategy
         Array suits = Enum.GetValues(typeof(Suit));
         return (Suit)suits.GetValue((int)UnityEngine.Random.Range(0, suits.Length));
     }
-    public override int GetCard(Suit suit, List<int> dealtWitness, List<int> dealtLocation, List<int> dealtMotive)
+    public override int GetCard(Suit suit, List<int> dealtCardsOfThisSuit)
     {
         /*
             This implementation randomly deals a card that is available to be dealt from the deck
@@ -74,31 +74,12 @@ public class RandomStrategy : Strategy
             Outputs -
             face value of the chosen card as int
         */
-        List<int> indexList;
-
-        switch (suit)
-        {
-            case Suit.WITNESS:
-                indexList = dealtWitness;
-                break;
-            case Suit.LOCATION:
-                indexList = dealtLocation;
-                break;
-            case Suit.MOTIVE:
-                indexList = dealtMotive;
-                break;
-            //The default case is here so the compiler doesn't complain. It should never happen.
-            default:
-                Debug.Log("Default case in Hand Factory reached. This is a major bug.");
-                indexList = new List<int>();
-                break;
-        }
         int value = UnityEngine.Random.Range(minFaceValue, maxFaceValue);
-        while (indexList.Contains(value))
+        while (dealtCardsOfThisSuit.Contains(value))
         {
             value = UnityEngine.Random.Range(minFaceValue, maxFaceValue);
         }
-        indexList.Add(value);
+        dealtCardsOfThisSuit.Add(value);
         return value;
     }
 }
@@ -143,8 +124,6 @@ public class ClueBasedStrategy : Strategy
         int valueRange = ConstantParameters.MAX_FACE_VALUE - ConstantParameters.MIN_FACE_VALUE;
         maxLowValue = minLowValue + valueRange / 2;
         minHighValue = maxHighValue - valueRange / 2;
-        Debug.Log(maxLowValue.ToString());
-        Debug.Log(minHighValue.ToString());
     }
 
     public override Suit SelectSuit(int index)
@@ -156,7 +135,7 @@ public class ClueBasedStrategy : Strategy
         return (Suit)suits.GetValue(index % suits.Length);
     }
 
-    public override int GetCard(Suit suit, List<int> dealtWitness, List<int> dealtLocation, List<int> dealtMotive)
+    public override int GetCard(Suit suit, List<int> dealtCardsOfThisSuit)
     {
         /*
             This function determines whether to pick from a high value or low value list
@@ -171,32 +150,23 @@ public class ClueBasedStrategy : Strategy
             Outputs -
             face value of the chosen card as int
         */
-        HashSet<int> pickedIndeces;
-        List<int> pickedList;
+        HashSet<int> pickedIndeces = dealtCardsOfThisSuit.ToHashSet();
         bool clueToCheck;
         switch (suit)
         {
             case Suit.WITNESS:
-                pickedIndeces = dealtWitness.ToHashSet();
-                pickedList = dealtWitness;
                 clueToCheck = bHasWitness;
                 break;
             case Suit.LOCATION:
-                pickedIndeces = dealtLocation.ToHashSet();
-                pickedList = dealtLocation;
                 clueToCheck = bHasLocation;
                 break;
             case Suit.MOTIVE:
-                pickedIndeces = dealtMotive.ToHashSet();
-                pickedList = dealtMotive;
                 clueToCheck = bHasMotive;
                 break;
             //The default case is here so the compiler doesn't complain. It should never happen.
             default:
                 Debug.Log("Default case in Hand Factory reached. This is a major bug.");
-                pickedIndeces = new HashSet<int>();
                 clueToCheck = false;
-                pickedList = new List<int>();
                 break;
         }
         int minFaceValue, maxFaceValue;
@@ -227,7 +197,7 @@ public class ClueBasedStrategy : Strategy
         }
 
         int value = possibleValues.ElementAt(UnityEngine.Random.Range(0, possibleValues.Count));
-        pickedList.Add(value);
+        dealtCardsOfThisSuit.Add(value);
         return value;
     }
 }
@@ -275,7 +245,7 @@ public class DeterministicStrategy : Strategy
         }
     }
 
-    public override int GetCard(Suit suit, List<int> dealtWitness, List<int> dealtLocation, List<int> dealtMotive)
+    public override int GetCard(Suit suit, List<int> dealtCardsOfThisSuit)
     {
         return cardValues.Dequeue();
     }

@@ -32,8 +32,8 @@ public class SceneData : MonoBehaviour
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Scripted);
             handFactory.strategyIdentifier = DealStrategies.Deterministic;
             handFactory.AssignAndSetupStrategy(new List<int>(cardsToDeal));
-            handFactory.DealCards(ConstantParameters.PLAYER_1);
-            handFactory.DealCards(ConstantParameters.PLAYER_2);
+            handFactory.DealHand(ConstantParameters.PLAYER_1);
+            handFactory.DealHand(ConstantParameters.PLAYER_2);
 
         } else if (GameManager.Instance.GetLastTalkedTo() != CharacterSO.ECharacter.Ace)
         {
@@ -48,12 +48,12 @@ public class SceneData : MonoBehaviour
 
             // Deal Clue Based cards to Player
             handFactory.AssignAndSetupStrategy(setupData);
-            handFactory.DealCards(ConstantParameters.PLAYER_1);
+            handFactory.DealHand(ConstantParameters.PLAYER_1);
 
             // Deal Random Cards to AI
             handFactory.strategyIdentifier = DealStrategies.Random;
             handFactory.AssignAndSetupStrategy(new List<int>());
-            handFactory.DealCards(ConstantParameters.PLAYER_2);
+            handFactory.DealHand(ConstantParameters.PLAYER_2);
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Informed);
 
         } else
@@ -62,8 +62,8 @@ public class SceneData : MonoBehaviour
             Debug.Log("Random Strategy");
             handFactory.strategyIdentifier = DealStrategies.Random;
             handFactory.AssignAndSetupStrategy(setupData);
-            handFactory.DealCards(ConstantParameters.PLAYER_1);
-            handFactory.DealCards(ConstantParameters.PLAYER_2);
+            handFactory.DealHand(ConstantParameters.PLAYER_1);
+            handFactory.DealHand(ConstantParameters.PLAYER_2);
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Random);
         }
         AI_Controller.Instance.SetStrategy(aiStrategy);

@@ -29,57 +29,140 @@ public class HandFactory : MonoBehaviour
         dealStrategy.SetUp(setupData);
     }
 
-    public void DealCards(int player)
+
+    public void DealCardsInSuit(int player, int n, Suit suit)
     {
         /*
-            This function deals a full set of cards to a player's hand, according to the deal strategy. 
-            It instantiates the card objects and assigns them to the HandContainer
-            for the respective player.
+            This function deals a specific amount of cards of a specific suit, according to the deal strategy of this factory. 
+            It instantiates the card objects and assigns them to the HandContainer for the respective player.
 
             Inputs:
-            player - int to determine which player we're dealing with.
-        */
+            player - the player to whom we'll deal cards to
+            n - the amount of cards we'll deal.
+            suit - the suit we're picking
+         */
         HandContainer handToDealTo;
+
+        //Determine if dealing to bottom player or top player
         int zMod = 1;
         if (player == ConstantParameters.PLAYER_1) { handToDealTo = Player1Hand; }
-        else {  handToDealTo = Player2Hand; zMod *= -1; }
+        else { handToDealTo = Player2Hand; zMod *= -1; }
+
+        List<int> dealtCardsOfThisSuit = new List<int>();
+
+        for (int i = 0; i < n; i++)
+        {
+            int chosenCard = dealStrategy.GetCard(suit, dealtCardsOfThisSuit);
+            GameObject instantiatedCard = CreateCardObject(handToDealTo, zMod, chosenCard, suit);
+            PrepareCardObject(instantiatedCard, player);
+            handToDealTo.ReceiveCard(instantiatedCard);
+            handToDealTo.MoveToHand(instantiatedCard, zOrigin * zMod);
+        }
+    }
+    public void DealCards(int player, int n)
+    {
+        /*
+            This function deals a specific amount of cards, according to the deal strategy of this factory. 
+            It instantiates the card objects and assigns them to the HandContainer for the respective player.
+
+            Inputs:
+            player - the player to whom we'll deal cards to
+            n - the amount of cards we'll deal.
+         */
+        HandContainer handToDealTo;
+
+        //Determine if dealing to bottom player or top player
+        int zMod = 1;
+        if (player == ConstantParameters.PLAYER_1) { handToDealTo = Player1Hand; }
+        else { handToDealTo = Player2Hand; zMod *= -1; }
 
         List<int> dealtWitnessCards = new List<int>();
         List<int> dealtLocationCards = new List<int>();
         List<int> dealtMotiveCards = new List<int>();
 
-        for (int i = 0; i < ConstantParameters.MAX_HAND_SIZE; i++) {
-            Suit suit = dealStrategy.SelectSuit(i);
-            int chosenCard = dealStrategy.GetCard(suit, dealtWitnessCards, dealtLocationCards, dealtMotiveCards);
-            
-            Vector3 targetPosition = handToDealTo.gameObject.transform.position;
-            float zAdjust = (zOffset * (i%2)+ zOrigin) * zMod;
-            Vector3 instantiateLocation = new Vector3(targetPosition.x + (xOffset*i) + xOrigin, targetPosition.y, targetPosition.z  + zAdjust);
-            GameObject instantiatedCard = Instantiate(cardPrefab, instantiateLocation, Quaternion.identity);
-            
-            //Prepare card object
-            Card cardComponent = instantiatedCard.GetComponent<Card>();
-            cardComponent.SetCardData(chosenCard, suit);
-            cardComponent.SetFrontFaceMaterial(_GetMaterial(chosenCard, suit));
-
-            instantiatedCard.transform.localScale = new Vector3(
-                            instantiatedCard.transform.localScale.x * scaleFactor.x,
-                            instantiatedCard.transform.localScale.y * scaleFactor.y,
-                            instantiatedCard.transform.localScale.z * scaleFactor.z
-            );
-            if (player == ConstantParameters.PLAYER_2)
-            {
-                instantiatedCard.transform.rotation *= Quaternion.Euler(0, 0, 180f);
-            } else
-            {
-                cardComponent.MakeInteractable();
-                instantiatedCard.transform.rotation *= Quaternion.Euler(0, 180f, 0);
-            }
+        for (int i = 0; i < n; i++)
+        {
+            (Suit suit, int faceValue) = CreateCardData(handToDealTo, dealtWitnessCards, dealtLocationCards, dealtMotiveCards);
+            GameObject instantiatedCard = CreateCardObject(handToDealTo, zMod, faceValue, suit);
+            PrepareCardObject(instantiatedCard, player);
             handToDealTo.ReceiveCard(instantiatedCard);
-            handToDealTo.MoveToHand(instantiatedCard, zOrigin*zMod);
+            handToDealTo.MoveToHand(instantiatedCard, zOrigin * zMod);
         }
     }
 
+    public void DealHand(int player)
+    {
+        /*
+            This function deals a full set of cards to a player's hand. 
+
+            Inputs:
+            player - int to determine which player we're dealing with.
+        */
+        DealCards(player, ConstantParameters.MAX_HAND_SIZE);
+    }
+
+    private void PrepareCardObject(GameObject card, int player)
+    {
+        // Scale the card
+        card.transform.localScale = new Vector3(
+                card.transform.localScale.x * scaleFactor.x,
+                card.transform.localScale.y * scaleFactor.y,
+                card.transform.localScale.z * scaleFactor.z
+            );
+
+        // Rotate and alter the card
+        if (player == ConstantParameters.PLAYER_2)
+        {
+            card.transform.rotation *= Quaternion.Euler(0, 0, 180f);
+        }
+        else
+        {
+            Card cardComponent = card.GetComponent<Card>();
+            cardComponent.MakeInteractable();
+            card.transform.rotation *= Quaternion.Euler(0, 180f, 0);
+        }
+    }
+
+    private List<int> PickRelevantList(Suit suit, List<int> dealtWitnessCards, List<int> dealtLocationCards, List<int> dealtMotiveCards)
+    {
+        // Pick the list of dealt indeces that will be relevant for the card creation function
+        switch (suit)
+        {
+            case Suit.LOCATION:
+                return dealtLocationCards;
+            case Suit.MOTIVE:
+                return dealtMotiveCards;
+            default:
+                return dealtWitnessCards;
+        }
+    }
+
+    private (Suit, int) CreateCardData(HandContainer handToDealTo, List<int> dealtWitnessCards, List<int> dealtLocationCards, List<int> dealtMotiveCards)
+    {
+        // Create the card data
+        int i = handToDealTo.GetCurrentHandSize();
+        Suit suit = dealStrategy.SelectSuit(i);
+        List<int> relevantList = PickRelevantList(suit, dealtWitnessCards, dealtLocationCards, dealtMotiveCards);
+        int chosenCard = dealStrategy.GetCard(suit, relevantList);
+        return (suit, chosenCard);
+    }
+
+    private GameObject CreateCardObject(HandContainer handToDealTo, int zMod, int chosenCard, Suit suit)
+    {
+        // Create the GameObject for this card
+        int i = handToDealTo.GetCurrentHandSize();
+        Vector3 targetPosition = handToDealTo.gameObject.transform.position;
+        float zAdjust = (zOffset * (i % 2) + zOrigin) * zMod;
+        Vector3 instantiateLocation = new Vector3(targetPosition.x + (xOffset * i) + xOrigin, targetPosition.y, targetPosition.z + zAdjust);
+        GameObject instantiatedCard = Instantiate(cardPrefab, instantiateLocation, Quaternion.identity);
+
+        // Set the data for the card
+        Card cardComponent = instantiatedCard.GetComponent<Card>();
+        cardComponent.SetCardData(chosenCard, suit);
+        cardComponent.SetFrontFaceMaterial(_GetMaterial(chosenCard, suit));
+        
+        return instantiatedCard;
+    }
     private int _ValueToMaterialIndex(int value)
     {
         // Face values start at a minimum value and indeces in the list start from 0.
