@@ -32,12 +32,14 @@ public class Cutscene
 
     public void NextAction()
     {
+
         if (actions.Count > 0)
         {
             activeAction = actions.Dequeue();
             activeAction.PerformAction();
         } else
         {
+            Debug.Log("Is Over called");
             isOver = true;
         }
     }

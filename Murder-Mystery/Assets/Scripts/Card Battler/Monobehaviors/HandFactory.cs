@@ -225,6 +225,7 @@ public class HandFactory : MonoBehaviour
     {
         CharacterSO charSO = GameManager.Instance.GetCharacterSOFromKey(GameManager.Instance.GetLastTalkedTo());
         int clueToCheck = dialogueDealCounter / 2;
+
         bool isSecondTalk = dialogueDealCounter % 2 == 1;
         bool isMissingClue;
         int whoToDealTo;
@@ -247,5 +248,6 @@ public class HandFactory : MonoBehaviour
         bool dealToPlayerOne = (!isMissingClue && !isSecondTalk) || (isSecondTalk && isMissingClue);
         whoToDealTo = dealToPlayerOne ? ConstantParameters.PLAYER_1 : ConstantParameters.PLAYER_2;
         DealCardsInSuit(whoToDealTo, 3, suitToDeal);
+        dialogueDealCounter++;
     }
 }

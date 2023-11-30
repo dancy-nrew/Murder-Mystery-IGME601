@@ -1,13 +1,16 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
+
 
 public class CutsceneManager : MonoBehaviour
 {
     Queue<Cutscene> cutscenes;
     Cutscene activeCutscene;
+    public float delayTimer;
     public delegate void CutsceneEnd();
     public static CutsceneEnd dCutsceneEndSignal;
+    public DialogueTree activeConversationTree;
     public static CutsceneManager Instance { get; private set; }
     private void Awake()
     {
@@ -61,5 +64,21 @@ public class CutsceneManager : MonoBehaviour
         {
             dCutsceneEndSignal();
         }
+    }
+
+    public void DelayNext()
+    {
+        StartCoroutine(DelayCoroutine());
+    }
+
+    IEnumerator DelayCoroutine()
+    {
+        yield return new WaitForSeconds(delayTimer);
+        MoveToNextAction();
+    }
+
+    public void DebugTree(DialogueTree tree)
+    {
+        activeConversationTree = tree;
     }
 }

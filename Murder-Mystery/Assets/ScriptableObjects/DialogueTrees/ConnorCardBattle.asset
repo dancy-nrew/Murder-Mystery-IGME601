@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: RootNode
   m_EditorClassIdentifier: 
   state: 0
-  started: 0
+  started: 1
   guid: 422e77d7ba53fd24da63d3126675fccc
   position: {x: -99.9281, y: 57.999973}
   child: {fileID: -3356155017864365838}
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Name: ChoiceNode
   m_EditorClassIdentifier: 
   state: 0
-  started: 0
+  started: 1
   guid: 5c4bcad564b213b4da15d13486044112
   position: {x: 75.00004, y: 59.99998}
   children:
@@ -377,7 +377,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: a1caa53e78288e54aa92fdb9c259488f
-  position: {x: 1050, y: 450}
+  position: {x: 1049.9999, y: 464.5}
   dialogue:
     character: 0
     sentences:
@@ -643,7 +643,7 @@ MonoBehaviour:
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
   state: 0
-  started: 0
+  started: 1
   guid: 541401ef2f8af9c4d8fb251a094fa782
   position: {x: 231.19507, y: -33.61501}
   children:
@@ -688,8 +688,7 @@ MonoBehaviour:
   dialogue:
     character: 6
     sentences:
-    - 'No! '
-    - I was writing a paper- I swear!
+    - No! I was writing a paper- I swear!
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates:
@@ -727,7 +726,7 @@ MonoBehaviour:
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
   state: 0
-  started: 0
+  started: 1
   guid: 1fbc19bd7066613438a0e2e0b2c0bc6c
   position: {x: 472, y: -34.000004}
   children:
@@ -797,10 +796,7 @@ MonoBehaviour:
   dialogue:
     character: 6
     sentences:
-    - 'What? '
-    - "No, that\u2019s not what happened!"
+    - "What? No, that\u2019s not what happened!"
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates:
-  - parameterKey: bDealCards
-    parameterValue: 1
+  dataUpdates: []

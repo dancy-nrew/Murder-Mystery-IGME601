@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public abstract class CutsceneAction
 {
     public abstract void PerformAction();
@@ -15,10 +17,12 @@ public class StartCardDialogueAction : CutsceneAction
 
     public override void PerformAction()
     {
-        CharacterSO character = GameManager.Instance.GetCharacterSOFromKey(GameManager.Instance.GetLastTalkedTo());
-        DialogueManager.Instance.ShowDialogue(character.cardBattleDialogueTree);
-
         DialogueManager.dCharactersFinishedTyping += OnActionFinish;
+
+        CharacterSO character = GameManager.Instance.GetCharacterSOFromKey(GameManager.Instance.GetLastTalkedTo());
+        DialogueTree tree = character.GetDialogueTree();
+        CutsceneManager.Instance.DebugTree(tree);
+        DialogueManager.Instance.ShowDialogue(character.GetDialogueTree());
     }
 
     protected override bool IsFlagSet()
@@ -47,17 +51,16 @@ public class DialogueAction : CutsceneAction
 
     public override void PerformAction()
     {
-        DialogueManager.Instance.DisplayNextSentence();
         DialogueManager.dCharactersFinishedTyping += OnActionFinish;
+
+        Debug.Log("Displaying Next Sentence");
+        DialogueManager.Instance.DisplayNextSentence();
+        
     }
 
     public override void OnActionFinish()
     {
         DialogueManager.dCharactersFinishedTyping -= OnActionFinish;
-        if (DialogueDataWriter.Instance.CheckCondition("bDealCards", true))
-        {
-            CutsceneManager.Instance.SetFlagForNextAction();
-        }
         CutsceneManager.Instance.MoveToNextAction();
     }
 
@@ -84,17 +87,15 @@ public class DealDialogueCardsAction : CutsceneAction
 
     public override void PerformAction()
     {
-        if (cardDealFlag)
-        {
-            handFactoryReference.DialogueDeal();
-            OnActionFinish();
-        }
+        Debug.Log("Performing Card Dealing");
+        handFactoryReference.DialogueDeal();
+        OnActionFinish();
     }
 
     public override void OnActionFinish()
     {
         // Set bDealCards to false
-        DialogueDataWriter.Instance.UpdateDialogueData("bDealCards", false);
+        //DialogueDataWriter.Instance.UpdateDialogueData("bDealCards", false);
         CutsceneManager.Instance.MoveToNextAction();
     }
 
@@ -112,20 +113,18 @@ public class DealDialogueCardsAction : CutsceneAction
 
 public class WaitAction : CutsceneAction
 {
-    private float _delay;
-    public WaitAction(float delayTime)
+    public WaitAction()
     {
-        _delay = delayTime;
+
     }
 
     public override void PerformAction()
     {
-        
+        CutsceneManager.Instance.DelayNext();
     }
 
     public override void OnActionFinish()
     {
-        CutsceneManager.Instance.MoveToNextAction();
     }
 
     public override void SetFlag()
