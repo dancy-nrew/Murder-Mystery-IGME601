@@ -17,9 +17,6 @@ public class StartCardDialogueAction : CutsceneAction
 
     public override void PerformAction()
     {
-        CharacterSO character = GameManager.Instance.GetCharacterSOFromKey(GameManager.Instance.GetLastTalkedTo());
-        DialogueManager.Instance.ShowDialogue(character.cardBattleDialogueTree);
-
         DialogueManager.dCharactersFinishedTyping += OnActionFinish;
 
         CharacterSO character = GameManager.Instance.GetCharacterSOFromKey(GameManager.Instance.GetLastTalkedTo());
@@ -54,7 +51,6 @@ public class DialogueAction : CutsceneAction
 
     public override void PerformAction()
     {
-        DialogueManager.Instance.DisplayNextSentence();
         DialogueManager.dCharactersFinishedTyping += OnActionFinish;
 
         Debug.Log("Displaying Next Sentence");
@@ -96,9 +92,8 @@ public class DealDialogueCardsAction : CutsceneAction
     public override void PerformAction()
     {
         Debug.Log("Performing Card Dealing");
-            handFactoryReference.DialogueDeal();
-            OnActionFinish();
-        }
+        handFactoryReference.DialogueDeal();
+        OnActionFinish();
     }
 
     public override void OnActionFinish()

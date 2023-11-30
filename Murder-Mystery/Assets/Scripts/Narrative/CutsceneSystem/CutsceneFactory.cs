@@ -18,9 +18,7 @@ public static class CutsceneFactory
 
         // Deal Cards
         cutscene.AddAction(new DealDialogueCardsAction(handFactory));
-
-        //First person speaks on Location Clue
-        cutscene.AddAction(new DialogueAction());
+        //Deal Cards
         cutscene.AddAction(new DealDialogueCardsAction(handFactory));
     }
     public static Cutscene MakeCardBattlerIntroCutscene(HandFactory handFactory)
