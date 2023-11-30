@@ -17,6 +17,9 @@ public class StartCardDialogueAction : CutsceneAction
 
     public override void PerformAction()
     {
+        CharacterSO character = GameManager.Instance.GetCharacterSOFromKey(GameManager.Instance.GetLastTalkedTo());
+        DialogueManager.Instance.ShowDialogue(character.cardBattleDialogueTree);
+
         DialogueManager.dCharactersFinishedTyping += OnActionFinish;
 
         CharacterSO character = GameManager.Instance.GetCharacterSOFromKey(GameManager.Instance.GetLastTalkedTo());
@@ -51,6 +54,7 @@ public class DialogueAction : CutsceneAction
 
     public override void PerformAction()
     {
+        DialogueManager.Instance.DisplayNextSentence();
         DialogueManager.dCharactersFinishedTyping += OnActionFinish;
 
         Debug.Log("Displaying Next Sentence");
@@ -61,6 +65,10 @@ public class DialogueAction : CutsceneAction
     public override void OnActionFinish()
     {
         DialogueManager.dCharactersFinishedTyping -= OnActionFinish;
+        if (DialogueDataWriter.Instance.CheckCondition("bDealCards", true))
+        {
+            CutsceneManager.Instance.SetFlagForNextAction();
+        }
         CutsceneManager.Instance.MoveToNextAction();
     }
 
@@ -88,14 +96,14 @@ public class DealDialogueCardsAction : CutsceneAction
     public override void PerformAction()
     {
         Debug.Log("Performing Card Dealing");
-        handFactoryReference.DialogueDeal();
-        OnActionFinish();
+            handFactoryReference.DialogueDeal();
+            OnActionFinish();
+        }
     }
 
     public override void OnActionFinish()
     {
         // Set bDealCards to false
-        //DialogueDataWriter.Instance.UpdateDialogueData("bDealCards", false);
         CutsceneManager.Instance.MoveToNextAction();
     }
 
@@ -125,6 +133,7 @@ public class WaitAction : CutsceneAction
 
     public override void OnActionFinish()
     {
+        CutsceneManager.Instance.MoveToNextAction();
     }
 
     public override void SetFlag()

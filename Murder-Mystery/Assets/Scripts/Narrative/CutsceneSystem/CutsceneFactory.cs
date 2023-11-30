@@ -13,11 +13,14 @@ public static class CutsceneFactory
         AddDialogueAndWait(cutscene);
         //Second person speaks on clue
         AddDialogueAndWait(cutscene);
-        
+
         //If we want to add an info message on "you got good cards" or whatev, we can do that here.
 
         // Deal Cards
         cutscene.AddAction(new DealDialogueCardsAction(handFactory));
+
+        //First person speaks on Location Clue
+        cutscene.AddAction(new DialogueAction());
         cutscene.AddAction(new DealDialogueCardsAction(handFactory));
     }
     public static Cutscene MakeCardBattlerIntroCutscene(HandFactory handFactory)
