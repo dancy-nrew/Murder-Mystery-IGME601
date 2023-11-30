@@ -163,7 +163,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 0dd8437767af2204caf3c9aef61f9b99
-  position: {x: 908.7999, y: -312.00003}
+  position: {x: 908.7999, y: -311.99994}
   dialogue:
     character: 0
     sentences:
@@ -338,8 +338,7 @@ MonoBehaviour:
   dialogue:
     character: 5
     sentences:
-    - 'It was our research and- I mean- no! '
-    - Of course not!
+    - It was our research and- I mean- no! Of course not!
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -599,8 +598,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - 'Your alibi is weak. '
-    - "How do I know you weren\u2019t at the scene of the crime?"
+    - "Your alibi is weak. How do I know you weren\u2019t at the scene of the crime?"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []

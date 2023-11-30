@@ -773,8 +773,7 @@ MonoBehaviour:
   dialogue:
     character: 6
     sentences:
-    - 'No! '
-    - I was writing a paper- I swear!
+    - No! I was writing a paper- I swear!
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates:
@@ -906,8 +905,7 @@ MonoBehaviour:
   dialogue:
     character: 6
     sentences:
-    - 'What? '
-    - "No, that\u2019s not what happened!"
+    - "What? No, that\u2019s not what happened!"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates:

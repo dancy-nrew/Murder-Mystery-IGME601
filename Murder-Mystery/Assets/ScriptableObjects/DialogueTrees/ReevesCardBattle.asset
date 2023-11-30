@@ -19,8 +19,7 @@ MonoBehaviour:
   dialogue:
     character: 4
     sentences:
-    - 'Spare me your baseless conjectures. '
-    - You have no evidence I was even there.
+    - Spare me your baseless conjectures. You have no evidence I was even there.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -345,8 +344,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - 'I found the broken vase. '
-    - You were at the scene of the crime!
+    - I found the broken vase. You were at the scene of the crime!
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -639,9 +637,7 @@ MonoBehaviour:
   dialogue:
     character: 4
     sentences:
-    - 'I was grading all weekend. '
-    - 'Off campus. '
-    - No one saw me this weekend.
+    - I was grading all weekend. Off campus. No one saw me this weekend.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
