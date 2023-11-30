@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,9 @@ public class ClueInteractable : Interactable
     public string itemName;
     public string itemDescription;
     public Sprite itemSketch;
+    public String characterToAppend;
+    public String appendUponPickup;
+    public Boolean updatesCharcater;
 
     public List<DialogueData.DialogueParameter> interactableConditions = new List<DialogueData.DialogueParameter>();
 
@@ -64,10 +68,16 @@ public class ClueInteractable : Interactable
         DialogueDataWriter.Instance.UpdateDialogueData("bHasPickedUp" + itemName, true);
         gameObject.SetActive(false);
         //Destroy(gameObject);
-
         // You can also trigger any UI updates or sound effects here
         string message = itemName + " has been added to your journal";
         GameManager.Instance.FlashMessage(message);
+
+        if(updatesCharcater)
+        {
+            message = characterToAppend + "\'s journal entry has been updated";
+            GameManager.Instance.FlashMessage(message);
+            GameManager.Instance.AppendToCharacterDescription(characterToAppend, appendUponPickup);
+        }
     }
     private void Start()
     {
