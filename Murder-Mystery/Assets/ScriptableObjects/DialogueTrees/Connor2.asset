@@ -17,35 +17,7 @@ MonoBehaviour:
   guid: e25df1db6e7f70742bc80c0542e4e919
   position: {x: 480.79996, y: -573.1043}
   children:
-  - {fileID: -5619111140558969710}
-  - {fileID: 5976543591515704547}
-  - {fileID: -38838796238818350}
---- !u!114 &-5619111140558969710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 96c0202fb9a1d8d4bac3b393c6aea17c
-  position: {x: 641.2, y: -651.19995}
-  dialogue:
-    character: 6
-    sentences:
-    - "I still can\u2019t believe that Dr Yates is gone. I wasn\u2019t even her TA
-      for that long, but Cantor Hall feels empty without her."
-    - "I wasn\u2019t even her TA for that long, but Cantor Hall feels empty without
-      her."
-    bTransitionToCardBattle: 0
-  gateConditions: []
-  dataUpdates: []
+  - {fileID: 8526459911328482195}
 --- !u!114 &-5155553825900020460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,30 +174,6 @@ MonoBehaviour:
   guid: 14d4dbfa20d26504e95e88ddb5c9dd43
   position: {x: 0, y: 0}
   child: {fileID: -1156771100142838114}
---- !u!114 &-38838796238818350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: bf5ff18997753b84d829296d8c14d6a6
-  position: {x: 641.2, y: -495.19995}
-  dialogue:
-    character: 6
-    sentences:
-    - 'Thanks, Detective. '
-    - I still work in the building so I know where everything is if you need a hand.
-    bTransitionToCardBattle: 0
-  gateConditions: []
-  dataUpdates: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,9 +204,7 @@ MonoBehaviour:
   - {fileID: 3388122974183293979}
   - {fileID: -4313164315370848695}
   - {fileID: -7443082233052576286}
-  - {fileID: -5619111140558969710}
-  - {fileID: 5976543591515704547}
-  - {fileID: -38838796238818350}
+  - {fileID: 8526459911328482195}
   dialogues: []
   currentDialogue:
     character: 0
@@ -364,29 +310,6 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
---- !u!114 &5976543591515704547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: c399b08f5e29c5f4bb423d3cb36d4b57
-  position: {x: 641.2, y: -573.19995}
-  dialogue:
-    character: 0
-    sentences:
-    - I am sorry for your loss.
-    bTransitionToCardBattle: 0
-  gateConditions: []
-  dataUpdates: []
 --- !u!114 &7000668233265380673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,6 +373,29 @@ MonoBehaviour:
     character: 6
     sentences:
     - "That\u2019s a relief, thanks. "
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &8526459911328482195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: e7f52c487d0a71f49b3e172da959e915
+  position: {x: 641.2001, y: -573.2}
+  dialogue:
+    character: 6
+    sentences:
+    - I still work in the building so I know where everything is if you need a hand.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []

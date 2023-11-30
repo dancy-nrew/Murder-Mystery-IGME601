@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 68dd1cda85d87d44cae919a126bfa5e8
-  position: {x: 334.80002, y: -56.599987}
+  position: {x: 540.4001, y: -39.199966}
   children:
   - {fileID: 1118436739928331534}
   - {fileID: 985761442167733536}
@@ -70,6 +70,30 @@ MonoBehaviour:
   - {fileID: 2087021623421351152}
   - {fileID: -7413477772849200948}
   - {fileID: 5366339669050579602}
+--- !u!114 &-6226482867774922318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 5e6311bd69b33534abaab64b42214025
+  position: {x: 759.1999, y: -328}
+  dialogue:
+    character: 7
+    sentences:
+    - "Oh, he definitely is- he didn\u2019t want the promotion, but he talks about
+      the awards constantly. "
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
 --- !u!114 &-5502515620629899982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +118,29 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
+--- !u!114 &-5361839032254715496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: b658353bd9df030448d7edd2fd770055
+  position: {x: 759.1999, y: -406}
+  dialogue:
+    character: 0
+    sentences:
+    - Do you think Dr Stone is still mad about it?
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
 --- !u!114 &-3710063181527416743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +156,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 59d808f6f95cf08458c1d47ba618fd11
-  position: {x: 540.4, y: -17.599947}
+  position: {x: 759.6001, y: 252.00006}
   dialogue:
     character: 0
     sentences:
@@ -120,6 +167,59 @@ MonoBehaviour:
   dataUpdates:
   - parameterKey: bPaineRevelation
     parameterValue: 1
+--- !u!114 &-2704471282706117131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: d2fc7878bbfffbc43bf2cd168666986e
+  position: {x: 759.1999, y: -484}
+  dialogue:
+    character: 7
+    sentences:
+    - 'Yes, there was a big controversy over who owned some research they did together
+      when Dr Yates published a paper without Dr Stone. '
+    - "It\u2019s the research that got her promoted to department chair and she won
+      a bunch of awards over it. "
+    - As I understand it, they went into it as partners and Dr Yates, she was always
+      a bit cut-throat, took it for herself.
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates:
+  - parameterKey: bHasStoneMotive
+    parameterValue: 1
+--- !u!114 &-2557070248658606482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 2a7a9625f7aeca142a3eda2c2f839894
+  position: {x: 759.60004, y: -254.8}
+  dialogue:
+    character: 0
+    sentences:
+    - "Hmm, this might be the motive I\u2019ve been looking for."
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
 --- !u!114 &-2247569475023927711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +262,7 @@ MonoBehaviour:
   dialogue:
     character: 7
     sentences:
-    - Yeah, I was working on my stupid thesis.
+    - "Yeah, I was working on my thesis, not that it even matters anymore.\r"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -206,11 +306,36 @@ MonoBehaviour:
   guid: 84a7f751b7f4cfe439d5d7b4620eeb36
   position: {x: 181.71417, y: 0.0000006992341}
   children:
-  - {fileID: -8774695595781437526}
+  - {fileID: 2803525585163887221}
   - {fileID: -6942161203813976593}
   choiceConditions:
   - parameterKey: bHasPickedUpBook
     parameterValue: 1
+--- !u!114 &-105414221959851959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: f827dd5be7b66454e92463b7e41dbcd9
+  position: {x: 759.1999, y: -561.99994}
+  dialogue:
+    character: 0
+    sentences:
+    - 'Dr Reeves said something about Dr Stone and Dr Yates getting into an argument
+      on Friday. '
+    - Do you have any idea what could have caused it?
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +368,13 @@ MonoBehaviour:
   - {fileID: -1056108553092654740}
   - {fileID: -1421084531668191335}
   - {fileID: 6977622271382985411}
+  - {fileID: 2803525585163887221}
+  - {fileID: 3094656817621374135}
+  - {fileID: -105414221959851959}
+  - {fileID: -2704471282706117131}
+  - {fileID: -5361839032254715496}
+  - {fileID: -6226482867774922318}
+  - {fileID: -2557070248658606482}
   dialogues: []
   currentDialogue:
     character: 0
@@ -265,7 +397,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: abe11ad74cbf72e4d9cab74dcda61304
-  position: {x: 539.99994, y: -260.51}
+  position: {x: 759.20026, y: 9.200058}
   dialogue:
     character: 7
     sentences:
@@ -293,7 +425,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: bd33b201b51887e4bb7827290d79a415
-  position: {x: 540, y: -347.9981}
+  position: {x: 759.20026, y: -78.39995}
   dialogue:
     character: 0
     sentences:
@@ -344,6 +476,50 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
+--- !u!114 &2803525585163887221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf40963fd2fd84044a361d2c75c38fa7, type: 3}
+  m_Name: ChoiceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 745366890639911499940d8cd87a742d
+  position: {x: 352.00015, y: -141.20001}
+  children:
+  - {fileID: 3094656817621374135}
+  - {fileID: -8774695595781437526}
+  choiceConditions:
+  - parameterKey: bHasWonReevesCardBattle
+    parameterValue: 1
+--- !u!114 &3094656817621374135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: b2f1c51dceaef7c4793e2f96730a990e
+  position: {x: 539.60004, y: -254.80678}
+  children:
+  - {fileID: -105414221959851959}
+  - {fileID: -2704471282706117131}
+  - {fileID: -5361839032254715496}
+  - {fileID: -6226482867774922318}
+  - {fileID: -2557070248658606482}
 --- !u!114 &3763816930239886370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +535,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d358868eed64d684b84e0f9733ffcda1
-  position: {x: 540.4, y: -95.599976}
+  position: {x: 759.6001, y: 174.00006}
   dialogue:
     character: 7
     sentences:
@@ -432,7 +608,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 8dabd56b872eac54780dd2ed6ae01ae3
-  position: {x: 540.4, y: -173.59996}
+  position: {x: 759.6001, y: 96.00005}
   dialogue:
     character: 0
     sentences:

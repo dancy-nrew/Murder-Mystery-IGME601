@@ -88,9 +88,11 @@ MonoBehaviour:
     character: 4
     sentences:
     - 'Fine! '
-    - 'Dr Quincy Reeves, coworker. '
-    - 'Write it down this time! '
-    - With Bea gone there's so much work to do, so go away.
+    - Dr Quincy Reeves, Senior Lecturer in the Department of Mathematics and Acting
+      Department Chair.
+    - Please write it down this time, Detective.
+    - "I don\u2019t have time to keep reminding you when there is a department to
+      run.\r"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
