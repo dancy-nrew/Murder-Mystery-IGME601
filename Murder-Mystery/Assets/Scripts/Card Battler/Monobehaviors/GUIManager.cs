@@ -40,7 +40,6 @@ class GUIManager : MonoBehaviour
     {
         GameManager.Instance._shouldLoadFromSavedLocation = true;
         int lastScene = GameManager.Instance.LoadLastVisitedScene();
-        Debug.Log("Loading last scene: " + lastScene.ToString());
         SceneManagers.StaticLoad(lastScene);
     }
 }

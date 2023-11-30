@@ -8,7 +8,8 @@ public class HandFactory : MonoBehaviour
     public HandContainer Player2Hand;
     public GameObject cardPrefab;
     public DealStrategies strategyIdentifier;
-    private IDealStrategy dealStrategy;
+    private IDealStrategy dealStrategyPlayer1;
+    private IDealStrategy dealStrategyPlayer2;
     public List<Material> witnessFaces;
     public List<Material> locationFaces;
     public List<Material> motiveFaces;
@@ -19,16 +20,25 @@ public class HandFactory : MonoBehaviour
     public int maxFaceValue;
     public int minFaceValue;
 
+    private int dialogueDealCounter;
+
     [SerializeField]
     public Vector3 scaleFactor;
 
-    public void AssignAndSetupStrategy(List<int> setupData)
+    public void AssignAndSetupStrategy(List<int> setupData, int player)
     {
         // Assign the strategy object and set it up
-        dealStrategy = HandDealStrategyFactory.CreateStrategy(strategyIdentifier);
-        dealStrategy.SetUp(setupData);
+        if (player == 1)
+        {
+            dealStrategyPlayer1 = HandDealStrategyFactory.CreateStrategy(strategyIdentifier);
+            dealStrategyPlayer1.SetUp(setupData);
+        } else
+        {
+            dealStrategyPlayer2 = HandDealStrategyFactory.CreateStrategy(strategyIdentifier);
+            dealStrategyPlayer2.SetUp(setupData);
+        }
+        
     }
-
 
     public void DealCardsInSuit(int player, int n, Suit suit)
     {
@@ -42,11 +52,18 @@ public class HandFactory : MonoBehaviour
             suit - the suit we're picking
          */
         HandContainer handToDealTo;
-
+        IDealStrategy dealStrategy;
         //Determine if dealing to bottom player or top player
         int zMod = 1;
-        if (player == ConstantParameters.PLAYER_1) { handToDealTo = Player1Hand; }
-        else { handToDealTo = Player2Hand; zMod *= -1; }
+        if (player == ConstantParameters.PLAYER_1) { 
+            handToDealTo = Player1Hand;
+            dealStrategy = dealStrategyPlayer1;
+        }
+        else { 
+            handToDealTo = Player2Hand; 
+            zMod *= -1;
+            dealStrategy = dealStrategyPlayer2;
+        }
 
         List<int> dealtCardsOfThisSuit = new List<int>();
 
@@ -70,11 +87,18 @@ public class HandFactory : MonoBehaviour
             n - the amount of cards we'll deal.
          */
         HandContainer handToDealTo;
-
+        IDealStrategy dealStrategy;
         //Determine if dealing to bottom player or top player
         int zMod = 1;
-        if (player == ConstantParameters.PLAYER_1) { handToDealTo = Player1Hand; }
-        else { handToDealTo = Player2Hand; zMod *= -1; }
+        if (player == ConstantParameters.PLAYER_1) { 
+            handToDealTo = Player1Hand;
+            dealStrategy = dealStrategyPlayer1;
+        }
+        else { 
+            handToDealTo = Player2Hand; 
+            zMod *= -1;
+            dealStrategy = dealStrategyPlayer2;
+        }
 
         List<int> dealtWitnessCards = new List<int>();
         List<int> dealtLocationCards = new List<int>();
@@ -82,7 +106,7 @@ public class HandFactory : MonoBehaviour
 
         for (int i = 0; i < n; i++)
         {
-            (Suit suit, int faceValue) = CreateCardData(handToDealTo, dealtWitnessCards, dealtLocationCards, dealtMotiveCards);
+            (Suit suit, int faceValue) = CreateCardData(handToDealTo, dealStrategy, dealtWitnessCards, dealtLocationCards, dealtMotiveCards);
             GameObject instantiatedCard = CreateCardObject(handToDealTo, zMod, faceValue, suit);
             PrepareCardObject(instantiatedCard, player);
             handToDealTo.ReceiveCard(instantiatedCard);
@@ -137,7 +161,7 @@ public class HandFactory : MonoBehaviour
         }
     }
 
-    private (Suit, int) CreateCardData(HandContainer handToDealTo, List<int> dealtWitnessCards, List<int> dealtLocationCards, List<int> dealtMotiveCards)
+    private (Suit, int) CreateCardData(HandContainer handToDealTo, IDealStrategy dealStrategy, List<int> dealtWitnessCards, List<int> dealtLocationCards, List<int> dealtMotiveCards)
     {
         // Create the card data
         int i = handToDealTo.GetCurrentHandSize();
@@ -195,5 +219,33 @@ public class HandFactory : MonoBehaviour
         }
 
         return faces[_ValueToMaterialIndex(value)];
+    }
+
+    public void DialogueDeal()
+    {
+        CharacterSO charSO = GameManager.Instance.GetCharacterSOFromKey(GameManager.Instance.GetLastTalkedTo());
+        int clueToCheck = dialogueDealCounter / 2;
+        bool isSecondTalk = dialogueDealCounter % 2 == 1;
+        bool isMissingClue;
+        int whoToDealTo;
+        Suit suitToDeal;
+        if (clueToCheck == 0)
+        {
+            isMissingClue = DialogueDataWriter.Instance.CheckCondition(charSO.motiveParameter, false);
+            suitToDeal = Suit.MOTIVE;
+        }
+        else if (clueToCheck == 1)
+        {
+            suitToDeal = Suit.LOCATION;
+            isMissingClue = DialogueDataWriter.Instance.CheckCondition(charSO.locationParameter, false);
+        }
+        else
+        {
+            suitToDeal = Suit.WITNESS;
+            isMissingClue = DialogueDataWriter.Instance.CheckCondition(charSO.witnessParameter, false);
+        }
+        bool dealToPlayerOne = (!isMissingClue && !isSecondTalk) || (isSecondTalk && isMissingClue);
+        whoToDealTo = dealToPlayerOne ? ConstantParameters.PLAYER_1 : ConstantParameters.PLAYER_2;
+        DealCardsInSuit(whoToDealTo, 3, suitToDeal);
     }
 }

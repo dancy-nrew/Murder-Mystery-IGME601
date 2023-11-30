@@ -19,25 +19,27 @@ public class SceneData : MonoBehaviour
         List<int> setupData = new List<int>();
         IAIStrategy aiStrategy;
 
-        if (GameManager.Instance.GetLastTalkedTo() == CharacterSO.ECharacter.Connor )
+        if (GameManager.Instance.GetLastTalkedTo() == CharacterSO.ECharacter.Ace )
         {
             //Scripted Sequence
-            int[] cardsToDeal = { 
-                //Ace's Cards
-                6,7,8,8,6,9,3,
+            //Ace's Cards
+            int[] cardsToDealAce= { 
+                6,7,8,8,6,9,3,4,5
+            };
 
-                //Connor's Cards
-                3,8,9,4,5,7,5
+            //Connor's Cards
+            int[] cardsToDealConnor = {
+                3,8,9,4,5,7,5,5,3,4
             };
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Scripted);
             handFactory.strategyIdentifier = DealStrategies.Deterministic;
-            handFactory.AssignAndSetupStrategy(new List<int>(cardsToDeal));
+            handFactory.AssignAndSetupStrategy(new List<int>(cardsToDealAce), ConstantParameters.PLAYER_1);
+            handFactory.AssignAndSetupStrategy(new List<int>(cardsToDealConnor), ConstantParameters.PLAYER_2);
             handFactory.DealHand(ConstantParameters.PLAYER_1);
             handFactory.DealHand(ConstantParameters.PLAYER_2);
 
-        } else if (GameManager.Instance.GetLastTalkedTo() != CharacterSO.ECharacter.Ace)
+        } else if (GameManager.Instance.GetLastTalkedTo() == CharacterSO.ECharacter.Connor)
         {
-            // Regular card battle
 
             // Load clue data
             CharacterSO charSO = GameManager.Instance.GetCharacterSOFromKey(GameManager.Instance.GetLastTalkedTo());
@@ -47,21 +49,27 @@ public class SceneData : MonoBehaviour
             handFactory.strategyIdentifier = DealStrategies.ClueBased;
 
             // Deal Clue Based cards to Player
-            handFactory.AssignAndSetupStrategy(setupData);
-            handFactory.DealHand(ConstantParameters.PLAYER_1);
+            handFactory.AssignAndSetupStrategy(setupData, ConstantParameters.PLAYER_1);
 
-            // Deal Random Cards to AI
-            handFactory.strategyIdentifier = DealStrategies.Random;
-            handFactory.AssignAndSetupStrategy(new List<int>());
-            handFactory.DealHand(ConstantParameters.PLAYER_2);
+            // Deal the inverse Cards to AI
+            setupData.Clear();
+            setupData.Add(DialogueDataWriter.Instance.CheckCondition(charSO.motiveParameter, true) ? 0 : 1);
+            setupData.Add(DialogueDataWriter.Instance.CheckCondition(charSO.locationParameter, true) ? 0 : 1);
+            setupData.Add(DialogueDataWriter.Instance.CheckCondition(charSO.witnessParameter, true) ? 0 : 1);
+            handFactory.AssignAndSetupStrategy(setupData, ConstantParameters.PLAYER_2);
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Informed);
+
+            //Add the Cutscene and start it?
+            CutsceneManager.Instance.AddCutscene(CutsceneFactory.MakeCardBattlerIntroCutscene(handFactory));
+            CutsceneManager.Instance.MoveToNextCutscene();
 
         } else
         {
             // Ace was the last talked-to character, which is impossible. Thus:
             Debug.Log("Random Strategy");
             handFactory.strategyIdentifier = DealStrategies.Random;
-            handFactory.AssignAndSetupStrategy(setupData);
+            handFactory.AssignAndSetupStrategy(setupData, ConstantParameters.PLAYER_1);
+            handFactory.AssignAndSetupStrategy(setupData, ConstantParameters.PLAYER_2);
             handFactory.DealHand(ConstantParameters.PLAYER_1);
             handFactory.DealHand(ConstantParameters.PLAYER_2);
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Random);
@@ -83,4 +91,5 @@ public class SceneData : MonoBehaviour
         }
         return transform;
     }
+    
 }
