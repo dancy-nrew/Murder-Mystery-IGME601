@@ -46,6 +46,29 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
+--- !u!114 &-7525256158774762414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f11afa25c038847bc4cedf1395cf8b, type: 3}
+  m_Name: InputNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: b0d7179b4b7930c4cba6da14004fe3c5
+  position: {x: 773.6, y: 649.2}
+  children:
+  - {fileID: 3271569409623845484}
+  - {fileID: 4950951723573284722}
+  choices:
+  - (Interrogate now)
+  - (Wait and learn more)
+  choice: -1
 --- !u!114 &-7501222794545918956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +142,8 @@ MonoBehaviour:
   - parameterKey: bPaineRevelation
     parameterValue: 1
   - parameterKey: bHasPickedUpVase
+    parameterValue: 1
+  - parameterKey: bHasWonConnorCardBattle
     parameterValue: 1
 --- !u!114 &-1774588738995563479
 MonoBehaviour:
@@ -246,6 +271,9 @@ MonoBehaviour:
   - {fileID: 7128797237493735637}
   - {fileID: -8606659318691803146}
   - {fileID: 3575206666157502766}
+  - {fileID: -7525256158774762414}
+  - {fileID: 4950951723573284722}
+  - {fileID: 3271569409623845484}
   dialogues: []
   currentDialogue:
     character: 0
@@ -299,6 +327,29 @@ MonoBehaviour:
     sentences:
     - Do you have a moment to review your statement, Dr Reeves?
     bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &3271569409623845484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 5ecdb7563d0279e4aa68ddfc2aa0474e
+  position: {x: 906.53955, y: 599.0383}
+  dialogue:
+    character: 0
+    sentences:
+    - I would like to open a line of questioning...
+    bTransitionToCardBattle: 1
   gateConditions: []
   dataUpdates: []
 --- !u!114 &3412534496114310902
@@ -412,6 +463,29 @@ MonoBehaviour:
     character: 4
     sentences:
     - "I already told you, Detective, I didn\u2019t do it!"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &4950951723573284722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 1f1c6185c2bc259428e1ab38a94f88bb
+  position: {x: 906.4, y: 712.2}
+  dialogue:
+    character: 0
+    sentences:
+    - I'll be back, Dr Reeves.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []

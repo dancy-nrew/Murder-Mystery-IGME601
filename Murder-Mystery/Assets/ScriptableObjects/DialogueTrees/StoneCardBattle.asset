@@ -123,7 +123,9 @@ MonoBehaviour:
     - Were you seen together recently?
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bDealCards
+    parameterValue: 1
 --- !u!114 &-7672685160731522183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +193,7 @@ MonoBehaviour:
   - {fileID: -2601545274263439936}
   - {fileID: -9123808936438033486}
   choiceConditions:
-  - parameterKey: bHasAwardTicket
+  - parameterKey: bHasPickedUpAward
     parameterValue: 1
 --- !u!114 &-5934744937353560549
 MonoBehaviour:
@@ -216,7 +218,9 @@ MonoBehaviour:
       her and I\u2026 just like trains?"
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bDealCards
+    parameterValue: 1
 --- !u!114 &-2638683130078381576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +243,9 @@ MonoBehaviour:
     - "That\u2019s not\u2026 entirely true."
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bDealCards
+    parameterValue: 1
 --- !u!114 &-2622136428174669967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,7 +347,9 @@ MonoBehaviour:
     - It was our research and- I mean- no! Of course not!
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bDealCards
+    parameterValue: 1
 --- !u!114 &-1893217568481719048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +389,7 @@ MonoBehaviour:
   - {fileID: -7860245623405846439}
   - {fileID: -2141090956119955629}
   choiceConditions:
-  - parameterKey: bHasStoneMotive
+  - parameterKey: bStolenResearch
     parameterValue: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -476,7 +484,9 @@ MonoBehaviour:
     - "Th-that doesn\u2019t prove anything!"
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bDealCards
+    parameterValue: 1
 --- !u!114 &2745120826081952008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,7 +541,7 @@ MonoBehaviour:
   - {fileID: -2622136428174669967}
   - {fileID: 8498304238719477926}
   choiceConditions:
-  - parameterKey: bHasWonReevesCardBattle
+  - parameterKey: bReevesRevelation
     parameterValue: 1
 --- !u!114 &3952792822941571129
 MonoBehaviour:
@@ -601,7 +611,9 @@ MonoBehaviour:
     - "Your alibi is weak. How do I know you weren\u2019t at the scene of the crime?"
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bDealCards
+    parameterValue: 1
 --- !u!114 &8382535704254483289
 MonoBehaviour:
   m_ObjectHideFlags: 0

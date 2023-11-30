@@ -195,7 +195,7 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates:
-  - parameterKey: bHasStoneMotive
+  - parameterKey: bStolenResearch
     parameterValue: 1
 --- !u!114 &-2557070248658606482
 MonoBehaviour:

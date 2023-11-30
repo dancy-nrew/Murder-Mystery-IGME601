@@ -45,7 +45,9 @@ MonoBehaviour:
     - That could still be a motive.
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bDealCards
+    parameterValue: 1
 --- !u!114 &-8239707757822347496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +197,9 @@ MonoBehaviour:
       talentless hack, Guillermo about their big argument on Friday!\r"
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bReevesRevelation
+    parameterValue: 1
 --- !u!114 &-3108121357279176878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +222,9 @@ MonoBehaviour:
     - "\u2026How do I know you\u2019re telling the truth?"
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bDealCards
+    parameterValue: 1
 --- !u!114 &-2610579420791661151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +288,9 @@ MonoBehaviour:
     - "That\u2019s absurd!"
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bDealCards
+    parameterValue: 1
 --- !u!114 &-1065173872500952931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +332,9 @@ MonoBehaviour:
     - "I\u2019m sorry, who?"
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bDealCards
+    parameterValue: 1
 --- !u!114 &-699479178515037944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,7 +433,9 @@ MonoBehaviour:
       of it!"
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bDealCards
+    parameterValue: 1
 --- !u!114 &1032896384573297362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,7 +629,9 @@ MonoBehaviour:
     - "I have no evidence that you weren\u2019t there either\u2026"
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bDealCards
+    parameterValue: 1
 --- !u!114 &5347009267263731135
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -63,7 +63,7 @@ MonoBehaviour:
     parameterValue: 0
   - parameterKey: bHasWonStoneCardBattle
     parameterValue: 0
-  - parameterKey: bHasStoneMotive
+  - parameterKey: bStolenResearch
     parameterValue: 0
-  - parameterKey: bHasAwardTicket
+  - parameterKey: bHasPickedUpAward
     parameterValue: 0

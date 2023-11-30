@@ -113,6 +113,29 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
+--- !u!114 &-3296453617954622388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 355a967e61adbfb48a66a62825bbcf9c
+  position: {x: 1188.4, y: 362}
+  dialogue:
+    character: 0
+    sentences:
+    - I'll be back, Dr Stone.
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
 --- !u!114 &-2870507248866853019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +362,7 @@ MonoBehaviour:
   - {fileID: -478870326251825476}
   - {fileID: 2503772474159879717}
   choiceConditions:
-  - parameterKey: bHasAwardTicket
+  - parameterKey: bHasPickedUpAward
     parameterValue: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -392,6 +415,9 @@ MonoBehaviour:
   - {fileID: -598560408174946358}
   - {fileID: 1089814346625795689}
   - {fileID: 2285129248668896264}
+  - {fileID: 1309662655488541181}
+  - {fileID: -3296453617954622388}
+  - {fileID: 2008825090386169578}
   dialogues: []
   currentDialogue:
     character: 0
@@ -499,6 +525,29 @@ MonoBehaviour:
   - {fileID: -1948637284608796120}
   - {fileID: 6660121279543185535}
   - {fileID: 4647701063737522293}
+--- !u!114 &1309662655488541181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f11afa25c038847bc4cedf1395cf8b, type: 3}
+  m_Name: InputNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 3f3e5b43c781ec24f830ffbf4f632f64
+  position: {x: 1028.8, y: 302.8}
+  children:
+  - {fileID: 2008825090386169578}
+  - {fileID: -3296453617954622388}
+  choices:
+  - (Interrogate now)
+  - (Wait and learn more)
+  choice: -1
 --- !u!114 &1978347837586936616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,6 +570,29 @@ MonoBehaviour:
     - 'Oh- yes. '
     - Um, do you need my middle name too?
     bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &2008825090386169578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 6b167fb8e78bb54418b6105548c8ab27
+  position: {x: 1188.6152, y: 263.80005}
+  dialogue:
+    character: 0
+    sentences:
+    - I would like to open a few lines of questioning...
+    bTransitionToCardBattle: 1
   gateConditions: []
   dataUpdates: []
 --- !u!114 &2285129248668896264
@@ -567,7 +639,7 @@ MonoBehaviour:
   - {fileID: -2870507248866853019}
   - {fileID: 4680645003542933325}
   choiceConditions:
-  - parameterKey: bHasStoneMotive
+  - parameterKey: bStolenResearch
     parameterValue: 1
 --- !u!114 &2881198781881652003
 MonoBehaviour:
@@ -661,6 +733,7 @@ MonoBehaviour:
   - {fileID: 6564129999638564077}
   - {fileID: -1174855141148857648}
   - {fileID: 1131469504632171924}
+  - {fileID: 1309662655488541181}
 --- !u!114 &5957329371953986366
 MonoBehaviour:
   m_ObjectHideFlags: 0
