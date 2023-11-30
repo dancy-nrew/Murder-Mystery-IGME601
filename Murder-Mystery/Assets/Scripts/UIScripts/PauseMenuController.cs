@@ -85,7 +85,6 @@ public class PauseMenuController : MonoBehaviour
         Debug.Log("Showing characters");
         ReturnPanel.SetActive(true);
         CharactersPanel.SetActive(true);
-        PausePanel.SetActive(false);
         SettingsPanel.SetActive(false);
         CluesPanel.SetActive(false);
         UpdateCharacterPage();
@@ -95,7 +94,6 @@ public class PauseMenuController : MonoBehaviour
     {
         ReturnPanel.SetActive(true);
         CharactersPanel.SetActive(false);
-        PausePanel.SetActive(false);
         SettingsPanel.SetActive(false);
         CluesPanel.SetActive(true);
         UpdateCluePage();
