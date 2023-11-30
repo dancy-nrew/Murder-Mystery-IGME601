@@ -50,7 +50,14 @@ public class InputNode : Node
         }
         else
         {
-            return children[choice].UpdateNode(dialogueTree);
+            if(children[choice].state == NodeState.Running)
+            {
+                return children[choice].UpdateNode(dialogueTree);
+            }
+            else
+            {
+                return NodeState.Success;
+            }
         }
         
     }
@@ -61,5 +68,13 @@ public class InputNode : Node
         tree.nodes.Add(node);
         node.children = children.ConvertAll(c => c.Clone(tree));
         return node;
+    }
+
+    protected override void UpdateNodeState()
+    {
+        if(choice != UNCHOSEN)
+        {
+            state = children[choice].state;
+        }
     }
 }

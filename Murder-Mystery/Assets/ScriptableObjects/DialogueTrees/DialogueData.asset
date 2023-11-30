@@ -50,7 +50,7 @@ MonoBehaviour:
   - parameterKey: bHasWonConnorCardBattle
     parameterValue: 0
   - parameterKey: bDealCards
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bEndOfReevesCardBattle
     parameterValue: 0
   - parameterKey: bHasWonReevesCardBattle
