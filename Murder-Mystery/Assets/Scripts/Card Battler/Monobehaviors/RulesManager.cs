@@ -40,6 +40,12 @@ public class RulesManager : MonoBehaviour
 
             // Report results to UI
             GUIManager gm = gameObject.GetComponent<GUIManager>();
+            CharacterSO.ECharacter chr = GameManager.Instance.GetLastTalkedTo();
+            DialogueDataWriter.Instance.UpdateDialogueData("bEndOf" + chr + "CardBattle", true);
+            if (winner == ConstantParameters.PLAYER_1)
+            {
+                DialogueDataWriter.Instance.UpdateDialogueData("bHasWon" + chr + "CardBattle", true);
+            }
             gm.DisplayGameEndMessage(winner);
             gm.ShowButton();
         }
