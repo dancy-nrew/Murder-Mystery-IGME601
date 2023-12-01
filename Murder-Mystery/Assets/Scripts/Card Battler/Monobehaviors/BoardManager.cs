@@ -22,6 +22,9 @@ public class BoardManager : MonoBehaviour
     public TMP_Text laneTwoAIScore;
     public TMP_Text laneThreeAIScore;
 
+    [SerializeField]
+    private float durationBeforeScoreUpdate = 2.5f;
+
     private void Awake()
     {
         // Cache reference for the Rules Manager
@@ -66,6 +69,13 @@ public class BoardManager : MonoBehaviour
 
     public void UpdateLaneValueDisplay()
     {
+        StartCoroutine(UpdateLaneUI());
+    }
+
+    IEnumerator UpdateLaneUI()
+    {
+        yield return new WaitForSeconds(durationBeforeScoreUpdate);
+
         int lane1ScorePlayer1 = boardState.GetLaneValue(ConstantParameters.PLAYER_1, ConstantParameters.LANE_1);
         int lane2ScorePlayer1 = boardState.GetLaneValue(ConstantParameters.PLAYER_1, ConstantParameters.LANE_2);
         int lane3ScorePlayer1 = boardState.GetLaneValue(ConstantParameters.PLAYER_1, ConstantParameters.LANE_3);
