@@ -28,6 +28,16 @@ public class FollowPlayer : MonoBehaviour
      */ 
     void LateUpdate()
     {
+        if(playerTransform == null)
+        {
+            GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+            if (!playerGO)
+            {
+                return;
+            }
+            playerTransform = playerGO.transform;
+        }
+
         Vector3 playerRightComponent = Vector3.Project(playerTransform.position, cameraRight);
         Vector3 playerUpComponent = Vector3.Project(playerTransform.position, cameraUp);
 
