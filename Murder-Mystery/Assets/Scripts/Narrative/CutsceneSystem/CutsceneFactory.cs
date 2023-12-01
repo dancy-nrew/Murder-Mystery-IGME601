@@ -14,9 +14,10 @@ public static class CutsceneFactory
         AddDialogueAndWait(cutscene, new DialogueAction());
         //Second person speaks on clue
         AddDialogueAndWait(cutscene, new DialogueAction());
-
+        
         //If we want to add an info message on "you got good cards" or whatev, we can do that here.
-
+        AddDialogueAndWait(cutscene, new DialogueAction());
+        
         // Deal Cards
         cutscene.AddAction(new DealDialogueCardsAction(handFactory));
         //Deal Cards
@@ -66,11 +67,12 @@ public static class CutsceneFactory
         // Compose Dialogue
         AddDialogueAndWait(cutscene, new StartCardDialogueAction());
         AddDialogueAndWait(cutscene, new DialogueAction());
+        AddDialogueAndWait(cutscene, new DialogueAction());
 
         // Set Dialogue Flag back to false
         DialogueDataAction bEndCardBattle = new DialogueDataAction("bEndOf" + chr + "CardBattle");
         cutscene.AddAction(bEndCardBattle);
-
+        
         //Exit the dialogue
         cutscene.AddAction(new EndDialogueAction());
         return cutscene;
