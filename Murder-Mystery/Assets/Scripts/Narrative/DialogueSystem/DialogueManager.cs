@@ -30,6 +30,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private PlayerMovement playerMovement;
     [SerializeField]
+    private bool bIsExplorationScene = false;
+    [SerializeField]
     private float timeBeforeTransitioningToNewScene = 2f;
 
     private Queue<string> sentences;
@@ -71,6 +73,19 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
+    private void Update()
+    {
+        if (bIsExplorationScene && playerMovement == null)
+        {
+            GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+            if (!playerGO)
+            {
+                return;
+            }
+            playerMovement = playerGO.GetComponent<PlayerMovement>();
+        }
+       
+    }
     /*
      * This function takes in a dialogue tree and starts the process of displaying dialogue by displaying the first sentence.
      * Input: 

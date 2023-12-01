@@ -5489,12 +5489,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6221369970309319490, guid: 6860c3ff00319a34c9c529ebe230b030, type: 3}
       propertyPath: m_Name
-      value: NPC
+      value: Chief
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3694732681000353437, guid: 6860c3ff00319a34c9c529ebe230b030, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 6860c3ff00319a34c9c529ebe230b030, type: 3}
 --- !u!1001 &7212748568825272840
 PrefabInstance:

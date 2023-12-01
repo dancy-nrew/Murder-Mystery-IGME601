@@ -56,4 +56,9 @@ MonoBehaviour:
   flashMessageDuration: 5
   trueOnStart:
   - bIsVaseInteractable
+  - bAlwaysTrue
   FlashMessageObject: {fileID: 0}
+  _shouldLoadFromSavedLocation: 0
+  _lastTalkedToCharacter: 0
+  _justWalkedThroughDoor: 0
+  _doorKey: 

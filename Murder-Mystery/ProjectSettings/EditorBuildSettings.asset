@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DialogueTest.unity
     guid: 67be82736f490a94ebe0108834d99287
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/3DIso_Movement.unity
     guid: 237b0c3464348be4395295972d417170
   - enabled: 1
@@ -29,10 +29,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BroomClosetGreybox.unity
     guid: abd0190c28c6e47919b48d5f915ada7b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Hub.unity
     guid: 26196d436f6db194380f016ea79f1a15
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DialogueInteractionTest.unity
     guid: 2bab780cdaf17584a926f8dd766c10b0
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: a4ff97674d0f64f73aafc30a313defb7
   m_configObjects: {}
