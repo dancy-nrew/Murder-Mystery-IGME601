@@ -119,6 +119,28 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
+--- !u!114 &-5332434604019335537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf40963fd2fd84044a361d2c75c38fa7, type: 3}
+  m_Name: ChoiceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: a9052f0ebdce0c3499f83a78d8b97e34
+  position: {x: 600, y: 661.39996}
+  children:
+  - {fileID: -7525256158774762414}
+  - {fileID: 4547352506206429049}
+  choiceConditions:
+  - parameterKey: bHasWonConnorCardBattle
+    parameterValue: 1
 --- !u!114 &-2870072525507252746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,8 +164,6 @@ MonoBehaviour:
   - parameterKey: bPaineRevelation
     parameterValue: 1
   - parameterKey: bHasPickedUpVase
-    parameterValue: 1
-  - parameterKey: bHasWonConnorCardBattle
     parameterValue: 1
 --- !u!114 &-1774588738995563479
 MonoBehaviour:
@@ -274,6 +294,8 @@ MonoBehaviour:
   - {fileID: -7525256158774762414}
   - {fileID: 4950951723573284722}
   - {fileID: 3271569409623845484}
+  - {fileID: -5332434604019335537}
+  - {fileID: 4547352506206429049}
   dialogues: []
   currentDialogue:
     character: 0
@@ -306,6 +328,7 @@ MonoBehaviour:
   - {fileID: -7753303904631729112}
   - {fileID: 6026287772103554096}
   - {fileID: 4561044362204063769}
+  - {fileID: -5332434604019335537}
 --- !u!114 &2757398759658234057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +442,29 @@ MonoBehaviour:
   - {fileID: 8009924005895448989}
   - {fileID: -619085053500100547}
   - {fileID: -8606659318691803146}
+--- !u!114 &4547352506206429049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 32002060c7117d34a8b6d221893fbce1
+  position: {x: 727.2002, y: 790.4}
+  dialogue:
+    character: 0
+    sentences:
+    - I'll be back, Dr Reeves.
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
 --- !u!114 &4561044362204063769
 MonoBehaviour:
   m_ObjectHideFlags: 0
