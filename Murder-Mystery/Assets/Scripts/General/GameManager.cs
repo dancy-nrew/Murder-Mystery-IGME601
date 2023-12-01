@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
         ----
         ----
         
+        
         Character Columbo = new Character("[REDACTED] Culombo", 
         "Lieutenant Columbo is as an unassuming yet brilliant homicide detective working with the Los Angeles Police Department. Known for his disheveled appearance, often seen in a rumpled raincoat, he possesses an unorthodox approach to solving crimes. His seemingly absent-minded demeanor hides a keen analytical mind and a talent for observing minute details that others often overlook. Columbo is polite and often comes across as naive, frequently saying, \"Just one more thing...\" before catching suspects off-guard with a critical question or observation. Despite his casual, almost chaotic methods, he has a razor-sharp intellect and an unwavering dedication to justice. He's adept at lulling suspects into a false sense of security, leading them to underestimate him—a tactic that inevitably leads to their undoing.");
         Texture2D image = Resources.Load<Texture2D>("CharacterPortraits/Portrait_columbo");
@@ -75,6 +77,40 @@ public class GameManager : MonoBehaviour
         //characters.Add(Phoenix);
         //characters.Add(Nancy);
         */
+        
+        /*
+        Manually adding the charcaters into the Journal data. This could defintely be done in a much more efficient/modular manner
+        but given our time constraints and small amount of characters this should suffice.
+        */
+
+        Texture2D image;
+
+        Character Quincy = new Character("Dr. Quincy Reeves", "A blunt and poor-tempered mathematician that cares deeply about the Math Department.");
+        image = Resources.Load<Texture2D>("CharacterPortraits/ReevesSprite");
+        Quincy.Portrait = Sprite.Create(image, new Rect(0, 0, image.width, image.height), new Vector2(0.5f, 0.5f));
+        
+        Character Guillermo = new Character("Dr. Guillermo Stone", "A nervous mathematician who worked closely with Dr Yates in the past. He claims he was home alone all weekend.");
+        image = Resources.Load<Texture2D>("CharacterPortraits/StoneSprite");
+        Guillermo.Portrait = Sprite.Create(image, new Rect(0, 0, image.width, image.height), new Vector2(0.5f, 0.5f));
+
+        Character Julietta = new Character("Dr. Julietta Morse","A physicist working in the Math Department who was friends with Dr. Yates.");
+        image = Resources.Load<Texture2D>("CharacterPortraits/MorseSprite");
+        Julietta.Portrait = Sprite.Create(image, new Rect(0, 0, image.width, image.height), new Vector2(0.5f, 0.5f));
+        
+        Character Wynona = new Character("Wynona Paine","One of Dr. Yates\' most promising PhD students in mathematics.");
+        image = Resources.Load<Texture2D>("CharacterPortraits/PaineSprite");
+        Wynona.Portrait = Sprite.Create(image, new Rect(0, 0, image.width, image.height), new Vector2(0.5f, 0.5f));
+        
+        Character Leo = new Character("Leo Connor", "Dr. Yates\'  former teaching assistant");
+        image = Resources.Load<Texture2D>("CharacterPortraits/ConnorSprite");
+        Leo.Portrait = Sprite.Create(image, new Rect(0, 0, image.width, image.height), new Vector2(0.5f, 0.5f));
+
+        characters.Add(Quincy);
+        characters.Add(Guillermo);
+        characters.Add(Julietta);
+        characters.Add(Wynona);
+        characters.Add(Leo);
+
     }
 
     private void Start()
@@ -84,6 +120,8 @@ public class GameManager : MonoBehaviour
             characterDict.Add(character.character, character);
         }
     }
+
+    #region Journal Related Functions
     public string GetCharacterInfo(int pageIndex)
     {
         if (pageIndex >= 0 && pageIndex < characters.Count)
@@ -147,6 +185,21 @@ public class GameManager : MonoBehaviour
             clues.Add(newClue);
         }
     }
+
+    public void AppendToCharacterDescription(String name, String append)
+    {
+        foreach(Character Suspect in characters)
+        {
+            if(Suspect.Name.Equals(name))
+            {
+                if(!Suspect.Description.Contains(append))
+                {
+                    Suspect.Description += "\n" + append;   // upon testing, the Collect() function seemed to be called multiple times. this is to prevent duplicate adding
+                }
+            }
+        }
+    }
+    #endregion
 
     public CharacterSO GetCharacterSOFromKey(CharacterSO.ECharacter key)
     {
@@ -249,7 +302,7 @@ public class GameManager : MonoBehaviour
     }
     
 }
-
+#region Journal related classes
 public class Character
 {
     public Character(String name, String desc)
@@ -305,3 +358,4 @@ public class Clue
         return "Name: " + Name;
     }
 }
+#endregion
