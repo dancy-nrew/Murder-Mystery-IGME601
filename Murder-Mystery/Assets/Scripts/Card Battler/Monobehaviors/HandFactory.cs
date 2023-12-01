@@ -223,6 +223,19 @@ public class HandFactory : MonoBehaviour
 
     public void DialogueDeal()
     {
+        /*
+         This function is in charge of dealing cards during the regular dialogue cutscene
+
+        It does some basic arithmetic to determine who to deal to. The logic is as follows:
+            - Calculate which clue must be dealt. We change clues every two times we deal cards (one for the player, one
+            for the adversary), so we divide the deal counter by two.
+            - Determine whether this is the second dialogue box. This will be used to determine which
+                player to deal to, as it depends on the status of whether the player has found the clue
+            - We deal to the player in the following exclusive OR scenario:
+                - Either the player has a clue and we're dealing to the first side (so we deal to the player)
+                - OR the player doesn't have a clue and we're dealing to the second side (so, again, we deal to the player)
+        At the end we increase the deal counter, to keep track of where we are with dealing cards.
+         */
         CharacterSO charSO = GameManager.Instance.GetCharacterSOFromKey(GameManager.Instance.GetLastTalkedTo());
         int clueToCheck = dialogueDealCounter / 2;
 
