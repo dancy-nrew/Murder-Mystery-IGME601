@@ -1,18 +1,18 @@
 public static class CutsceneFactory
 {
 
-    private static void AddDialogueAndWait(Cutscene cutscene)
+    private static void AddDialogueAndWait(Cutscene cutscene, CutsceneAction action)
     {
-        cutscene.AddAction(new DialogueAction());
+        cutscene.AddAction(action);
         cutscene.AddAction(new WaitAction());
     }
 
     private static void AddCardDealingActions(Cutscene cutscene, HandFactory handFactory)
     {
         // First person speaks on clue
-        AddDialogueAndWait(cutscene);
+        AddDialogueAndWait(cutscene, new DialogueAction());
         //Second person speaks on clue
-        AddDialogueAndWait(cutscene);
+        AddDialogueAndWait(cutscene, new DialogueAction());
 
         //If we want to add an info message on "you got good cards" or whatev, we can do that here.
 
@@ -21,13 +21,19 @@ public static class CutsceneFactory
         //Deal Cards
         cutscene.AddAction(new DealDialogueCardsAction(handFactory));
     }
-    public static Cutscene MakeCardBattlerIntroCutscene(HandFactory handFactory)
+    public static Cutscene MakeCardBattlerIntroCutscene(HandFactory handFactory, CharacterSO.ECharacter chr)
     {
         Cutscene cutscene = new Cutscene();
-
-        cutscene.AddAction(new StartCardDialogueAction());
-        cutscene.AddAction(new WaitAction());
-        AddDialogueAndWait(cutscene);
+        AddDialogueAndWait(cutscene, new StartCardDialogueAction());
+        
+        // Set both of these parameters to false
+        DialogueDataAction setEndToFalse = new DialogueDataAction("bEndOf" + chr + "CardBattle");
+        setEndToFalse.SetFlag();
+        DialogueDataAction setWinToFalse = new DialogueDataAction("bHasWon" + chr + "CardBattle");
+        setWinToFalse.SetFlag();
+        cutscene.AddAction(setEndToFalse);
+        cutscene.AddAction(setWinToFalse);
+        AddDialogueAndWait(cutscene, new DialogueAction());
 
         //Motive
         AddCardDealingActions(cutscene, handFactory);
@@ -36,6 +42,25 @@ public static class CutsceneFactory
         //Witness
         AddCardDealingActions(cutscene, handFactory);
 
+        //Exit the dialogue
+        cutscene.AddAction(new EndDialogueAction());
+        return cutscene;
+    }
+
+    public static Cutscene MakeCardBattleOutroCutscene(CharacterSO.ECharacter chr)
+    {
+        Cutscene cutscene = new Cutscene();
+
+        AddDialogueAndWait(cutscene, new StartCardDialogueAction());
+        AddDialogueAndWait(cutscene, new DialogueAction());
+        AddDialogueAndWait(cutscene, new DialogueAction());
+
+        // Set Dialogue Flag back to false
+        DialogueDataAction bEndCardBattle = new DialogueDataAction("bEndOf" + chr + "CardBattle");
+        cutscene.AddAction(bEndCardBattle);
+
+        //Exit the dialogue
+        cutscene.AddAction(new EndDialogueAction());
         return cutscene;
     }
 }

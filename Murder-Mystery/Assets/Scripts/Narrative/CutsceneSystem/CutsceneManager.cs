@@ -47,6 +47,9 @@ public class CutsceneManager : MonoBehaviour
         {
             activeCutscene = cutscenes.Dequeue();
             activeCutscene.NextAction();
+        } else
+        {
+            Debug.Log("Move To Next Cutscene called and no cutscenes are queued");
         }
     }
 
@@ -61,8 +64,10 @@ public class CutsceneManager : MonoBehaviour
 
     public void CutsceneHasEnded()
     {
+        Debug.Log("Cutscene has ended");
         if (dCutsceneEndSignal != null)
         {
+            Debug.Log("Calling cutscene end!");
             dCutsceneEndSignal();
         }
     }

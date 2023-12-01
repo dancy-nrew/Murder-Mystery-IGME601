@@ -26,28 +26,28 @@ public class RulesManager : MonoBehaviour
             game_ongoing = false;
         }
 
-        // Sudden Death rules until no more cards in hand
-        if (!game_ongoing && winner == 0 && current_turn < ConstantParameters.MAX_HAND_SIZE)
-        {
-            game_ongoing = true;
-        }
-
         if (!game_ongoing)
         {
-            // The game has stopped.
-            HandContainer player1 = GameObject.Find("ContainerPlayer1").GetComponent<HandContainer>();
-            player1.FreezeCards();
-
             // Report results to UI
-            GUIManager gm = gameObject.GetComponent<GUIManager>();
             CharacterSO.ECharacter chr = GameManager.Instance.GetLastTalkedTo();
             DialogueDataWriter.Instance.UpdateDialogueData("bEndOf" + chr + "CardBattle", true);
             if (winner == ConstantParameters.PLAYER_1)
             {
                 DialogueDataWriter.Instance.UpdateDialogueData("bHasWon" + chr + "CardBattle", true);
             }
-            gm.DisplayGameEndMessage(winner);
-            gm.ShowButton();
+            CutsceneManager.dCutsceneEndSignal += ShowExitButton;
+            CutsceneManager.Instance.MoveToNextCutscene();
         }
-    }    
+    }
+
+    public void ShowExitButton()
+    {
+        GUIManager gm = gameObject.GetComponent<GUIManager>();
+        gm.ShowButton();
+    }
+
+    private void OnDisable()
+    {
+        CutsceneManager.dCutsceneEndSignal -= ShowExitButton;   
+    }
 }

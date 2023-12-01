@@ -4743,7 +4743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2141f98da7bd8c54ab4ac42893e6c443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTimer: 1
+  delayTimer: 1.5
   activeConversationTree: {fileID: 0}
 --- !u!1001 &5038305788914632456
 PrefabInstance:

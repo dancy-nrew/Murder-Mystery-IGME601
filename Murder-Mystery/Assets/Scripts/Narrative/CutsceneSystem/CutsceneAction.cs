@@ -8,6 +8,7 @@ public abstract class CutsceneAction
     protected abstract bool IsFlagSet();
 }
 
+
 public class StartCardDialogueAction : CutsceneAction
 {
     public StartCardDialogueAction()
@@ -18,10 +19,7 @@ public class StartCardDialogueAction : CutsceneAction
     public override void PerformAction()
     {
         DialogueManager.dCharactersFinishedTyping += OnActionFinish;
-
         CharacterSO character = GameManager.Instance.GetCharacterSOFromKey(GameManager.Instance.GetLastTalkedTo());
-        DialogueTree tree = character.GetDialogueTree();
-        CutsceneManager.Instance.DebugTree(tree);
         DialogueManager.Instance.ShowDialogue(character.GetDialogueTree());
     }
 
@@ -76,6 +74,64 @@ public class DialogueAction : CutsceneAction
     public override void SetFlag()
     {
         return;
+    }
+}
+
+public class DialogueDataAction : CutsceneAction
+{
+    string parameterToSet;
+    bool parameterValue = false;
+    public DialogueDataAction(string parameter)
+    {
+        parameterToSet = parameter;
+    }
+
+    public override void PerformAction()
+    {
+        DialogueDataWriter.Instance.UpdateDialogueData(parameterToSet, IsFlagSet());
+        OnActionFinish();
+    }
+
+    public override void SetFlag()
+    {
+        parameterValue = true;
+    }
+
+    protected override bool IsFlagSet()
+    {
+        return parameterValue;
+    }
+
+    public override void OnActionFinish()
+    {
+        CutsceneManager.Instance.MoveToNextAction();
+    }
+}
+
+public class EndDialogueAction : CutsceneAction
+{
+    public EndDialogueAction()
+    {
+    }
+
+    public override void PerformAction()
+    {
+        DialogueManager.Instance.DisplayNextSentence();
+        OnActionFinish();
+    }
+
+    public override void SetFlag()
+    {
+    }
+
+    protected override bool IsFlagSet()
+    {
+        return false;
+    }
+
+    public override void OnActionFinish()
+    {
+        CutsceneManager.Instance.MoveToNextAction();
     }
 }
 

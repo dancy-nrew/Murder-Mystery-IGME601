@@ -18,8 +18,9 @@ public class SceneData : MonoBehaviour
     {
         List<int> setupData = new List<int>();
         IAIStrategy aiStrategy;
+        CharacterSO.ECharacter lastTalkedTo = GameManager.Instance.GetLastTalkedTo();
 
-        if (GameManager.Instance.GetLastTalkedTo() == CharacterSO.ECharacter.Ace )
+        if (lastTalkedTo == CharacterSO.ECharacter.Ace )
         {
             //Scripted Sequence
             //Ace's Cards
@@ -38,7 +39,7 @@ public class SceneData : MonoBehaviour
             handFactory.DealHand(ConstantParameters.PLAYER_1);
             handFactory.DealHand(ConstantParameters.PLAYER_2);
 
-        } else if (GameManager.Instance.GetLastTalkedTo() == CharacterSO.ECharacter.Connor)
+        } else if (lastTalkedTo == CharacterSO.ECharacter.Connor)
         {
 
             // Load clue data
@@ -60,7 +61,7 @@ public class SceneData : MonoBehaviour
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Informed);
 
             //Add the Cutscene and start it?
-            CutsceneManager.Instance.AddCutscene(CutsceneFactory.MakeCardBattlerIntroCutscene(handFactory));
+            CutsceneManager.Instance.AddCutscene(CutsceneFactory.MakeCardBattlerIntroCutscene(handFactory, lastTalkedTo));
             CutsceneManager.Instance.MoveToNextCutscene();
 
         } else
@@ -75,6 +76,7 @@ public class SceneData : MonoBehaviour
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Random);
         }
         AI_Controller.Instance.SetStrategy(aiStrategy);
+        CutsceneManager.Instance.AddCutscene(CutsceneFactory.MakeCardBattleOutroCutscene(lastTalkedTo));
     }
 
     public Vector3 GetLaneTransform(int lane){
