@@ -1,9 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Cutscene
 {
+    /* 
+     * Cutscenes are Composite-pattern objects that defer the execution
+     * of the cutscene script to the CutsceneAction that compose them. 
+     * 
+     * CutsceneActions are stored as a Queue, so any factory methods
+     * that create Cutscenes can know the order the actions will execute in.
+    */
     Queue<CutsceneAction> actions;
     CutsceneAction activeAction;
     public bool isOver;
@@ -19,6 +24,7 @@ public class Cutscene
         actions.Enqueue(action);
     }
 
+    // Can be useful for setting flags for future actions
     public CutsceneAction AuditNextAction()
     {
         return actions.Peek();
@@ -30,9 +36,10 @@ public class Cutscene
         nextAction.SetFlag();
     }
 
+    
     public void NextAction()
     {
-
+        // Loads the next action in the queue or sets itself to be over
         if (actions.Count > 0)
         {
             activeAction = actions.Dequeue();

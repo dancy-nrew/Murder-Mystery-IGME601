@@ -1,6 +1,7 @@
 public static class CutsceneFactory
 {
-
+    //Static class for producing Cutscenes. Configurations for the different cutscenes can be created
+    //here, though there might be more elegant ways of defining cutscene templates.
     private static void AddDialogueAndWait(Cutscene cutscene, CutsceneAction action)
     {
         cutscene.AddAction(action);

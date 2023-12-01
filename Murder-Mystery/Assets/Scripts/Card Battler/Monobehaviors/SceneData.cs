@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class SceneData : MonoBehaviour
@@ -16,12 +15,22 @@ public class SceneData : MonoBehaviour
 
     private void SetUpGame()
     {
+        // Set up the data for the card battle mini game.
+        // This function is in charge of setting up the deal strategies for the game
+        // As well as loading the AI decision engine for the type of game being played
+
+
         List<int> setupData = new List<int>();
         IAIStrategy aiStrategy;
         CharacterSO.ECharacter lastTalkedTo = GameManager.Instance.GetLastTalkedTo();
 
         if (lastTalkedTo == CharacterSO.ECharacter.Ace )
         {
+            // This _should_ be Connor but right now, Connor's dialogue tree is the only
+            // one implemented for the card battler, so I'm using it for testing.
+
+            //Future PRs must make this the scripted sequence
+
             //Scripted Sequence
             //Ace's Cards
             int[] cardsToDealAce= { 
@@ -75,6 +84,8 @@ public class SceneData : MonoBehaviour
             handFactory.DealHand(ConstantParameters.PLAYER_2);
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Random);
         }
+
+        // Load the decided strategy into the AI and add an outro cutscene
         AI_Controller.Instance.SetStrategy(aiStrategy);
         CutsceneManager.Instance.AddCutscene(CutsceneFactory.MakeCardBattleOutroCutscene(lastTalkedTo));
     }
