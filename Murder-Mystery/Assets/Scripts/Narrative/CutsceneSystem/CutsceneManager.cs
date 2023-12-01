@@ -82,6 +82,7 @@ public class CutsceneManager : MonoBehaviour
     {
         if (dCutsceneEndSignal != null)
         {
+            Debug.Log("Call Cutscene End Signal");
             dCutsceneEndSignal();
         }
     }

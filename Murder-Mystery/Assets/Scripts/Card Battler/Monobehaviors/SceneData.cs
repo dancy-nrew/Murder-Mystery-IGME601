@@ -87,7 +87,7 @@ public class SceneData : MonoBehaviour
 
         // Load the decided strategy into the AI and add an outro cutscene
         AI_Controller.Instance.SetStrategy(aiStrategy);
-        CutsceneManager.Instance.AddCutscene(CutsceneFactory.MakeCardBattleOutroCutscene(lastTalkedTo));
+        
     }
 
     public Vector3 GetLaneTransform(int lane){

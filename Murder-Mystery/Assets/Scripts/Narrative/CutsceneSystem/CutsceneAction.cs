@@ -139,6 +139,7 @@ public class EndDialogueAction : CutsceneAction
 
     public override void OnActionFinish()
     {
+        Debug.Log("OnActionFinish - End Dialogue Action");
         //This should essentially cause the cutscene to end
         CutsceneManager.Instance.MoveToNextAction();
     }

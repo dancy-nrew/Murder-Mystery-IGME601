@@ -30,11 +30,7 @@ public class RulesManager : MonoBehaviour
         {
             // Report results to UI
             CharacterSO.ECharacter chr = GameManager.Instance.GetLastTalkedTo();
-            DialogueDataWriter.Instance.UpdateDialogueData("bEndOf" + chr + "CardBattle", true);
-            if (winner == ConstantParameters.PLAYER_1)
-            {
-                DialogueDataWriter.Instance.UpdateDialogueData("bHasWon" + chr + "CardBattle", true);
-            }
+            CutsceneManager.Instance.AddCutscene(CutsceneFactory.MakeCardBattleOutroCutscene(chr, winner));
             CutsceneManager.dCutsceneEndSignal += ShowExitButton;
             CutsceneManager.Instance.MoveToNextCutscene();
         }

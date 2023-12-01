@@ -24,16 +24,14 @@ public static class CutsceneFactory
     }
     public static Cutscene MakeCardBattlerIntroCutscene(HandFactory handFactory, CharacterSO.ECharacter chr)
     {
-        Cutscene cutscene = new Cutscene();
-        AddDialogueAndWait(cutscene, new StartCardDialogueAction());
-        
         // Set both of these parameters to false
         DialogueDataAction setEndToFalse = new DialogueDataAction("bEndOf" + chr + "CardBattle");
-        setEndToFalse.SetFlag();
         DialogueDataAction setWinToFalse = new DialogueDataAction("bHasWon" + chr + "CardBattle");
-        setWinToFalse.SetFlag();
+        Cutscene cutscene = new Cutscene();
         cutscene.AddAction(setEndToFalse);
         cutscene.AddAction(setWinToFalse);
+
+        AddDialogueAndWait(cutscene, new StartCardDialogueAction());
         AddDialogueAndWait(cutscene, new DialogueAction());
 
         //Motive
@@ -48,12 +46,25 @@ public static class CutsceneFactory
         return cutscene;
     }
 
-    public static Cutscene MakeCardBattleOutroCutscene(CharacterSO.ECharacter chr)
+    public static Cutscene MakeCardBattleOutroCutscene(CharacterSO.ECharacter chr, int battleWinner) 
     {
+
         Cutscene cutscene = new Cutscene();
 
+        //Set end of battle flags
+        DialogueDataAction endBattleFlagAction = new DialogueDataAction("bEndOf" + chr + "CardBattle");
+        endBattleFlagAction.SetFlag();
+        DialogueDataAction hasWonBattleFlagAction = new DialogueDataAction("bHasWon" + chr + "CardBattle");
+        if (battleWinner == ConstantParameters.PLAYER_1)
+        {
+            hasWonBattleFlagAction.SetFlag();
+        }
+
+        // Apply flags
+        cutscene.AddAction(endBattleFlagAction);
+        cutscene.AddAction(hasWonBattleFlagAction);
+        // Compose Dialogue
         AddDialogueAndWait(cutscene, new StartCardDialogueAction());
-        AddDialogueAndWait(cutscene, new DialogueAction());
         AddDialogueAndWait(cutscene, new DialogueAction());
 
         // Set Dialogue Flag back to false
