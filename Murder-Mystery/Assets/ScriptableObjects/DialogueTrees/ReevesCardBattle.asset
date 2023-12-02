@@ -272,8 +272,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - (I can confidently place the subject at the scene of the crime, which gives
-      me a lead in this interrogation)
+    - "(I can confidently place the subject at the scene of the crime, which \ngives
+      me a lead in this interrogation)"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -482,7 +482,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - (I have no evidence to place the suspect at the scene of  the crime)
+    - (I have no evidence to place the suspect at the scene of the crime)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -692,7 +692,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - (The information I got from a witness has given me the upper hand in this interrogation)
+    - "(The information I got from a witness has given me the upper \nhand in this
+      interrogation)"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -870,8 +871,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - (The suspect's alibi is tight. Without witness testimony, it'll be harder to
-      push them in questioning.)
+    - "(The suspect's alibi is tight. Without witness testimony, it'll be harder
+      to \npush them in questioning.)"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []

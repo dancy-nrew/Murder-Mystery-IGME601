@@ -165,7 +165,7 @@ MonoBehaviour:
   - {fileID: -1575291693342473738}
   - {fileID: -275557605011290399}
   choiceConditions:
-  - parameterKey: bHasTalkedToPaine
+  - parameterKey: bStolenResearch
     parameterValue: 1
 --- !u!114 &-4974672835854278449
 MonoBehaviour:
@@ -501,7 +501,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: e6729ad814e0a3144a8757baa8edd27e
-  position: {x: 851, y: -575.40656}
+  position: {x: 851, y: -575.00006}
   children:
   - {fileID: -4974672835854278449}
   - {fileID: 7514767645981646673}
@@ -781,7 +781,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - '(I''m not getting through Dr. Stone''s previous stamement.
+    - '(I''m not getting through Dr. Stone''s previous statement.
 
       I must''ve
       missed something at some point.)'
@@ -935,12 +935,12 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: a165501679f16624f9b0592ea0d558c6
-  position: {x: 850.99994, y: 424.49994}
+  position: {x: 851, y: 425}
   children:
   - {fileID: 4129447473869094033}
   - {fileID: 170075024236223055}
   choiceConditions:
-  - parameterKey: bHasWonReevesCardBattle
+  - parameterKey: bReevesRevelation
     parameterValue: 1
 --- !u!114 &7329340229220819038
 MonoBehaviour:
@@ -962,7 +962,7 @@ MonoBehaviour:
   - {fileID: -3721173603975295376}
   - {fileID: 4424634564258226471}
   choiceConditions:
-  - parameterKey: bHasPickedAward
+  - parameterKey: bHasPickedUpAward
     parameterValue: 1
 --- !u!114 &7514767645981646673
 MonoBehaviour:

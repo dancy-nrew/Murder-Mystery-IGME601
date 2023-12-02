@@ -24,12 +24,9 @@ public class SceneData : MonoBehaviour
         IAIStrategy aiStrategy;
         CharacterSO.ECharacter lastTalkedTo = GameManager.Instance.GetLastTalkedTo();
 
-        if (lastTalkedTo == CharacterSO.ECharacter.Ace )
+        if (lastTalkedTo == CharacterSO.ECharacter.Connor )
         {
-            // This _should_ be Connor but right now, Connor's dialogue tree is the only
-            // one implemented for the card battler, so I'm using it for testing.
-
-            //Future PRs must make this the scripted sequence
+            //To Do: Implement and test scripted sequence
 
             //Scripted Sequence
             //Ace's Cards
@@ -48,7 +45,7 @@ public class SceneData : MonoBehaviour
             handFactory.DealHand(ConstantParameters.PLAYER_1);
             handFactory.DealHand(ConstantParameters.PLAYER_2);
 
-        } else if (lastTalkedTo == CharacterSO.ECharacter.Connor)
+        } else if (lastTalkedTo != CharacterSO.ECharacter.Ace)
         {
 
             // Load clue data
@@ -69,7 +66,7 @@ public class SceneData : MonoBehaviour
             handFactory.AssignAndSetupStrategy(setupData, ConstantParameters.PLAYER_2);
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Informed);
 
-            //Add the Cutscene and start it?
+            //Add the Cutscene and start it
             CutsceneManager.Instance.AddCutscene(CutsceneFactory.MakeCardBattlerIntroCutscene(handFactory, lastTalkedTo));
             CutsceneManager.Instance.MoveToNextCutscene();
 

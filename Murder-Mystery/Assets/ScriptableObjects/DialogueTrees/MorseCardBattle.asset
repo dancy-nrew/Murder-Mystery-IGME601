@@ -159,12 +159,12 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 3b6ae2a748b7b23498b7d30aa2cb35ba
-  position: {x: 693.99994, y: -392.4066}
+  position: {x: 695.3225, y: -396.50003}
   children:
   - {fileID: -1575291693342473738}
   - {fileID: -275557605011290399}
   choiceConditions:
-  - parameterKey: bHasTalkedToPaine
+  - parameterKey: bBrokenHeart
     parameterValue: 1
 --- !u!114 &-4974672835854278449
 MonoBehaviour:
@@ -947,7 +947,7 @@ MonoBehaviour:
   - {fileID: 4129447473869094033}
   - {fileID: 170075024236223055}
   choiceConditions:
-  - parameterKey: bHasWonReevesCardBattle
+  - parameterKey: bConnorRevelation
     parameterValue: 1
 --- !u!114 &7329340229220819038
 MonoBehaviour:
@@ -969,7 +969,7 @@ MonoBehaviour:
   - {fileID: -3721173603975295376}
   - {fileID: 4424634564258226471}
   choiceConditions:
-  - parameterKey: bHasPickedAward
+  - parameterKey: bHasPickedUpModel
     parameterValue: 1
 --- !u!114 &7514767645981646673
 MonoBehaviour:
