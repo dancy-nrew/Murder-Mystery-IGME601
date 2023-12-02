@@ -21,7 +21,6 @@ public class RulesManager : MonoBehaviour
                             is wasted by passing it before the game ends.
          */
         current_turn++;
-
         if (current_turn >= ConstantParameters.MAX_TURNS){
             game_ongoing = false;
         }
@@ -37,7 +36,6 @@ public class RulesManager : MonoBehaviour
             // The game has stopped.
             HandContainer player1 = GameObject.Find("ContainerPlayer1").GetComponent<HandContainer>();
             player1.FreezeCards();
-
             // Report results to UI
             GUIManager gm = gameObject.GetComponent<GUIManager>();
             gm.DisplayGameEndMessage(winner);

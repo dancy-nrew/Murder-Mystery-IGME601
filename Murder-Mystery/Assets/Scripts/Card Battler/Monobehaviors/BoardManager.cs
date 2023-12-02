@@ -21,7 +21,11 @@ public class BoardManager : MonoBehaviour
     public TMP_Text laneOneAIScore;
     public TMP_Text laneTwoAIScore;
     public TMP_Text laneThreeAIScore;
-
+    [SerializeField]
+    public TextMeshProUGUI roundTitleText;
+    [SerializeField]
+    public GameObject RoundPanel;
+    private int currentTurn = 1;
     [SerializeField]
     private float durationBeforeScoreUpdate = 2.5f;
 
@@ -29,12 +33,13 @@ public class BoardManager : MonoBehaviour
     {
         // Cache reference for the Rules Manager
         rm = gameObject.GetComponent<RulesManager>();
+        DisplayRoundTitle(currentTurn);
     }
 
     public void PlayCardToLane(int player, int lane, CardData card){
         // Have a player play a card to a lane. Refer to BoardState for more details.
         // This function changes the lane number into the index value by subtracting one.
-        
+
         // If the player is making a move, inform the AI it's time to make a move too
         // The AI should decide it's own action before the player's move affects the score on the board
         if (player == ConstantParameters.PLAYER_1)
@@ -44,22 +49,31 @@ public class BoardManager : MonoBehaviour
                 OnPlay();
             }
         }
-
+        
         // Update the state of the board
         boardState.PlayerAddCardToLane(player, card, lane-1);
-
         if (player == ConstantParameters.PLAYER_1)
         {
             // Because the AI plays before the human player, if the human player has
             // affected the board, it means the turn is over.
             UpdateLaneValueDisplay();
-
+            currentTurn++;
             int game_winner = boardState.GetGameWinner();
             rm.RunTurn(game_winner);
         }
 
     }
-
+    public void DisplayRoundTitle(int turn)
+    {
+        RoundPanel.SetActive(true);
+        roundTitleText.text = "Round " + turn.ToString();
+        StartCoroutine(HideRoundTitle());
+    }
+    IEnumerator HideRoundTitle()
+    {
+        yield return new WaitForSeconds(2.0f);
+        RoundPanel.SetActive(false);
+    }
     public int GetCardsInLaneForPlayer(int player, int lane){
         // Return the number of cards in a lane for a given player
         // The lane number is transformed into the lane index by subtracting one
@@ -90,5 +104,7 @@ public class BoardManager : MonoBehaviour
         laneOneAIScore.text = lane1ScorePlayer2.ToString();
         laneTwoAIScore.text = lane2ScorePlayer2.ToString();
         laneThreeAIScore.text = lane3ScorePlayer2.ToString();
+        DisplayRoundTitle(currentTurn);
+
     }
 }
