@@ -7,11 +7,9 @@ using UnityEngine.UI;
 public class PauseMenuController : MonoBehaviour
 {
     public PlayerMovement playerMovement;
-    public GameObject PausePanel, CluesPanel, CharactersPanel, ReturnPanel;
+    public GameObject PausePanel, CluesPanel, CharactersPanel, ReturnPanel, notificationIcon;
     public TextMeshProUGUI characterNameText, characterInfoText,
                             clueNameText, clueInfotext;
-
-
 
     public Image characterPortrait, clueSketch;
 
@@ -58,7 +56,6 @@ public class PauseMenuController : MonoBehaviour
 
     public void UpdateCharacterPage()
     {
-        
         // Ensure the page number is within bounds
         currentCharacterPage = Mathf.Clamp(currentCharacterPage, 0, GameManager.Instance.characters.Count - 1);
 
@@ -68,7 +65,6 @@ public class PauseMenuController : MonoBehaviour
         characterPortrait.sprite = GameManager.Instance.GetCharacterSprite(currentCharacterPage);
         
     }
-
 
     public void ShowCharacters()
     {
@@ -138,6 +134,7 @@ public class PauseMenuController : MonoBehaviour
     {
         playerMovement.SetIsUIEnabled(true);
         PausePanel.SetActive(true);
+        notificationIcon.SetActive(false);
         Time.timeScale = 0f;
         GamePaused = true;
     }

@@ -15,7 +15,7 @@ public class ClueInteractable : Interactable
     public String characterToAppend;
     public String appendUponPickup;
     public Boolean updatesCharcater;
-
+    [SerializeField] public GameObject notificationIcon;
     public List<DialogueData.DialogueParameter> interactableConditions = new List<DialogueData.DialogueParameter>();
 
     protected override void Awake()
@@ -62,6 +62,7 @@ public class ClueInteractable : Interactable
 
     private void Collect()
     {
+        notificationIcon.SetActive(true);
         // Add the clue to the GameManager's list of clues
         GameManager.Instance.AddClue(self);
 
