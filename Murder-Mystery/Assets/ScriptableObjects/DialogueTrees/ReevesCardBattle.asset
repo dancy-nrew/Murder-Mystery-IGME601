@@ -432,8 +432,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - Miss Paine heard you arguing with Dr Yates at the scene of the crime at noon
-      on Saturday.
+    - "Miss Paine heard you arguing with Dr Yates at the scene of the crime at \nnoon
+      on Saturday."
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
