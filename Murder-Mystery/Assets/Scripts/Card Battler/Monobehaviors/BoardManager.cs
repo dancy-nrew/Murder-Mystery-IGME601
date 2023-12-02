@@ -26,6 +26,8 @@ public class BoardManager : MonoBehaviour
     [SerializeField]
     public GameObject RoundPanel;
     private int currentTurn = 1;
+    private int turnsLeft = 7;
+    [SerializeField] public TextMeshProUGUI remainingRoundsText;
     [SerializeField]
     private float durationBeforeScoreUpdate = 2.5f;
 
@@ -34,6 +36,7 @@ public class BoardManager : MonoBehaviour
         // Cache reference for the Rules Manager
         rm = gameObject.GetComponent<RulesManager>();
         DisplayRoundTitle(currentTurn);
+        remainingRoundsText.text = "Rounds Remaining: " + turnsLeft.ToString();
     }
 
     public void PlayCardToLane(int player, int lane, CardData card){
@@ -57,6 +60,7 @@ public class BoardManager : MonoBehaviour
             // Because the AI plays before the human player, if the human player has
             // affected the board, it means the turn is over.
             UpdateLaneValueDisplay();
+            remainingRoundsText.text = "Rounds Remaining: " + (turnsLeft-currentTurn).ToString();
             currentTurn++;
             int game_winner = boardState.GetGameWinner();
             rm.RunTurn(game_winner);
@@ -104,7 +108,10 @@ public class BoardManager : MonoBehaviour
         laneOneAIScore.text = lane1ScorePlayer2.ToString();
         laneTwoAIScore.text = lane2ScorePlayer2.ToString();
         laneThreeAIScore.text = lane3ScorePlayer2.ToString();
-        DisplayRoundTitle(currentTurn);
+        if(currentTurn <= turnsLeft)
+        {
+            DisplayRoundTitle(currentTurn);
 
+        }
     }
 }
