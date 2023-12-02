@@ -68,7 +68,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - That could still be a motive
+    - That could still be a motive.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates:
@@ -93,7 +93,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "I found the broken vase. You were at the scene \nof the crime!"
+    - I found the broken vase. You were at the scene of the crime!
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -248,8 +248,8 @@ MonoBehaviour:
   dialogue:
     character: 4
     sentences:
-    - "I didn\u2019t kill Bea and that\u2019s the last thing I am going \nto say
-      on the matter!"
+    - "I didn\u2019t kill Bea and that\u2019s the last thing I am going to say on
+      the matter!"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -272,10 +272,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - '(I can confidently place the subject at the scene of the crime, which
-
-      gives
-      me a lead in this interrogation)'
+    - (I can confidently place the subject at the scene of the crime, which gives
+      me a lead in this interrogation)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -363,7 +361,7 @@ MonoBehaviour:
   dialogue:
     character: 4
     sentences:
-    - "I was grading all weekend. Off campus. \nNo one saw me this weekend.\r"
+    - "I was grading all weekend. Off campus. No one saw me this weekend.\r"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -434,8 +432,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "Miss Paine heard you arguing with Dr Yates at the \nscene of the crime at
-      noon on Saturday."
+    - Miss Paine heard you arguing with Dr Yates at the scene of the crime at noon
+      on Saturday.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -484,7 +482,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(I have no evidence to place the suspect at the scene of \nthe crime)"
+    - (I have no evidence to place the suspect at the scene of  the crime)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -567,9 +565,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - '(I have seen through Reeves'' lies. Time
-
-      to find out what he''s hiding.)'
+    - (I have seen through Reeves' lies. Time to find out what he's hiding.)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -696,10 +692,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - '(The information I got from a witness has given me
-
-      the upper hand in
-      this interrogation)'
+    - (The information I got from a witness has given me the upper hand in this interrogation)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -788,10 +781,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - '(Reeves'' statement is too strong.  I''ll have to investigate
-
-      further
-      and try again)'
+    - (Reeves' statement is too strong.  I'll have to investigate further and try
+      again)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -879,8 +870,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(The suspect's alibi is tight. Without witness testimony, it'll be \nharder
-      to push them in questioning.)"
+    - (The suspect's alibi is tight. Without witness testimony, it'll be harder to
+      push them in questioning.)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -1015,7 +1006,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(I haven't been able to find strong evidence of a motive \nfor this suspect)"
+    - (I haven't been able to find strong evidence of a motive for this suspect)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []

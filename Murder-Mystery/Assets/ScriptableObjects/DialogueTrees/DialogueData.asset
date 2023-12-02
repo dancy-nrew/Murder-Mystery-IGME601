@@ -63,3 +63,15 @@ MonoBehaviour:
     parameterValue: 0
   - parameterKey: bHasWonStoneCardBattle
     parameterValue: 0
+  - parameterKey: bReevesRevelation
+    parameterValue: 0
+  - parameterKey: bHasPickedUpAward
+    parameterValue: 0
+  - parameterKey: bStolenResearch
+    parameterValue: 0
+  - parameterKey: bConnorRevelation
+    parameterValue: 0
+  - parameterKey: bHasPickedUpModel
+    parameterValue: 0
+  - parameterKey: bBrokenHeart
+    parameterValue: 0

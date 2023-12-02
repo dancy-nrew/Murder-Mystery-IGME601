@@ -44,7 +44,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - ermm you didn't like Yates?
+    - Ermm... you didn't like Yates?
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -225,7 +225,7 @@ MonoBehaviour:
   dialogue:
     character: 6
     sentences:
-    - ok ok, ill tell you everything.
+    - Ok- ok, I'll tell you everything.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -271,8 +271,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(I can confidently place the subject at the scene of the crime, which\n gives
-      me a lead in this interrogation)"
+    - (I can confidently place the suspect at the scene of the crime, which gives
+      me a lead in this interrogation)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -383,7 +383,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - I'm sure  you were at the office at the time of the murder!
+    - I'm sure you were at the office at the time of the murder!
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -477,7 +477,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(I have no evidence to place the suspect at the scene of \nthe crime)"
+    - (I have no evidence to place the suspect at the scene of the crime)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -560,9 +560,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - '(I have seen through Connor''s lies. Time
-
-      to find out what he''s hiding.)'
+    - (Time to find out what he's hiding.)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -713,7 +711,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - It's time for an interrogation Connor!
+    - It's time for an interrogation Mr Connor!
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -736,7 +734,7 @@ MonoBehaviour:
   dialogue:
     character: 6
     sentences:
-    - ermm... ok
+    - Ermm... ok
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -779,12 +777,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - '(I  have not been able to break past
-
-      Connor''s fabrications. I''ll
-      have
-
-      to investigate further and try again)'
+    - (I'll have to investigate further and try again.)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -872,8 +865,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(The suspect's alibi is tight. Without witness testimony, it'll be \nharder
-      to push them in questioning.)"
+    - (The suspect's alibi is tight. Without witness testimony, it'll be harder to
+      push them in questioning.)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -1007,7 +1000,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(I haven't been able to find strong evidence of a motive \nfor this suspect)"
+    - (I haven't been able to find strong evidence of a motive for this suspect)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []

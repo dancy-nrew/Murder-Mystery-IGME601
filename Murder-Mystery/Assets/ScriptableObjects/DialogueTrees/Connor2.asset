@@ -1,51 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7443082233052576286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
-  m_Name: SequenceNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: e25df1db6e7f70742bc80c0542e4e919
-  position: {x: 480.79996, y: -573.1043}
-  children:
-  - {fileID: -5619111140558969710}
-  - {fileID: 5976543591515704547}
-  - {fileID: -38838796238818350}
---- !u!114 &-5619111140558969710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 96c0202fb9a1d8d4bac3b393c6aea17c
-  position: {x: 641.2, y: -651.19995}
-  dialogue:
-    character: 6
-    sentences:
-    - "I still can\u2019t believe that Dr Yates is gone. I wasn\u2019t even her TA
-      for that long, but Cantor Hall feels empty without her."
-    - "I wasn\u2019t even her TA for that long, but Cantor Hall feels empty without
-      her."
-    bTransitionToCardBattle: 0
-  gateConditions: []
-  dataUpdates: []
 --- !u!114 &-5155553825900020460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,7 +43,7 @@ MonoBehaviour:
     character: 0
     sentences:
     - "Oh\u2026 Well, I can\u2019t promise not to tell anyone because of the investigation,
-      but I can promise you that his scholarship is safe."
+      but I can promise you that his secret is safe."
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -110,7 +64,7 @@ MonoBehaviour:
   guid: 07d0421003d1fe74fabc177734655e97
   position: {x: 325.59998, y: -381.80008}
   children:
-  - {fileID: -7443082233052576286}
+  - {fileID: -38838796238818350}
   - {fileID: 956934128627463021}
   choiceConditions:
   - parameterKey: bHasTalkedToChief
@@ -217,11 +171,10 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: bf5ff18997753b84d829296d8c14d6a6
-  position: {x: 641.2, y: -495.19995}
+  position: {x: 641.1997, y: -573.1999}
   dialogue:
     character: 6
     sentences:
-    - 'Thanks, Detective. '
     - I still work in the building so I know where everything is if you need a hand.
     bTransitionToCardBattle: 0
   gateConditions: []
@@ -255,9 +208,6 @@ MonoBehaviour:
   - {fileID: 171761565276587328}
   - {fileID: 3388122974183293979}
   - {fileID: -4313164315370848695}
-  - {fileID: -7443082233052576286}
-  - {fileID: -5619111140558969710}
-  - {fileID: 5976543591515704547}
   - {fileID: -38838796238818350}
   dialogues: []
   currentDialogue:
@@ -360,30 +310,7 @@ MonoBehaviour:
     - "Not because I killed Dr Yates, but because I\u2019m protecting someone else. "
     - 'I was with my boyfriend. '
     - "You can\u2019t tell anyone, Detective. "
-    - "He\u2019ll lose his scholarship!\r"
-    bTransitionToCardBattle: 0
-  gateConditions: []
-  dataUpdates: []
---- !u!114 &5976543591515704547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: c399b08f5e29c5f4bb423d3cb36d4b57
-  position: {x: 641.2, y: -573.19995}
-  dialogue:
-    character: 0
-    sentences:
-    - I am sorry for your loss.
+    - He's not out!
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
