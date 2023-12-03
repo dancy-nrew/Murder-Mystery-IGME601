@@ -10,6 +10,19 @@ public class PlayerCharacter : MonoBehaviour
         if (GameManager.Instance._shouldLoadFromSavedLocation)
         {
             gameObject.transform.position = GameManager.Instance.LoadPlayerPosition();
+            NPCInteractable[] npcInteractables = GameObject.FindObjectsOfType<NPCInteractable>();
+
+            foreach(NPCInteractable npc in npcInteractables)
+            {
+                if(npc.character == GameManager.Instance._lastTalkedToCharacter)
+                {
+                    if (DialogueDataWriter.Instance.CheckCondition("bHasWon" + npc.character.ToString() + "CardBattle", true))
+                    {
+                        npc.OnInteraction();
+                    }
+                    break;
+                }
+            }
         }   
         else if(GameManager.Instance._justWalkedThroughDoor)
         {
