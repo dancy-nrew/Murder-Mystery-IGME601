@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 12283228}
   m_Layer: 6
   m_Name: Lane2
-  m_TagString: Untagged
+  m_TagString: Lane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 78394788}
   m_Layer: 6
   m_Name: Lane1
-  m_TagString: Untagged
+  m_TagString: Lane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3096,6 +3096,13 @@ MonoBehaviour:
   Lane2Transform: {x: 0, y: 0, z: 0}
   Lane3Transform: {x: 42, y: 0, z: 0}
   handFactory: {fileID: 1723633717}
+  scriptedSequenceTrees:
+  - {fileID: 11400000, guid: 1101fc1181df06a46a7f7d2ff6ee4184, type: 2}
+  - {fileID: 11400000, guid: 922dd29e67291c74cade0b30e25d10ad, type: 2}
+  - {fileID: 11400000, guid: 494cf8f0807299a45b7cc66be0896110, type: 2}
+  - {fileID: 11400000, guid: 8098527bc7abf5149a36dbfd30d2dfae, type: 2}
+  - {fileID: 11400000, guid: 60a41872adf2da1419f1e5ab684a7ecc, type: 2}
+  - {fileID: 11400000, guid: c2846488dd5a21d47a89dc01d5a184b5, type: 2}
 --- !u!4 &1426891046
 Transform:
   m_ObjectHideFlags: 0
@@ -4247,7 +4254,7 @@ GameObject:
   - component: {fileID: 1755559182}
   m_Layer: 6
   m_Name: Lane3
-  m_TagString: Untagged
+  m_TagString: Lane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

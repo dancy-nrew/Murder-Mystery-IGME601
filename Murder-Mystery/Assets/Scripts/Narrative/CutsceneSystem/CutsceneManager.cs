@@ -62,9 +62,6 @@ public class CutsceneManager : MonoBehaviour
         {
             activeCutscene = cutscenes.Dequeue();
             activeCutscene.NextAction();
-        } else
-        {
-            Debug.Log("Move To Next Cutscene called and no cutscenes are queued");
         }
     }
 

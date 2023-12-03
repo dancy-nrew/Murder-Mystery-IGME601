@@ -58,6 +58,7 @@ public class PlayToLane : MonoBehaviour
             }
 
             gameObject.GetComponent<FollowMouse>().ToggleInmovable();
+            gameObject.GetComponent<Card>().SetToPlayed();
             // Send the info to the movement controller
             EngageMovement(destination, TO_LANE_MOVEMENT_DURATION);
         } else {

@@ -8,6 +8,9 @@ public class SceneData : MonoBehaviour
     public Vector3 Lane3Transform;
     public HandFactory handFactory;
 
+    [SerializeField]
+    public List<DialogueTree> scriptedSequenceTrees;
+
     private void Start()
     {
         SetUpGame();
@@ -30,20 +33,38 @@ public class SceneData : MonoBehaviour
 
             //Scripted Sequence
             //Ace's Cards
-            int[] cardsToDealAce= { 
-                6,7,8,8,6,9,3,4,5
+            int[] cardsToDealAce = { 
+                6,8,7,8,6,9,3,4,5
             };
 
             //Connor's Cards
             int[] cardsToDealConnor = {
-                3,8,9,4,5,7,5,5,3,4
+                3,8,9,7,5,7,5,4,3
+            };
+
+            int[] indecesToFree =
+            {
+                0,1,3,2,4,-1
+            };
+            int[] lanesToFree =
+            {
+                1,3,3,2,1,-1
             };
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Scripted);
             handFactory.strategyIdentifier = DealStrategies.Deterministic;
             handFactory.AssignAndSetupStrategy(new List<int>(cardsToDealAce), ConstantParameters.PLAYER_1);
             handFactory.AssignAndSetupStrategy(new List<int>(cardsToDealConnor), ConstantParameters.PLAYER_2);
-            handFactory.DealHand(ConstantParameters.PLAYER_1);
-            handFactory.DealHand(ConstantParameters.PLAYER_2);
+            CutsceneManager.Instance.AddCutscene(CutsceneFactory.MakeCardBattlerIntroCutscene(handFactory, lastTalkedTo));
+            for (int i = 0; i < scriptedSequenceTrees.Count; i++)
+            {
+                CutsceneManager.Instance.AddCutscene(
+                    CutsceneFactory.MakeCardBattleScriptedMiniScene(scriptedSequenceTrees[i], indecesToFree[i], lanesToFree[i])
+                    );
+            }
+
+            CutsceneManager.Instance.MoveToNextCutscene();
+            RulesManager rm = GetComponent<RulesManager>();
+            CutsceneManager.dCutsceneEndSignal += rm.PlayConnorScript;
 
         } else if (lastTalkedTo != CharacterSO.ECharacter.Ace)
         {

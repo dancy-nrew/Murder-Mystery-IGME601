@@ -128,8 +128,8 @@ public class ScriptedAI : IAIStrategy
         // Moves are decided by doing one card in each lane
         // and cards are played in order. Nothing fancy.
         int card, lane;
-        lane = _currentTurn%3;
-        card = _currentTurn;
+        lane = _currentTurn%3 + 1;
+        card = 0;
         _currentTurn++;
         return (lane, card);
     }

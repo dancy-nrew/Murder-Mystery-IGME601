@@ -45,6 +45,40 @@ public class StartCardDialogueAction : CutsceneAction
     }
 }
 
+public class LoadDialogueAndStart : CutsceneAction
+{
+    // This action starts a card dialogue cutscene.
+    // Its PerformAction loads the dialogue tree into the DialogueManager and gets the ball rolling
+    DialogueTree treeReference;
+    public LoadDialogueAndStart(DialogueTree tree)
+    {
+        treeReference = tree;
+    }
+
+    public override void PerformAction()
+    {
+        DialogueManager.dCharactersFinishedTyping += OnActionFinish;
+        DialogueManager.Instance.ShowDialogue(treeReference.Clone());
+    }
+
+    protected override bool IsFlagSet()
+    {
+        return false;
+    }
+
+    public override void SetFlag()
+    {
+
+    }
+
+    public override void OnActionFinish()
+    {
+        // Once the initial sentence has finished typing, a signal to move to the next action is given
+        DialogueManager.dCharactersFinishedTyping -= OnActionFinish;
+        CutsceneManager.Instance.MoveToNextAction();
+    }
+}
+
 public class DialogueAction : CutsceneAction
 {
     // This action informs the dialogue tree that it must show the next sentence
@@ -142,6 +176,130 @@ public class EndDialogueAction : CutsceneAction
         Debug.Log("OnActionFinish - End Dialogue Action");
         //This should essentially cause the cutscene to end
         CutsceneManager.Instance.MoveToNextAction();
+    }
+}
+
+public class SetCardInteractivityAction : CutsceneAction
+{
+    bool freezeCards;
+    public SetCardInteractivityAction()
+    {
+        freezeCards = false;
+    }
+
+    public override void PerformAction()
+    {
+        HandContainer player1HandContainer = GameObject.Find("ContainerPlayer1").GetComponent<HandContainer>();
+        if (freezeCards)
+        {
+            player1HandContainer.FreezeCards();
+        } else
+        {
+            player1HandContainer.UnfreezeCards();
+        }
+        OnActionFinish();
+        
+    }
+
+    public override void OnActionFinish()
+    {
+        CutsceneManager.Instance.MoveToNextAction();
+    }
+
+    public override void SetFlag()
+    {
+        freezeCards = true;
+    }
+
+    protected override bool IsFlagSet()
+    {
+        return freezeCards;
+    }
+}
+
+public class FreeSpecificCardAction : CutsceneAction
+{
+    int index;
+    public FreeSpecificCardAction(int cardToFreeAsIndex)
+    {
+        index = cardToFreeAsIndex;
+    }
+
+    public override void PerformAction()
+    {
+        HandContainer player1HandContainer = GameObject.Find("ContainerPlayer1").GetComponent<HandContainer>();
+        
+        // Sneaky if statement to allow this action to also unfreeze everything
+        if (index == -1)
+        {
+            player1HandContainer.UnfreezeCards();
+        } else
+        {
+            player1HandContainer.UnfreezeByIndex(index);
+        }
+        OnActionFinish();
+    }
+
+    public override void OnActionFinish()
+    {
+        CutsceneManager.Instance.MoveToNextAction();
+    }
+
+    public override void SetFlag()
+    {
+        
+    }
+
+    protected override bool IsFlagSet()
+    {
+        return false;
+    }
+}
+
+public class LockLanesAndFreeOneAction : CutsceneAction
+{
+    int lane;
+    public LockLanesAndFreeOneAction(int laneMarker)
+    {
+        lane = laneMarker;
+    }
+
+    public override void PerformAction()
+    {
+        GameObject[] lanes = GameObject.FindGameObjectsWithTag("Lane");
+        foreach (GameObject lane in lanes)
+        {
+            lane.layer = LayerMask.NameToLayer("Default");
+        }
+        // Sneaky if statement to allow this action to also unfreeze everything
+        if (lane == -1)
+        {
+            foreach(GameObject lane in lanes)
+            {
+                lane.layer = LayerMask.NameToLayer("Ground");
+            }
+        }
+        else
+        {
+            GameObject laneToFree = GameObject.Find("Lane"+lane.ToString());
+            laneToFree.layer = LayerMask.NameToLayer("Ground");
+        }
+        OnActionFinish();
+    }
+
+    public override void OnActionFinish()
+    {
+        CutsceneManager.Instance.MoveToNextAction();
+    }
+
+    public override void SetFlag()
+    {
+
+    }
+
+    protected override bool IsFlagSet()
+    {
+        return false;
     }
 }
 

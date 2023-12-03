@@ -260,7 +260,13 @@ public class HandFactory : MonoBehaviour
         }
         bool dealToPlayerOne = (!isMissingClue && !isSecondTalk) || (isSecondTalk && isMissingClue);
         whoToDealTo = dealToPlayerOne ? ConstantParameters.PLAYER_1 : ConstantParameters.PLAYER_2;
-        DealCardsInSuit(whoToDealTo, 3, suitToDeal);
+        if (strategyIdentifier == DealStrategies.Deterministic)
+        {
+            DealCards(whoToDealTo, 3);
+        } else
+        {
+            DealCardsInSuit(whoToDealTo, 3, suitToDeal);
+        }
         dialogueDealCounter++;
     }
 }

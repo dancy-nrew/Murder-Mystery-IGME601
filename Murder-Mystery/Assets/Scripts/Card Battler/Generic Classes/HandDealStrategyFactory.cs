@@ -234,6 +234,7 @@ public class DeterministicStrategy : Strategy
          In this case, the values represent the face values of the cards we want to deal.
          They should be enqueued, we will deal them in FIFO style.
          */
+        cardValues = new Queue<int>();
         if (!IsSetupValid(values))
         {
             throw new ArgumentException("Setup for Deterministic Strategy is Invalid");
