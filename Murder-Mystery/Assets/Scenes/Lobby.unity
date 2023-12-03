@@ -1453,6 +1453,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 2112208413}
+    - target: {fileID: 1831989960105663415, guid: 4ed0760a792dc57478632887fca63fbb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3145001570070802027, guid: 4ed0760a792dc57478632887fca63fbb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1519,7 +1523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3145001570070802027, guid: 4ed0760a792dc57478632887fca63fbb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000015258789
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3145001570070802027, guid: 4ed0760a792dc57478632887fca63fbb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1531,6 +1535,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3145001570070802027, guid: 4ed0760a792dc57478632887fca63fbb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383484172127326493, guid: 4ed0760a792dc57478632887fca63fbb, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6652458265352939907, guid: 4ed0760a792dc57478632887fca63fbb, type: 3}
