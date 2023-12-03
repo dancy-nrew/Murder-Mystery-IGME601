@@ -25,7 +25,6 @@ public class CutsceneManager : MonoBehaviour
     public delegate void CutsceneEnd();
     public static CutsceneEnd dCutsceneEndSignal;
     public DialogueTree activeConversationTree;
-    [SerializeField] public BoardManager boardManager;
     public static CutsceneManager Instance { get; private set; }
     private void Awake()
     {
@@ -75,7 +74,6 @@ public class CutsceneManager : MonoBehaviour
         if (activeCutscene.isOver)
         {
             CutsceneHasEnded();
-            boardManager.DisplayRoundTitle(1);
         }
     }
 

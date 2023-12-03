@@ -36,6 +36,12 @@ public class BoardManager : MonoBehaviour
         // Cache reference for the Rules Manager
         rm = gameObject.GetComponent<RulesManager>();
         remainingRoundsText.text = "Rounds Remaining: " + turnsLeft.ToString();
+        CutsceneManager.dCutsceneEndSignal += EnableGUI;
+    }
+    public void EnableGUI()
+    {
+        DisplayRoundTitle(currentTurn);
+        CutsceneManager.dCutsceneEndSignal -= EnableGUI;
     }
 
     public void PlayCardToLane(int player, int lane, CardData card){
