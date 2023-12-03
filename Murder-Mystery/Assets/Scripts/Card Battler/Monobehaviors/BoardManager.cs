@@ -35,7 +35,6 @@ public class BoardManager : MonoBehaviour
     {
         // Cache reference for the Rules Manager
         rm = gameObject.GetComponent<RulesManager>();
-        DisplayRoundTitle(currentTurn);
         remainingRoundsText.text = "Rounds Remaining: " + turnsLeft.ToString();
     }
 
