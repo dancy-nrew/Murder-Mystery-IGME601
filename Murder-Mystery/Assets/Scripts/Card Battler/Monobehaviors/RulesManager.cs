@@ -8,11 +8,6 @@ public class RulesManager : MonoBehaviour
      */
     int current_turn = 0;
     bool game_ongoing = true;
-    private BoardManager boardManager;
-    public void Start()
-    {
-        boardManager = GetComponent<BoardManager>();
-    }
     public void RunTurn(int winner)
     {
         /*
