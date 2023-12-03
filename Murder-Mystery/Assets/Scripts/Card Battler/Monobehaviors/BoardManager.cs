@@ -21,7 +21,13 @@ public class BoardManager : MonoBehaviour
     public TMP_Text laneOneAIScore;
     public TMP_Text laneTwoAIScore;
     public TMP_Text laneThreeAIScore;
-
+    [SerializeField]
+    public TextMeshProUGUI roundTitleText;
+    [SerializeField]
+    public GameObject RoundPanel;
+    private int currentTurn = 1;
+    private int turnsLeft = 9;
+    [SerializeField] public TextMeshProUGUI remainingRoundsText;
     [SerializeField]
     private float durationBeforeScoreUpdate = 2.5f;
 
@@ -29,6 +35,8 @@ public class BoardManager : MonoBehaviour
     {
         // Cache reference for the Rules Manager
         rm = gameObject.GetComponent<RulesManager>();
+        DisplayRoundTitle(currentTurn);
+        remainingRoundsText.text = "Rounds Remaining: " + turnsLeft.ToString();
     }
 
     public void PlayCardToLane(int player, int lane, CardData card){
@@ -53,11 +61,23 @@ public class BoardManager : MonoBehaviour
             // Because the AI plays before the human player, if the human player has
             // affected the board, it means the turn is over.
             UpdateLaneValueDisplay();
-
+            remainingRoundsText.text = "Rounds Remaining: " + (turnsLeft - currentTurn).ToString();
+            currentTurn++;
             int game_winner = boardState.GetGameWinner();
             rm.RunTurn(game_winner);
         }
 
+    }
+    public void DisplayRoundTitle(int turn)
+    {
+        RoundPanel.SetActive(true);
+        roundTitleText.text = "Round " + turn.ToString();
+        StartCoroutine(HideRoundTitle());
+    }
+    IEnumerator HideRoundTitle()
+    {
+        yield return new WaitForSeconds(2.0f);
+        RoundPanel.SetActive(false);
     }
 
     public int GetCardsInLaneForPlayer(int player, int lane){
@@ -90,5 +110,10 @@ public class BoardManager : MonoBehaviour
         laneOneAIScore.text = lane1ScorePlayer2.ToString();
         laneTwoAIScore.text = lane2ScorePlayer2.ToString();
         laneThreeAIScore.text = lane3ScorePlayer2.ToString();
+        if (currentTurn <= 9)
+        {
+            DisplayRoundTitle(currentTurn);
+
+        }
     }
 }
