@@ -74,10 +74,10 @@ public class RandomStrategy : Strategy
             Outputs -
             face value of the chosen card as int
         */
-        int value = UnityEngine.Random.Range(minFaceValue, maxFaceValue);
+        int value = UnityEngine.Random.Range(minFaceValue, maxFaceValue+1);
         while (dealtCardsOfThisSuit.Contains(value))
         {
-            value = UnityEngine.Random.Range(minFaceValue, maxFaceValue);
+            value = UnityEngine.Random.Range(minFaceValue, maxFaceValue+1);
         }
         dealtCardsOfThisSuit.Add(value);
         return value;

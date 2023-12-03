@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class SceneData : MonoBehaviour
@@ -16,28 +15,38 @@ public class SceneData : MonoBehaviour
 
     private void SetUpGame()
     {
+        // Set up the data for the card battle mini game.
+        // This function is in charge of setting up the deal strategies for the game
+        // As well as loading the AI decision engine for the type of game being played
+
+
         List<int> setupData = new List<int>();
         IAIStrategy aiStrategy;
+        CharacterSO.ECharacter lastTalkedTo = GameManager.Instance.GetLastTalkedTo();
 
-        if (GameManager.Instance.GetLastTalkedTo() == CharacterSO.ECharacter.Connor )
+        if (lastTalkedTo == CharacterSO.ECharacter.Connor )
         {
-            //Scripted Sequence
-            int[] cardsToDeal = { 
-                //Ace's Cards
-                6,7,8,8,6,9,3,
+            //To Do: Implement and test scripted sequence
 
-                //Connor's Cards
-                3,8,9,4,5,7,5
+            //Scripted Sequence
+            //Ace's Cards
+            int[] cardsToDealAce= { 
+                6,7,8,8,6,9,3,4,5
+            };
+
+            //Connor's Cards
+            int[] cardsToDealConnor = {
+                3,8,9,4,5,7,5,5,3,4
             };
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Scripted);
             handFactory.strategyIdentifier = DealStrategies.Deterministic;
-            handFactory.AssignAndSetupStrategy(new List<int>(cardsToDeal));
+            handFactory.AssignAndSetupStrategy(new List<int>(cardsToDealAce), ConstantParameters.PLAYER_1);
+            handFactory.AssignAndSetupStrategy(new List<int>(cardsToDealConnor), ConstantParameters.PLAYER_2);
             handFactory.DealHand(ConstantParameters.PLAYER_1);
             handFactory.DealHand(ConstantParameters.PLAYER_2);
 
-        } else if (GameManager.Instance.GetLastTalkedTo() != CharacterSO.ECharacter.Ace)
+        } else if (lastTalkedTo != CharacterSO.ECharacter.Ace)
         {
-            // Regular card battle
 
             // Load clue data
             CharacterSO charSO = GameManager.Instance.GetCharacterSOFromKey(GameManager.Instance.GetLastTalkedTo());
@@ -47,26 +56,35 @@ public class SceneData : MonoBehaviour
             handFactory.strategyIdentifier = DealStrategies.ClueBased;
 
             // Deal Clue Based cards to Player
-            handFactory.AssignAndSetupStrategy(setupData);
-            handFactory.DealHand(ConstantParameters.PLAYER_1);
+            handFactory.AssignAndSetupStrategy(setupData, ConstantParameters.PLAYER_1);
 
-            // Deal Random Cards to AI
-            handFactory.strategyIdentifier = DealStrategies.Random;
-            handFactory.AssignAndSetupStrategy(new List<int>());
-            handFactory.DealHand(ConstantParameters.PLAYER_2);
+            // Deal the inverse Cards to AI
+            setupData.Clear();
+            setupData.Add(DialogueDataWriter.Instance.CheckCondition(charSO.motiveParameter, true) ? 0 : 1);
+            setupData.Add(DialogueDataWriter.Instance.CheckCondition(charSO.locationParameter, true) ? 0 : 1);
+            setupData.Add(DialogueDataWriter.Instance.CheckCondition(charSO.witnessParameter, true) ? 0 : 1);
+            handFactory.AssignAndSetupStrategy(setupData, ConstantParameters.PLAYER_2);
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Informed);
+
+            //Add the Cutscene and start it
+            CutsceneManager.Instance.AddCutscene(CutsceneFactory.MakeCardBattlerIntroCutscene(handFactory, lastTalkedTo));
+            CutsceneManager.Instance.MoveToNextCutscene();
 
         } else
         {
             // Ace was the last talked-to character, which is impossible. Thus:
             Debug.Log("Random Strategy");
             handFactory.strategyIdentifier = DealStrategies.Random;
-            handFactory.AssignAndSetupStrategy(setupData);
+            handFactory.AssignAndSetupStrategy(setupData, ConstantParameters.PLAYER_1);
+            handFactory.AssignAndSetupStrategy(setupData, ConstantParameters.PLAYER_2);
             handFactory.DealHand(ConstantParameters.PLAYER_1);
             handFactory.DealHand(ConstantParameters.PLAYER_2);
             aiStrategy = AIStrategyFactory.CreateStrategy(AITypes.Random);
         }
+
+        // Load the decided strategy into the AI and add an outro cutscene
         AI_Controller.Instance.SetStrategy(aiStrategy);
+        
     }
 
     public Vector3 GetLaneTransform(int lane){
@@ -83,4 +101,5 @@ public class SceneData : MonoBehaviour
         }
         return transform;
     }
+    
 }

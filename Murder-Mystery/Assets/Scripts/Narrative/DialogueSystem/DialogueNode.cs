@@ -20,6 +20,7 @@ public class DialogueNode : Node
      */
     protected override void OnStart()
     {
+
         bool result = true;
         
         foreach(var cond  in gateConditions)
