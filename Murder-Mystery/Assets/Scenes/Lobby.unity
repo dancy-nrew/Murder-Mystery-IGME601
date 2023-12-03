@@ -1453,6 +1453,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 2112208413}
+    - target: {fileID: 2818965989375210303, guid: 4ed0760a792dc57478632887fca63fbb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3145001570070802027, guid: 4ed0760a792dc57478632887fca63fbb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

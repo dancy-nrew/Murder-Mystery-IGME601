@@ -974,7 +974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5744907542864131577
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2935,10 +2935,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
   PausePanel: {fileID: 2818965989375210303}
+  SettingsPanel: {fileID: 0}
   CluesPanel: {fileID: 4383484172127326493}
   CharactersPanel: {fileID: 1295459553422602043}
   ReturnPanel: {fileID: 8649621871509656509}
-  notificationIcon: {fileID: 1831989960105663415}
   characterNameText: {fileID: 2383406808784906712}
   characterInfoText: {fileID: 7773137741462384421}
   clueNameText: {fileID: 458342615057282201}
