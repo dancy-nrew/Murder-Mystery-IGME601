@@ -21,15 +21,13 @@ public class RulesManager : MonoBehaviour
                             is wasted by passing it before the game ends.
          */
         current_turn++;
+
         if (current_turn >= ConstantParameters.MAX_TURNS){
             game_ongoing = false;
         }
 
         if (!game_ongoing)
         {
-            // The game has stopped.
-            HandContainer player1 = GameObject.Find("ContainerPlayer1").GetComponent<HandContainer>();
-            player1.FreezeCards();
             // Report results to UI
             CharacterSO.ECharacter chr = GameManager.Instance.GetLastTalkedTo();
             CutsceneManager.Instance.AddCutscene(CutsceneFactory.MakeCardBattleOutroCutscene(chr, winner));
