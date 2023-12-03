@@ -51,7 +51,7 @@ public class RulesManager : MonoBehaviour
 
     private void OnDisable()
     {
-        CutsceneManager.dCutsceneEndSignal -= ShowExitButton;   
+        CutsceneManager.dCutsceneEndSignal -= ShowExitButton;
     }
 
     public void PlayConnorScript()

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PauseMenuController : MonoBehaviour
 {
     public PlayerMovement playerMovement;
-    public GameObject PausePanel, SettingsPanel, CluesPanel, CharactersPanel, ReturnPanel;
+    public GameObject PausePanel, CluesPanel, CharactersPanel, ReturnPanel, notificationIcon;
     public TextMeshProUGUI characterNameText, characterInfoText,
                             clueNameText, clueInfotext;
 
@@ -22,7 +22,6 @@ public class PauseMenuController : MonoBehaviour
     void Start()
     {
         ReturnPanel.SetActive(false);
-        SettingsPanel.SetActive(false);
         CluesPanel.SetActive(false);
         CharactersPanel.SetActive(false);
         PausePanel.SetActive(false);
@@ -74,7 +73,6 @@ public class PauseMenuController : MonoBehaviour
     public void ShowSettings()
     {
         ReturnPanel.SetActive(true);
-        SettingsPanel.SetActive(true);
         PausePanel.SetActive(false);
         CharactersPanel.SetActive(false);
         CluesPanel.SetActive(false);
@@ -85,7 +83,6 @@ public class PauseMenuController : MonoBehaviour
         Debug.Log("Showing characters");
         ReturnPanel.SetActive(true);
         CharactersPanel.SetActive(true);
-        SettingsPanel.SetActive(false);
         CluesPanel.SetActive(false);
         UpdateCharacterPage();
     }
@@ -94,7 +91,6 @@ public class PauseMenuController : MonoBehaviour
     {
         ReturnPanel.SetActive(true);
         CharactersPanel.SetActive(false);
-        SettingsPanel.SetActive(false);
         CluesPanel.SetActive(true);
         UpdateCluePage();
     }
@@ -130,7 +126,6 @@ public class PauseMenuController : MonoBehaviour
 
     public void Return()
     {
-        SettingsPanel.SetActive(false);
         CluesPanel.SetActive(false);
         CharactersPanel.SetActive(false);
         ReturnPanel.SetActive(false);
@@ -151,16 +146,16 @@ public class PauseMenuController : MonoBehaviour
     {
         playerMovement.SetIsUIEnabled(true);
         PausePanel.SetActive(true);
+        notificationIcon.SetActive(false);
         Time.timeScale = 0f;
         GamePaused = true;
     }
 
-    void Resume()
+    public void Resume()
     {
         playerMovement.SetIsUIEnabled(false);
         ReturnPanel.SetActive(false);
         CharactersPanel.SetActive(false);
-        SettingsPanel.SetActive(false);
         CluesPanel.SetActive(false);
         PausePanel.SetActive(false);
         Time.timeScale = 1f;
