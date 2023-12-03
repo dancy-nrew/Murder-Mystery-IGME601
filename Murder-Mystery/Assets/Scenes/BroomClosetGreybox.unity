@@ -299,6 +299,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &236770117 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5082379743215739067, guid: 1835095041aeb63439abcf742200094c, type: 3}
+  m_PrefabInstance: {fileID: 849533273}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9874daa2238d9f84bb9f1fb4d493b849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &278646013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -718,6 +729,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1843720120}
     m_Modifications:
+    - target: {fileID: 1458538168487563913, guid: 4ed0760a792dc57478632887fca63fbb, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 236770117}
     - target: {fileID: 3145001570070802027, guid: 4ed0760a792dc57478632887fca63fbb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1551,6 +1566,7 @@ MonoBehaviour:
   CluesPanel: {fileID: 0}
   CharactersPanel: {fileID: 0}
   ReturnPanel: {fileID: 0}
+  notificationIcon: {fileID: 0}
   characterNameText: {fileID: 0}
   characterInfoText: {fileID: 0}
   clueNameText: {fileID: 0}

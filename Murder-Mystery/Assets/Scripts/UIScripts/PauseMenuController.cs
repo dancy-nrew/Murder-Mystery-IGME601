@@ -151,7 +151,7 @@ public class PauseMenuController : MonoBehaviour
         GamePaused = true;
     }
 
-    void Resume()
+    public void Resume()
     {
         playerMovement.SetIsUIEnabled(false);
         ReturnPanel.SetActive(false);
