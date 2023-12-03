@@ -22,6 +22,26 @@ public static class CutsceneFactory
         cutscene.AddAction(new DealDialogueCardsAction(handFactory));
         //Deal Cards
         cutscene.AddAction(new DealDialogueCardsAction(handFactory));
+        SetCardInteractivityAction freezeCardsAction = new SetCardInteractivityAction();
+        freezeCardsAction.SetFlag();
+        cutscene.AddAction(freezeCardsAction);
+
+    }
+    public static Cutscene MakeCardBattleScriptedMiniScene(DialogueTree treeForScene, int cardToUnfreeze, int lanesToUnfreeze)
+    {
+        Cutscene cutscene = new Cutscene();
+        SetCardInteractivityAction freezeCards = new SetCardInteractivityAction();
+        freezeCards.SetFlag();
+        cutscene.AddAction(freezeCards);
+        AddDialogueAndWait(cutscene, new LoadDialogueAndStart(treeForScene));
+        AddDialogueAndWait(cutscene, new DialogueAction());
+        AddDialogueAndWait(cutscene, new DialogueAction());
+        cutscene.AddAction(new FreeSpecificCardAction(cardToUnfreeze));
+        cutscene.AddAction(new LockLanesAndFreeOneAction(lanesToUnfreeze));
+
+        //Exit the dialogue
+        cutscene.AddAction(new EndDialogueAction());
+        return cutscene;
     }
     public static Cutscene MakeCardBattlerIntroCutscene(HandFactory handFactory, CharacterSO.ECharacter chr)
     {
@@ -41,6 +61,9 @@ public static class CutsceneFactory
         AddCardDealingActions(cutscene, handFactory);
         //Witness
         AddCardDealingActions(cutscene, handFactory);
+
+        //Unfreeze cards
+        cutscene.AddAction(new SetCardInteractivityAction());
 
         //Exit the dialogue
         cutscene.AddAction(new EndDialogueAction());

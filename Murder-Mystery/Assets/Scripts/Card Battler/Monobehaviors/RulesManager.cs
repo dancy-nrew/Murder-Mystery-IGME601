@@ -21,18 +21,25 @@ public class RulesManager : MonoBehaviour
                             is wasted by passing it before the game ends.
          */
         current_turn++;
+        CharacterSO.ECharacter chr = GameManager.Instance.GetLastTalkedTo();
 
-        if (current_turn >= ConstantParameters.MAX_TURNS){
+       if (current_turn >= ConstantParameters.MAX_TURNS){
             game_ongoing = false;
         }
 
         if (!game_ongoing)
         {
             // Report results to UI
-            CharacterSO.ECharacter chr = GameManager.Instance.GetLastTalkedTo();
             CutsceneManager.Instance.AddCutscene(CutsceneFactory.MakeCardBattleOutroCutscene(chr, winner));
             CutsceneManager.dCutsceneEndSignal += ShowExitButton;
             CutsceneManager.Instance.MoveToNextCutscene();
+        } else
+        {
+            // If this is the scripted fight, load the next cutscene
+            if (chr == CharacterSO.ECharacter.Connor)
+            {
+                PlayConnorScript();
+            }
         }
     }
 
@@ -45,5 +52,11 @@ public class RulesManager : MonoBehaviour
     private void OnDisable()
     {
         CutsceneManager.dCutsceneEndSignal -= ShowExitButton;   
+    }
+
+    public void PlayConnorScript()
+    {
+        CutsceneManager.dCutsceneEndSignal -= PlayConnorScript;
+        CutsceneManager.Instance.MoveToNextCutscene();
     }
 }

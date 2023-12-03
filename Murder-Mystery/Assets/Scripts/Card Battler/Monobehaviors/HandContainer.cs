@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,8 +18,37 @@ public class HandContainer : MonoBehaviour
         //Make cards unselectable
         foreach (GameObject card in cards)
         {
-            card.layer = LayerMask.NameToLayer("Default");
+            card.GetComponent<Card>().MakeNonInteractable();
         }
+    }
+
+    public void UnfreezeCards()
+    {
+        //Make cards interactable
+        foreach (GameObject card in cards)
+        {
+            card.GetComponent<Card>().MakeInteractable();
+        }
+    }
+
+    public void FreezeCardByIndex(int index)
+    {
+        if (index < 0 || index > cards.Count - 1)
+        {
+            throw new IndexOutOfRangeException("Attempting to access card not in hand");
+        }
+
+        cards[index].GetComponent<Card>().MakeNonInteractable();
+    }
+
+    public void UnfreezeByIndex(int index)
+    {
+        if (index < 0 || index > cards.Count - 1)
+        {
+            throw new IndexOutOfRangeException("Attempting to access card not in hand");
+        }
+
+        cards[index].GetComponent<Card>().MakeInteractable();
     }
 
     public void ReceiveCard(GameObject card)

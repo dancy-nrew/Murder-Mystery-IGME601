@@ -30,6 +30,12 @@ public class Card : MonoBehaviour
         frontFace.layer = LayerMask.NameToLayer("Interactables");
     }
 
+    public void MakeNonInteractable()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        frontFace.layer = LayerMask.NameToLayer("Default");
+    }
+
     public void SetFrontFaceMaterial(Material texture)
     {
         MeshRenderer mr = frontFace.GetComponent<MeshRenderer>();

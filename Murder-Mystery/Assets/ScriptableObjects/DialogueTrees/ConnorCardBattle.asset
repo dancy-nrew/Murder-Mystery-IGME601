@@ -271,8 +271,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - (I can confidently place the suspect at the scene of the crime, which gives
-      me a lead in this interrogation)
+    - "(I can confidently place the suspect at the scene of the crime, which \ngives
+      me a lead in this interrogation)"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
