@@ -2935,10 +2935,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
   PausePanel: {fileID: 2818965989375210303}
+  SettingsPanel: {fileID: 2818965989375210303}
   CluesPanel: {fileID: 4383484172127326493}
   CharactersPanel: {fileID: 1295459553422602043}
   ReturnPanel: {fileID: 8649621871509656509}
-  notificationIcon: {fileID: 1831989960105663415}
   characterNameText: {fileID: 2383406808784906712}
   characterInfoText: {fileID: 7773137741462384421}
   clueNameText: {fileID: 458342615057282201}
