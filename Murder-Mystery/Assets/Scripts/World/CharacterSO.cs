@@ -26,4 +26,9 @@ public class CharacterSO : ScriptableObject
     public string locationParameter;
     public string motiveParameter;
 
+
+    public DialogueTree GetDialogueTree()
+    {
+        return cardBattleDialogueTree.Clone();
+    }
 }

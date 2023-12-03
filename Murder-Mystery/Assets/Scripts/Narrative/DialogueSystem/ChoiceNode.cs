@@ -19,7 +19,7 @@ public class ChoiceNode : Node
 
     protected override void OnStop()
     {
-        state = NodeState.Running;
+
     }
 
     protected override NodeState OnUpdate()
@@ -68,7 +68,7 @@ public class ChoiceNode : Node
             nodeState = children[1].UpdateNode(dialogueTree);
         }
 
-        //}
+
         return nodeState;
     }
 
@@ -81,6 +81,25 @@ public class ChoiceNode : Node
         tree.nodes.Add(node);
         node.children = children.ConvertAll(c => c.Clone(tree));
         return node;
+    }
+
+    protected override void UpdateNodeState()
+    {
+        bool result = true;
+
+        foreach (var cond in choiceConditions)
+        {
+            result = result && (DialogueDataWriter.Instance.CheckCondition(cond.parameterKey, cond.parameterValue));
+        }
+
+        if (result == true && children[0] != null)
+        {
+            state = children[0].state;
+        }
+        else if (result == false && children[1] != null)
+        {
+            state = children[1].state;
+        }
     }
 
 }

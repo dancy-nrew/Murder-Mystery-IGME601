@@ -50,7 +50,7 @@ MonoBehaviour:
   - parameterKey: bHasWonConnorCardBattle
     parameterValue: 0
   - parameterKey: bDealCards
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bEndOfReevesCardBattle
     parameterValue: 0
   - parameterKey: bHasWonReevesCardBattle
@@ -62,4 +62,16 @@ MonoBehaviour:
   - parameterKey: bEndOfStoneCardBattle
     parameterValue: 0
   - parameterKey: bHasWonStoneCardBattle
+    parameterValue: 0
+  - parameterKey: bReevesRevelation
+    parameterValue: 0
+  - parameterKey: bHasPickedUpAward
+    parameterValue: 0
+  - parameterKey: bStolenResearch
+    parameterValue: 0
+  - parameterKey: bConnorRevelation
+    parameterValue: 0
+  - parameterKey: bHasPickedUpModel
+    parameterValue: 0
+  - parameterKey: bBrokenHeart
     parameterValue: 0

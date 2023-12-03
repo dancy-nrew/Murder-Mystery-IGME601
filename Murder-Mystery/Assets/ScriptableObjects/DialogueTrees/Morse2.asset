@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8012332171218876869
+--- !u!114 &-8992874884286734141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,35 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 6818f551abe599844a5bf7dc58eccc98
-  position: {x: 447.09982, y: 311.90033}
-  dialogue:
-    character: 0
-    sentences:
-    - 'My condolences, I can only imagine what you are going through. '
-    bTransitionToCardBattle: 0
-  gateConditions: []
-  dataUpdates: []
---- !u!114 &-6438441644628961082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: b52784869b3779f47ad82e694fa3f2b6
-  position: {x: 447.49988, y: -0.09970474}
+  guid: ede22c51369e8a145a105f9f66081e23
+  position: {x: 600.8001, y: 414}
   dialogue:
     character: 0
     sentences:
     - And you were packing up your office on Saturday, right?
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-7715495484642071937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 4ce8b3179fe9a7c4b8d9f3f5d96aac83
+  position: {x: 600.79987, y: -301.60007}
+  dialogue:
+    character: 0
+    sentences:
+    - 'The City of Love, eh? '
+    - "Must have been hard to get one of those little porcelain buggers home in one
+      piece.\r"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -62,8 +64,8 @@ MonoBehaviour:
   started: 0
   guid: 76e0c72c85108784ab573476c7d33227
   position: {x: 0, y: 0}
-  child: {fileID: -4303143514371307988}
---- !u!114 &-6143317531273628022
+  child: {fileID: 8475733367346268804}
+--- !u!114 &-3925538370579062925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,39 +79,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 107342e339f61134a8d99fcdfc054e7e
-  position: {x: 447.49988, y: -156.09972}
-  dialogue:
-    character: 0
-    sentences:
-    - "Dr Juiletta Morse, Dr Yates\u2019 friend and coworker, correct?"
-    bTransitionToCardBattle: 0
-  gateConditions: []
-  dataUpdates: []
---- !u!114 &-5424435842742241441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: c49930a9591c3b349a92a30c5832c5d8
-  position: {x: 447.09982, y: -78.09971}
+  guid: 0e8132dfc456de74a91cd2b3e949f110
+  position: {x: 600.7999, y: 180.00005}
   dialogue:
     character: 3
     sentences:
-    - Yes, that is correct.
+    - Yes, of course.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
---- !u!114 &-4303143514371307988
+--- !u!114 &-3135407278324532461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 15284981b011a3548b95e0cd5e5f6a5a
+  position: {x: 600.80005, y: -457.52353}
+  dialogue:
+    character: 0
+    sentences:
+    - "Dr Morse, I spoke to Dr Reeves and he implied a certain\u2026 closeness between
+      you and Dr Yates."
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-2419180862856815663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,18 +126,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 8adfd9a21e1d0e4438d1662ccb1aa902
-  position: {x: 258.54868, y: 0.0000062309264}
+  guid: 258f603f2b990d24f84597b20cbf9b16
+  position: {x: 409.64313, y: 101.99999}
   children:
-  - {fileID: 3341870313248970952}
-  - {fileID: 5627051526586246678}
-  - {fileID: -6143317531273628022}
-  - {fileID: -5424435842742241441}
-  - {fileID: -6438441644628961082}
-  - {fileID: 4648530476419777313}
-  - {fileID: 2710168587589644537}
-  - {fileID: 4006602015116857711}
-  - {fileID: -8012332171218876869}
+  - {fileID: -817376483499750826}
+  - {fileID: -3925538370579062925}
+  - {fileID: 7713128907842606835}
+  - {fileID: 4197540327440925190}
+  - {fileID: -8992874884286734141}
+  - {fileID: 4053481869311655177}
+  - {fileID: 1289939995978445126}
+  - {fileID: 6847021199502403043}
+  - {fileID: 2062232064738359152}
+--- !u!114 &-1659409900086070214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: fc63aa34722dca846847612955b4c262
+  position: {x: 600.80005, y: -379.60007}
+  dialogue:
+    character: 3
+    sentences:
+    - 'Yes. We were very- um.. close. '
+    - "I didn\u2019t bring it up earlier because\u2026 "
+    - 'But now that you do know, Bea and I had a bit of a tiff before she passed. '
+    - 'We made up on Saturday, which I am very grateful for, and she gave me the
+      model of the Eiffel Tower we got when we visited Paris. '
+    - "I miss her\u2026\r"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-817376483499750826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 7d500a147cda58c48b71d2e92f51b56e
+  position: {x: 601.16455, y: 101.99999}
+  dialogue:
+    character: 0
+    sentences:
+    - 'Dr. Morse, I''m double checking everybody''s statements. '
+    - Mind if I check with you I got yours correct?
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,16 +206,23 @@ MonoBehaviour:
   treeState: 0
   nodes:
   - {fileID: -6147183189672929481}
-  - {fileID: -4303143514371307988}
-  - {fileID: 4006602015116857711}
-  - {fileID: -8012332171218876869}
-  - {fileID: 3341870313248970952}
-  - {fileID: 5627051526586246678}
-  - {fileID: -6143317531273628022}
-  - {fileID: -5424435842742241441}
-  - {fileID: -6438441644628961082}
-  - {fileID: 4648530476419777313}
-  - {fileID: 2710168587589644537}
+  - {fileID: 8475733367346268804}
+  - {fileID: -2419180862856815663}
+  - {fileID: -817376483499750826}
+  - {fileID: -3925538370579062925}
+  - {fileID: 7713128907842606835}
+  - {fileID: 4197540327440925190}
+  - {fileID: -8992874884286734141}
+  - {fileID: 4053481869311655177}
+  - {fileID: 1289939995978445126}
+  - {fileID: 6847021199502403043}
+  - {fileID: 2062232064738359152}
+  - {fileID: 7977875024542450190}
+  - {fileID: -3135407278324532461}
+  - {fileID: -1659409900086070214}
+  - {fileID: -7715495484642071937}
+  - {fileID: 6741643886220893788}
+  - {fileID: 8074008788231083599}
   dialogues: []
   currentDialogue:
     character: 0
@@ -168,7 +230,7 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   bIsInputting: 0
   currentInputNode: {fileID: 0}
---- !u!114 &2710168587589644537
+--- !u!114 &1289939995978445126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,8 +244,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: b5a6db64374747f448520786604a2e2f
-  position: {x: 447.49988, y: 155.90031}
+  guid: 633c2dcb763da8645b816716928899f0
+  position: {x: 600.7999, y: 570}
   dialogue:
     character: 0
     sentences:
@@ -191,7 +253,7 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
---- !u!114 &3341870313248970952
+--- !u!114 &2062232064738359152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,17 +267,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: db90ae957d1cc7d419862011ea80b770
-  position: {x: 447.49988, y: -312.09973}
+  guid: 7ba16fb5cab689240aae581862432551
+  position: {x: 600.7999, y: 726}
   dialogue:
     character: 0
     sentences:
-    - 'Dr. Morse, I''m double checking everybody''s statements. '
-    - Mind if I check with you I got yours correct?
+    - My condolences, I can only imagine what you are going through.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
---- !u!114 &4006602015116857711
+--- !u!114 &4053481869311655177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,32 +290,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 95de00bcb32ad8646ba4b1ece6119e11
-  position: {x: 447.09982, y: 233.90031}
-  dialogue:
-    character: 3
-    sentences:
-    - I miss her already, you know?
-    - "We used to get breakfast together every Monday.\r"
-    bTransitionToCardBattle: 0
-  gateConditions: []
-  dataUpdates: []
---- !u!114 &4648530476419777313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: fe3ef77088d1b524f8d3c70a96561908
-  position: {x: 447.49988, y: 77.9003}
+  guid: 5ebaf0bac1b220a4389a1392f6545a1a
+  position: {x: 600.7999, y: 491.99997}
   dialogue:
     character: 3
     sentences:
@@ -262,7 +299,7 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
---- !u!114 &5627051526586246678
+--- !u!114 &4197540327440925190
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,12 +313,150 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 107b11766cf32ef41a7823ec79193032
-  position: {x: 447.49988, y: -234.09973}
+  guid: 3bd661e29e572e94c94063f4b01468bc
+  position: {x: 600.7999, y: 336.00006}
   dialogue:
     character: 3
     sentences:
-    - Yes, of course.
+    - Yes, that is correct.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
+--- !u!114 &6741643886220893788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 6b25fe810ebb18c4fb773e9d04ba9d8d
+  position: {x: 600.79987, y: -223.6001}
+  dialogue:
+    character: 3
+    sentences:
+    - 'Oh, no. It was made of metal. '
+    - Bea insisted on it, she was afraid of it breaking too.
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &6847021199502403043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 80f7c517ccf00674a8c821c43c909ae6
+  position: {x: 600.7999, y: 648}
+  dialogue:
+    character: 3
+    sentences:
+    - 'I miss her already, you know? '
+    - We used to get breakfast together every Monday.
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &7713128907842606835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 448917e964fd7ff409407608ffe0ef70
+  position: {x: 600.8001, y: 258.00006}
+  dialogue:
+    character: 0
+    sentences:
+    - "Dr Juiletta Morse, Dr Yates\u2019 friend and coworker, correct?"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &7977875024542450190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 6967329189c8ccf439c84925e929993e
+  position: {x: 409.59988, y: -109.06085}
+  children:
+  - {fileID: -3135407278324532461}
+  - {fileID: -1659409900086070214}
+  - {fileID: -7715495484642071937}
+  - {fileID: 6741643886220893788}
+  - {fileID: 8074008788231083599}
+--- !u!114 &8074008788231083599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 1639e3f1411e06741b2b9dffa4ecab35
+  position: {x: 600.80005, y: -145.6}
+  dialogue:
+    character: 0
+    sentences:
+    - Smart move. Dr Yates must have been very practical.
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &8475733367346268804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf40963fd2fd84044a361d2c75c38fa7, type: 3}
+  m_Name: ChoiceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: d1cebaa5fafbe014d8c78e5318c91774
+  position: {x: 204.82152, y: -0.000026226044}
+  children:
+  - {fileID: 7977875024542450190}
+  - {fileID: -2419180862856815663}
+  choiceConditions:
+  - parameterKey: bBrokenHeart
+    parameterValue: 1
