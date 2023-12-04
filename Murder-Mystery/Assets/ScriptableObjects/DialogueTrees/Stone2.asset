@@ -134,7 +134,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 980d34aed34e3a8419c4c801e6c3b234
-  position: {x: -240.79997, y: -60.000057}
+  position: {x: -485.30115, y: -70.99999}
   child: {fileID: 6287477027967733353}
 --- !u!114 &-6322341206569993896
 MonoBehaviour:
@@ -219,10 +219,10 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 2e3e364fc811e3e498e782f3065c1b69
-  position: {x: 686.8, y: -643.2002}
+  position: {x: -235.49992, y: -340.49997}
   children:
   - {fileID: 3687000271793667893}
-  - {fileID: -6132808930832458955}
+  - {fileID: 8202955023336711497}
   choiceConditions:
   - parameterKey: bHasWonStoneCardBattle
     parameterValue: 1
@@ -243,7 +243,7 @@ MonoBehaviour:
   guid: 07269f159b9ff2444bbd3d826a961d8d
   position: {x: 676.8, y: -116.99997}
   dialogue:
-    character: 0
+    character: 5
     sentences:
     - "Um\u2026 this and that. "
     - "I don\u2019t even r-really remember."
@@ -288,7 +288,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 772361b5fd3b48c4ab90e299cd646fb3
-  position: {x: 1038.4, y: -799.2001}
+  position: {x: 136.50009, y: -458.5}
   dialogue:
     character: 0
     sentences:
@@ -541,7 +541,7 @@ MonoBehaviour:
   guid: 7b2133c2680b5a84e80f795d6bad62a3
   position: {x: 500.4001, y: -541.21454}
   children:
-  - {fileID: -5361551421569701050}
+  - {fileID: -6132808930832458955}
   - {fileID: 747493317040181908}
   choiceConditions:
   - parameterKey: bStolenResearch
@@ -658,7 +658,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d1b9b0362fd737a49a394ec18c8e7858
-  position: {x: 1038.4, y: -877.20013}
+  position: {x: 136.50009, y: -536.5}
   dialogue:
     character: 5
     sentences:
@@ -767,7 +767,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ed1ea1cf8f3dce843ac73de4e851f583
-  position: {x: 837.20013, y: -721.20013}
+  position: {x: -64.49992, y: -380.49997}
   children:
   - {fileID: 1303473114332382871}
   - {fileID: -3663711944026875777}
@@ -899,9 +899,9 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 779eefbf1820059478a2a474c2a77692
-  position: {x: -50.254993, y: -60.000004}
+  position: {x: -294.30112, y: -70.99999}
   children:
-  - {fileID: 8202955023336711497}
+  - {fileID: -5361551421569701050}
   - {fileID: 1300444205304509040}
   choiceConditions:
   - parameterKey: bHasTalkedToPaine

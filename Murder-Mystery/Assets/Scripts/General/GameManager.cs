@@ -291,6 +291,7 @@ public class GameManager : MonoBehaviour
             {
                 if (parameter.parameterKey.Equals(setToTrue))
                 {
+                    Debug.Log("Setting " + setToTrue);
                     DialogueDataWriter.Instance.UpdateDialogueData(parameter.parameterKey, true);
                 }
                 else

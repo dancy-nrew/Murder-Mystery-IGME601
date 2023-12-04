@@ -314,7 +314,7 @@ MonoBehaviour:
   - {fileID: -7486736760132933857}
   - {fileID: 7420343158227701142}
   choiceConditions:
-  - parameterKey: bHasCardBattledConnor
+  - parameterKey: bHasWonConnorCardBattle
     parameterValue: 1
 --- !u!114 &879305231370052705
 MonoBehaviour:
