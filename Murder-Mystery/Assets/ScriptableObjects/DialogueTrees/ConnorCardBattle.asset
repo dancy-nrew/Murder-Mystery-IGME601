@@ -431,7 +431,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - And you are clearly lying about your alibi!
+    - You are clearly lying about your alibi!
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -887,9 +887,9 @@ MonoBehaviour:
   guid: 1fbc19bd7066613438a0e2e0b2c0bc6c
   position: {x: 472, y: -34.000004}
   children:
-  - {fileID: -5087882422991200418}
   - {fileID: 7329340229220819038}
   - {fileID: 7000989107393323415}
+  - {fileID: -5087882422991200418}
 --- !u!114 &6619256236045498826
 MonoBehaviour:
   m_ObjectHideFlags: 0
