@@ -303,6 +303,60 @@ public class LockLanesAndFreeOneAction : CutsceneAction
     }
 }
 
+public class ShowRoundOverlayAction : CutsceneAction
+{
+    public ShowRoundOverlayAction() { }
+
+    public override void PerformAction()
+    {
+        // The DialogueDeal function has ways of tracking which player to deal to and all that.
+        BoardManager bm = GameObject.Find("SceneDataManager").GetComponent<BoardManager>();
+        bm.DisplayRoundTitle();
+        OnActionFinish();
+    }
+
+    public override void OnActionFinish()
+    {
+        CutsceneManager.Instance.MoveToNextAction();
+    }
+
+    public override void SetFlag()
+    {
+    }
+
+    protected override bool IsFlagSet()
+    {
+        return false;
+    }
+}
+
+public class RestoreNormalSceneOverlayAction : CutsceneAction
+{
+    public RestoreNormalSceneOverlayAction() { }
+
+    public override void PerformAction()
+    {
+        // The DialogueDeal function has ways of tracking which player to deal to and all that.
+        BoardManager bm = GameObject.Find("SceneDataManager").GetComponent<BoardManager>();
+        bm.showingOverlayNormally = true;
+        OnActionFinish();
+    }
+
+    public override void OnActionFinish()
+    {
+        CutsceneManager.Instance.MoveToNextAction();
+    }
+
+    public override void SetFlag()
+    {
+    }
+
+    protected override bool IsFlagSet()
+    {
+        return false;
+    }
+}
+
 public class DealDialogueCardsAction : CutsceneAction
 {
     // This Action informs the hand factory it should deal cards

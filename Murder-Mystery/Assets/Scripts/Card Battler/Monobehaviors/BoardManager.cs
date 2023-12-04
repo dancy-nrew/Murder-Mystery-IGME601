@@ -15,6 +15,7 @@ public class BoardManager : MonoBehaviour
     public delegate void AIMove();
     public static event AIMove OnPlay;
     private RulesManager rm;
+    public bool showingOverlayNormally = true;
     public TMP_Text laneOnePlayerScore;
     public TMP_Text laneTwoPlayerScore;
     public TMP_Text laneThreePlayerScore;
@@ -36,11 +37,10 @@ public class BoardManager : MonoBehaviour
         // Cache reference for the Rules Manager
         rm = gameObject.GetComponent<RulesManager>();
         remainingRoundsText.text = "Rounds Remaining: " + turnsLeft.ToString();
-        CutsceneManager.dCutsceneEndSignal += EnableGUI;
     }
     public void EnableGUI()
     {
-        DisplayRoundTitle(currentTurn);
+        DisplayRoundTitle();
         CutsceneManager.dCutsceneEndSignal -= EnableGUI;
     }
 
@@ -73,10 +73,10 @@ public class BoardManager : MonoBehaviour
         }
 
     }
-    public void DisplayRoundTitle(int turn)
+    public void DisplayRoundTitle()
     {
         RoundPanel.SetActive(true);
-        roundTitleText.text = "Round " + turn.ToString();
+        roundTitleText.text = "Round " + currentTurn.ToString();
         StartCoroutine(HideRoundTitle());
     }
     IEnumerator HideRoundTitle()
@@ -115,9 +115,9 @@ public class BoardManager : MonoBehaviour
         laneOneAIScore.text = lane1ScorePlayer2.ToString();
         laneTwoAIScore.text = lane2ScorePlayer2.ToString();
         laneThreeAIScore.text = lane3ScorePlayer2.ToString();
-        if (currentTurn <= 9)
+        if (showingOverlayNormally && currentTurn <= ConstantParameters.MAX_TURNS)
         {
-            DisplayRoundTitle(currentTurn);
+            DisplayRoundTitle();
 
         }
     }

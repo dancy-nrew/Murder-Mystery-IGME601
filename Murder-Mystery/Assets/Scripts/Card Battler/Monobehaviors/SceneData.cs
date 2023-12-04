@@ -57,13 +57,18 @@ public class SceneData : MonoBehaviour
             CutsceneManager.Instance.AddCutscene(CutsceneFactory.MakeCardBattlerIntroCutscene(handFactory, lastTalkedTo));
             for (int i = 0; i < scriptedSequenceTrees.Count; i++)
             {
-                CutsceneManager.Instance.AddCutscene(
-                    CutsceneFactory.MakeCardBattleScriptedMiniScene(scriptedSequenceTrees[i], indecesToFree[i], lanesToFree[i])
-                    );
+                Cutscene scene = CutsceneFactory.MakeCardBattleScriptedMiniScene(scriptedSequenceTrees[i], indecesToFree[i], lanesToFree[i]);
+                if (i == scriptedSequenceTrees.Count - 1)
+                {
+                    // Add an action to restore the regular round showing thingy
+                    scene.AddAction(new RestoreNormalSceneOverlayAction());
+                }
+                CutsceneManager.Instance.AddCutscene(scene);
             }
 
             CutsceneManager.Instance.MoveToNextCutscene();
             RulesManager rm = GetComponent<RulesManager>();
+            GetComponent<BoardManager>().showingOverlayNormally = false;
             CutsceneManager.dCutsceneEndSignal += rm.PlayConnorScript;
 
         } else if (lastTalkedTo != CharacterSO.ECharacter.Ace)
@@ -89,6 +94,7 @@ public class SceneData : MonoBehaviour
 
             //Add the Cutscene and start it
             CutsceneManager.Instance.AddCutscene(CutsceneFactory.MakeCardBattlerIntroCutscene(handFactory, lastTalkedTo));
+            CutsceneManager.dCutsceneEndSignal += GetComponent<BoardManager>().EnableGUI;
             CutsceneManager.Instance.MoveToNextCutscene();
 
         } else
