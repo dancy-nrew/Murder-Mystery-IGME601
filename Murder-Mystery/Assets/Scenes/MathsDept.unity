@@ -1634,7 +1634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7433700617029951793, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -191
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7433700617029951793, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1913,6 +1913,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0028322726, y: 0.0022800958, z: 0.00072739425}
   m_Center: {x: -0.00010750455, y: -0.00015429736, z: 0.000000013102399}
+--- !u!1 &1521930788 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1831989960105663415, guid: 4ed0760a792dc57478632887fca63fbb, type: 3}
+  m_PrefabInstance: {fileID: 1458491492}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1613065601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7640558969779515294, guid: 939ca681ce5114ff48c7638d117b983e, type: 3}
@@ -1956,16 +1961,22 @@ PrefabInstance:
       value: Award
       objectReference: {fileID: 0}
     - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
+      propertyPath: itemSketch
+      value: 
+      objectReference: {fileID: 21300000, guid: d3c32431a3247440bb778f23328f7e3c, type: 3}
+    - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
       propertyPath: higlightScale
       value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
       propertyPath: itemDescription
-      value: 'A metal and marble award made out to Dr Beatrice Yates for Excellence
-        in Game Theory by the Association of High Mathematics.  Stuck to it is a
-        torn ticket stub for a train out of the city dated for Saturday in the name
-        of G Morse. '
+      value: A metal and marble award made out to Dr Beatrice Yate, with a torn ticket
+        stub for a train out of the city stuck to it.
       objectReference: {fileID: 0}
+    - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
+      propertyPath: notificationIcon
+      value: 
+      objectReference: {fileID: 1521930788}
     - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
       propertyPath: interactableConditions.Array.size
       value: 0
@@ -2703,10 +2714,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
   PausePanel: {fileID: 0}
-  SettingsPanel: {fileID: 0}
   CluesPanel: {fileID: 0}
   CharactersPanel: {fileID: 0}
   ReturnPanel: {fileID: 0}
+  notificationIcon: {fileID: 0}
   characterNameText: {fileID: 0}
   characterInfoText: {fileID: 0}
   clueNameText: {fileID: 0}
@@ -3197,8 +3208,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1269407053010118676}
     - target: {fileID: 6605083968657124549, guid: 6d26bd1a19131d24cb056e2c2b58148b, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6605083968657124549, guid: 6d26bd1a19131d24cb056e2c2b58148b, type: 3}
       propertyPath: orthographic size
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6605083968657124549, guid: 6d26bd1a19131d24cb056e2c2b58148b, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.14391243
+      objectReference: {fileID: 0}
+    - target: {fileID: 6605083968657124549, guid: 6d26bd1a19131d24cb056e2c2b58148b, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.20754719
+      objectReference: {fileID: 0}
+    - target: {fileID: 6605083968657124549, guid: 6d26bd1a19131d24cb056e2c2b58148b, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.16158876
       objectReference: {fileID: 0}
     - target: {fileID: 8858887546105486754, guid: 6d26bd1a19131d24cb056e2c2b58148b, type: 3}
       propertyPath: m_Name
