@@ -871,8 +871,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(The suspect's alibi is tight. Without witness testimony, it'll be harder
-      to \npush them in questioning.)"
+    - (The suspect's alibi is tight. Without witness testimony, it'll be harder to
+      push them in questioning.)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []

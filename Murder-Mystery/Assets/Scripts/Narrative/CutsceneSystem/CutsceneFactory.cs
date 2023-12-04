@@ -8,6 +8,12 @@ public static class CutsceneFactory
         cutscene.AddAction(new WaitAction());
     }
 
+    private static void AddOverlayAction(Cutscene cutscene)
+    {
+        cutscene.AddAction(new ShowRoundOverlayAction());
+        cutscene.AddAction(new WaitAction());
+    }
+
     private static void AddCardDealingActions(Cutscene cutscene, HandFactory handFactory)
     {
         // First person speaks on clue
@@ -30,9 +36,11 @@ public static class CutsceneFactory
     public static Cutscene MakeCardBattleScriptedMiniScene(DialogueTree treeForScene, int cardToUnfreeze, int lanesToUnfreeze)
     {
         Cutscene cutscene = new Cutscene();
+        cutscene.AddAction(new WaitAction());
         SetCardInteractivityAction freezeCards = new SetCardInteractivityAction();
         freezeCards.SetFlag();
         cutscene.AddAction(freezeCards);
+        AddOverlayAction(cutscene);
         AddDialogueAndWait(cutscene, new LoadDialogueAndStart(treeForScene));
         AddDialogueAndWait(cutscene, new DialogueAction());
         AddDialogueAndWait(cutscene, new DialogueAction());
