@@ -34,7 +34,7 @@ public class SceneData : MonoBehaviour
             //Scripted Sequence
             //Ace's Cards
             int[] cardsToDealAce = { 
-                6,8,7,8,6,9,3,4,5
+                6,8,7,8,6,9,8,9,10
             };
 
             //Connor's Cards
@@ -44,7 +44,7 @@ public class SceneData : MonoBehaviour
 
             int[] indecesToFree =
             {
-                0,1,3,2,4,-1
+                0,3,1,2,4,-1
             };
             int[] lanesToFree =
             {
