@@ -12,9 +12,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748c9062dd0b2c04eb4ef23d4c0f3a06, type: 3}
   m_Name: DialogueData
   m_EditorClassIdentifier: 
-  bResetDataOnGameStart: 1
   parameters:
   - parameterKey: bHasTalkedToDancy
     parameterValue: 0
   - parameterKey: bHasTalkedToReeves
+    parameterValue: 0
+  - parameterKey: bTestParameter
+    parameterValue: 0
+  - parameterKey: bHasTalkedToChief
+    parameterValue: 0
+  - parameterKey: bHasTalkedToPaine
+    parameterValue: 1
+  - parameterKey: bHasTalkedToConnor
+    parameterValue: 0
+  - parameterKey: bHasTalkedToMorse
+    parameterValue: 0
+  - parameterKey: bHasTalkedToStone
+    parameterValue: 0
+  - parameterKey: bIsVaseInteractable
+    parameterValue: 0
+  - parameterKey: bIsBookInteractable
+    parameterValue: 0
+  - parameterKey: bHasPickedUpVase
+    parameterValue: 1
+  - parameterKey: bHasPickedUpBook
+    parameterValue: 1
+  - parameterKey: bHasPickedUpCube
+    parameterValue: 0
+  - parameterKey: bPaineRevelation
+    parameterValue: 1
+  - parameterKey: bMathDepartmentLeadership
+    parameterValue: 1
+  - parameterKey: bAlwaysTrue
+    parameterValue: 1
+  - parameterKey: bEndOfConnorCardBattle
+    parameterValue: 0
+  - parameterKey: bHasWonConnorCardBattle
+    parameterValue: 1
+  - parameterKey: bDealCards
+    parameterValue: 0
+  - parameterKey: bEndOfReevesCardBattle
+    parameterValue: 0
+  - parameterKey: bHasWonReevesCardBattle
+    parameterValue: 0
+  - parameterKey: bEndOfMorseCardBattle
+    parameterValue: 0
+  - parameterKey: bHasWonMorseCardBattle
+    parameterValue: 0
+  - parameterKey: bEndOfStoneCardBattle
+    parameterValue: 0
+  - parameterKey: bHasWonStoneCardBattle
+    parameterValue: 0
+  - parameterKey: bReevesRevelation
+    parameterValue: 0
+  - parameterKey: bHasPickedUpAward
+    parameterValue: 0
+  - parameterKey: bStolenResearch
+    parameterValue: 0
+  - parameterKey: bConnorRevelation
+    parameterValue: 0
+  - parameterKey: bHasPickedUpModel
+    parameterValue: 0
+  - parameterKey: bBrokenHeart
     parameterValue: 0

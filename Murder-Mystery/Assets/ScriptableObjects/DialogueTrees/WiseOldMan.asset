@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8169005177254050085
+--- !u!114 &-1522145654008816892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13,29 +13,10 @@ MonoBehaviour:
   m_Name: RootNode
   m_EditorClassIdentifier: 
   state: 0
-  started: 0
-  guid: 31916c2115187ce4bb7452a13e35dac2
+  started: 1
+  guid: a23df584b247b3f4da54e9bd1a875c0c
   position: {x: 0, y: 0}
-  child: {fileID: -3162838663032953011}
---- !u!114 &-3162838663032953011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
-  m_Name: SequenceNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 37a209153effa62429c100ec21664653
-  position: {x: 128, y: 0.5}
-  children:
-  - {fileID: 6129157836879073002}
-  - {fileID: 3755235686185707634}
+  child: {fileID: 63322238857697665}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,19 +29,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba83d73ca578896468e40ca6498119b9, type: 3}
   m_Name: WiseOldMan
   m_EditorClassIdentifier: 
-  rootNode: {fileID: -8169005177254050085}
+  rootNode: {fileID: -1522145654008816892}
   treeState: 0
   nodes:
-  - {fileID: -8169005177254050085}
-  - {fileID: 6129157836879073002}
-  - {fileID: 3755235686185707634}
-  - {fileID: -3162838663032953011}
+  - {fileID: -1522145654008816892}
+  - {fileID: 63322238857697665}
   dialogues: []
   currentDialogue:
-    characterName: 
+    character: 0
     sentences: []
     bTransitionToCardBattle: 0
---- !u!114 &3755235686185707634
+--- !u!114 &63322238857697665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,33 +53,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: e55c0cdeeae3032449d0ab35b2eca32d
-  position: {x: 312, y: 97}
+  guid: 59907b657ef97a040b65a61802ac525e
+  position: {x: 223.84998, y: 0.000029468538}
   dialogue:
-    characterName: Wise Old Man
+    character: 8
     sentences:
-    - You Dare Card Battle ME!
-    bTransitionToCardBattle: 1
-  gateConditions: []
---- !u!114 &6129157836879073002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 8235b3911d29cc74a911465b7f67fbd8
-  position: {x: 324, y: -50}
-  dialogue:
-    characterName: Wise Old Man
-    sentences:
-    - Click a room on the mini-map to travel there!
+    - Click on a room to travel there!
     bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []

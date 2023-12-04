@@ -15,12 +15,14 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: edaf277d105248e42a5423926e63d8ef
-  position: {x: 449.00006, y: 108}
+  position: {x: 449.0001, y: 108.499985}
   dialogue:
-    characterName: 3
+    character: 2
     sentences:
-    - hey there 3
+    - Well then
+    bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &-4547498086823885252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,10 +40,12 @@ MonoBehaviour:
   guid: 1c5b30901bc945943b9995d4ceac348d
   position: {x: 713, y: 69.5}
   dialogue:
-    characterName: Choice 2
+    character: 2
     sentences:
-    - thanks 2
+    - I hate green!
+    bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &-3442485617295513963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,10 +63,12 @@ MonoBehaviour:
   guid: 2effc37206aa66849ac036794da7d15d
   position: {x: 449, y: -167.6}
   dialogue:
-    characterName: Ace
+    character: 2
     sentences:
-    - Hey there 1
+    - Hey there Ace
+    bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &-2316674959355253280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,10 +86,12 @@ MonoBehaviour:
   guid: 7498166f6961d964eb1f0fa0c168b3c3
   position: {x: 713, y: -53}
   dialogue:
-    characterName: Choice 1
+    character: 2
     sentences:
-    - thanks 1
+    - I love red too!
+    bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &-1228298436148703074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,10 +148,12 @@ MonoBehaviour:
   guid: ca49c07d580c18342bbef3d105192aa0
   position: {x: 449, y: 201}
   dialogue:
-    characterName: 4
+    character: 2
     sentences:
-    - hey there 4
+    - Off you go.
+    bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,8 +179,12 @@ MonoBehaviour:
   - {fileID: -2316674959355253280}
   - {fileID: -4547498086823885252}
   dialogues: []
+  currentDialogue:
+    character: 0
+    sentences: []
+    bTransitionToCardBattle: 0
   bIsInputting: 0
-  inputtingNode: {fileID: 0}
+  currentInputNode: {fileID: 0}
 --- !u!114 &1810528249674211861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,16 +201,13 @@ MonoBehaviour:
   started: 0
   guid: 4c17cc1a8b241e7479f2804bf8e26738
   position: {x: 449, y: 13}
-  dialogue:
-    characterName: Choose pls
-    sentences:
-    - Choose pls
   children:
   - {fileID: -2316674959355253280}
   - {fileID: -4547498086823885252}
   choices:
-  - '"Choice 1"'
-  - '"Choice 2"'
+  - Red
+  - Green
+  choice: -1
 --- !u!114 &5439927020950112096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +225,9 @@ MonoBehaviour:
   guid: 0b900c9ca8fc62f4cbbf0adb27347241
   position: {x: 449, y: -77}
   dialogue:
-    characterName: 2
+    character: 2
     sentences:
-    - Hey there 1
+    - What's your favourite color?
+    bTransitionToCardBattle: 0
   gateConditions: []
+  dataUpdates: []

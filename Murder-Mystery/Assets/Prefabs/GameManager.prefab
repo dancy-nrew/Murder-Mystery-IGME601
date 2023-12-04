@@ -53,3 +53,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9928921ab10940340b31db6b7da2334d, type: 2}
   - {fileID: 11400000, guid: 28d61cb35a787c447a575ea8804e30cf, type: 2}
   - {fileID: 11400000, guid: 32fbfc376815db249a54e487b210d321, type: 2}
+  flashMessageDuration: 5
+  trueOnStart:
+  - bIsVaseInteractable
+  - bAlwaysTrue
+  FlashMessageObject: {fileID: 0}
+  _shouldLoadFromSavedLocation: 0
+  _lastTalkedToCharacter: 0
+  _justWalkedThroughDoor: 0
+  _doorKey: 

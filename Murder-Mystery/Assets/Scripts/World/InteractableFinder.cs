@@ -11,6 +11,7 @@ public class InteractableFinder : MonoBehaviour
         Interactable interactable = other.gameObject.GetComponentInParent<Interactable>();
         if (interactable && interactable.bIsInteractable)
         {
+            Debug.Log("Found Interactable");
             interactable.StartHighlightingInteractable();
         }    
     }

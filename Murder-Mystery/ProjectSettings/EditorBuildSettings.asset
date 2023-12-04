@@ -11,19 +11,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DialogueTest.unity
     guid: 67be82736f490a94ebe0108834d99287
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/3DIso_Movement.unity
     guid: 237b0c3464348be4395295972d417170
   - enabled: 1
-    path: Assets/Scenes/LibraryGreybox.unity
+    path: Assets/Scenes/Library.unity
     guid: 7b848643fd7d54e6f8ee3845f6da40d9
   - enabled: 1
-    path: Assets/Scenes/MathsDeptGreybox.unity
+    path: Assets/Scenes/MathsDept.unity
     guid: c2b9bda0ef32a43fbb8e25507375d3d3
   - enabled: 1
-    path: Assets/Scenes/OfficeGreybox.unity
+    path: Assets/Scenes/Office.unity
     guid: 47bd19d4ace544670ab24733c1271ed0
   - enabled: 1
     path: Assets/Scenes/Card Battler.unity
     guid: 270d68a52428eb94a89f33739cf16525
+  - enabled: 1
+    path: Assets/Scenes/BroomClosetGreybox.unity
+    guid: abd0190c28c6e47919b48d5f915ada7b
+  - enabled: 0
+    path: Assets/Scenes/Hub.unity
+    guid: 26196d436f6db194380f016ea79f1a15
+  - enabled: 0
+    path: Assets/Scenes/DialogueInteractionTest.unity
+    guid: 2bab780cdaf17584a926f8dd766c10b0
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: a4ff97674d0f64f73aafc30a313defb7
   m_configObjects: {}

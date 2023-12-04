@@ -58,12 +58,20 @@ public class DialogueTreeView : GraphView
             var children = currentTree.GetChildren(node);
             if (parentView.node is ChoiceNode)
             {
-                NodeView childViewTrue = GetNodeViewFromNode(children[0]);
-                NodeView childViewFalse = GetNodeViewFromNode(children[1]);
-                Edge edge1 = parentView.outputs[0].ConnectTo(childViewTrue.input);
-                Edge edge2 = parentView.outputs[1].ConnectTo(childViewFalse.input);
-                AddElement(edge1);
-                AddElement(edge2);
+                if(children.Count >0)
+                {
+                    NodeView childViewTrue = GetNodeViewFromNode(children[0]);
+                    Edge edge1 = parentView.outputs[0].ConnectTo(childViewTrue.input);
+                    AddElement(edge1);
+                }
+
+                if (children.Count > 1)
+                {
+                    NodeView childViewFalse = GetNodeViewFromNode(children[1]);
+                    Edge edge2 = parentView.outputs[1].ConnectTo(childViewFalse.input);
+                    AddElement(edge2);
+                }  
+               
             }
             else
             {

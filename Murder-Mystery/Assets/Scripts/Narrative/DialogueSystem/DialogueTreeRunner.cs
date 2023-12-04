@@ -9,8 +9,6 @@ public class DialogueTreeRunner : MonoBehaviour
 
     [SerializeField]
     DialogueTree dialogueTree;
-    [SerializeField]
-    private string characterName;
 
     // Clones dialogue tree in case multiple object hold the same dialogueTree.
     void Start()

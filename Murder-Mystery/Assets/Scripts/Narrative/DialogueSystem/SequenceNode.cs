@@ -39,7 +39,6 @@ public class SequenceNode : Node
             }
             
         }
-       
 
         return current == children.Count ? NodeState.Success : NodeState.Running;
 
@@ -51,5 +50,26 @@ public class SequenceNode : Node
         tree.nodes.Add(node);
         node.children = children.ConvertAll(c => c .Clone(tree));
         return node;
+    }
+
+    protected override void UpdateNodeState()
+    {
+        current = 0;
+        while (current < children.Count)
+        {
+            Node child = children[current];
+            if (child.state != NodeState.Success)
+            {
+                state = NodeState.Running;
+                break;
+            }
+            current++;
+        }
+
+        if(current == children.Count)
+        {
+            state = NodeState.Success;
+        }
+        
     }
 }

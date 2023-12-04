@@ -58,6 +58,8 @@ public abstract class Node : ScriptableObject
         
         state = OnUpdate();
 
+        UpdateNodeState();
+
         if (state == NodeState.Failure || state == NodeState.Success)
         {
             OnStop();
@@ -77,5 +79,10 @@ public abstract class Node : ScriptableObject
     protected abstract void OnStart();
     protected abstract void OnStop();
     protected abstract NodeState OnUpdate();
+
+    protected virtual void UpdateNodeState()
+    {
+
+    }
 
 }

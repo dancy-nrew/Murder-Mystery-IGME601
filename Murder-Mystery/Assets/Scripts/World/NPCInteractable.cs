@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*
  * Responsible for NPC interactions.
@@ -8,6 +9,8 @@ using UnityEngine;
 public class NPCInteractable : Interactable
 {
     private DialogueTreeRunner dialogueTreeRunner;
+    [SerializeField]
+    public CharacterSO.ECharacter character;
 
     protected override void Awake()
     {
@@ -24,6 +27,9 @@ public class NPCInteractable : Interactable
             return;
 
         Debug.Log("Calling Dialouge tree runner");
+        GameManager.Instance.SetLastTalkedTo(character);
+        GameManager.Instance.StorePlayerLastLocation();
+        GameManager.Instance.SetLastVisitedScene(SceneManagers.GetCurrentScene());
         dialogueTreeRunner.UpdateTree();
     }
 

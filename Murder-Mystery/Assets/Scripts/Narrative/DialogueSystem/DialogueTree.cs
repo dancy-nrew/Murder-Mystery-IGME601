@@ -18,6 +18,8 @@ public class DialogueTree : ScriptableObject
     public List<Dialogue> dialogues = new List<Dialogue>();
 
     public Dialogue currentDialogue;
+    public bool bIsInputting = false;
+    public InputNode currentInputNode = null;
 
     public Dictionary<string, bool> parameters = new Dictionary<string, bool>();
 
@@ -40,6 +42,11 @@ public class DialogueTree : ScriptableObject
         foreach (Node node in nodes)
         {
             node.state = Node.NodeState.Running;
+            if(node is InputNode)
+            {
+                InputNode inputNode = node as InputNode;
+                inputNode.choice = -1;
+            }
         }
     }
 

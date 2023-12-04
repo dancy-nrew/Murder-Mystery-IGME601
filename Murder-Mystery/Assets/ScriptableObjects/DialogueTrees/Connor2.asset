@@ -1,0 +1,382 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5155553825900020460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 13f2f29c9caf7c94db60a8015b337d92
+  position: {x: 480.87915, y: 149.20001}
+  dialogue:
+    character: 6
+    sentences:
+    - "I- um\u2026coffee?"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-4493286479970272028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 7b46e16057c6a4847a9cac35dcc829a9
+  position: {x: 641.3201, y: -252.89963}
+  dialogue:
+    character: 0
+    sentences:
+    - "Oh\u2026 Well, I can\u2019t promise not to tell anyone because of the investigation,
+      but I can promise you that his secret is safe."
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-4313164315370848695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf40963fd2fd84044a361d2c75c38fa7, type: 3}
+  m_Name: ChoiceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 07d0421003d1fe74fabc177734655e97
+  position: {x: 325.59998, y: -381.80008}
+  children:
+  - {fileID: -38838796238818350}
+  - {fileID: 956934128627463021}
+  choiceConditions:
+  - parameterKey: bHasTalkedToChief
+    parameterValue: 1
+--- !u!114 &-4301237972872399905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 41353fc6a33999d409f7a869b45d890b
+  position: {x: 641.3201, y: -90.89966}
+  dialogue:
+    character: 0
+    sentences:
+    - Can you think of anyone who might want to hurt Dr Yates?
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-2160265706000321441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 87db94e8b46465442806a660cc68fba8
+  position: {x: 480.87915, y: 71.20004}
+  dialogue:
+    character: 0
+    sentences:
+    - "Something isn\u2019t adding up. "
+    - "You said you were up all night writing a paper, but you don\u2019t look the
+      least bit tired."
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-1156771100142838114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf40963fd2fd84044a361d2c75c38fa7, type: 3}
+  m_Name: ChoiceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 80e9d34935326194d85b79dbf20abe50
+  position: {x: 172, y: 0}
+  children:
+  - {fileID: -4313164315370848695}
+  - {fileID: 7980039776753867816}
+  choiceConditions:
+  - parameterKey: bHasWonConnorCardBattle
+    parameterValue: 1
+--- !u!114 &-980212722910092032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ec560865062a6409c5395eac34b9be, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 14d4dbfa20d26504e95e88ddb5c9dd43
+  position: {x: 0, y: 0}
+  child: {fileID: -1156771100142838114}
+--- !u!114 &-38838796238818350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: bf5ff18997753b84d829296d8c14d6a6
+  position: {x: 641.1997, y: -573.1999}
+  dialogue:
+    character: 6
+    sentences:
+    - I still work in the building so I know where everything is if you need a hand.
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba83d73ca578896468e40ca6498119b9, type: 3}
+  m_Name: Connor2
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -980212722910092032}
+  treeState: 0
+  nodes:
+  - {fileID: -980212722910092032}
+  - {fileID: -1156771100142838114}
+  - {fileID: 956934128627463021}
+  - {fileID: 7980039776753867816}
+  - {fileID: -2160265706000321441}
+  - {fileID: -5155553825900020460}
+  - {fileID: 7000668233265380673}
+  - {fileID: 5348091162218677394}
+  - {fileID: -4493286479970272028}
+  - {fileID: 8522564745305397494}
+  - {fileID: -4301237972872399905}
+  - {fileID: 171761565276587328}
+  - {fileID: 3388122974183293979}
+  - {fileID: -4313164315370848695}
+  - {fileID: -38838796238818350}
+  dialogues: []
+  currentDialogue:
+    character: 0
+    sentences: []
+    bTransitionToCardBattle: 0
+  bIsInputting: 0
+  currentInputNode: {fileID: 0}
+--- !u!114 &171761565276587328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 7644a340c0a09fb469bacfb668807b1e
+  position: {x: 641.3201, y: -12.899647}
+  dialogue:
+    character: 6
+    sentences:
+    - "Um- well, I don\u2019t know if he\u2019d hurt her, but she and Dr Reeves never
+      got along\u2026"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &956934128627463021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: bdd56b6c579882c4d8112feff2f65e16
+  position: {x: 480.80008, y: -130.93948}
+  children:
+  - {fileID: 5348091162218677394}
+  - {fileID: -4493286479970272028}
+  - {fileID: 8522564745305397494}
+  - {fileID: -4301237972872399905}
+  - {fileID: 171761565276587328}
+  - {fileID: 3388122974183293979}
+--- !u!114 &3388122974183293979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 6931dd9f61d5ac940add1d85016bc72a
+  position: {x: 641.3201, y: 65.10036}
+  dialogue:
+    character: 0
+    sentences:
+    - "I should talk to the chief about this\u2026"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &5348091162218677394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ef3b9895459f18144bab51678f8b7c57
+  position: {x: 641.3201, y: -330.89963}
+  dialogue:
+    character: 6
+    sentences:
+    - Alright, fine!
+    - 'I lied about where I was this weekend. '
+    - "Not because I killed Dr Yates, but because I\u2019m protecting someone else. "
+    - 'I was with my boyfriend. '
+    - "You can\u2019t tell anyone, Detective. "
+    - He's not out!
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &7000668233265380673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 0c6d7eeb0e7604844843e09bb121ae8c
+  position: {x: 480.87915, y: 227.20003}
+  dialogue:
+    character: 0
+    sentences:
+    - "Hmm, I would like to open a few lines of questioning\u2026"
+    bTransitionToCardBattle: 1
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &7980039776753867816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 05c4c03a9729390419db51ac1a89c6e6
+  position: {x: 325.59998, y: 149}
+  children:
+  - {fileID: -2160265706000321441}
+  - {fileID: -5155553825900020460}
+  - {fileID: 7000668233265380673}
+--- !u!114 &8522564745305397494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 4090b6b8d8d8e7f4aa8b5a7ad2c17d77
+  position: {x: 641.3201, y: -174.89961}
+  dialogue:
+    character: 6
+    sentences:
+    - "That\u2019s a relief, thanks. "
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
-using UnityEngine.Timeline;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -45,12 +44,16 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Layer: " + layerMask.value);
     }
 
-    // Update is called once per frame
+    /*
+     * If an interactable has been selected, checking to see if player is close enought to interact with it.
+     */
     void Update()
     {
         if(currentInteractable != null)
         {
-            if(Vector3.Distance(transform.position, currentInteractable.transform.position) <= interactionDistance)
+            Vector2 playerXZPos = new Vector2(transform.position.x, transform.position.z);
+            Vector2 interactableXZPos = new Vector2(currentInteractable.transform.position.x, currentInteractable.transform.position.z);
+            if (Vector2.Distance( playerXZPos, interactableXZPos) <= interactionDistance)
             {
                 currentInteractable.OnInteraction();
                 currentInteractable=null;
@@ -71,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Checking to see if an interactable has been clicked
             Interactable interactable = raycastHit.collider.gameObject.GetComponentInParent<Interactable>();
-            if(interactable != null)
+            if(interactable != null && interactable.bIsInteractable)
             {
                 agent.SetDestination(raycastHit.point);
                 currentInteractable = interactable;

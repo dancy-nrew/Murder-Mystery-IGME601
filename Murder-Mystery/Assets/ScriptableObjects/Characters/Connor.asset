@@ -15,3 +15,7 @@ MonoBehaviour:
   character: 6
   displayName: Mr. Connor
   characterPortrait: {fileID: 21300000, guid: 43ed55b792cf6eb49a338ffd512882c3, type: 3}
+  cardBattleDialogueTree: {fileID: 11400000, guid: d6b546d6f695ca544ae4f4babf56925c, type: 2}
+  witnessParameter: bAlwaysTrue
+  locationParameter: bAlwaysTrue
+  motiveParameter: bAlwaysTrue
