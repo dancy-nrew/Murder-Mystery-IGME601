@@ -22,8 +22,10 @@ public class ClueInteractable : Interactable
     protected override void Awake()
     {
         //Debug.Log(self.ToString());
+        /*
         foreach(Clue cond in GameManager.Instance.clues)
             Debug.Log(cond.ToString());
+        */
         
         self = new Clue { Name = itemName, Description = itemDescription, Sketch = itemSketch };
         base.Awake();
@@ -31,11 +33,18 @@ public class ClueInteractable : Interactable
         
 
         //Check if clue is alraedy within the journal
-        foreach(Clue cond in GameManager.Instance.clues)
+        try
         {
-            //Debug.Log(cond.Name+ " = " + self.Name + "?");
-            if(cond.Name.Equals(self.Name))
-                gameObject.SetActive(false);
+            foreach(Clue cond in GameManager.Instance.clues)
+            {
+                //Debug.Log(cond.Name+ " = " + self.Name + "?");
+                if(cond.Name.Equals(self.Name))
+                    gameObject.SetActive(false);
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.Log("Clues list is empty");
         }
     }
 
