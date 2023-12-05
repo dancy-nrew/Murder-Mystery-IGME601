@@ -86,7 +86,7 @@ MonoBehaviour:
   guid: 55c9316b916f4524a83e6d62def84ee1
   position: {x: 600, y: -237.8}
   children:
-  - {fileID: -4277798152348085866}
+  - {fileID: 9091146014059199402}
   - {fileID: 4042296476901918566}
   choiceConditions:
   - parameterKey: bMathDepartmentLeadership
@@ -179,10 +179,10 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 83226916a56986d46a1e90e77bdfe7c0
-  position: {x: 794.4, y: -456.39987}
+  position: {x: -33.470657, y: -137.00014}
   children:
   - {fileID: 5516862750043113073}
-  - {fileID: 9091146014059199402}
+  - {fileID: -2870072525507252746}
   choiceConditions:
   - parameterKey: bHasWonReevesCardBattle
     parameterValue: 1
@@ -225,7 +225,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: de52aaf7dfedafd44a1ffea5ddf4d388
-  position: {x: 1151.6001, y: -682.3999}
+  position: {x: 325.00006, y: -364.99994}
   dialogue:
     character: 0
     sentences:
@@ -295,8 +295,8 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 246dd70b9fbdb224dad4d1bfcb8dbdec
-  position: {x: 0, y: 0}
-  child: {fileID: -2870072525507252746}
+  position: {x: -220.66612, y: 0.9999097}
+  child: {fileID: -4277798152348085866}
 --- !u!114 &-619085053500100547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 398872b3c97356b459e108e2df72bc4a
-  position: {x: 1151.6001, y: -604.39996}
+  position: {x: 324.52948, y: -285.00012}
   dialogue:
     character: 4
     sentences:
@@ -563,11 +563,11 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 921a5478a3d2ac747883a3939cb83b9a
-  position: {x: 1151.6001, y: -760.51025}
+  position: {x: 324.52948, y: -442.00012}
   dialogue:
     character: 4
     sentences:
-    - 'You think I killed Bea with that vase? '
+    - 'You think I killed Bea with that vase?  '
     - It would have shredded my hands and look, my hands are fine!
     bTransitionToCardBattle: 0
   gateConditions: []
@@ -634,7 +634,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 66cb0a34b0c4acc43b93d3f99ea60a4e
-  position: {x: 952.3999, y: -582.5442}
+  position: {x: 124.529465, y: -264.00015}
   children:
   - {fileID: 4052966482608211338}
   - {fileID: -1973491662018242298}
