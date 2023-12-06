@@ -89,6 +89,8 @@ public class ClueInteractable : Interactable
             GameManager.Instance.FlashMessage(message);
             GameManager.Instance.AppendToCharacterDescription(characterToAppend, appendUponPickup);
         }
+
+        StartDialogue();
     }
     private void Start()
     {

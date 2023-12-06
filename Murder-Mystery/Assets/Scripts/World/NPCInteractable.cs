@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
  */
 public class NPCInteractable : Interactable
 {
-    private DialogueTreeRunner dialogueTreeRunner;
     [SerializeField]
     public CharacterSO.ECharacter character;
 

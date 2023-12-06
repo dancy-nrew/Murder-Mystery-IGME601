@@ -22,7 +22,7 @@ MonoBehaviour:
   - parameterKey: bHasTalkedToChief
     parameterValue: 0
   - parameterKey: bHasTalkedToPaine
-    parameterValue: 1
+    parameterValue: 0
   - parameterKey: bHasTalkedToConnor
     parameterValue: 0
   - parameterKey: bHasTalkedToMorse
@@ -34,15 +34,15 @@ MonoBehaviour:
   - parameterKey: bIsBookInteractable
     parameterValue: 0
   - parameterKey: bHasPickedUpVase
-    parameterValue: 1
+    parameterValue: 0
   - parameterKey: bHasPickedUpBook
-    parameterValue: 1
+    parameterValue: 0
   - parameterKey: bHasPickedUpCube
     parameterValue: 0
   - parameterKey: bPaineRevelation
-    parameterValue: 1
+    parameterValue: 0
   - parameterKey: bMathDepartmentLeadership
-    parameterValue: 1
+    parameterValue: 0
   - parameterKey: bAlwaysTrue
     parameterValue: 1
   - parameterKey: bEndOfConnorCardBattle
@@ -50,7 +50,7 @@ MonoBehaviour:
   - parameterKey: bHasWonConnorCardBattle
     parameterValue: 1
   - parameterKey: bDealCards
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bEndOfReevesCardBattle
     parameterValue: 0
   - parameterKey: bHasWonReevesCardBattle

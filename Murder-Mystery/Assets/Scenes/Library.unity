@@ -6673,6 +6673,10 @@ PrefabInstance:
       value: Clue
       objectReference: {fileID: 0}
     - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
+      propertyPath: dialogueTree
+      value: 
+      objectReference: {fileID: 11400000, guid: dfad95fa9d2331245bf8b7e13cc8f9bd, type: 2}
+    - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
       propertyPath: notificationIcon
       value: 
       objectReference: {fileID: 1040768554}
