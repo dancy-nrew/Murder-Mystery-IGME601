@@ -228,7 +228,7 @@ MonoBehaviour:
   guid: 1308dbab4d63d794693b888f3a795e5b
   position: {x: 887.1999, y: 400.19992}
   dialogue:
-    character: 0
+    character: 2
     sentences:
     - '*weeze*'
     bTransitionToCardBattle: 0
@@ -513,7 +513,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 73d07fc0fc7298e4db05d4d2cee6a2ed
-  position: {x: 388.68878, y: 692.8116}
+  position: {x: 388, y: 677}
   children:
   - {fileID: -7486736760132933857}
   - {fileID: 7420343158227701142}
@@ -535,7 +535,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ffc0b92db35e73d4a8fa1a8725450899
-  position: {x: 700.28864, y: 1168.4116}
+  position: {x: 699.9999, y: 1169}
   dialogue:
     character: 2
     sentences:
@@ -558,7 +558,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: c37901cecb66ab84983b4d16b54699ba
-  position: {x: 887.19965, y: 556.4}
+  position: {x: 886.9998, y: 557.00006}
   dialogue:
     character: 2
     sentences:
@@ -729,7 +729,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 97df5141e770fe6448368c9b2a4240ab
-  position: {x: 887.1999, y: 240.19992}
+  position: {x: 886.9998, y: 241.00002}
   dialogue:
     character: 2
     sentences:
@@ -872,7 +872,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 9df220d0793c0c742a861e2aaebc99d8
-  position: {x: 887.1999, y: 1.3999634}
+  position: {x: 886.9998, y: 2.0000155}
   dialogue:
     character: 2
     sentences:

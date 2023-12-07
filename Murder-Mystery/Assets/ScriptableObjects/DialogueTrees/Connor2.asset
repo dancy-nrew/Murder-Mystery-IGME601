@@ -15,10 +15,10 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 688cb11a756e2f842939b26408569b23
-  position: {x: 782.7999, y: 0.000011294975}
+  position: {x: 596, y: 155.00002}
   children:
   - {fileID: -4267358487415581594}
-  - {fileID: 1720353115885662066}
+  - {fileID: 6996578767857174607}
   choiceConditions:
   - parameterKey: bHasWonConnorCardBattle
     parameterValue: 1
@@ -117,7 +117,9 @@ MonoBehaviour:
     - "Heh- it\u2019s funny you\u2019re the second person to ask me for the key.\r"
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bHasGotClosetKey
+    parameterValue: 1
 --- !u!114 &-6791460052164809663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +345,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 14d4dbfa20d26504e95e88ddb5c9dd43
-  position: {x: 0, y: 0}
+  position: {x: 64.71324, y: 0.9999997}
   child: {fileID: 4487476275780816270}
 --- !u!114 &-945853395811325977
 MonoBehaviour:
@@ -387,7 +389,6 @@ MonoBehaviour:
   - {fileID: -980212722910092032}
   - {fileID: 7000668233265380673}
   - {fileID: 4487476275780816270}
-  - {fileID: 3346480324557399155}
   - {fileID: -9223322119167567944}
   - {fileID: -1678806691149140592}
   - {fileID: -6791460052164809663}
@@ -405,7 +406,6 @@ MonoBehaviour:
   - {fileID: -8476971432501735435}
   - {fileID: -945853395811325977}
   - {fileID: 1954137254778396967}
-  - {fileID: 1720353115885662066}
   - {fileID: 6996578767857174607}
   - {fileID: 4928846454834974546}
   - {fileID: -2304079558041599091}
@@ -416,29 +416,6 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   bIsInputting: 0
   currentInputNode: {fileID: 0}
---- !u!114 &1720353115885662066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 7355f195db50ae84ba4890f6478b7672
-  position: {x: 991.99994, y: 78.00003}
-  dialogue:
-    character: 0
-    sentences:
-    - I didn't hurt Dr Yates!
-    bTransitionToCardBattle: 0
-  gateConditions: []
-  dataUpdates: []
 --- !u!114 &1954137254778396967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,28 +439,6 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
---- !u!114 &3346480324557399155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf40963fd2fd84044a361d2c75c38fa7, type: 3}
-  m_Name: ChoiceNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 0244b7aff6b4515428989fe19ff473cd
-  position: {x: 596.4, y: 136.98016}
-  children:
-  - {fileID: -9223322119167567944}
-  - {fileID: 6996578767857174607}
-  choiceConditions:
-  - parameterKey: bEndOfConnorCardBattle
-    parameterValue: 1
 --- !u!114 &4487476275780816270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,7 +457,7 @@ MonoBehaviour:
   position: {x: 335.5689, y: 0.000011294975}
   children:
   - {fileID: -1678806691149140592}
-  - {fileID: 3346480324557399155}
+  - {fileID: -9223322119167567944}
   choiceConditions:
   - parameterKey: bHasSpilledCoffee
     parameterValue: 1

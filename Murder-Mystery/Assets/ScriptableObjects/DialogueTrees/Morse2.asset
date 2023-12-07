@@ -1,27 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9003744242779217681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf40963fd2fd84044a361d2c75c38fa7, type: 3}
-  m_Name: ChoiceNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 60f5616fd30ff364988cf1173234b81f
-  position: {x: -342.4186, y: -0.000015258789}
-  children:
-  - {fileID: 413565289087671926}
-  - {fileID: 8475733367346268804}
-  choiceConditions:
-  - parameterKey: bEndOfMorseCardBattle
-    parameterValue: 1
 --- !u!114 &-8992874884286734141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +208,7 @@ MonoBehaviour:
   started: 0
   guid: 76e0c72c85108784ab573476c7d33227
   position: {x: -488.05576, y: -0.000015355869}
-  child: {fileID: -9003744242779217681}
+  child: {fileID: 413565289087671926}
 --- !u!114 &-4814906075669061470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,7 +313,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 0e8132dfc456de74a91cd2b3e949f110
-  position: {x: 191.19989, y: 395.4754}
+  position: {x: 190.99995, y: 395.99988}
   dialogue:
     character: 3
     sentences:
@@ -408,7 +386,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: fc63aa34722dca846847612955b4c262
-  position: {x: 414.79996, y: 253.87541}
+  position: {x: 414.99997, y: 254.99995}
   dialogue:
     character: 3
     sentences:
@@ -418,30 +396,6 @@ MonoBehaviour:
     - 'We made up on Saturday, which I am very grateful for, and she gave me the
       model of the Eiffel Tower we got when we visited Paris. '
     - "I miss her\u2026\r"
-    bTransitionToCardBattle: 0
-  gateConditions: []
-  dataUpdates: []
---- !u!114 &-1462480071471518223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: cf0cea7c46f1ab54f85890fce847d1e9
-  position: {x: 17.200018, y: -108.868164}
-  dialogue:
-    character: 3
-    sentences:
-    - "I know that you\u2019re only doing your job, but it\u2019s cruel that you\u2019d
-      think I\u2019d kill my Bea!"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -549,7 +503,6 @@ MonoBehaviour:
   - {fileID: 6741643886220893788}
   - {fileID: 8074008788231083599}
   - {fileID: 413565289087671926}
-  - {fileID: -9003744242779217681}
   - {fileID: 5600369529375067105}
   - {fileID: -1413040204737221476}
   - {fileID: 1594352428986718421}
@@ -567,7 +520,6 @@ MonoBehaviour:
   - {fileID: -7226981625429843417}
   - {fileID: 1245956200055810814}
   - {fileID: -4797609581494039245}
-  - {fileID: -1462480071471518223}
   - {fileID: 3876375281277631283}
   - {fileID: -6749066790801524850}
   - {fileID: 3155823634620601848}
@@ -594,10 +546,10 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 50048e4a799ab954f9414d069ebf650d
-  position: {x: -146.39992, y: -233.66821}
+  position: {x: -282.77203, y: -49.99997}
   children:
   - {fileID: 3876375281277631283}
-  - {fileID: -1462480071471518223}
+  - {fileID: 8475733367346268804}
   choiceConditions:
   - parameterKey: bHasWonMorseCardBattle
     parameterValue: 1
@@ -686,7 +638,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 477333988dda24748b54803287d88e31
-  position: {x: 599.19995, y: 551.60004}
+  position: {x: 600.00006, y: 551.9999}
   children:
   - {fileID: -4262607890695055635}
   - {fileID: -7940456647844748550}
@@ -732,7 +684,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ecc2b44ad73aa004f9c2fc29b58e04c6
-  position: {x: 191.19998, y: -268.46817}
+  position: {x: 191.00003, y: -268.99994}
   dialogue:
     character: 3
     sentences:
@@ -855,7 +807,7 @@ MonoBehaviour:
   - {fileID: -1413040204737221476}
   choiceConditions:
   - parameterKey: bHasWonStoneCardBattle
-    parameterValue: 0
+    parameterValue: 1
 --- !u!114 &6741643886220893788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,7 +986,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d1cebaa5fafbe014d8c78e5318c91774
-  position: {x: -146.39998, y: 175.8754}
+  position: {x: -143.98865, y: 144}
   children:
   - {fileID: -7684082551863898050}
   - {fileID: -2419180862856815663}
