@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ConstantParameters
 {
+    #region Card Battle Parameters
     public const int MAX_HAND_SIZE = 9;
     public const int MIN_FACE_VALUE = 3;
     public const int MAX_FACE_VALUE = 10;
@@ -18,4 +19,5 @@ public class ConstantParameters
 
     public const float FLIP_HEIGHT = 0.5f;
     public static Vector3 AI_STAGING_DESTINATION = new Vector3(-18,30,5);
+    #endregion
 }
