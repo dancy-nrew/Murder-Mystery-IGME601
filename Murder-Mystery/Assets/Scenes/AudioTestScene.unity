@@ -431,12 +431,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4270216343466611628, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: audioData
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d4e44edc1ac078449af0399e07b6d82, type: 2}
+    - target: {fileID: 4270216343466611628, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
       propertyPath: backgroundMusic
       value: 
       objectReference: {fileID: 8300000, guid: c9c7c4c8c8760da4bbb8691d3b1c6bcd, type: 3}
     - target: {fileID: 4270216343466611628, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
       propertyPath: sfxClips.Array.size
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270216343466611628, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: clipNames.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4270216343466611628, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
       propertyPath: sfxClips.Array.data[0]
@@ -446,6 +454,14 @@ PrefabInstance:
       propertyPath: sfxClips.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 176921027601f324897bc5e1c99d7bca, type: 3}
+    - target: {fileID: 4270216343466611628, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: clipNames.Array.data[0]
+      value: aDealCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270216343466611628, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: clipNames.Array.data[1]
+      value: aFlipCard
+      objectReference: {fileID: 0}
     - target: {fileID: 5524612623437470929, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
