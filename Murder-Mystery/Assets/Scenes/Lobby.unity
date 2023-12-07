@@ -1952,12 +1952,28 @@ PrefabInstance:
       value: Lobby-Department
       objectReference: {fileID: 0}
     - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
+      propertyPath: bIsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
       propertyPath: sceneIndex
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
+      propertyPath: dialogueTree
+      value: 
+      objectReference: {fileID: 11400000, guid: 699abc4d8aecda74d81e51f977905199, type: 2}
+    - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
       propertyPath: objectHighlightMaterialIndex
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
+      propertyPath: unlockCondition.parameterKey
+      value: bHasWonConnorCardBattle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
+      propertyPath: unlockCondition.parameterValue
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381931628988692142, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
       propertyPath: m_Name
@@ -2037,12 +2053,28 @@ PrefabInstance:
       value: Lobby-Library
       objectReference: {fileID: 0}
     - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
+      propertyPath: bIsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
       propertyPath: sceneIndex
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
+      propertyPath: dialogueTree
+      value: 
+      objectReference: {fileID: 11400000, guid: 699abc4d8aecda74d81e51f977905199, type: 2}
+    - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
       propertyPath: objectHighlightMaterialIndex
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
+      propertyPath: unlockCondition.parameterKey
+      value: bHasWonConnorCardBattle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
+      propertyPath: unlockCondition.parameterValue
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381931628988692142, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
       propertyPath: m_Name
@@ -3109,12 +3141,28 @@ PrefabInstance:
       value: Lobby-Closet
       objectReference: {fileID: 0}
     - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
+      propertyPath: bIsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
       propertyPath: sceneIndex
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
+      propertyPath: dialogueTree
+      value: 
+      objectReference: {fileID: 11400000, guid: 93314868b1a13ac48ac1f4f50a785040, type: 2}
+    - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
       propertyPath: objectHighlightMaterialIndex
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
+      propertyPath: unlockCondition.parameterKey
+      value: bHasGotClosetKey
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135196631957592350, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
+      propertyPath: unlockCondition.parameterValue
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381931628988692142, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
       propertyPath: m_Name

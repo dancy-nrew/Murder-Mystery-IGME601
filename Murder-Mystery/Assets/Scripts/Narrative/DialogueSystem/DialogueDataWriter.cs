@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
 
 public class DialogueDataWriter : MonoBehaviour
@@ -7,6 +8,9 @@ public class DialogueDataWriter : MonoBehaviour
     public static DialogueDataWriter Instance { get; private set; }
 
     public DialogueData dialogueData;
+
+    public delegate void DParameterUpdated(string paramName, bool paramValue);
+    public DParameterUpdated dParameterUpdated;
 
     private void Awake()
     {
@@ -31,6 +35,8 @@ public class DialogueDataWriter : MonoBehaviour
         }
 
         dialogueData.UpdateParameter(parameter, value);
+        Debug.Log("Updating paramter in data writer");
+        dParameterUpdated?.Invoke(parameter, value);
     }
 
     public bool CheckCondition(string parameter, bool value) 
