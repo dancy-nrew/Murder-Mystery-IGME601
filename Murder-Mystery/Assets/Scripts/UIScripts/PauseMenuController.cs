@@ -15,9 +15,13 @@ public class PauseMenuController : MonoBehaviour
 
     public Image characterPortrait, clueSketch;
 
+    public TextMeshProUGUI motiveText, witnessText, locationText;
+
     public bool GamePaused = false;
     private int currentCharacterPage = 0;
     private int currentCluePage = 0;
+
+    HashSet<string> notificationParams = new HashSet<string> { "bMathDepartmentLeadership", "bPaineRevelation", "bHasPickedUpVase", "bStolenResearch", "bReevesRevelation", "bHasPickedUpAward", "bBrokenHeart", "bConnorRevelation", "bHasPickedUpModel" };
 
     void Start()
     {
@@ -25,6 +29,8 @@ public class PauseMenuController : MonoBehaviour
         CluesPanel.SetActive(false);
         CharactersPanel.SetActive(false);
         PausePanel.SetActive(false);
+
+        DialogueDataWriter.Instance.dParameterUpdated += OnParameterUpdated;
     }
 
     // Update is called once per frame
@@ -66,6 +72,9 @@ public class PauseMenuController : MonoBehaviour
         characterNameText.text = GameManager.Instance.GetCharacterName(currentCharacterPage);
         characterInfoText.text = GameManager.Instance.GetCharacterInfo(currentCharacterPage);
         characterPortrait.sprite = GameManager.Instance.GetCharacterSprite(currentCharacterPage);
+        motiveText.text = GameManager.Instance.GetCharacterMotive(currentCharacterPage);
+        witnessText.text = GameManager.Instance.GetCharacterWitness(currentCharacterPage);
+        locationText.text = GameManager.Instance.GetCharacterLocation(currentCharacterPage);
         
     }
 
@@ -160,5 +169,13 @@ public class PauseMenuController : MonoBehaviour
         PausePanel.SetActive(false);
         Time.timeScale = 1f;
         GamePaused = false;
+    }
+
+    private void OnParameterUpdated(string key, bool value)
+    {
+       if(notificationParams.Contains(key))
+       {
+            notificationIcon.SetActive(true);
+       }
     }
 }
