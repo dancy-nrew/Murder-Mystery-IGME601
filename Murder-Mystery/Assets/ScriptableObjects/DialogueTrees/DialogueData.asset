@@ -79,3 +79,5 @@ MonoBehaviour:
     parameterValue: 0
   - parameterKey: bHasGotClosetKey
     parameterValue: 0
+  - parameterKey: bHasTalkedToStone
+    parameterValue: 0
