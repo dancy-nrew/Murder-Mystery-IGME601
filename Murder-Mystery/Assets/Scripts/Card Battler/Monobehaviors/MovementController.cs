@@ -83,10 +83,11 @@ public class MovementController : MonoBehaviour
             return;
         }
         MovementDefinition activeMovement = _movements[_activeMovementIndex];
-        
+
         _elapsedFrames += Time.deltaTime;
         float interpolationRatio = (float) _elapsedFrames / activeMovement.durationInFrames;
         if (activeMovement.isFlip) {
+            
             // Interpolate the rotation
             transform.rotation = Quaternion.Slerp(_startRotation, activeMovement.endRotation, interpolationRatio);
             // Move up and down to give that flip feel
@@ -115,7 +116,17 @@ public class MovementController : MonoBehaviour
                 _activeMovementIndex = 0;
                 _movements.Clear();
                 ToggleMovement();
+            } else
+            {
+                //Quick check to see if we need to make flip sound
+                activeMovement = _movements[_activeMovementIndex];
+                if (activeMovement.isFlip)
+                {
+                    AudioManager.Instance.PlaySFX("aCardFlip");
+                }
             }
+
+            
 
             // Update the starting parameters for the next move
             _elapsedFrames = 0;
