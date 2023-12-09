@@ -36,9 +36,10 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(Damn! Connor has pressed us. He's played two cards \nof the same suit in
-      the first lane. The two pieces of \ninformation reinforce each other and gives
-      him the advantage)"
+    - '(Damn! Connor has reinforced his position in the first lane
+
+      and we''ve
+      lost the advantage there.)'
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []

@@ -19,7 +19,7 @@ MonoBehaviour:
   dialogue:
     character: 3
     sentences:
-    - "No! It was dusty when Bea gave it to me- I- \nI just tried to clean it off!"
+    - No! It was dusty when Bea gave it to me- I- I just tried to clean it off!
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates:
@@ -272,10 +272,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - '(I can confidently place the subject at the scene of the crime, which
-
-      gives
-      me a lead in this interrogation)'
+    - (I can confidently place the subject at the scene of the crime, which gives
+      me a lead in this interrogation)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -458,10 +456,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - 'Dr. Morse, I''m afraid questioning has made your statement
-
-      untenable.
-      Care to revise it?'
+    - Dr. Morse, I'm afraid questioning has made your statement untenable. Care to
+      revise it?
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -484,7 +480,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(I have no evidence to place the suspect at the scene of \nthe crime)"
+    - (I have no evidence to place the suspect at the scene of the crime)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -567,9 +563,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - '(I have seen through Reeves'' lies. Time
-
-      to find out what he''s hiding.)'
+    - (I have seen through Morse's lies. Time to find out what she's hiding.)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -696,10 +690,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - '(The information I got from a witness has given me
-
-      the upper hand in
-      this interrogation)'
+    - (The information I got from a witness has given me the upper hand in this interrogation)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -788,10 +779,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - '(Morse defends her position well.  Perhaps I have more
-
-      to learn about
-      this case.)'
+    - (Morse defends her position well. Perhaps I have more to learn about this case.)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -879,7 +867,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(Without witness testimony, it'll be hard to push \nthem in questioning.)"
+    - (Without witness testimony, it'll be hard to push them in questioning.)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -922,8 +910,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(Having a clear motive clue has given me a strong way of pushing \nthe suspect
-      through interrogation)"
+    - (Having a clear motive clue has given me a strong way of pushing the suspect
+      through interrogation)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -1013,7 +1001,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(I haven't been able to find strong evidence of a motive \nfor this suspect)"
+    - (I haven't been able to find strong evidence of a motive for this suspect)
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []

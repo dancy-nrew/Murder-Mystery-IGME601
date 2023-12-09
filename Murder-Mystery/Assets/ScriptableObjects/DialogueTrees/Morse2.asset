@@ -15,11 +15,57 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: ede22c51369e8a145a105f9f66081e23
-  position: {x: 600.8001, y: 414}
+  position: {x: 191.19989, y: 629.47546}
   dialogue:
     character: 0
     sentences:
     - And you were packing up your office on Saturday, right?
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-8857840638878765702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: e5ab961b83baa8843874a7800dcfadcd
+  position: {x: 599.19995, y: 51.19997}
+  dialogue:
+    character: 0
+    sentences:
+    - "Mr Connor said you were here on Sunday, why didn\u2019t you tell me?"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-7940456647844748550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: f336a4b509234a84f93b97a75f42ec93
+  position: {x: 773.5999, y: 629}
+  dialogue:
+    character: 0
+    sentences:
+    - Thank you for your time, Dr Morse.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -38,7 +84,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 4ce8b3179fe9a7c4b8d9f3f5d96aac83
-  position: {x: 600.79987, y: -301.60007}
+  position: {x: 414.79996, y: 331.87537}
   dialogue:
     character: 0
     sentences:
@@ -48,6 +94,104 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
+--- !u!114 &-7684082551863898050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf40963fd2fd84044a361d2c75c38fa7, type: 3}
+  m_Name: ChoiceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 327561e96ee943549aa52cf48b8e4e88
+  position: {x: 17.200096, y: 51.000008}
+  children:
+  - {fileID: -4814906075669061470}
+  - {fileID: 7977875024542450190}
+  choiceConditions:
+  - parameterKey: bConnorRevelation
+    parameterValue: 1
+--- !u!114 &-7226981625429843417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 64d42919b45d61443ba7982d40e62d57
+  position: {x: 599.2, y: -184.60004}
+  dialogue:
+    character: 0
+    sentences:
+    - "Interesting that the last gift you got from your \u201Cdear friend\u201D Dr
+      Yates was in the maintenance closet and mangled from harsh cleaning agents,
+      isn\u2019t it Dr Morse."
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-6749066790801524850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 04d7da840b6dc8844874d668572584d6
+  position: {x: 191.19998, y: -346.4682}
+  dialogue:
+    character: 3
+    sentences:
+    - "You have to understand, I didn\u2019t mean to!"
+    - "I\u2019ve loved Bea for over ten years, I asked her to move in with me- that
+      was what our argument was about."
+    - But Bea was afraid, she was never very good at matters of the heart. She pushed
+      me away.
+    - "She just needed time, that\u2019s how our arguments always went, but I wasn\u2019t
+      patient enough to give it to her."
+    - I went to her office on Sunday, I wanted her to look at me.
+    - "Bea wasn\u2019t good at eye contact either and I knew that and pushed anyway."
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-6493671399648479415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 0eaba1fd2773b5441a49a3e48dfbb05f
+  position: {x: 414.7999, y: -89.8}
+  children:
+  - {fileID: -7226981625429843417}
+  - {fileID: 1245956200055810814}
+  - {fileID: -4797609581494039245}
 --- !u!114 &-6147183189672929481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,8 +207,97 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 76e0c72c85108784ab573476c7d33227
-  position: {x: 0, y: 0}
-  child: {fileID: 8475733367346268804}
+  position: {x: -488.05576, y: -0.000015355869}
+  child: {fileID: 413565289087671926}
+--- !u!114 &-4814906075669061470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf40963fd2fd84044a361d2c75c38fa7, type: 3}
+  m_Name: ChoiceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 89dd4fdb6bea24546ac7d09ccd8ccc73
+  position: {x: 191.19995, y: -51.000034}
+  children:
+  - {fileID: -6493671399648479415}
+  - {fileID: -4515541320780493833}
+  choiceConditions:
+  - parameterKey: bHasPickedUpModel
+    parameterValue: 1
+--- !u!114 &-4797609581494039245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 7502d30aa68aed34aaad0e6c4eae581b
+  position: {x: 599.2, y: -26.800045}
+  dialogue:
+    character: 0
+    sentences:
+    - "I\u2019m sure you were. "
+    - "Still, I have a few lines of questioning for you\u2026"
+    bTransitionToCardBattle: 1
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-4515541320780493833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 889d734aa2060a340b94849574b8c8b4
+  position: {x: 414.80008, y: 51.19997}
+  children:
+  - {fileID: -8857840638878765702}
+  - {fileID: 4841912552473829557}
+  - {fileID: 7773978520864612344}
+--- !u!114 &-4262607890695055635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 0f1c85d892c350448b0b104379ba0394
+  position: {x: 773.93286, y: 488.0001}
+  dialogue:
+    character: 0
+    sentences:
+    - I would like to open a few lines of questioning...
+    bTransitionToCardBattle: 1
+  gateConditions: []
+  dataUpdates: []
 --- !u!114 &-3925538370579062925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,7 +313,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 0e8132dfc456de74a91cd2b3e949f110
-  position: {x: 600.7999, y: 180.00005}
+  position: {x: 190.99995, y: 395.99988}
   dialogue:
     character: 3
     sentences:
@@ -103,7 +336,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 15284981b011a3548b95e0cd5e5f6a5a
-  position: {x: 600.80005, y: -457.52353}
+  position: {x: 414.79996, y: 175.8754}
   dialogue:
     character: 0
     sentences:
@@ -127,7 +360,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 258f603f2b990d24f84597b20cbf9b16
-  position: {x: 409.64313, y: 101.99999}
+  position: {x: -0.0000454353, y: 317.4754}
   children:
   - {fileID: -817376483499750826}
   - {fileID: -3925538370579062925}
@@ -153,7 +386,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: fc63aa34722dca846847612955b4c262
-  position: {x: 600.80005, y: -379.60007}
+  position: {x: 414.99997, y: 254.99995}
   dialogue:
     character: 3
     sentences:
@@ -164,6 +397,52 @@ MonoBehaviour:
       model of the Eiffel Tower we got when we visited Paris. '
     - "I miss her\u2026\r"
     bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-1413040204737221476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: fe2111f581c923f4891f126cc3c992cb
+  position: {x: 578.7084, y: 668}
+  dialogue:
+    character: 0
+    sentences:
+    - Thank you for your time, Dr Morse.
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &-976041289352727669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 65dd3eb62c6eb22478165b34b50d1c1e
+  position: {x: 773.6, y: 168.19997}
+  dialogue:
+    character: 0
+    sentences:
+    - I would like to open a few lines of questioning...
+    bTransitionToCardBattle: 1
   gateConditions: []
   dataUpdates: []
 --- !u!114 &-817376483499750826
@@ -181,7 +460,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 7d500a147cda58c48b71d2e92f51b56e
-  position: {x: 601.16455, y: 101.99999}
+  position: {x: 191.19989, y: 317.4754}
   dialogue:
     character: 0
     sentences:
@@ -223,6 +502,28 @@ MonoBehaviour:
   - {fileID: -7715495484642071937}
   - {fileID: 6741643886220893788}
   - {fileID: 8074008788231083599}
+  - {fileID: 413565289087671926}
+  - {fileID: 5600369529375067105}
+  - {fileID: -1413040204737221476}
+  - {fileID: 1594352428986718421}
+  - {fileID: -4262607890695055635}
+  - {fileID: -7940456647844748550}
+  - {fileID: -7684082551863898050}
+  - {fileID: -4814906075669061470}
+  - {fileID: -4515541320780493833}
+  - {fileID: -8857840638878765702}
+  - {fileID: 4841912552473829557}
+  - {fileID: 7773978520864612344}
+  - {fileID: -976041289352727669}
+  - {fileID: 1317509825824679899}
+  - {fileID: -6493671399648479415}
+  - {fileID: -7226981625429843417}
+  - {fileID: 1245956200055810814}
+  - {fileID: -4797609581494039245}
+  - {fileID: 3876375281277631283}
+  - {fileID: -6749066790801524850}
+  - {fileID: 3155823634620601848}
+  - {fileID: 7787678676289702024}
   dialogues: []
   currentDialogue:
     character: 0
@@ -230,6 +531,52 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   bIsInputting: 0
   currentInputNode: {fileID: 0}
+--- !u!114 &413565289087671926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf40963fd2fd84044a361d2c75c38fa7, type: 3}
+  m_Name: ChoiceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 50048e4a799ab954f9414d069ebf650d
+  position: {x: -282.77203, y: -49.99997}
+  children:
+  - {fileID: 3876375281277631283}
+  - {fileID: 8475733367346268804}
+  choiceConditions:
+  - parameterKey: bHasWonMorseCardBattle
+    parameterValue: 1
+--- !u!114 &1245956200055810814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: a90612d69662ae742a6826fc2572cac0
+  position: {x: 599.2, y: -106.4}
+  dialogue:
+    character: 3
+    sentences:
+    - "Oh you found it! That\u2019s great. "
+    - "I-I spilled something on it and was absolutely devastated when I ruined it\u2026\r"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
 --- !u!114 &1289939995978445126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +592,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 633c2dcb763da8645b816716928899f0
-  position: {x: 600.7999, y: 570}
+  position: {x: 191.19989, y: 785.47534}
   dialogue:
     character: 0
     sentences:
@@ -253,6 +600,52 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
+--- !u!114 &1317509825824679899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 6d481a7ce1d3c0f4b8d1f782212a73f9
+  position: {x: 773.6, y: 254.19998}
+  dialogue:
+    character: 0
+    sentences:
+    - Does it?
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &1594352428986718421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f11afa25c038847bc4cedf1395cf8b, type: 3}
+  m_Name: InputNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 477333988dda24748b54803287d88e31
+  position: {x: 600.00006, y: 551.9999}
+  children:
+  - {fileID: -4262607890695055635}
+  - {fileID: -7940456647844748550}
+  choices:
+  - (Interrogate now)
+  - (Wait and learn more)
+  choice: -1
 --- !u!114 &2062232064738359152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +661,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 7ba16fb5cab689240aae581862432551
-  position: {x: 600.7999, y: 726}
+  position: {x: 191.19989, y: 941.4754}
   dialogue:
     character: 0
     sentences:
@@ -276,6 +669,53 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
+--- !u!114 &3155823634620601848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ecc2b44ad73aa004f9c2fc29b58e04c6
+  position: {x: 191.00003, y: -268.99994}
+  dialogue:
+    character: 3
+    sentences:
+    - I reached out- to make her look- but she flinched back and toppled over.
+    - She-she hit her head on the model- our model.
+    - "I didn\u2019t know what to do."
+    - 'So I went to clean it up and it ruined it too, like I ruined everything. '
+    - "I didn\u2019t mean to- I never wanted to hurt her."
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &3876375281277631283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc46397b9b51ca49ab53e41fcf4c4d9, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 9765bcb35ea142041a89353136f6fc55
+  position: {x: 17.200018, y: -346.4682}
+  children:
+  - {fileID: -6749066790801524850}
+  - {fileID: 3155823634620601848}
+  - {fileID: 7787678676289702024}
 --- !u!114 &4053481869311655177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,7 +731,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 5ebaf0bac1b220a4389a1392f6545a1a
-  position: {x: 600.7999, y: 491.99997}
+  position: {x: 191.19989, y: 707.4754}
   dialogue:
     character: 3
     sentences:
@@ -314,7 +754,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 3bd661e29e572e94c94063f4b01468bc
-  position: {x: 600.7999, y: 336.00006}
+  position: {x: 191.19989, y: 551.4754}
   dialogue:
     character: 3
     sentences:
@@ -322,6 +762,52 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
+--- !u!114 &4841912552473829557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 32ae2f3f3f66dd84e83cd2c2910a26ca
+  position: {x: 599.19995, y: 129.20001}
+  dialogue:
+    character: 3
+    sentences:
+    - 'Oh? Well it just must have slipped my mind during all the excitement. '
+    - 'Grief does tend to make people forgetful. '
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &5600369529375067105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf40963fd2fd84044a361d2c75c38fa7, type: 3}
+  m_Name: ChoiceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 4f3fc9f9b86f8484b878117987f9dcf6
+  position: {x: 414.8001, y: 566}
+  children:
+  - {fileID: 1594352428986718421}
+  - {fileID: -1413040204737221476}
+  choiceConditions:
+  - parameterKey: bHasWonStoneCardBattle
+    parameterValue: 1
 --- !u!114 &6741643886220893788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +823,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 6b25fe810ebb18c4fb773e9d04ba9d8d
-  position: {x: 600.79987, y: -223.6001}
+  position: {x: 414.79996, y: 409.87537}
   dialogue:
     character: 3
     sentences:
@@ -361,7 +847,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 80f7c517ccf00674a8c821c43c909ae6
-  position: {x: 600.7999, y: 648}
+  position: {x: 191.19989, y: 863.4754}
   dialogue:
     character: 3
     sentences:
@@ -385,11 +871,57 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 448917e964fd7ff409407608ffe0ef70
-  position: {x: 600.8001, y: 258.00006}
+  position: {x: 191.19989, y: 473.4754}
   dialogue:
     character: 0
     sentences:
     - "Dr Juiletta Morse, Dr Yates\u2019 friend and coworker, correct?"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
+--- !u!114 &7773978520864612344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f11afa25c038847bc4cedf1395cf8b, type: 3}
+  m_Name: InputNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 8dac9816f1e0ccd449f1383312415e06
+  position: {x: 599.2, y: 214.99992}
+  children:
+  - {fileID: -976041289352727669}
+  - {fileID: 1317509825824679899}
+  choices:
+  - (Interrogate now)
+  - (Wait and learn more)
+  choice: -1
+--- !u!114 &7787678676289702024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 14f72e47d81485a41ae791e6e81f8582
+  position: {x: 191.19998, y: -190.46814}
+  dialogue:
+    character: 0
+    sentences:
+    - I understand, Dr Morse.
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
@@ -408,13 +940,14 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 6967329189c8ccf439c84925e929993e
-  position: {x: 409.59988, y: -109.06085}
+  position: {x: 183.99988, y: 175.8754}
   children:
   - {fileID: -3135407278324532461}
   - {fileID: -1659409900086070214}
   - {fileID: -7715495484642071937}
   - {fileID: 6741643886220893788}
   - {fileID: 8074008788231083599}
+  - {fileID: 5600369529375067105}
 --- !u!114 &8074008788231083599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,7 +963,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 1639e3f1411e06741b2b9dffa4ecab35
-  position: {x: 600.80005, y: -145.6}
+  position: {x: 414.79996, y: 487.8753}
   dialogue:
     character: 0
     sentences:
@@ -453,9 +986,9 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d1cebaa5fafbe014d8c78e5318c91774
-  position: {x: 204.82152, y: -0.000026226044}
+  position: {x: -143.98865, y: 144}
   children:
-  - {fileID: 7977875024542450190}
+  - {fileID: -7684082551863898050}
   - {fileID: -2419180862856815663}
   choiceConditions:
   - parameterKey: bBrokenHeart

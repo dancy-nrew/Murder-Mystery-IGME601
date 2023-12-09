@@ -91,5 +91,10 @@ public class PlayerMovement : MonoBehaviour
     public void SetIsUIEnabled(bool value)
     {
         bIsUIEnabled = value;
+
+    }
+    public bool GetIsUIEnabled()
+    {
+        return bIsUIEnabled;
     }
 }
