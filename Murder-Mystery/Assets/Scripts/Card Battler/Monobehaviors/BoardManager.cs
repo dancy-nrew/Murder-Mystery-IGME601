@@ -10,8 +10,7 @@ public class BoardManager : MonoBehaviour
         and will make sure the Rules Manager knows when cards have been played.
      */
 
-    // TO DO: need to add how to load in lane locks
-    public BoardState boardState = new BoardState(false, false, false);
+    public BoardState boardState = new BoardState();
     public delegate void AIMove();
     public static event AIMove OnPlay;
     private RulesManager rm;
