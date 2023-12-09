@@ -20,7 +20,7 @@ MonoBehaviour:
   - parameterKey: bTestParameter
     parameterValue: 0
   - parameterKey: bHasTalkedToChief
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bHasTalkedToPaine
     parameterValue: 0
   - parameterKey: bHasTalkedToConnor
@@ -58,7 +58,7 @@ MonoBehaviour:
   - parameterKey: bEndOfMorseCardBattle
     parameterValue: 0
   - parameterKey: bHasWonMorseCardBattle
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bEndOfStoneCardBattle
     parameterValue: 0
   - parameterKey: bHasWonStoneCardBattle
@@ -81,3 +81,5 @@ MonoBehaviour:
     parameterValue: 0
   - parameterKey: bHasTalkedToStone
     parameterValue: 0
+  - parameterKey: bGameEnd
+    parameterValue: 1
