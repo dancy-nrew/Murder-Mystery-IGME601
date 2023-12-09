@@ -45,6 +45,38 @@ public class StartCardDialogueAction : CutsceneAction
     }
 }
 
+public class PlaySFXAction : CutsceneAction
+{
+    // This action plays a sound effect, as specificied by the key given at construction
+    string sfxKey;
+    public PlaySFXAction(string key)
+    {
+        sfxKey = key;
+    }
+
+    public override void PerformAction()
+    {
+        AudioManager.Instance.PlaySFX(sfxKey);
+        OnActionFinish();
+    }
+
+    protected override bool IsFlagSet()
+    {
+        return false;
+    }
+
+    public override void SetFlag()
+    {
+
+    }
+
+    public override void OnActionFinish()
+    {
+        // Once the initial sentence has finished typing, a signal to move to the next action is given
+        CutsceneManager.Instance.MoveToNextAction();
+    }
+}
+
 public class LoadDialogueAndStart : CutsceneAction
 {
     // This action starts a card dialogue cutscene.

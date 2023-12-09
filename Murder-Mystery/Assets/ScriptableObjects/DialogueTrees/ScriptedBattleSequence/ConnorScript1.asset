@@ -61,7 +61,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - '(Click on the first card, the 6 of location, to grab it and
+    - '(Click on the first card, the 6 of Location, to grab it and
 
       then click
       on the first lane to play it there)'

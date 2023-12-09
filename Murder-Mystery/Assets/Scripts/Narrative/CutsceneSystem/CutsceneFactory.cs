@@ -23,7 +23,9 @@ public static class CutsceneFactory
         
         //If we want to add an info message on "you got good cards" or whatev, we can do that here.
         AddDialogueAndWait(cutscene, new DialogueAction());
-        
+
+
+        cutscene.AddAction(new PlaySFXAction("aCardDeal"));
         // Deal Cards
         cutscene.AddAction(new DealDialogueCardsAction(handFactory));
         //Deal Cards

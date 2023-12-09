@@ -14,13 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clipMap:
   - name: aCardDeal
-    clip: {fileID: 8300000, guid: 4563ac7cd56894b43b7db8912aa5f65c, type: 3}
+    clip: {fileID: 8300000, guid: ed76c537908845f4b8c6b845753319c0, type: 3}
   - name: aCardFlip
-    clip: {fileID: 8300000, guid: 176921027601f324897bc5e1c99d7bca, type: 3}
+    clip: {fileID: 8300000, guid: 6cb6924c4bcf8604089aa40219f9ca5e, type: 3}
   - name: aCardMove
-    clip: {fileID: 8300000, guid: 7c72cfdd4817eff4884c96a0c4597c2a, type: 3}
+    clip: {fileID: 8300000, guid: 1e7f18c533d6df1459d9e43282a29e7a, type: 3}
   - name: aDoorOpen
     clip: {fileID: 8300000, guid: 03694a9c086c8aa4d8dd7aceeb178463, type: 3}
+  - name: aJournalOpen
+    clip: {fileID: 8300000, guid: 7ffe5d9a801fafb4fa1c8511db8d0b2d, type: 3}
+  - name: aJournalPage
+    clip: {fileID: 8300000, guid: e939d043ddc11ff4d886286a78f3dec6, type: 3}
+  - name: aJournalClose
+    clip: {fileID: 8300000, guid: 15bcc52cc3cdcd843b0e23d04db419a4, type: 3}
+  - name: aJournalSection
+    clip: {fileID: 8300000, guid: dc7e931f4aa55944e947e01798547830, type: 3}
   songs:
   - name: mExploration
     clip: {fileID: 8300000, guid: 6cdc1ec05acc0f8438e07401ebfeb93c, type: 3}
