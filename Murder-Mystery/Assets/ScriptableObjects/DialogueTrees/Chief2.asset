@@ -438,7 +438,9 @@ MonoBehaviour:
     - "Dr Yates\u2019 death was an accident."
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bGameEnd
+    parameterValue: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,7 +766,9 @@ MonoBehaviour:
     - Yes, it was Dr Morse.
     bTransitionToCardBattle: 0
   gateConditions: []
-  dataUpdates: []
+  dataUpdates:
+  - parameterKey: bGameEnd
+    parameterValue: 1
 --- !u!114 &6068803458820674570
 MonoBehaviour:
   m_ObjectHideFlags: 0

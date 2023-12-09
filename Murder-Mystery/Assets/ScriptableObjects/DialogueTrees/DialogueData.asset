@@ -20,7 +20,7 @@ MonoBehaviour:
   - parameterKey: bTestParameter
     parameterValue: 0
   - parameterKey: bHasTalkedToChief
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bHasTalkedToPaine
     parameterValue: 0
   - parameterKey: bHasTalkedToConnor
@@ -32,15 +32,15 @@ MonoBehaviour:
   - parameterKey: bIsVaseInteractable
     parameterValue: 0
   - parameterKey: bIsBookInteractable
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bHasPickedUpVase
     parameterValue: 0
   - parameterKey: bHasPickedUpBook
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bHasPickedUpCube
     parameterValue: 0
   - parameterKey: bPaineRevelation
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bMathDepartmentLeadership
     parameterValue: 0
   - parameterKey: bAlwaysTrue
@@ -50,7 +50,7 @@ MonoBehaviour:
   - parameterKey: bHasWonConnorCardBattle
     parameterValue: 1
   - parameterKey: bDealCards
-    parameterValue: 1
+    parameterValue: 0
   - parameterKey: bEndOfReevesCardBattle
     parameterValue: 0
   - parameterKey: bHasWonReevesCardBattle
@@ -58,7 +58,7 @@ MonoBehaviour:
   - parameterKey: bEndOfMorseCardBattle
     parameterValue: 0
   - parameterKey: bHasWonMorseCardBattle
-    parameterValue: 0
+    parameterValue: 1
   - parameterKey: bEndOfStoneCardBattle
     parameterValue: 0
   - parameterKey: bHasWonStoneCardBattle
@@ -81,3 +81,5 @@ MonoBehaviour:
     parameterValue: 0
   - parameterKey: bHasTalkedToStone
     parameterValue: 0
+  - parameterKey: bGameEnd
+    parameterValue: 1
