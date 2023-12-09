@@ -31,6 +31,8 @@ public class BoardManager : MonoBehaviour
     [SerializeField] public TextMeshProUGUI remainingRoundsText;
     [SerializeField]
     private float durationBeforeScoreUpdate = 2.5f;
+    private Color winColor = new Color32(0, 255, 0, 255); 
+    private Color loseColor = new Color32(255, 0, 0, 255);
 
     private void Awake()
     {
@@ -115,6 +117,16 @@ public class BoardManager : MonoBehaviour
         laneOneAIScore.text = lane1ScorePlayer2.ToString();
         laneTwoAIScore.text = lane2ScorePlayer2.ToString();
         laneThreeAIScore.text = lane3ScorePlayer2.ToString();
+
+        laneOnePlayerScore.color = lane1ScorePlayer1 > lane1ScorePlayer2 ? winColor : loseColor;
+        laneOneAIScore.color = lane1ScorePlayer1 > lane1ScorePlayer2 ? loseColor : winColor;
+
+        laneTwoPlayerScore.color = lane2ScorePlayer1 > lane2ScorePlayer2 ? winColor : loseColor;
+        laneTwoAIScore.color = lane2ScorePlayer1 > lane2ScorePlayer2 ? loseColor : winColor;
+
+        laneThreePlayerScore.color = lane3ScorePlayer1 > lane3ScorePlayer2 ? winColor : loseColor;
+        laneThreeAIScore.color = lane3ScorePlayer1 > lane3ScorePlayer2 ? loseColor : winColor;
+
         if (showingOverlayNormally && currentTurn <= ConstantParameters.MAX_TURNS)
         {
             DisplayRoundTitle();
