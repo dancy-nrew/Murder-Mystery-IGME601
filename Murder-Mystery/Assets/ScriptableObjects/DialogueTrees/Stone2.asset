@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: f4c05fed0d0b46940b68af2b5d08449b
-  position: {x: 490.3999, y: 8.4000225}
+  position: {x: 490.40005, y: 8.399986}
   dialogue:
     character: 0
     sentences:
@@ -25,6 +25,31 @@ MonoBehaviour:
   gateConditions: []
   dataUpdates:
   - parameterKey: bMathDepartmentLeadership
+    parameterValue: 1
+--- !u!114 &-8795926741924116873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ebb579fb0355dfa4ba3809653477bd4b
+  position: {x: 326.79993, y: 546}
+  dialogue:
+    character: 0
+    sentences:
+    - Uh-huh.
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates:
+  - parameterKey: bHasTalkedToStone
     parameterValue: 1
 --- !u!114 &-8498819678108532573
 MonoBehaviour:
@@ -297,6 +322,29 @@ MonoBehaviour:
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []
+--- !u!114 &-3381872984300287053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
+  m_Name: DialogueNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 490692d35e49ddb47bec81704f9522e8
+  position: {x: 326.00015, y: 468.00006}
+  dialogue:
+    character: 5
+    sentences:
+    - "Y-yes! I was. \r"
+    bTransitionToCardBattle: 0
+  gateConditions: []
+  dataUpdates: []
 --- !u!114 &-2850103798723047196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,7 +430,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 4d273ae55cf9d4349be5d5fd550afaff
-  position: {x: 490.39996, y: -147.6}
+  position: {x: 490.39993, y: -147.60008}
   dialogue:
     character: 0
     sentences:
@@ -435,8 +483,6 @@ MonoBehaviour:
   - {fileID: -8469086120631924641}
   - {fileID: -2850103798723047196}
   - {fileID: -1948637284608796120}
-  - {fileID: 6660121279543185535}
-  - {fileID: 4647701063737522293}
   - {fileID: 6287477027967733353}
   - {fileID: 9109594361426530672}
   - {fileID: 1066813453439576255}
@@ -471,6 +517,8 @@ MonoBehaviour:
   - {fileID: 3687000271793667893}
   - {fileID: 1303473114332382871}
   - {fileID: -3663711944026875777}
+  - {fileID: -3381872984300287053}
+  - {fileID: -8795926741924116873}
   dialogues: []
   currentDialogue:
     character: 0
@@ -641,8 +689,8 @@ MonoBehaviour:
   - {fileID: -8469086120631924641}
   - {fileID: -2850103798723047196}
   - {fileID: -1948637284608796120}
-  - {fileID: 6660121279543185535}
-  - {fileID: 4647701063737522293}
+  - {fileID: -3381872984300287053}
+  - {fileID: -8795926741924116873}
 --- !u!114 &1303473114332382871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,29 +841,6 @@ MonoBehaviour:
   - {fileID: 4934283387591530399}
   - {fileID: -5173901475551288398}
   - {fileID: -4545229681598122566}
---- !u!114 &4647701063737522293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: e399512255312d648a12a22b367b2f1a
-  position: {x: 326.79984, y: 546.00006}
-  dialogue:
-    character: 0
-    sentences:
-    - Uh-huh.
-    bTransitionToCardBattle: 0
-  gateConditions: []
-  dataUpdates: []
 --- !u!114 &4934283387591530399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,32 +929,8 @@ MonoBehaviour:
   - {fileID: -5361551421569701050}
   - {fileID: 1300444205304509040}
   choiceConditions:
-  - parameterKey: bHasTalkedToPaine
+  - parameterKey: bHasTalkedToStone
     parameterValue: 1
---- !u!114 &6660121279543185535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0bc4e5699e707468fb64cfc6c4e043, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: ef25a5ac0237cb24c9a8e354dfc8d30b
-  position: {x: 326.79984, y: 468}
-  dialogue:
-    character: 5
-    sentences:
-    - 'Y-yes! '
-    - 'I was. '
-    bTransitionToCardBattle: 0
-  gateConditions: []
-  dataUpdates: []
 --- !u!114 &7132402385099857053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,7 +991,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 44694efa4d0c1284cbea99d18796bfca
-  position: {x: 490.39996, y: -69.59998}
+  position: {x: 490.3999, y: -69.60004}
   dialogue:
     character: 5
     sentences:

@@ -75,3 +75,9 @@ MonoBehaviour:
     parameterValue: 0
   - parameterKey: bBrokenHeart
     parameterValue: 0
+  - parameterKey: bHasSpilledCoffee
+    parameterValue: 0
+  - parameterKey: bHasGotClosetKey
+    parameterValue: 0
+  - parameterKey: bHasTalkedToStone
+    parameterValue: 0
