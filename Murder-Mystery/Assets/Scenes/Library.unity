@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6673,9 +6673,19 @@ PrefabInstance:
       value: Clue
       objectReference: {fileID: 0}
     - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
+      propertyPath: itemSketch
+      value: 
+      objectReference: {fileID: 21300000, guid: 90ecda1928b0e4e3cadb62e7c7a3908b, type: 3}
+    - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
       propertyPath: dialogueTree
       value: 
       objectReference: {fileID: 11400000, guid: dfad95fa9d2331245bf8b7e13cc8f9bd, type: 2}
+    - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
+      propertyPath: itemDescription
+      value: "A heavy book titled \u201CAdvanced Game Theory: Mathematics of Behavioral
+        Psychology\u201D stamped with the initials BY. Sounds like the kind of book
+        that would make you better at Rock, Paper, Scissors."
+      objectReference: {fileID: 0}
     - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
       propertyPath: notificationIcon
       value: 
