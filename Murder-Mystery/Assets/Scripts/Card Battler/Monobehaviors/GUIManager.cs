@@ -40,6 +40,7 @@ class GUIManager : MonoBehaviour
     {
         GameManager.Instance._shouldLoadFromSavedLocation = true;
         int lastScene = GameManager.Instance.LoadLastVisitedScene();
+        AudioManager.Instance.ChangeSong("mExploration");
         SceneManagers.StaticLoad(lastScene);
     }
 }

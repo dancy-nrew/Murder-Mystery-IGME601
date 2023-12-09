@@ -21,14 +21,18 @@ public class AudioManager : MonoBehaviour
         //Singleton stuff
         if (Instance != null && Instance != this)
         {
-            Destroy(Instance);
+            Destroy(this);
+        } else
+        {
+            Instance = this;
+            DontDestroyOnLoad(Instance);
         }
-        Instance = this;
-        DontDestroyOnLoad(Instance);
+        
 
 
         // Data Setup
         _isMusicPlaying = false;
+        
 
         // Turn the lists in the AudioData into dictionaries for fast lookup
         sfxLibrary = new Dictionary<string, AudioClip>();
@@ -86,6 +90,12 @@ public class AudioManager : MonoBehaviour
         musicSource.transform.parent = transform;
         AudioSource audio = musicSource.AddComponent<AudioSource>();
         audio.loop = true;
+        audio.volume = 0.45f;
+
+        if (backgroundMusic != null)
+        {
+            audio.clip = backgroundMusic;
+        }
     }
 
     public void StartBackgroundMusic()
