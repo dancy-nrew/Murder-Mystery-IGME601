@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        
+
         /*
         The following are fabricated suspects for the purpose of testing:
         ----
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         //characters.Add(Phoenix);
         //characters.Add(Nancy);
         */
-        
+
         /*
         Manually adding the charcaters into the Journal data. This could defintely be done in a much more efficient/modular manner
         but given our time constraints and small amount of characters this should suffice.
@@ -87,15 +87,33 @@ public class GameManager : MonoBehaviour
         Character Quincy = new Character("Dr. Quincy Reeves", "A blunt and poor-tempered mathematician that cares deeply about the Math Department.");
         image = Resources.Load<Texture2D>("CharacterPortraits/ReevesSprite");
         Quincy.Portrait = Sprite.Create(image, new Rect(0, 0, image.width, image.height), new Vector2(0.5f, 0.5f));
-        
+        Quincy.motive.Add("bMathDepartmentLeadership");
+        Quincy.motive.Add("Has a grudge against Dr Yates for being promoted to Department Chair. Some people just can’t let things go.");
+        Quincy.witness.Add("bPaineRevelation");
+        Quincy.witness.Add("Miss Paine heard Dr Reeves and Dr Yates fighting on Saturday. It sounded violent.");
+        Quincy.location.Add("bHasPickedUpVase");
+        Quincy.location.Add("The broken vase puts him at the scene of the crime.");
+
         Character Guillermo = new Character("Dr. Guillermo Stone", "A nervous mathematician who worked closely with Dr Yates in the past. He claims he was home alone all weekend.");
         image = Resources.Load<Texture2D>("CharacterPortraits/StoneSprite");
         Guillermo.Portrait = Sprite.Create(image, new Rect(0, 0, image.width, image.height), new Vector2(0.5f, 0.5f));
+        Guillermo.motive.Add("bStolenResearch");
+        Guillermo.motive.Add("Believes that Dr Yates stole research from him.");
+        Guillermo.witness.Add("bReevesRevelation");
+        Guillermo.witness.Add("Dr. Reeves overheard Dr Stone and Dr Yates arguing on Friday.");
+        Guillermo.location.Add("bHasPickedUpAward");
+        Guillermo.location.Add("The stolen award means he was at the scene of the crime.");
 
         Character Julietta = new Character("Dr. Julietta Morse","A physicist working in the Math Department who was friends with Dr. Yates.");
         image = Resources.Load<Texture2D>("CharacterPortraits/MorseSprite");
         Julietta.Portrait = Sprite.Create(image, new Rect(0, 0, image.width, image.height), new Vector2(0.5f, 0.5f));
-        
+        Julietta.motive.Add("bBrokenHeart");
+        Julietta.motive.Add("She and Dr Yates were in a relationship that imploded.");
+        Julietta.witness.Add("bConnorRevelation");
+        Julietta.witness.Add("Dr Morse asked him for the key to the maintenance closet on Saturday. Seems weird that she wanted cleaning supplies the day after she cleaned her office.");
+        Julietta.location.Add("bHasPickedUpModel");
+        Julietta.location.Add("The mangled model shows that she was at the scene of the crime.");
+
         Character Wynona = new Character("Wynona Paine","One of Dr. Yates\' most promising PhD students in mathematics.");
         image = Resources.Load<Texture2D>("CharacterPortraits/PaineSprite");
         Wynona.Portrait = Sprite.Create(image, new Rect(0, 0, image.width, image.height), new Vector2(0.5f, 0.5f));
@@ -103,6 +121,12 @@ public class GameManager : MonoBehaviour
         Character Leo = new Character("Leo Connor", "Dr. Yates\'  former teaching assistant");
         image = Resources.Load<Texture2D>("CharacterPortraits/ConnorSprite");
         Leo.Portrait = Sprite.Create(image, new Rect(0, 0, image.width, image.height), new Vector2(0.5f, 0.5f));
+        Leo.motive.Add("bAlwaysTrue");
+        Leo.motive.Add("He hated Dr Yates for firing him from his TA position.");
+        Leo.witness.Add("bAlwaysTrue");
+        Leo.witness.Add("Miss Paine saw him in Cantor hall on Sunday");
+        Leo.location.Add("bAlwaysTrue");
+        Leo.location.Add("The unfinished homework puts him at the scene of the crime.");
 
         characters.Add(Quincy);
         characters.Add(Guillermo);
@@ -144,6 +168,75 @@ public class GameManager : MonoBehaviour
         if (pageIndex >= 0 && pageIndex < characters.Count)
         {
             return characters[pageIndex].getPortrait();
+        }
+        return null;
+    }
+
+    public string GetCharacterMotive(int pageIndex)
+    {
+        if (pageIndex >= 0 && pageIndex < characters.Count)
+        {
+            if (characters[pageIndex].motive.Count > 1)
+            {
+                if (DialogueDataWriter.Instance.CheckCondition(characters[pageIndex].motive[0], true))
+                {
+                    return "Motive: " + characters[pageIndex].motive[1];
+                }
+                else
+                {
+                    return "Motive: __________";
+                }
+            }
+            else
+            {
+                return "";
+            }
+        }
+        return null;
+    }
+
+    public string GetCharacterWitness(int pageIndex)
+    {
+        if (pageIndex >= 0 && pageIndex < characters.Count)
+        {
+            if (characters[pageIndex].witness.Count > 1)
+            {
+                if (DialogueDataWriter.Instance.CheckCondition(characters[pageIndex].witness[0], true))
+                {
+                    return "Witnesses: " + characters[pageIndex].witness[1];
+                }
+                else
+                {
+                    return "Witnesses: __________";
+                }
+            }
+            else
+            {
+                return "";
+            }
+        }
+        return null;
+    }
+
+    public string GetCharacterLocation(int pageIndex)
+    {
+        if (pageIndex >= 0 && pageIndex < characters.Count)
+        {
+            if (characters[pageIndex].location.Count > 1)
+            {
+                if (DialogueDataWriter.Instance.CheckCondition(characters[pageIndex].location[0], true))
+                {
+                    return "Location: " + characters[pageIndex].location[1];
+                }
+                else
+                {
+                    return "Location: __________";
+                }
+            }
+            else
+            {
+                return "";
+            }
         }
         return null;
     }
@@ -313,6 +406,9 @@ public class Character
     public string Name;
     public string Description;
     public Sprite Portrait;
+    public List<string> motive = new List<string>();
+    public List<string> witness = new List<string>();
+    public List<string> location = new List<string>();
 
     public override string ToString()
     {
