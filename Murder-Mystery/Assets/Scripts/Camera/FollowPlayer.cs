@@ -7,6 +7,7 @@ public class FollowPlayer : MonoBehaviour
 
     [SerializeField]
     private Transform playerTransform;
+    private GameObject _audioManagerObject;
 
     private Vector3 previousPlayerRightComponent;
     private Vector3 previousPlayerUpComponent;
@@ -20,6 +21,7 @@ public class FollowPlayer : MonoBehaviour
         previousPlayerUpComponent = Vector3.Project(playerTransform.position, cameraUp);
         cameraRight = transform.right;
         cameraUp = transform.up;
+        _audioManagerObject = GameObject.Find("AudioManager");
     }
 
     /*
@@ -53,6 +55,9 @@ public class FollowPlayer : MonoBehaviour
         {
             transform.position += deltaUpComponent;
         }
+
+        //Update the location of all audio sources to make sure they move with the camera
+        _audioManagerObject.transform.position = transform.position;
 
         previousPlayerRightComponent = playerRightComponent;
         previousPlayerUpComponent = playerUpComponent;

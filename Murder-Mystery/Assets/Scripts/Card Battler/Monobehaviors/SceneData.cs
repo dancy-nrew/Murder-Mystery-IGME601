@@ -18,6 +18,9 @@ public class SceneData : MonoBehaviour
 
     private void SetUpGame()
     {
+        // Change the tunes
+        AudioManager.Instance.ChangeSong("mCardBattle");
+
         // Set up the data for the card battle mini game.
         // This function is in charge of setting up the deal strategies for the game
         // As well as loading the AI decision engine for the type of game being played

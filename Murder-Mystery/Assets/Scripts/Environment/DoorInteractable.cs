@@ -27,6 +27,7 @@ public class DoorInteractable : Interactable
         }
         else
         {
+            AudioManager.Instance.PlaySFX("aDoorOpen");
             GameManager.Instance.SaveDoorInfo(doorKey);
             StartCoroutine(OpenDoorAndLoadScene());
         } 
