@@ -82,4 +82,4 @@ MonoBehaviour:
   - parameterKey: bHasTalkedToStone
     parameterValue: 0
   - parameterKey: bGameEnd
-    parameterValue: 1
+    parameterValue: 0
