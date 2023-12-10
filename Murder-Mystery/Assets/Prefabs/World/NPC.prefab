@@ -253,8 +253,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NPC
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6b70121ad0b11499a8891587dd958c9a, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 6b70121ad0b11499a8891587dd958c9a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -385,6 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectHighlightMaterialIndex: 1
   higlightScale: 1.15
+  dialogueTree: {fileID: 0}
   bIsInteractable: 1
   character: 0
 --- !u!208 &5267063624879289378

@@ -1991,6 +1991,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 655323424309127474, guid: 6860c3ff00319a34c9c529ebe230b030, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1408155068747208571, guid: 6860c3ff00319a34c9c529ebe230b030, type: 3}
       propertyPath: dialogueTree
       value: 
@@ -2043,6 +2047,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4721181438285211322, guid: 6860c3ff00319a34c9c529ebe230b030, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4873951668225156132, guid: 6860c3ff00319a34c9c529ebe230b030, type: 3}
       propertyPath: character
       value: 2
@@ -3761,6 +3769,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 655323424309127474, guid: 6860c3ff00319a34c9c529ebe230b030, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 655323424309127474, guid: 6860c3ff00319a34c9c529ebe230b030, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 655323424309127474, guid: 6860c3ff00319a34c9c529ebe230b030, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1408155068747208571, guid: 6860c3ff00319a34c9c529ebe230b030, type: 3}
       propertyPath: dialogueTree
       value: 
@@ -3817,6 +3837,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4721181438285211322, guid: 6860c3ff00319a34c9c529ebe230b030, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4873951668225156132, guid: 6860c3ff00319a34c9c529ebe230b030, type: 3}
       propertyPath: character
       value: 6

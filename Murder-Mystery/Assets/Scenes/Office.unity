@@ -2136,6 +2136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9874daa2238d9f84bb9f1fb4d493b849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1269407053010118682 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3233704702478949245, guid: 1835095041aeb63439abcf742200094c, type: 3}
+  m_PrefabInstance: {fileID: 1269407053010118674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5485739337474325019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2188,6 +2193,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4481605983316480050, guid: 6d26bd1a19131d24cb056e2c2b58148b, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1269407053010118682}
     - target: {fileID: 6605083968657124549, guid: 6d26bd1a19131d24cb056e2c2b58148b, type: 3}
       propertyPath: m_ClearFlags
       value: 2
@@ -2304,6 +2313,10 @@ PrefabInstance:
     - target: {fileID: 7447749421259043899, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
       propertyPath: m_Name
       value: MessageContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447749421259043899, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
+      propertyPath: m_TagString
+      value: MsgBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
