@@ -1271,12 +1271,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1350510759}
-        m_TargetAssemblyTypeName: DancyNrew.UI.UI_System, Assembly-CSharp
+        m_TargetAssemblyTypeName: DancyNrew.UI.UI_System, Main
         m_MethodName: SwitchScreens
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1030043272}
-          m_ObjectArgumentAssemblyTypeName: DancyNrew.UI.UI_Screen, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: DancyNrew.UI.UI_Screen, Main
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3203,7 +3203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1030043269
 RectTransform:
   m_ObjectHideFlags: 0
