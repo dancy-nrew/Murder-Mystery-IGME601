@@ -301,15 +301,17 @@ public class GameManager : MonoBehaviour
 
     public void FlashMessage(string message)
     {
-        if (FlashMessageObject == null)
+        GameObject FlashMessageGameObject = GameObject.FindGameObjectWithTag("MsgBox");
+        if (FlashMessageGameObject)
         {
-            // Container for message not found. Post to Debug Log for now. This means there's a bug in this scene.
-            Debug.Log(message);
-            return;
+            TextMeshProUGUI FlashMessageText = FlashMessageGameObject.GetComponent<TextMeshProUGUI>();
+            if (FlashMessageText)
+            {
+                FlashMessageGameObject.SetActive(true);
+                FlashMessageText.text = message;
+                StartCoroutine(ShowMessage(FlashMessageGameObject));
+            }
         }
-        FlashMessageObject.text = message;
-        FlashMessageObject.gameObject.SetActive(true);
-        StartCoroutine(ShowMessage(FlashMessageObject.gameObject));
     }
 
     IEnumerator ShowMessage(GameObject go)
