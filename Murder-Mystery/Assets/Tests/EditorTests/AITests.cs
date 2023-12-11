@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 using UnityEngine;
@@ -46,6 +48,16 @@ public class AITests
         return hand;
     }
 
+
+    private HandData MakeLogicTrapHand()
+    {
+        HandData hand = new HandData(ConstantParameters.MAX_HAND_SIZE);
+        hand.AddCard(new CardData(3, Suit.LOCATION));
+        hand.AddCard(new CardData(3, Suit.WITNESS));
+        hand.AddCard(new CardData(5, Suit.WITNESS));
+        hand.AddCard(new CardData(5, Suit.LOCATION));
+        return hand;
+    }
     private BoardState MakeBoardStateWithLaneVulnerability()
     {
         // Lane 2 is vulnerable
@@ -92,6 +104,37 @@ public class AITests
 
         // Player 2 is primed by being given a witness card in the last lane
         boardState.PlayerAddCardToLane(ConstantParameters.PLAYER_2, new CardData(6, Suit.WITNESS), 2);
+        return boardState;
+    }
+
+    private BoardState MakeBoardWithWinningMoveInSecondLane()
+    {
+        // Create a state where the next winning move is playing the second lane
+        // despite the first lane being won already
+        BoardState boardState = MakeBoardStateWithLaneVulnerability();
+
+        // Set player 2 as the winner of the first lane, to test if the machine will insist here
+        boardState.PlayerAddCardToLane(ConstantParameters.PLAYER_2, new CardData(9, Suit.WITNESS), 0);
+        return boardState;
+    }
+
+    private BoardState MakeBoardwithLogicTrap()
+    {
+        BoardState boardState = new BoardState();
+
+        boardState.PlayerAddCardToLane(ConstantParameters.PLAYER_2, new CardData(8, Suit.MOTIVE), 0);
+        boardState.PlayerAddCardToLane(ConstantParameters.PLAYER_2, new CardData(10, Suit.MOTIVE), 0);
+        boardState.PlayerAddCardToLane(ConstantParameters.PLAYER_1, new CardData(10, Suit.WITNESS), 0);
+        boardState.PlayerAddCardToLane(ConstantParameters.PLAYER_1, new CardData(10, Suit.LOCATION), 0);
+        boardState.PlayerAddCardToLane(ConstantParameters.PLAYER_1, new CardData(8, Suit.LOCATION), 0);
+
+        boardState.PlayerAddCardToLane(ConstantParameters.PLAYER_2, new CardData(9, Suit.MOTIVE), 1);
+        boardState.PlayerAddCardToLane(ConstantParameters.PLAYER_2, new CardData(4, Suit.LOCATION), 1);
+        boardState.PlayerAddCardToLane(ConstantParameters.PLAYER_2, new CardData(4, Suit.WITNESS), 1);
+
+        boardState.PlayerAddCardToLane(ConstantParameters.PLAYER_1, new CardData(5, Suit.MOTIVE), 1);
+        boardState.PlayerAddCardToLane(ConstantParameters.PLAYER_1, new CardData(6, Suit.MOTIVE), 1);
+        boardState.PlayerAddCardToLane(ConstantParameters.PLAYER_1, new CardData(4, Suit.MOTIVE), 1);
         return boardState;
     }
     #endregion
@@ -206,6 +249,51 @@ public class AITests
 
         (lane, cardIndex) = testAI.DecideMove(boardState, hand);
         Assert.AreEqual(expectedMissingLanes, missing_lanes.Count);
+        Assert.AreEqual(expectedLaneValue, lane);
+        Assert.AreEqual(expectedCardIndex, cardIndex);
+    }
+
+    [Test]
+    public void TestWillDisregardLanesAlreadyWon()
+    {
+        InformedAI testAI = new InformedAI();
+        BoardState boardState = MakeBoardWithWinningMoveInSecondLane();
+        HashSet<int> missing_lanes = boardState.GetUnclaimedLanesForPlayer(ConstantParameters.PLAYER_2);
+        int lane, cardIndex = 0;
+        HandData hand = MakeFixtureHand();
+
+        int expectedCardIndex = 1;
+        int expectedLaneValue = 2;
+        int expectedMissingLanes = 2;
+
+        (lane, cardIndex) = testAI.DecideMove(boardState, hand);
+        Assert.AreEqual(expectedMissingLanes, missing_lanes.Count);
+        Assert.AreEqual(expectedLaneValue, lane);
+        Assert.AreEqual(expectedCardIndex, cardIndex);
+    }
+
+    [Test]
+    public void TestLogicTrap()
+    {
+        InformedAI testAI = new InformedAI();
+        BoardState boardState = MakeBoardwithLogicTrap();
+        HashSet<int> missing_lanes = boardState.GetUnclaimedLanesForPlayer(ConstantParameters.PLAYER_2);
+        int lane, cardIndex = 0;
+        HandData hand = MakeLogicTrapHand();
+
+        int expectedCardIndex = 2;
+        int expectedLaneValue = 3;
+        int expectedMissingLanes = 2;
+
+        int lane_current_value = boardState.GetLaneValue(ConstantParameters.PLAYER_2, expectedLaneValue);
+        (lane, cardIndex) = testAI.DecideMove(boardState, hand);
+        Assert.AreEqual(lane_current_value, 0);
+        Assert.Less(
+            boardState.TestNewLaneValue(expectedLaneValue, hand.cards[0]),
+            boardState.TestNewLaneValue(expectedLaneValue, hand.cards[expectedCardIndex]));
+        Assert.AreEqual(expectedMissingLanes, missing_lanes.Count);
+        Assert.Contains(ConstantParameters.LANE_1, missing_lanes.ToList());
+        Assert.Contains(ConstantParameters.LANE_3, missing_lanes.ToList());
         Assert.AreEqual(expectedLaneValue, lane);
         Assert.AreEqual(expectedCardIndex, cardIndex);
     }

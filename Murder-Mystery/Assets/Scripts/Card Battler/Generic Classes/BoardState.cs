@@ -43,8 +43,15 @@ public class BoardState
             bs.player1_lanes[i].SetValue(player1_lanes[i].value);
             bs.player2_lanes[i].SetValue(player2_lanes[i].value);
         }
-
+        bs.SetWinners(lane1_winner, lane2_winner, lane3_winner);
         return bs;
+    }
+
+    public void SetWinners(int lane1, int lane2, int lane3)
+    {
+        lane1_winner = lane1;
+        lane2_winner = lane2;
+        lane3_winner = lane3;
     }
 
     public HashSet<int> GetAvailableLanesForPlayer(int player)
@@ -231,16 +238,13 @@ public class BoardState
         int index = lane - 1;
         int laneValue;
         int opponentValue;
-        HandData laneContainer = player2_lanes[index];
-        HandData opponentLane = player1_lanes[index];
+        HandData laneContainer = player2_lanes[index].Clone();
+        HandData opponentLane = player1_lanes[index].Clone();
 
         opponentValue = opponentLane.value;
         laneContainer.AddCard(card);
         laneValue = laneContainer.CalculateHandValue();
         willWin = DecideLaneVictor(opponentValue, laneValue) == ConstantParameters.PLAYER_2;
-
-        // Remove the last added card to reset the simulation
-        laneContainer.PopCard(laneContainer.cards.Count-1);
 
         return willWin;
     }
@@ -249,12 +253,10 @@ public class BoardState
     public int TestNewLaneValue(int lane, CardData card)
     {
         int index = lane - 1;
-        HandData laneContainer = player2_lanes[index];
+        HandData laneContainer = player2_lanes[index].Clone();
         laneContainer.AddCard(card);
         int laneValue = laneContainer.CalculateHandValue();
-        
-        //Remove the last added card to reset the simulation
-        laneContainer.PopCard(laneContainer.cards.Count - 1);
+
         return laneValue;
     }
 
