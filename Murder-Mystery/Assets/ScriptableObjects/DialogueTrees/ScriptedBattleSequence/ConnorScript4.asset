@@ -61,7 +61,7 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(Click on the first card, the 7 of motive, and play it in the \nmiddle lane)"
+    - "(Click on the first card, the 7 of Location, and play it in the \nmiddle lane)"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []

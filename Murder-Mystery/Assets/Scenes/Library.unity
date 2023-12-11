@@ -715,7 +715,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 481b0d64f88619c4080034092769cc32, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 6b4ef0de37ea9ec4f868ab4a08b606ce, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &163972884
 Transform:
@@ -1106,7 +1106,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3194609207949440028, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.8565469
+      value: -4.17
       objectReference: {fileID: 0}
     - target: {fileID: 3194609207949440028, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1158,7 +1158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9094289325978484982, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.187
+      value: 0.89
       objectReference: {fileID: 0}
     - target: {fileID: 9094289325978484982, guid: d41f8b7fb3c7cd543abd94e9e24a358d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1765,6 +1765,9 @@ MonoBehaviour:
   clueInfotext: {fileID: 0}
   characterPortrait: {fileID: 0}
   clueSketch: {fileID: 0}
+  motiveText: {fileID: 0}
+  witnessText: {fileID: 0}
+  locationText: {fileID: 0}
   GamePaused: 0
 --- !u!114 &476951203
 MonoBehaviour:
@@ -5016,6 +5019,63 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.103093915, y: 0.025226867, z: 0.01466384}
   m_Center: {x: 0.078876294, y: -0.21711983, z: 0.00734717}
+--- !u!1001 &1172721757
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5524612623437470929, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.483063
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524612623437470929, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.4459467
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524612623437470929, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.16754
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524612623437470929, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524612623437470929, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524612623437470929, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524612623437470929, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524612623437470929, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524612623437470929, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524612623437470929, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219705095247647743, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1cb506b4387b92e4db4063f172bf6abe, type: 3}
 --- !u!1 &1174951578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8711224926723546737, guid: 38064e3067482482db2e88fb36c08ffd, type: 3}
@@ -5284,50 +5344,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 476951206}
     m_Modifications:
-    - target: {fileID: 5814158785493601298, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814158785493601298, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
-      propertyPath: m_fontSize
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814158785493601298, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
-      propertyPath: m_margin.x
-      value: 3.3297658
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814158785493601298, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814158785493601298, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814158785493601298, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814158785493601298, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814158785493601298, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814158785493601298, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814158785493601298, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814158785493601298, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7433700617029951793, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5354,11 +5370,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7433700617029951793, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 321.13623
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 7433700617029951793, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 66.15149
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7433700617029951793, guid: 2ccf7d094d2fc914493578be562e3c3c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6671,6 +6687,20 @@ PrefabInstance:
     - target: {fileID: 1789577330412760537, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
       propertyPath: m_Name
       value: Clue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
+      propertyPath: itemSketch
+      value: 
+      objectReference: {fileID: 21300000, guid: 90ecda1928b0e4e3cadb62e7c7a3908b, type: 3}
+    - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
+      propertyPath: dialogueTree
+      value: 
+      objectReference: {fileID: 11400000, guid: dfad95fa9d2331245bf8b7e13cc8f9bd, type: 2}
+    - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
+      propertyPath: itemDescription
+      value: "A heavy book titled \u201CAdvanced Game Theory: Mathematics of Behavioral
+        Psychology\u201D stamped with the initials BY. Sounds like the kind of book
+        that would make you better at Rock, Paper, Scissors."
       objectReference: {fileID: 0}
     - target: {fileID: 4522027589531053254, guid: 0b6c06f042cdf8d42961d046a4ebf585, type: 3}
       propertyPath: notificationIcon
@@ -8275,3 +8305,4 @@ SceneRoots:
   - {fileID: 1731661949}
   - {fileID: 276565640}
   - {fileID: 578218518}
+  - {fileID: 1172721757}

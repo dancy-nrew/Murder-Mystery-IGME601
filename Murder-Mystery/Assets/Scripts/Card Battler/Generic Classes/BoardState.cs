@@ -6,14 +6,10 @@ public class BoardState
     int lane2_winner = 0;
     int lane3_winner = 0;
 
-    bool lane1_lock;
-    bool lane2_lock;
-    bool lane3_lock;
-
     List<HandData> player1_lanes;
     List<HandData> player2_lanes;
 
-    public BoardState(bool lock_l1, bool lock_l2, bool lock_l3)
+    public BoardState()
     {
         // Constructor for the board state. Inputs are which lanes are currently locked for the player, where cards can't be played.
 
@@ -28,9 +24,6 @@ public class BoardState
             new HandData(ConstantParameters.MAX_HAND_SIZE, true),
             new HandData(ConstantParameters.MAX_HAND_SIZE, true)
         };
-        lane1_lock = lock_l1;
-        lane2_lock = lock_l2;
-        lane3_lock = lock_l3;
     }
 
     public BoardState Clone()
@@ -39,7 +32,7 @@ public class BoardState
         // internal representation of it, so that it can run its simulations without affecting
         // the actual game board. That's why cloning doesn't return a reference to the original
         // but a rather an entirely new object.
-        BoardState bs = new BoardState(this.lane1_lock, this.lane2_lock, this.lane3_lock);
+        BoardState bs = new BoardState();
         for (int i = 0; i < player1_lanes.Count; i++)
         {
             // Make a copy of the cards in the original
@@ -50,8 +43,15 @@ public class BoardState
             bs.player1_lanes[i].SetValue(player1_lanes[i].value);
             bs.player2_lanes[i].SetValue(player2_lanes[i].value);
         }
-
+        bs.SetWinners(lane1_winner, lane2_winner, lane3_winner);
         return bs;
+    }
+
+    public void SetWinners(int lane1, int lane2, int lane3)
+    {
+        lane1_winner = lane1;
+        lane2_winner = lane2;
+        lane3_winner = lane3;
     }
 
     public HashSet<int> GetAvailableLanesForPlayer(int player)
@@ -61,31 +61,14 @@ public class BoardState
         Inputs:
         Player - int representing the player
         */
-        HashSet<int> result = new HashSet<int>();
+        HashSet<int> result = new HashSet<int>
+        {
+            // We don't block lanes
 
-        if (player == ConstantParameters.PLAYER_2)
-        {
-            // The adversary can never have blocked lanes
-            result.Add(ConstantParameters.LANE_1);
-            result.Add(ConstantParameters.LANE_2);
-            result.Add(ConstantParameters.LANE_3);
-            return result;
-        }
-
-        // Check to see if locks are off for player 1
-        if (!lane1_lock)
-        {
-            result.Add(ConstantParameters.LANE_1);
-        }
-        if (!lane2_lock)
-        {
-            result.Add(ConstantParameters.LANE_2);
-        }
-        if (!lane3_lock)
-        {
-            result.Add(ConstantParameters.LANE_3);
-        }
-
+            ConstantParameters.LANE_1,
+            ConstantParameters.LANE_2,
+            ConstantParameters.LANE_3
+        };
         return result;
     }
 
@@ -255,16 +238,13 @@ public class BoardState
         int index = lane - 1;
         int laneValue;
         int opponentValue;
-        HandData laneContainer = player2_lanes[index];
-        HandData opponentLane = player1_lanes[index];
+        HandData laneContainer = player2_lanes[index].Clone();
+        HandData opponentLane = player1_lanes[index].Clone();
 
         opponentValue = opponentLane.value;
         laneContainer.AddCard(card);
         laneValue = laneContainer.CalculateHandValue();
-        willWin = DecideLaneVictor(laneValue, opponentValue) == ConstantParameters.PLAYER_2;
-
-        // Remove the last added card to reset the simulation
-        laneContainer.PopCard(laneContainer.cards.Count-1);
+        willWin = DecideLaneVictor(opponentValue, laneValue) == ConstantParameters.PLAYER_2;
 
         return willWin;
     }
@@ -273,12 +253,10 @@ public class BoardState
     public int TestNewLaneValue(int lane, CardData card)
     {
         int index = lane - 1;
-        HandData laneContainer = player2_lanes[index];
+        HandData laneContainer = player2_lanes[index].Clone();
         laneContainer.AddCard(card);
         int laneValue = laneContainer.CalculateHandValue();
-        
-        //Remove the last added card to reset the simulation
-        laneContainer.PopCard(laneContainer.cards.Count - 1);
+
         return laneValue;
     }
 

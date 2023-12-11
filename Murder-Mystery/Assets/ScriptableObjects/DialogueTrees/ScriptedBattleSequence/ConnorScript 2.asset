@@ -65,8 +65,8 @@ MonoBehaviour:
   dialogue:
     character: 0
     sentences:
-    - "(Click on the first card, the 8 of Witness, then click on the right lane \nto
-      play it there)"
+    - "(Click on the third card, the 8 of Witness, then click on \nthe right lane
+      to play it there)"
     bTransitionToCardBattle: 0
   gateConditions: []
   dataUpdates: []

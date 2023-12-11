@@ -8,6 +8,9 @@ public class DialogueDataWriter : MonoBehaviour
 
     public DialogueData dialogueData;
 
+    public delegate void DParameterUpdated(string paramName, bool paramValue);
+    public DParameterUpdated dParameterUpdated;
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -31,6 +34,8 @@ public class DialogueDataWriter : MonoBehaviour
         }
 
         dialogueData.UpdateParameter(parameter, value);
+        Debug.Log("Updating paramter in data writer");
+        dParameterUpdated?.Invoke(parameter, value);
     }
 
     public bool CheckCondition(string parameter, bool value) 

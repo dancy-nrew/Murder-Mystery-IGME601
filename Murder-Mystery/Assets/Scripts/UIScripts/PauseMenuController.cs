@@ -15,9 +15,13 @@ public class PauseMenuController : MonoBehaviour
 
     public Image characterPortrait, clueSketch;
 
+    public TextMeshProUGUI motiveText, witnessText, locationText;
+
     public bool GamePaused = false;
     private int currentCharacterPage = 0;
     private int currentCluePage = 0;
+
+    HashSet<string> notificationParams = new HashSet<string> { "bMathDepartmentLeadership", "bPaineRevelation", "bHasPickedUpVase", "bStolenResearch", "bReevesRevelation", "bHasPickedUpAward", "bBrokenHeart", "bConnorRevelation", "bHasPickedUpModel" };
 
     void Start()
     {
@@ -25,6 +29,8 @@ public class PauseMenuController : MonoBehaviour
         CluesPanel.SetActive(false);
         CharactersPanel.SetActive(false);
         PausePanel.SetActive(false);
+
+        DialogueDataWriter.Instance.dParameterUpdated += OnParameterUpdated;
     }
 
     // Update is called once per frame
@@ -61,11 +67,14 @@ public class PauseMenuController : MonoBehaviour
         
         // Ensure the page number is within bounds
         currentCharacterPage = Mathf.Clamp(currentCharacterPage, 0, GameManager.Instance.characters.Count - 1);
-
+        AudioManager.Instance.PlaySFX("aJournalSection");
         // Fetch character info based on currentCharacterPage
         characterNameText.text = GameManager.Instance.GetCharacterName(currentCharacterPage);
         characterInfoText.text = GameManager.Instance.GetCharacterInfo(currentCharacterPage);
         characterPortrait.sprite = GameManager.Instance.GetCharacterSprite(currentCharacterPage);
+        motiveText.text = GameManager.Instance.GetCharacterMotive(currentCharacterPage);
+        witnessText.text = GameManager.Instance.GetCharacterWitness(currentCharacterPage);
+        locationText.text = GameManager.Instance.GetCharacterLocation(currentCharacterPage);
         
     }
 
@@ -99,6 +108,7 @@ public class PauseMenuController : MonoBehaviour
     public void NextCharacterPage()
     {
         // Increment page and update
+        AudioManager.Instance.PlaySFX("aJournalPage");
         currentCharacterPage++;
         UpdateCharacterPage();
     }
@@ -106,6 +116,7 @@ public class PauseMenuController : MonoBehaviour
     public void PreviousCharacterPage()
     {
         // Decrement page and update
+        AudioManager.Instance.PlaySFX("aJournalPage");
         currentCharacterPage--;
         UpdateCharacterPage();
     }
@@ -113,6 +124,7 @@ public class PauseMenuController : MonoBehaviour
     public void NextCluePage()
     {
         // Increment page and update
+        AudioManager.Instance.PlaySFX("aJournalPage");
         currentCluePage++;
         UpdateCluePage();
     }
@@ -120,6 +132,7 @@ public class PauseMenuController : MonoBehaviour
     public void PreviousCluePage()
     {
         // Decrement page and update
+        AudioManager.Instance.PlaySFX("aJournalPage");
         currentCluePage--;
         UpdateCluePage();
     }
@@ -136,7 +149,7 @@ public class PauseMenuController : MonoBehaviour
     {
        // Ensure the page number is within bounds
         currentCluePage = Mathf.Clamp(currentCluePage, 0, GameManager.Instance.clues.Count - 1);
-
+        AudioManager.Instance.PlaySFX("aJournalSection");
         // Fetch character info based on currentCluePage
         clueNameText.text = GameManager.Instance.GetClueName(currentCluePage);
         clueInfotext.text = GameManager.Instance.GetClueInfo(currentCluePage);
@@ -144,6 +157,7 @@ public class PauseMenuController : MonoBehaviour
     }
     void Pause()
     {
+        AudioManager.Instance.PlaySFX("aJournalOpen");
         playerMovement.SetIsUIEnabled(true);
         PausePanel.SetActive(true);
         notificationIcon.SetActive(false);
@@ -153,6 +167,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void Resume()
     {
+        AudioManager.Instance.PlaySFX("aJournalClose");
         playerMovement.SetIsUIEnabled(false);
         ReturnPanel.SetActive(false);
         CharactersPanel.SetActive(false);
@@ -160,5 +175,13 @@ public class PauseMenuController : MonoBehaviour
         PausePanel.SetActive(false);
         Time.timeScale = 1f;
         GamePaused = false;
+    }
+
+    private void OnParameterUpdated(string key, bool value)
+    {
+       if(notificationParams.Contains(key))
+       {
+            notificationIcon.SetActive(true);
+       }
     }
 }

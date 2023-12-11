@@ -225,8 +225,10 @@ public class DeterministicStrategy : Strategy
     public override Suit SelectSuit(int index)
     {
         // Iterate through the suits
+        
         Array suits = Enum.GetValues(typeof(Suit));
-        return (Suit)suits.GetValue(index % suits.Length);
+        int suitIndex = index / suits.Length;
+        return (Suit)suits.GetValue(suitIndex);
     }
     public override void SetUp(List<int> values)
     {

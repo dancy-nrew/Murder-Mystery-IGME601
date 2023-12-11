@@ -11,10 +11,26 @@ public class DoorInteractable : Interactable
     [SerializeField] private Animator doorAnimatorRef;
     [SerializeField] private int sceneIndex;
     [SerializeField] private float doorAnimationDuration;
+    [SerializeField] private bool bIsLocked = false;
+    [SerializeField] private DialogueData.DialogueParameter unlockCondition;
+
     public override void OnInteraction()
     {
-        GameManager.Instance.SaveDoorInfo(doorKey);
-        StartCoroutine(OpenDoorAndLoadScene());
+        if(unlockCondition.parameterKey.Length > 0)
+        {
+            bIsLocked = !DialogueDataWriter.Instance.CheckCondition(unlockCondition.parameterKey, unlockCondition.parameterValue);
+        }
+        
+        if(bIsLocked)
+        {
+            StartDialogue();
+        }
+        else
+        {
+            AudioManager.Instance.PlaySFX("aDoorOpen");
+            GameManager.Instance.SaveDoorInfo(doorKey);
+            StartCoroutine(OpenDoorAndLoadScene());
+        } 
     }
 
     private IEnumerator OpenDoorAndLoadScene()
@@ -28,6 +44,7 @@ public class DoorInteractable : Interactable
 
         SceneManager.LoadScene(sceneIndex);
     }
+
 }
 
    

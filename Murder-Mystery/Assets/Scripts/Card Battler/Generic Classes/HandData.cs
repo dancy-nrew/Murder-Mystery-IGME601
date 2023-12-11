@@ -84,6 +84,14 @@ public class HandData
         // Overrides the value of this hand. Used for cloning.
         this.value = value;
     }
+
+    public HandData Clone()
+    {
+        HandData hand = new HandData(this.size);
+        hand.SetCards(this.CopyCards());
+        hand.SetValue(this.value);
+        return hand;
+    }
     #endregion
 
     public HandData(int size, bool isLane)
@@ -92,6 +100,8 @@ public class HandData
         this.cards = new List<CardData>();
         this.isLane = isLane;
     }
+
+    
 
     public void AddCard(CardData card)
     {
