@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Collections.Generic;
-
+using UnityEngine;
 public enum AITypes
 {
     Random,
@@ -56,63 +56,65 @@ public class InformedAI : IAIStrategy
                     lane - int to indicate which lane to play to
                     card - card data to indicate which card to play
              */
-            int returnable_lane;
-            CardData card;
+        int returnable_lane;
+        CardData card;
 
-            HashSet<int> missing_lanes = _localState.GetUnclaimedLanesForPlayer(ConstantParameters.PLAYER_2);
-            bool can_win_lane = false;
+        HashSet<int> missing_lanes = _localState.GetUnclaimedLanesForPlayer(ConstantParameters.PLAYER_2);
+        bool can_win_lane = false;
+        if (missing_lanes.Count > 0)
+        {
 
-            if (missing_lanes.Count > 0)
+            int lane_to_win = 0;
+            int winning_index = 0;
+            int highest_delta = 0;
+            int lane_current_value = 0;
+            int delta = 0;
+            bool at_least_one_winning_lane = false;
+
+            foreach (int _lane in missing_lanes)
             {
-                int lane_to_win = 0;
-                int winning_index = 0;
-                int highest_delta = 0;
-                int lane_current_value = 0;
-                int delta = 0;
-                bool at_least_one_winning_lane = false;
 
-                foreach (int _lane in missing_lanes)
+                for (int i = 0; i < hand.cards.Count; i++)
                 {
-                    for (int i = 0; i < hand.cards.Count; i++)
+                    
+                    card = hand.cards[i];
+                    lane_current_value = _localState.GetLaneValue(ConstantParameters.PLAYER_2, _lane);
+                    delta = _localState.TestNewLaneValue(_lane, card) - lane_current_value;
+                    can_win_lane = _localState.TestLaneWin(_lane, card);
+                    if (can_win_lane && delta > highest_delta)
                     {
-                        card = hand.cards[i];
-                        lane_current_value = _localState.GetLaneValue(ConstantParameters.PLAYER_2, _lane);
-                        delta = _localState.TestNewLaneValue(_lane, card) - lane_current_value;
-                        can_win_lane = _localState.TestLaneWin(_lane, card);
-                        if (can_win_lane && delta > highest_delta)
-                        {
-                            at_least_one_winning_lane = true;
-                            winning_index = i;
-                            lane_to_win = _lane;
-                            highest_delta = delta;
-                        }
-                    }
-
-                    if (at_least_one_winning_lane)
-                    {
-                        hand.PopCard(winning_index);
-                        return (lane_to_win, winning_index);
+                        at_least_one_winning_lane = true;
+                        winning_index = i;
+                        lane_to_win = _lane;
+                        highest_delta = delta;
                     }
                 }
             }
 
-            returnable_lane = _localState.GetPlayerWeakestLane();
-            int weakest_lane_val = _localState.GetLaneValue(ConstantParameters.PLAYER_2, returnable_lane);
-            int new_value = 0;
-            int pop_index = 0;
-            for (int i = 0; i < hand.cards.Count; i++)
+            if (at_least_one_winning_lane)
             {
-                card = hand.cards[i];
-                new_value = _localState.TestNewLaneValue(returnable_lane, card);
-                if (new_value > weakest_lane_val)
-                {
-                    weakest_lane_val = new_value;
-                    pop_index = i;
-                }
+                hand.PopCard(winning_index);
+                return (lane_to_win, winning_index);
             }
+        }
 
-            hand.PopCard(pop_index);
-            return (returnable_lane, pop_index);
+        returnable_lane = _localState.GetPlayerWeakestLane();
+        int weakest_lane_val = _localState.GetLaneValue(ConstantParameters.PLAYER_2, returnable_lane);
+        int new_value = 0;
+        int pop_index = 0;
+        for (int i = 0; i < hand.cards.Count; i++)
+        {
+            card = hand.cards[i];
+            new_value = _localState.TestNewLaneValue(returnable_lane, card);
+            if (new_value > weakest_lane_val)
+            {
+                weakest_lane_val = new_value;
+                pop_index = i;
+            }
+        }
+
+        hand.PopCard(pop_index);
+        return (returnable_lane, pop_index);
     }
 }
 

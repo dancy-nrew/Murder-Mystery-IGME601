@@ -633,8 +633,6 @@ MonoBehaviour:
   dialogue:
     character: 5
     sentences:
-    - Hello, Detective.
-    - 'As you know I was home, alone, all weekend and definitely not here. '
     - "So, you don\u2019t need to worry about me. "
     - 'Or even talk to me, anymore. '
     - 'Good? '
